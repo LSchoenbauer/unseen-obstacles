@@ -1,0 +1,9 @@
+{
+	"idf.portWin": "COM17",
+	"files.associations": {
+		"*.jsn": "json",
+		"*.desc": "json",
+		"string": "cpp",
+		"string_view": "cpp"
+	}
+}
