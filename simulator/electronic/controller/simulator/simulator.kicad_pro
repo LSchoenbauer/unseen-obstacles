@@ -123,22 +123,22 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.3,
+        "min_clearance": 0.4,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
-        "min_microvia_diameter": 0.2,
-        "min_microvia_drill": 0.1,
+        "min_microvia_diameter": 1.2,
+        "min_microvia_drill": 0.7,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 0.3,
+        "min_through_hole_diameter": 0.7,
         "min_track_width": 0.6,
         "min_via_annular_width": 0.1,
-        "min_via_diameter": 0.5,
+        "min_via_diameter": 1.2,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -631,6 +631,34 @@
     [
       "be2bbb03-78a3-442d-9154-7b2a25c4208e",
       "Mover"
+    ],
+    [
+      "77fe6d4e-fda8-4816-afd4-b137f3c83e3e",
+      "connection"
+    ],
+    [
+      "bd2ea943-255d-4c49-8333-92ca1fed74a4",
+      "Mover1"
+    ],
+    [
+      "ff66ba37-baf2-4cd8-95fe-8ee21af7169a",
+      "connection1"
+    ],
+    [
+      "0d78662d-4890-43f0-a9ec-125e8818156b",
+      "Mover2"
+    ],
+    [
+      "39d047bb-a253-46d5-b701-33909424d1a2",
+      "connection2"
+    ],
+    [
+      "59585693-1476-485c-a1f5-8452f6455381",
+      "Mover3"
+    ],
+    [
+      "7d6b755b-0a17-4544-9773-798a3566a811",
+      "connection3"
     ]
   ],
   "text_variables": {}
