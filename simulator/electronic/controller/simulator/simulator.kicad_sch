@@ -2149,7 +2149,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "07f2b25a-fbc1-4749-a40d-56feb59bd62f")
-		(property "Reference" "#PWR011"
+		(property "Reference" "#PWR04"
 			(at 91.44 163.83 0)
 			(effects
 				(font
@@ -2200,7 +2200,7 @@
 		(instances
 			(project "simulator"
 				(path "/84d97a1d-251a-442e-a359-d3f5e8dc9a44"
-					(reference "#PWR011")
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
@@ -2398,7 +2398,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3312f6f5-5af1-4a81-9b71-3d42f948b214")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR05"
 			(at 175.26 86.36 0)
 			(effects
 				(font
@@ -2449,7 +2449,7 @@
 		(instances
 			(project "simulator"
 				(path "/84d97a1d-251a-442e-a359-d3f5e8dc9a44"
-					(reference "#PWR04")
+					(reference "#PWR05")
 					(unit 1)
 				)
 			)
@@ -2465,7 +2465,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "912ef509-2e71-445c-92eb-894ae5252fef")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#PWR02"
 			(at 91.44 102.87 0)
 			(effects
 				(font
@@ -2516,7 +2516,7 @@
 		(instances
 			(project "simulator"
 				(path "/84d97a1d-251a-442e-a359-d3f5e8dc9a44"
-					(reference "#PWR05")
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
@@ -2599,7 +2599,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "da433ebd-8214-48f7-acb4-c7a55a9108b5")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR03"
 			(at 91.44 133.35 0)
 			(effects
 				(font
@@ -2650,7 +2650,7 @@
 		(instances
 			(project "simulator"
 				(path "/84d97a1d-251a-442e-a359-d3f5e8dc9a44"
-					(reference "#PWR08")
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
