@@ -1,7 +1,7 @@
 (footprint "ESP32_D1_mini"
-	(version 20240108)
+	(version 20241229)
 	(generator "pcbnew")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(layer "F.Cu")
 	(property "Reference" "REF**"
 		(at -3.81 1.27 0)
@@ -21,19 +21,6 @@
 		(effects
 			(font
 				(size 1 1)
-				(thickness 0.15)
-			)
-		)
-	)
-	(property "Footprint" ""
-		(at 0 0 0)
-		(unlocked yes)
-		(layer "F.Fab")
-		(hide yes)
-		(uuid "b5e5420f-ee73-4eb2-adfa-86551652cc53")
-		(effects
-			(font
-				(size 1.27 1.27)
 				(thickness 0.15)
 			)
 		)
@@ -223,7 +210,7 @@
 			(width 0.1)
 			(type solid)
 		)
-		(fill solid)
+		(fill yes)
 		(layer "F.SilkS")
 		(uuid "1ab64d9d-9724-4728-8423-0e20bf3a0b13")
 	)
@@ -802,15 +789,16 @@
 		(remove_unused_layers no)
 		(uuid "ff3758f0-f832-4262-aacc-238a55251caa")
 	)
-	(model "${SITOHOME_3DMODELS}/Wemos_ESP32_D1_Mini/Wemos ESP32 D1 Mini + MF.stp"
+	(embedded_fonts no)
+	(model "${PRJ_MODELS}/Wemos_ESP32_D1_Mini/Wemos ESP32 D1 Mini + F.stp"
 		(offset
-			(xyz 0 0 0)
+			(xyz 0 0 -3)
 		)
 		(scale
 			(xyz 1 1 1)
 		)
 		(rotate
-			(xyz 0 0 -90)
+			(xyz -0 -0 -90)
 		)
 	)
 )
