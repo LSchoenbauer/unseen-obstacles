@@ -1,2 +1,6 @@
 *.FCBak
 simulator-backups
+/simulator/electronic/controller/simulator/#auto_saved_files#
+/simulator/electronic/controller/simulator/*.lck
+/simulator/electronic/controller/simulator/fp-info-cache
+/simulator/electronic/controller/simulator/simulator-backups
