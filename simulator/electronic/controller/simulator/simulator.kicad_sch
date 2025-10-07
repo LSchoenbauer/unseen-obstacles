@@ -2930,29 +2930,9 @@
 				(justify left)
 			)
 		)
-		(pin "ALARM_O" output
-			(at 58.42 120.65 180)
-			(uuid "abc74f24-976e-49e9-8fc8-56b1bee64d15")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "3V3" input
 			(at 90.17 105.41 0)
 			(uuid "ee4a0e4b-972e-4033-b0c1-69fe7993e330")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "ALARM" input
-			(at 90.17 120.65 0)
-			(uuid "3706ddf8-4df2-40fd-b229-518bf71c0454")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3224,29 +3204,9 @@
 				(justify left)
 			)
 		)
-		(pin "ALARM_O" output
-			(at 58.42 59.69 180)
-			(uuid "c1a670a9-cda0-41b6-af06-82a47ee866ab")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "3V3" input
 			(at 90.17 44.45 0)
 			(uuid "690826be-9647-48c5-a988-38af0cdad758")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "ALARM" input
-			(at 90.17 59.69 0)
-			(uuid "88e35b86-e166-4239-ba1b-6f957dace3d8")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3416,29 +3376,9 @@
 				(justify left)
 			)
 		)
-		(pin "ALARM_O" output
-			(at 58.42 151.13 180)
-			(uuid "167f7cb9-c477-456e-a8b9-2b7c922a7535")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "3V3" input
 			(at 90.17 135.89 0)
 			(uuid "8599d345-6919-497c-977c-54c835600896")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "ALARM" input
-			(at 90.17 151.13 0)
-			(uuid "b3179d09-a393-4a4c-8e47-8b9abda1a844")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3812,29 +3752,9 @@
 				(justify left)
 			)
 		)
-		(pin "ALARM_O" output
-			(at 58.42 90.17 180)
-			(uuid "e8b92d3f-da56-4dca-aee3-d9045ae069d3")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "3V3" input
 			(at 90.17 74.93 0)
 			(uuid "9411b5cb-c65c-4028-bb40-7d5b782f7ad2")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "ALARM" input
-			(at 90.17 90.17 0)
-			(uuid "5e95c84a-aaa3-4343-9c18-84d5fb2f8949")
 			(effects
 				(font
 					(size 1.27 1.27)
