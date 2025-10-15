@@ -4,3 +4,4 @@ simulator-backups
 /simulator/electronic/controller/simulator/*.lck
 /simulator/electronic/controller/simulator/fp-info-cache
 /simulator/electronic/controller/simulator/simulator-backups
+/simulator/electronic/kicad/symbols/*.bak

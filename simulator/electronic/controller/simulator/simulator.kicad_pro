@@ -58,28 +58,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        [
-          "copper_edge_clearance|131572000|73868000|1b188819-e311-49cf-b860-fc8bd89ea6dd|515068d2-bbd4-410f-bce6-31c3a4d25ce5",
-          ""
-        ],
-        [
-          "copper_edge_clearance|159512000|73868000|1b188819-e311-49cf-b860-fc8bd89ea6dd|d46ec11a-fc09-4a11-a906-eb7b1a75a7e7",
-          ""
-        ],
-        [
-          "net_conflict|145542000|86614000|4947b66a-0372-4f2f-9644-521400c230dd|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_edge_clearance|130302000|73868000|1b188819-e311-49cf-b860-fc8bd89ea6dd|ec798300-4fde-47bc-90a4-f8701815c7b7",
-          ""
-        ],
-        [
-          "silk_edge_clearance|160782000|73868000|1b188819-e311-49cf-b860-fc8bd89ea6dd|f7d80e7c-d1ff-43e6-a500-1f4ada4e554f",
-          ""
-        ]
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -686,7 +665,7 @@
       "Conn_Mover_RL"
     ],
     [
-      "bd2ea943-255d-4c49-8333-92ca1fed74a4",
+      "c44c69e7-1fed-4a23-a75a-bb21705ed72c",
       "Mover_RR"
     ],
     [
@@ -694,7 +673,7 @@
       "Conn_Mover_RR"
     ],
     [
-      "0d78662d-4890-43f0-a9ec-125e8818156b",
+      "a0a784be-d584-478a-8147-f948bdeac8bb",
       "Mover_FC"
     ],
     [
@@ -702,8 +681,8 @@
       "Conn_Mover_FC"
     ],
     [
-      "59585693-1476-485c-a1f5-8452f6455381",
-      "Rotator"
+      "0b977f33-572c-4328-87d7-bad2a8fce0d9",
+      "ROTATOR"
     ],
     [
       "7d6b755b-0a17-4544-9773-798a3566a811",

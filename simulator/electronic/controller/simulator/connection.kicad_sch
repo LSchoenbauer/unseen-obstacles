@@ -1911,7 +1911,7 @@
 		)
 		(uuid "dcf933f3-2a7f-48e6-a1d8-1caf95d33469")
 	)
-	(hierarchical_label "GND_O"
+	(hierarchical_label "SW_GND_O"
 		(shape output)
 		(at 148.59 86.36 180)
 		(effects
