@@ -4,6 +4,11 @@
 	(generator_version "9.0")
 	(uuid "fcc1f9aa-15c5-4ed4-bf21-eff2e0519891")
 	(paper "A4")
+	(title_block
+		(title "Unseen-Obstacles - Simulator Controller")
+		(rev "r01.02")
+		(company "HTL Leonding")
+	)
 	(lib_symbols
 		(symbol "Connector:Conn_01x03_Pin"
 			(pin_names
@@ -1226,6 +1231,12 @@
 		(uuid "023f3b4e-c7eb-422f-b5d9-b4c2975a4a2e")
 	)
 	(junction
+		(at 176.53 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2073941f-bed6-44af-abd4-d8a688e8c897")
+	)
+	(junction
 		(at 210.82 83.82)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1281,7 +1292,7 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 78.74) (xy 214.63 78.74)
+			(xy 181.61 78.74) (xy 218.44 78.74)
 		)
 		(stroke
 			(width 0)
@@ -1301,7 +1312,7 @@
 	)
 	(wire
 		(pts
-			(xy 196.85 81.28) (xy 214.63 81.28)
+			(xy 196.85 81.28) (xy 218.44 81.28)
 		)
 		(stroke
 			(width 0)
@@ -1371,7 +1382,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 63.5) (xy 160.02 63.5)
+			(xy 148.59 63.5) (xy 158.75 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1381,7 +1392,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 83.82) (xy 160.02 83.82)
+			(xy 148.59 83.82) (xy 158.75 83.82)
 		)
 		(stroke
 			(width 0)
@@ -1401,7 +1412,7 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 38.1) (xy 176.53 86.36)
+			(xy 176.53 38.1) (xy 176.53 60.96)
 		)
 		(stroke
 			(width 0)
@@ -1421,7 +1432,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 78.74) (xy 160.02 78.74)
+			(xy 148.59 78.74) (xy 158.75 78.74)
 		)
 		(stroke
 			(width 0)
@@ -1441,13 +1452,23 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 60.96) (xy 218.44 60.96)
+			(xy 170.18 60.96) (xy 176.53 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "508fd124-dd2c-4ac6-9a9f-13809be53f63")
+	)
+	(wire
+		(pts
+			(xy 176.53 60.96) (xy 218.44 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "58828e23-cd99-4fef-bdf5-5c34a3ef1061")
 	)
 	(wire
 		(pts
@@ -1461,7 +1482,7 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 83.82) (xy 214.63 83.82)
+			(xy 210.82 83.82) (xy 218.44 83.82)
 		)
 		(stroke
 			(width 0)
@@ -1501,7 +1522,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 86.36) (xy 160.02 86.36)
+			(xy 148.59 86.36) (xy 158.75 86.36)
 		)
 		(stroke
 			(width 0)
@@ -1531,7 +1552,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 81.28) (xy 160.02 81.28)
+			(xy 148.59 81.28) (xy 158.75 81.28)
 		)
 		(stroke
 			(width 0)
@@ -1551,7 +1572,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 66.04) (xy 160.02 66.04)
+			(xy 148.59 66.04) (xy 158.75 66.04)
 		)
 		(stroke
 			(width 0)
@@ -1588,6 +1609,16 @@
 			(type default)
 		)
 		(uuid "959f7849-4fa8-445d-9ac2-945d24bb7030")
+	)
+	(wire
+		(pts
+			(xy 176.53 60.96) (xy 176.53 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9980ec6a-a694-4cef-9acb-5d9bed611241")
 	)
 	(wire
 		(pts
@@ -1701,7 +1732,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 60.96) (xy 160.02 60.96)
+			(xy 148.59 60.96) (xy 158.75 60.96)
 		)
 		(stroke
 			(width 0)
@@ -1772,7 +1803,7 @@
 	)
 	(hierarchical_label "SW_BOTTOM"
 		(shape input)
-		(at 214.63 83.82 0)
+		(at 218.44 83.82 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1783,7 +1814,7 @@
 	)
 	(hierarchical_label "SW_TOP"
 		(shape input)
-		(at 214.63 78.74 0)
+		(at 218.44 78.74 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1816,7 +1847,7 @@
 	)
 	(hierarchical_label "SW_CENTER"
 		(shape input)
-		(at 214.63 81.28 0)
+		(at 218.44 81.28 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1838,7 +1869,7 @@
 	)
 	(hierarchical_label "PULSE_O"
 		(shape output)
-		(at 128.27 63.5 180)
+		(at 148.59 63.5 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1849,7 +1880,7 @@
 	)
 	(hierarchical_label "GND_O"
 		(shape output)
-		(at 128.27 60.96 180)
+		(at 148.59 60.96 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1860,7 +1891,7 @@
 	)
 	(hierarchical_label "DIR_O"
 		(shape output)
-		(at 128.27 66.04 180)
+		(at 148.59 66.04 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2012,7 +2043,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "0dda1cd5-8330-4008-9b05-95856313c8dd")
 		(property "Reference" "R1"
 			(at 184.15 55.8799 0)
@@ -2023,14 +2053,13 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R_Small"
-			(at 184.15 57.1499 0)
+		(property "Value" "150R"
+			(at 184.15 57.658 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
@@ -2052,6 +2081,42 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 181.61 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preis ex. USt ca. EUR" ""
+			(at 181.61 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link1" ""
+			(at 181.61 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link2" ""
+			(at 181.61 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link3" ""
 			(at 181.61 55.88 0)
 			(effects
 				(font
@@ -2186,7 +2251,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "21f18c19-aaa5-4a39-a84a-725c12905481")
 		(property "Reference" "R4"
 			(at 184.15 88.8999 0)
@@ -2197,14 +2261,13 @@
 				(justify right)
 			)
 		)
-		(property "Value" "R_Small"
-			(at 179.07 87.6301 0)
+		(property "Value" "150R"
+			(at 188.976 90.932 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
@@ -2226,6 +2289,42 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 181.61 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preis ex. USt ca. EUR" ""
+			(at 181.61 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link1" ""
+			(at 181.61 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link2" ""
+			(at 181.61 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link3" ""
 			(at 181.61 88.9 0)
 			(effects
 				(font
@@ -2272,7 +2371,7 @@
 		(dnp no)
 		(uuid "3c16072a-24ab-48bf-b387-1e8e29725627")
 		(property "Reference" "J1"
-			(at 163.83 62.2299 0)
+			(at 166.37 58.928 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2446,7 +2545,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "56bbb679-5639-473c-b267-88dd986f41ab")
 		(property "Reference" "R2"
 			(at 199.39 55.8799 0)
@@ -2457,14 +2555,13 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R_Small"
-			(at 199.39 57.1499 0)
+		(property "Value" "150R"
+			(at 199.39 57.658 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
@@ -2486,6 +2583,42 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 196.85 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preis ex. USt ca. EUR" ""
+			(at 196.85 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link1" ""
+			(at 196.85 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link2" ""
+			(at 196.85 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link3" ""
 			(at 196.85 55.88 0)
 			(effects
 				(font
@@ -2799,7 +2932,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "b28fa34c-9632-4130-9384-f71cc05071e8")
 		(property "Reference" "R6"
 			(at 213.36 88.8999 0)
@@ -2810,14 +2942,13 @@
 				(justify right)
 			)
 		)
-		(property "Value" "R_Small"
-			(at 208.28 87.6301 0)
+		(property "Value" "150R"
+			(at 218.186 90.932 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
@@ -2839,6 +2970,42 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 210.82 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preis ex. USt ca. EUR" ""
+			(at 210.82 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link1" ""
+			(at 210.82 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link2" ""
+			(at 210.82 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link3" ""
 			(at 210.82 88.9 0)
 			(effects
 				(font
@@ -2876,7 +3043,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x04_Pin")
-		(at 165.1 81.28 0)
+		(at 163.83 81.28 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim yes)
@@ -2886,7 +3053,7 @@
 		(fields_autoplaced yes)
 		(uuid "bdc58636-e061-484c-8b25-bd04b68d9fd1")
 		(property "Reference" "J2.1"
-			(at 166.37 82.5499 0)
+			(at 165.1 82.5499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2896,7 +3063,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04_Pin"
-			(at 164.465 76.2 0)
+			(at 163.195 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2905,7 +3072,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 165.1 81.28 0)
+			(at 163.83 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2914,7 +3081,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 165.1 81.28 0)
+			(at 163.83 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2923,7 +3090,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated"
-			(at 165.1 81.28 0)
+			(at 163.83 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2972,7 +3139,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "c8aad994-a26f-4f46-8e8f-13f631671f30")
 		(property "Reference" "R3"
 			(at 214.63 55.8799 0)
@@ -2983,14 +3149,13 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R_Small"
-			(at 214.63 57.1499 0)
+		(property "Value" "150R"
+			(at 214.376 58.166 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
@@ -3012,6 +3177,42 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 212.09 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preis ex. USt ca. EUR" ""
+			(at 212.09 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link1" ""
+			(at 212.09 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link2" ""
+			(at 212.09 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link3" ""
 			(at 212.09 55.88 0)
 			(effects
 				(font
@@ -3049,7 +3250,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x03_Pin")
-		(at 165.1 63.5 0)
+		(at 163.83 63.5 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim yes)
@@ -3058,7 +3259,7 @@
 		(dnp no)
 		(uuid "d525a0a5-a862-48b6-a537-8dcb7ea14cd6")
 		(property "Reference" "J1.1"
-			(at 164.465 55.88 0)
+			(at 163.195 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3067,7 +3268,7 @@
 			)
 		)
 		(property "Value" "Conn_01x03_Pin"
-			(at 164.465 58.42 0)
+			(at 163.195 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3076,7 +3277,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 165.1 63.5 0)
+			(at 163.83 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3085,7 +3286,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 165.1 63.5 0)
+			(at 163.83 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3094,7 +3295,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated"
-			(at 165.1 63.5 0)
+			(at 163.83 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3142,7 +3343,7 @@
 		(dnp no)
 		(uuid "f3f743b7-8b6f-4ab5-83a3-1b1333af27b6")
 		(property "Reference" "D3"
-			(at 215.9 47.3074 90)
+			(at 215.9 44.45 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3151,7 +3352,7 @@
 			)
 		)
 		(property "Value" "LED_DOWN"
-			(at 216.154 49.784 90)
+			(at 215.9 46.736 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3230,7 +3431,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "fe3d21a2-9b34-4c51-9d5f-26f034984b92")
 		(property "Reference" "R5"
 			(at 199.39 88.8999 0)
@@ -3241,14 +3441,13 @@
 				(justify right)
 			)
 		)
-		(property "Value" "R_Small"
-			(at 194.31 87.6301 0)
+		(property "Value" "150R"
+			(at 203.962 91.186 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
@@ -3270,6 +3469,42 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 196.85 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preis ex. USt ca. EUR" ""
+			(at 196.85 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link1" ""
+			(at 196.85 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link2" ""
+			(at 196.85 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Link3" ""
 			(at 196.85 88.9 0)
 			(effects
 				(font
