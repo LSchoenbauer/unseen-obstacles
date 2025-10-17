@@ -8,9 +8,9 @@ In addition, three switches shall be mounted on each lifting device to detect im
 
 Switches shall detect the:
 
-- lower limit position
-- neutral position
 - upper limit position
+- neutral position
+- lower limit position
 
 ## Scissor Jack
 
@@ -36,7 +36,7 @@ The B-SWH 1000 Scissor Jack is a compact and robust lifting device designed for 
 
 The measurements for **A** and **B** refer to image of the device detail below.
 
-![Scissor Jack 'B-SWH 1000' Measurements](ScissorJack_M10_details.jpg)
+![Scissor Jack 'B-SWH 1000' Measurements](ScissorJack_M10_d21etails.jpg)
 
 - **'A' - Diameter of Pivot Pin (front and rear):** appr. Ø 24 mm
 - **'B' - Crank Eye:**
