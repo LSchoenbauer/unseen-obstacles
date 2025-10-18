@@ -1290,7 +1290,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0b6b8959-e139-44ae-aa3f-8e93f17a31c6")
-		(property "Reference" "M"
+		(property "Reference" "M1"
 			(at 88.6968 74.1369 0)
 			(effects
 				(font
@@ -1355,6 +1355,10 @@
 				)
 				(path "/84d97a1d-251a-442e-a359-d3f5e8dc9a44/a0a784be-d584-478a-8147-f948bdeac8bb"
 					(reference "M3")
+					(unit 1)
+				)
+				(path "/84d97a1d-251a-442e-a359-d3f5e8dc9a44/be2bbb03-78a3-442d-9154-7b2a25c4208e"
+					(reference "M1")
 					(unit 1)
 				)
 				(path "/84d97a1d-251a-442e-a359-d3f5e8dc9a44/c44c69e7-1fed-4a23-a75a-bb21705ed72c"
@@ -1488,7 +1492,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ccf5ee97-a1cd-41a5-a802-7a0d97dfe4a7")
-		(property "Reference" "SW"
+		(property "Reference" "SW1"
 			(at 122.555 102.9278 90)
 			(effects
 				(font
@@ -1550,6 +1554,10 @@
 				)
 				(path "/84d97a1d-251a-442e-a359-d3f5e8dc9a44/a0a784be-d584-478a-8147-f948bdeac8bb"
 					(reference "SW7")
+					(unit 1)
+				)
+				(path "/84d97a1d-251a-442e-a359-d3f5e8dc9a44/be2bbb03-78a3-442d-9154-7b2a25c4208e"
+					(reference "SW1")
 					(unit 1)
 				)
 				(path "/84d97a1d-251a-442e-a359-d3f5e8dc9a44/c44c69e7-1fed-4a23-a75a-bb21705ed72c"
