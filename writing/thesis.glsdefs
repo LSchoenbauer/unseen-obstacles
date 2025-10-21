@@ -1,0 +1,112 @@
+\glsdefs@newdocentry{guid}%
+{%
+name={\acronymfont {\glsentryshort {guid}}},%
+sort={GUID},%
+type={main},%
+first={GUID},%
+firstplural={GUIDs},%
+text={GUID},%
+plural={GUIDs},%
+description={Globally Unique Identifier},%
+descriptionplural={Globally Unique Identifier},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Globally Unique Identifier},%
+longplural={Globally Unique Identifiers},%
+short={GUID},%
+shortplural={GUIDs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{jit}%
+{%
+name={\acronymfont {\glsentryshort {jit}}},%
+sort={JIT},%
+type={main},%
+first={JIT},%
+firstplural={JITs},%
+text={JIT},%
+plural={JITs},%
+description={Just In Time Compiler},%
+descriptionplural={Just In Time Compiler},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Just In Time Compiler},%
+longplural={Just In Time Compilers},%
+short={JIT},%
+shortplural={JITs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{nfc}%
+{%
+name={\acronymfont {\glsentryshort {nfc}}},%
+sort={NFC},%
+type={main},%
+first={NFC},%
+firstplural={NFCs},%
+text={NFC},%
+plural={NFCs},%
+description={Near Field Communication},%
+descriptionplural={Near Field Communication},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Near Field Communication},%
+longplural={Near Field Communications},%
+short={NFC},%
+shortplural={NFCs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{rfid}%
+{%
+name={\acronymfont {\glsentryshort {rfid}}},%
+sort={RFID},%
+type={main},%
+first={RFID},%
+firstplural={RFIDs},%
+text={RFID},%
+plural={RFIDs},%
+description={Radio Frequency Identification},%
+descriptionplural={Radio Frequency Identification},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Radio Frequency Identification},%
+longplural={Radio Frequency Identifications},%
+short={RFID},%
+shortplural={RFIDs},%
+counter={page},%
+parent={},%
+%
+}%
+
