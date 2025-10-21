@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  21 OCT 2025 19:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  21 OCT 2025 20:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/Elisa/Desktop/Diplomarbeit-Schreiben/latex_template/thesis.tex
-(c:/Users/Elisa/Desktop/Diplomarbeit-Schreiben/latex_template/thesis.tex
+**c:/Users/Elisa/Desktop/unseen-obstacles/writing/thesis.tex
+(c:/Users/Elisa/Desktop/unseen-obstacles/writing/thesis.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrreprt.cls
@@ -1705,7 +1705,7 @@ Package pdftex.def Info: pics/Statistik-Einschraekungen.png  used on input line 
 <pics/Statistik-Hauptaktivitaet.png, id=114, 348.1005pt x 287.27325pt>
 File: pics/Statistik-Hauptaktivitaet.png Graphic file (type png)
 <use pics/Statistik-Hauptaktivitaet.png>
-Package pdftex.def Info: pics/Statistik-Hauptaktivitaet.png  used on input line 69.
+Package pdftex.def Info: pics/Statistik-Hauptaktivitaet.png  used on input line 68.
 (pdftex.def)             Requested size: 348.09964pt x 287.27255pt.
  [3 <./pics/Statistik-Hauptaktivitaet.png>] [4] [5] [6] [7] [8]) [9]
 chapter 2.
@@ -1812,12 +1812,12 @@ L3 programming layer <2024-01-04>
 ### bottom level 
 Here is how much of TeX's memory you used:
  36200 strings out of 474486
- 699097 string characters out of 5743755
+ 698759 string characters out of 5743755
  1967542 words of memory out of 5000000
  57709 multiletter control sequences out of 15000+600000
  612089 words of font info for 136 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,20n,108p,11294b,2548s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,20n,108p,11281b,2548s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{glo:guid} has been referenced but does not exist, replaced by a fixed one
 

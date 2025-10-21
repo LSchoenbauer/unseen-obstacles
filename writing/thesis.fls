@@ -1,6 +1,6 @@
-PWD c:\Users\Elisa\Desktop\Diplomarbeit-Schreiben\latex_template
+PWD c:\Users\Elisa\Desktop\unseen-obstacles\writing
 INPUT C:\Users\Elisa\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Elisa\Desktop\Diplomarbeit-Schreiben\latex_template\thesis.tex
+INPUT c:\Users\Elisa\Desktop\unseen-obstacles\writing\thesis.tex
 OUTPUT thesis.log
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrreprt.cls
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrreprt.cls
