@@ -36,6 +36,74 @@ void RemoteCtrl::Init() {
 		req->SendStatus(200);
 	});
 
+	// Motor 1
+	mHttpServer->OnRequest("/motor1Up", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 1 UP clicked");
+		req->SendStatus(200);
+	});
+
+	mHttpServer->OnRequest("/motor1Center", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 1 CENTER clicked");
+		req->SendStatus(200);
+	});
+
+	mHttpServer->OnRequest("/motor1Down", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 1 DOWN clicked");
+		req->SendStatus(200);
+	});
+
+
+	// Motor 2
+	mHttpServer->OnRequest("/motor2Up", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 2 UP clicked");
+		req->SendStatus(200);
+	});
+
+	mHttpServer->OnRequest("/motor2Center", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 2 CENTER clicked");
+		req->SendStatus(200);
+	});
+
+	mHttpServer->OnRequest("/motor2Down", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 2 DOWN clicked");
+		req->SendStatus(200);
+	});
+
+
+	// Motor 3
+	mHttpServer->OnRequest("/motor3Up", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 3 UP clicked");
+		req->SendStatus(200);
+	});
+
+	mHttpServer->OnRequest("/motor3Center", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 3 CENTER clicked");
+		req->SendStatus(200);
+	});
+
+	mHttpServer->OnRequest("/motor3Down", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 3 DOWN clicked");
+		req->SendStatus(200);
+	});
+
+
+	// Motor 4
+	mHttpServer->OnRequest("/motor4Up", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 4 UP clicked");
+		req->SendStatus(200);
+	});
+
+	mHttpServer->OnRequest("/motor4Center", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 4 CENTER clicked");
+		req->SendStatus(200);
+	});
+
+	mHttpServer->OnRequest("/motor4Down", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+		LogInfo("HTTP: Button Motor 4 DOWN clicked");
+		req->SendStatus(200);
+	});
+
+
 	// configure static content after other handlers to avoid searching pages that are handled by others
 	mHttpServer->SetIndexPage("/index.html");
 	mHttpServer->SetStaticContentRoot("/", "/");
