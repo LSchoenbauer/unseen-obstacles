@@ -1,0 +1,27 @@
+{
+  "name": "lib_sntp_client",
+  "version": "1.0.0",
+  "description": "LeoIoT Networking Library: Provides an Simple Net Time Protocol client",
+	"license": "MIT",
+  "keywords": [
+    "LeoIoT", 
+    "net", 
+    "SNTP"
+  ],
+  "includeDir": "include",
+  "srcDir": "src",
+  "frameworks": ["*"],
+  "dependencies": {
+    "lib_utils": "*",
+    "lib_settings": "*",
+    "ropg/ezTime": "^0.8.3"
+  },
+  "build": {
+      "libArchive": true,
+      "extraScript": "./hal_selector.py"
+  },
+  "authors": {
+    "name": "HTL Leonding",
+    "maintainer": true
+  }
+}

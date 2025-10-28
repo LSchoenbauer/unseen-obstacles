@@ -1,0 +1,20 @@
+{
+	"name": "lib_systemtime",
+	"version": "1.0.0",
+	"description": "LeoIoT System Time Library: A library providing low-level functionality for retrieving the time of the system",
+	"keywords": ["LeoIoT", "system", "time", "systemtime"],
+	"license": "MIT",
+	"includeDir": "include",
+	"srcDir": "src",
+	"frameworks": ["*"],
+	"dependencies": [
+	],
+	"build": {
+		"libArchive": true,
+		"extraScript": "./hal_selector.py"
+	},
+	"authors": {
+		"name": "HTL Leonding",
+		"maintainer": true
+	}
+}
