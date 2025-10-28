@@ -1,0 +1,35 @@
+{
+  "name": "lib_rfs",
+  "version": "1.0.0",
+  "description": "LeoIoT Root File System Library: Provides a root file system",
+  "keywords": ["LeoIoT", "file system", "ffs", "rfs", "root file system"],
+	"license": "MIT",
+  "includeDir": "include",
+  "srcDir": "src",
+  "frameworks": ["arduino"],
+  "dependencies": [
+    {
+      "name": "lib_utils",
+      "version": "*",
+      "platforms": ["*"]
+    },
+    {
+      "name": "SPIFFS",
+      "version": "~2",
+      "platforms": ["espressif32"]
+    },
+    {
+      "name": "SD_MMC",
+      "version": "~2",
+      "platforms": ["espressif32"]
+    }
+  ],
+  "build": {
+    "libArchive": true,
+    "extraScript": "./hal_selector.py"
+  },
+  "authors": {
+    "name": "HTL Leonding",
+    "maintainer": true
+  }
+}

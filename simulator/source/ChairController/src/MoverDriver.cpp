@@ -1,0 +1,9 @@
+/* 
+
+    Pin asignment for stepper and switches
+    direction and speed for stepper
+    position detection and reaction
+    soft start
+    triggerable movement
+
+*/

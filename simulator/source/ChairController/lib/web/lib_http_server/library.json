@@ -1,0 +1,57 @@
+{
+  "name": "lib_http_server",
+  "version": "1.0.0",
+  "description": "LeoIoT HTTP Server Library: Provides an extendable HTTP web server",
+  "keywords": ["LeoIoT", "HTTP", "web", "server", "REST", "websocket"],
+	"license": "MIT",
+  "frameworks": ["arduino"],
+  "includeDir": "include",
+  "srcDir": "src",
+  "dependencies": [
+    {
+      "name": "lib_utils",
+      "version": "*",
+      "platforms": ["*"]
+    },    
+    {
+      "name": "lib_appfw",
+      "version": "*",
+      "platforms": ["*"]
+    },   
+    {
+      "name": "lib_net",
+      "version": "*",
+      "platforms": ["*"]
+    },
+    {
+      "name": "lib_wifi_adapter",
+      "version": "*",
+      "platforms": ["*"]
+    },
+    {
+      "name": "lib_rfs",
+      "version": "*",
+      "platforms": ["*"]
+    },
+    {
+      "owner": "bblanchon",
+      "name": "ArduinoJson",
+      "version": "^7.0.4",
+      "platforms": ["*"]
+    },
+    {
+      "owner": "esphome",
+      "name": "ESPAsyncWebServer-esphome",
+      "version": "^3.2.0",
+      "platforms": ["*"]
+    }
+  ],
+  "build": {
+    "libArchive": true,
+    "extraScript": "./hal_selector.py"
+  },
+  "authors": {
+    "name": "HTL Leonding",
+    "maintainer": true
+  }
+}
