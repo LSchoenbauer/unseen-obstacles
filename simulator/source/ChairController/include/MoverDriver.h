@@ -16,35 +16,70 @@
 
 #pragma once
 
-#include <utils/Singleton.h>
-
 #include <memory>
 
 
-class MoverDriver : public Singleton<MoverDriver> {
-		typedef Singleton<MoverDriver> Base;
+class MoverDriver {
 	public:
-		/** Destructor */
+        enum class Direction {
+            FORWARD,
+            BACKWARD
+        };
+
+		MoverDriver(
+            uint8_t pulsePin,
+            uint8_t dirPin,
+            uint8_t startPin,
+            uint8_t centerPin,
+            uint8_t endPin
+        );
 		virtual ~MoverDriver();
+        
+        void SetSpeedRpm(uint32_t speedRpm);
 
-		/** Initializes the application. */
+        uint32_t GetCurrentSpeedRpm();
+
+        void SetDirection(Direction direction);
+
+        Direction GetCurrentDirection();
+
+        uint32_t GetCurrentPosition();
+
+        void Drive();
+
+        void SetRampingSteps(uint32_t rampingSteps);
+
+        uint32_t GetRampingSteps();
+
+        void SetMicrostepFactor(uint32_t microstepFactor);
+
+        uint32_t GetMicrostepFactor();
+
+    private:
 		void Init();
-        
-        uint32_t getTargetSpeedRpm();
+        uint32_t CalcPulseDurationUs();
+        void ProcessDirection();
+        void Step(uint32_t pulseDurationUs);
 
-        uint32_t getPulseDurationsUs(uint32_t speedRpm);
+        static const uint32_t DEFAULT_RAMPING_STEPS;
+        static const uint32_t FULL_REVOLUTION_STEP_COUNT;
+        static const uint32_t PULSE_DUTY_CYCLE_PC;
+        static const uint32_t MIN_PULSE_DURATION_US;
 
-        bool toggleDirection(uint32_t maxStepsPerDirection);
+        uint8_t mPulsePin;
+        uint8_t mDirPin;
+        uint8_t mStartPin;
+        uint8_t mCenterPin;
+        uint8_t mEndPin;
 
-        void stdPrintfLn(const char* format, ...);
-        
-        void setup();
+        uint32_t mCurrentStep;
+        uint32_t mTargetSpeed;
+        uint32_t mSetTargetSpeed;
+        uint32_t mCurrentSpeed;
+        Direction mTargetDirection;
+        Direction mCurrentDirection;
 
-        void loop();
-
-	private:
-		friend class Singleton<MoverDriver> ;
-		/** Singleton constructor */
-		MoverDriver();
-
+        bool mIsRamping;
+        uint32_t mRampingSteps;
+        uint32_t mMicrostepFactor;
 };
