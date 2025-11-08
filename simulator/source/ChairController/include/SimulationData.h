@@ -1,0 +1,65 @@
+/*
+ * ===============================================================================
+ * c) HTL Leonding
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ * Licensed under MIT License.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the license.
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ * All trademarks used in this document are property of their respective owners.
+ * ===============================================================================
+ */
+
+#pragma once
+
+#include <stdint.h>
+
+
+class SimulationData {
+	public:
+        enum class Mode {
+            NORMAL,
+            BUMPING
+        };
+
+		SimulationData(
+            Mode mode,
+            uint32_t pitch,
+            uint32_t yaw,
+            uint32_t roll,
+            uint32_t posX,
+            uint32_t posZ
+        ): mMode(mode), mPitch(pitch), mYaw(yaw), mRoll(roll), mPosX(posX), mPosZ(posZ){}
+
+		~SimulationData(){}
+
+        //void SetMode(Mode mode);
+        Mode GetMode() const {return mMode;}
+
+        //void SetPitch(uint32_t pitch);
+        uint32_t GetPitch() const {return mPitch;}
+
+        //void SetYaw(uint32_t yaw);
+        uint32_t GetYaw() const {return mYaw;}
+
+        //void SetRoll(uint32_t roll);
+        uint32_t GetRoll() const {return mRoll;}
+
+        //void SetPosX(uint32_t posX);
+        uint32_t GetPosX() const {return mPosX;}
+
+        //void SetPosY(uint32_t posY);
+        uint32_t GetPosZ() const {return mPosZ;}
+
+    private:
+        Mode mMode;
+        uint32_t mPitch;
+        uint32_t mYaw;
+        uint32_t mRoll;
+        uint32_t mPosX;
+        uint32_t mPosZ;
+};

@@ -27,7 +27,20 @@ MoverDriver::MoverDriver(
    Init();
 }
 
-MoverDriver::~MoverDriver() {
+MoverDriverPtr MoverDriver::Create(
+  uint8_t pulsePin,
+  uint8_t dirPin,
+  uint8_t startPin,
+  uint8_t centerPin,
+  uint8_t endPin
+) {
+	return ::std::shared_ptr<MoverDriver>(new MoverDriver(
+    pulsePin,
+    dirPin,
+    startPin,
+    centerPin,
+    endPin
+  ));
 }
 
 void MoverDriver::Init() {

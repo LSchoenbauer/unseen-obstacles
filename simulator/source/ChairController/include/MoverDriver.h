@@ -18,6 +18,8 @@
 
 #include <memory>
 
+class MoverDriver;
+typedef ::std::shared_ptr<MoverDriver> MoverDriverPtr;
 
 class MoverDriver {
 	public:
@@ -26,13 +28,14 @@ class MoverDriver {
             BACKWARD
         };
 
-		MoverDriver(
+        static MoverDriverPtr Create(
             uint8_t pulsePin,
             uint8_t dirPin,
             uint8_t startPin,
             uint8_t centerPin,
             uint8_t endPin
         );
+
 		virtual ~MoverDriver();
         
         void SetSpeedRpm(uint32_t speedRpm);
@@ -54,6 +57,17 @@ class MoverDriver {
         void SetMicrostepFactor(uint32_t microstepFactor);
 
         uint32_t GetMicrostepFactor();
+
+        
+
+    protected:
+        MoverDriver(
+            uint8_t pulsePin,
+            uint8_t dirPin,
+            uint8_t startPin,
+            uint8_t centerPin,
+            uint8_t endPin
+        );
 
     private:
 		void Init();
