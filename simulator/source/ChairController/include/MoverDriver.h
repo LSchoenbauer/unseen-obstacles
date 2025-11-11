@@ -58,6 +58,19 @@ class MoverDriver {
 
         uint32_t GetMicrostepFactor();
 
+        bool IsAtTop();
+
+        bool IsAtCenter();
+
+        bool IsAtBottom();
+
+        uint32_t GetTopPosition();
+
+        uint32_t GetCenterPosition();
+
+        uint32_t GetBottomPosition();
+
+        void CalibratePositionOfWheelchair();
         
 
     protected:
@@ -96,4 +109,11 @@ class MoverDriver {
         bool mIsRamping;
         uint32_t mRampingSteps;
         uint32_t mMicrostepFactor;
+
+        bool mIsAtTop;
+        bool mIsAtCenter;
+        bool mIsAtBottom;
+        uint32_t mTopPosition;
+        uint32_t mCenterPosition;
+        uint32_t mBottomPosition;
 };
