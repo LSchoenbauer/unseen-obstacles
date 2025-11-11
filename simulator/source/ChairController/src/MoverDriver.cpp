@@ -23,7 +23,7 @@ MoverDriver::MoverDriver(
   uint8_t dirPin,
   uint8_t startPin,
   uint8_t centerPin,
-  uint8_t endPin) : mPulsePin(pulsePin), mDirPin(dirPin), mStartPin(startPin), mCenterPin(centerPin), mEndPin(endPin), mCurrentStep(0), mTargetSpeed(0), mSetTargetSpeed(0), mCurrentSpeed(0), mTargetDirection(Direction::FORWARD), mCurrentDirection(Direction::FORWARD), mIsRamping(false), mRampingSteps(DEFAULT_RAMPING_STEPS), mMicrostepFactor(1) {
+  uint8_t endPin) : mPulsePin(pulsePin), mDirPin(dirPin), mStartPin(startPin), mCenterPin(centerPin), mEndPin(endPin), mCurrentStep(0), mTargetSpeed(0), mSetTargetSpeed(0), mCurrentSpeed(0), mTargetDirection(Direction::FORWARD), mCurrentDirection(Direction::FORWARD), mIsRamping(false), mRampingSteps(DEFAULT_RAMPING_STEPS), mMicrostepFactor(1), mIsAtTop(false), mIsAtCenter(true), mIsAtBottom(false), mTopPosition(0), mCenterPosition(0), mBottomPosition(1) {
    Init();
 }
 
@@ -90,6 +90,37 @@ void MoverDriver::SetMicrostepFactor(uint32_t microstepFactor) {
 
 uint32_t MoverDriver::GetMicrostepFactor() {
   return mMicrostepFactor;
+}
+
+bool MoverDriver::IsAtTop() {
+  // pin vom switch abfragen. Wenn low is dann is man an der position.
+  return mIsAtTop;
+  // wenn bottom switch zu geht setzen den step count 0
+  // dann wenn isAtCenter zum ersten mal true liefert merken wir uns den step count weil dann simma center. dann bis er wieder aufgeht -1 bereich  für center und dann weiter bis top auch zu geht. diese werte liefern wir mit get center get top etc. position.
+}
+
+bool MoverDriver::IsAtCenter() {
+  return mIsAtCenter;
+}
+
+bool MoverDriver::IsAtBottom() {
+  return mIsAtBottom;
+}
+
+uint32_t MoverDriver::GetTopPosition() {
+  return mTopPosition;
+}
+
+uint32_t MoverDriver::GetCenterPosition() {
+  return mCenterPosition;
+}
+
+uint32_t MoverDriver::GetBottomPosition() {
+  return mBottomPosition;
+}
+
+void MoverDriver::CalibratePositionOfWheelchair() {
+
 }
 
 void MoverDriver::Drive() {
