@@ -1462,7 +1462,7 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 60.96) (xy 218.44 60.96)
+			(xy 176.53 60.96) (xy 245.11 60.96)
 		)
 		(stroke
 			(width 0)
@@ -1825,7 +1825,7 @@
 	)
 	(hierarchical_label "GND"
 		(shape input)
-		(at 218.44 60.96 0)
+		(at 245.11 60.96 0)
 		(effects
 			(font
 				(size 1.27 1.27)
