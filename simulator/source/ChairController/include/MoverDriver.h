@@ -17,6 +17,7 @@
 #pragma once
 
 #include <memory>
+#include <MoverDriverCfg.h>
 
 class MoverDriver;
 typedef ::std::shared_ptr<MoverDriver> MoverDriverPtr;
@@ -28,15 +29,9 @@ class MoverDriver {
             BACKWARD
         };
 
-        static MoverDriverPtr Create(
-            uint8_t pulsePin,
-            uint8_t dirPin,
-            uint8_t startPin,
-            uint8_t centerPin,
-            uint8_t endPin
-        );
+        static MoverDriverPtr Create(MoverDriverCfgPtr moverDriverCfg);
 
-		virtual ~MoverDriver();
+		~MoverDriver();
         
         void SetSpeedRpm(uint32_t speedRpm);
 
@@ -74,13 +69,7 @@ class MoverDriver {
         
 
     protected:
-        MoverDriver(
-            uint8_t pulsePin,
-            uint8_t dirPin,
-            uint8_t startPin,
-            uint8_t centerPin,
-            uint8_t endPin
-        );
+        MoverDriver(MoverDriverCfgPtr moverDriverCfg);
 
     private:
 		void Init();
@@ -93,11 +82,7 @@ class MoverDriver {
         static const uint32_t PULSE_DUTY_CYCLE_PC;
         static const uint32_t MIN_PULSE_DURATION_US;
 
-        uint8_t mPulsePin;
-        uint8_t mDirPin;
-        uint8_t mStartPin;
-        uint8_t mCenterPin;
-        uint8_t mEndPin;
+        MoverDriverCfgPtr mMoverDriverCfg;
 
         uint32_t mCurrentStep;
         uint32_t mTargetSpeed;

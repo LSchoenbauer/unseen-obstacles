@@ -18,40 +18,25 @@ const uint32_t MoverDriver::FULL_REVOLUTION_STEP_COUNT = 200;
 const uint32_t MoverDriver::PULSE_DUTY_CYCLE_PC = 50;
 const uint32_t MoverDriver::MIN_PULSE_DURATION_US = 10;
 
-MoverDriver::MoverDriver(
-  uint8_t pulsePin,
-  uint8_t dirPin,
-  uint8_t startPin,
-  uint8_t centerPin,
-  uint8_t endPin) : mPulsePin(pulsePin), mDirPin(dirPin), mStartPin(startPin), mCenterPin(centerPin), mEndPin(endPin), mCurrentStep(0), mTargetSpeed(0), mSetTargetSpeed(0), mCurrentSpeed(0), mTargetDirection(Direction::FORWARD), mCurrentDirection(Direction::FORWARD), mIsRamping(false), mRampingSteps(DEFAULT_RAMPING_STEPS), mMicrostepFactor(1), mIsAtTop(false), mIsAtCenter(true), mIsAtBottom(false), mTopPosition(0), mCenterPosition(0), mBottomPosition(1) {
+MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) : mMoverDriverCfg(moverDriverCfg), mCurrentStep(0), mTargetSpeed(0), mSetTargetSpeed(0), mCurrentSpeed(0), mTargetDirection(Direction::FORWARD), mCurrentDirection(Direction::FORWARD), mIsRamping(false), mRampingSteps(DEFAULT_RAMPING_STEPS), mMicrostepFactor(1), mIsAtTop(false), mIsAtCenter(true), mIsAtBottom(false), mTopPosition(0), mCenterPosition(0), mBottomPosition(1) {
    Init();
 }
 
-MoverDriverPtr MoverDriver::Create(
-  uint8_t pulsePin,
-  uint8_t dirPin,
-  uint8_t startPin,
-  uint8_t centerPin,
-  uint8_t endPin
-) {
+MoverDriverPtr MoverDriver::Create(MoverDriverCfgPtr moverDriverCfg) {
 	return ::std::shared_ptr<MoverDriver>(new MoverDriver(
-    pulsePin,
-    dirPin,
-    startPin,
-    centerPin,
-    endPin
+    moverDriverCfg
   ));
 }
 
 void MoverDriver::Init() {
-  pinMode(mPulsePin, OUTPUT);
-  pinMode(mDirPin, OUTPUT);
-  digitalWrite(mPulsePin, LOW);
-  digitalWrite(mDirPin, LOW);
+  pinMode(mMoverDriverCfg->GetPulsePin(), OUTPUT);
+  pinMode(mMoverDriverCfg->GetDirPin(), OUTPUT);
+  digitalWrite(mMoverDriverCfg->GetPulsePin(), LOW);
+  digitalWrite(mMoverDriverCfg->GetDirPin(), LOW);
 
-  pinMode(mStartPin, INPUT_PULLUP);
-  pinMode(mCenterPin, INPUT_PULLUP);
-  pinMode(mEndPin, INPUT_PULLUP);
+  pinMode(mMoverDriverCfg->GetTopSwitchPin(), INPUT_PULLUP);
+  pinMode(mMoverDriverCfg->GetCenterSwitchPin(), INPUT_PULLUP);
+  pinMode(mMoverDriverCfg->GetBottomSwitchPin(), INPUT_PULLUP);
 }
 
 void MoverDriver::SetSpeedRpm(uint32_t speedRpm) {
@@ -182,9 +167,9 @@ void MoverDriver::Step(uint32_t pulseDurationUs) {
     uint32_t highDurationUs = (pulseDurationUs * PULSE_DUTY_CYCLE_PC) / 100;
     uint32_t lowDurationUs = pulseDurationUs - highDurationUs;
 
-    digitalWrite(mPulsePin, HIGH);
+    digitalWrite(mMoverDriverCfg->GetPulsePin(), HIGH);
     delayMicroseconds(highDurationUs);
-    digitalWrite(mPulsePin, LOW);
+    digitalWrite(mMoverDriverCfg->GetPulsePin(), LOW);
     delayMicroseconds(lowDurationUs);
     mCurrentStep += mCurrentDirection == Direction::FORWARD ? 1 : -1;
   }

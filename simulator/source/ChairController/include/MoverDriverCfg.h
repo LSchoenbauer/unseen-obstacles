@@ -17,6 +17,10 @@
 #pragma once
 
 #include <stdint.h>
+#include <memory>
+
+class MoverDriverCfg;
+typedef ::std::shared_ptr<MoverDriverCfg> MoverDriverCfgPtr;
 
 /*
     Pure configuration class for a single MoverDriver instance.
@@ -33,26 +37,15 @@
 
 class MoverDriverCfg {
 public:
-
-    MoverDriverCfg(
-        uint8_t pulsePin,
-        uint8_t dirPin,
-        uint8_t topSwitchPin,
-        uint8_t centerSwitchPin,
-        uint8_t bottomSwitchPin,
-        uint32_t rampingSteps = 50,
-        uint32_t microstepFactor = 1
-    ) :
-        mPulsePin(pulsePin),
-        mDirPin(dirPin),
-        mTopSwitchPin(topSwitchPin),
-        mCenterSwitchPin(centerSwitchPin),
-        mBottomSwitchPin(bottomSwitchPin),
-        mRampingSteps(rampingSteps),
-        mMicrostepFactor(microstepFactor)
-    {}
-
     ~MoverDriverCfg() {}
+
+    static MoverDriverCfgPtr Create(
+            uint8_t pulsePin,
+            uint8_t dirPin,
+            uint8_t startPin,
+            uint8_t centerPin,
+            uint8_t endPin
+        );
 
     // --- Getters -------------------------------------------------------------
     uint8_t GetPulsePin()       const { return mPulsePin; }
@@ -63,6 +56,17 @@ public:
 
     uint32_t GetRampingSteps()  const { return mRampingSteps; }
     uint32_t GetMicrostepFactor() const { return mMicrostepFactor; }
+
+protected:
+    MoverDriverCfg(
+        uint8_t pulsePin,
+        uint8_t dirPin,
+        uint8_t topSwitchPin,
+        uint8_t centerSwitchPin,
+        uint8_t bottomSwitchPin,
+        uint32_t rampingSteps = 50,
+        uint32_t microstepFactor = 1
+    );
 
 private:
     // --- Pins ---
