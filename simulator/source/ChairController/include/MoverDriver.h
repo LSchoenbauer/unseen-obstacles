@@ -18,6 +18,8 @@
 
 #include <memory>
 #include <MoverDriverCfg.h>
+//#include "esp_timer.h"
+#include <Arduino.h>
 
 class MoverDriver;
 typedef ::std::shared_ptr<MoverDriver> MoverDriverPtr;
@@ -75,12 +77,18 @@ class MoverDriver {
 		void Init();
         uint32_t CalcPulseDurationUs();
         void ProcessDirection();
-        void Step(uint32_t pulseDurationUs);
+        void ARDUINO_ISR_ATTR Step();
+        bool ReadSwitchState();
+
+        static void ARDUINO_ISR_ATTR OnPulseTimerStatic(void* userData);
 
         static const uint32_t DEFAULT_RAMPING_STEPS;
         static const uint32_t FULL_REVOLUTION_STEP_COUNT;
         static const uint32_t PULSE_DUTY_CYCLE_PC;
         static const uint32_t MIN_PULSE_DURATION_US;
+    
+        hw_timer_t* mTimer;
+        portMUX_TYPE mTimerMux;
 
         MoverDriverCfgPtr mMoverDriverCfg;
 

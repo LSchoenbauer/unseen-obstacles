@@ -1,3 +1,0 @@
-/*
-    communicates with vr
-*/

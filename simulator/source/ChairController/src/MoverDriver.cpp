@@ -10,6 +10,7 @@
 
 #include "MoverDriver.h"
 #include "Arduino.h"
+#include "esp_timer.h"
 
 #include <utils/Log.h>
 
@@ -18,7 +19,7 @@ const uint32_t MoverDriver::FULL_REVOLUTION_STEP_COUNT = 200;
 const uint32_t MoverDriver::PULSE_DUTY_CYCLE_PC = 50;
 const uint32_t MoverDriver::MIN_PULSE_DURATION_US = 10;
 
-MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) : mMoverDriverCfg(moverDriverCfg), mCurrentStep(0), mTargetSpeed(0), mSetTargetSpeed(0), mCurrentSpeed(0), mTargetDirection(Direction::FORWARD), mCurrentDirection(Direction::FORWARD), mIsRamping(false), mRampingSteps(DEFAULT_RAMPING_STEPS), mMicrostepFactor(1), mIsAtTop(false), mIsAtCenter(true), mIsAtBottom(false), mTopPosition(0), mCenterPosition(0), mBottomPosition(1) {
+MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) : mMoverDriverCfg(moverDriverCfg), mCurrentStep(0), mTargetSpeed(0), mSetTargetSpeed(0), mCurrentSpeed(0), mTargetDirection(Direction::FORWARD), mCurrentDirection(Direction::FORWARD), mIsRamping(false), mRampingSteps(DEFAULT_RAMPING_STEPS), mMicrostepFactor(1), mIsAtTop(false), mIsAtCenter(true), mIsAtBottom(false), mTopPosition(0), mCenterPosition(0), mBottomPosition(1), mTimer(NULL), mTimerMux(portMUX_INITIALIZER_UNLOCKED) {
    Init();
 }
 
@@ -37,6 +38,10 @@ void MoverDriver::Init() {
   pinMode(mMoverDriverCfg->GetTopSwitchPin(), INPUT_PULLUP);
   pinMode(mMoverDriverCfg->GetCenterSwitchPin(), INPUT_PULLUP);
   pinMode(mMoverDriverCfg->GetBottomSwitchPin(), INPUT_PULLUP);
+
+  // Timer 0 auf Core 0
+  mTimer = timerBegin(0, 80, true); // 80 MHz / 80 = 1 MHz -> 1 tick = 1 µs
+  timerAttachInterruptArg(mTimer, MoverDriver::OnPulseTimerStatic, this);
 }
 
 void MoverDriver::SetSpeedRpm(uint32_t speedRpm) {
@@ -89,6 +94,7 @@ bool MoverDriver::IsAtCenter() {
 }
 
 bool MoverDriver::IsAtBottom() {
+  mIsAtBottom = digitalRead(mMoverDriverCfg->GetBottomSwitchPin()) == HIGH;
   return mIsAtBottom;
 }
 
@@ -112,8 +118,15 @@ void MoverDriver::Drive() {
   ProcessDirection();
   uint32_t pulseDurationUs = CalcPulseDurationUs();
 
-  // proceed the stepper
-  Step(pulseDurationUs);
+  if (pulseDurationUs >= MIN_PULSE_DURATION_US) {
+    uint32_t highDurationUs = (pulseDurationUs * PULSE_DUTY_CYCLE_PC) / 100;
+    uint32_t lowDurationUs = pulseDurationUs - highDurationUs;
+  } else {
+    pulseDurationUs = MIN_PULSE_DURATION_US;
+  }
+  timerAlarmWrite(mTimer, pulseDurationUs, true);
+
+  // TODO
 }
 
 uint32_t MoverDriver::CalcPulseDurationUs() {
@@ -162,15 +175,43 @@ void MoverDriver::ProcessDirection() {
   }
 }
 
-void MoverDriver::Step(uint32_t pulseDurationUs) {
-  if (pulseDurationUs >= MIN_PULSE_DURATION_US) {
-    uint32_t highDurationUs = (pulseDurationUs * PULSE_DUTY_CYCLE_PC) / 100;
-    uint32_t lowDurationUs = pulseDurationUs - highDurationUs;
+void ARDUINO_ISR_ATTR MoverDriver::Step() {
+  // Increment the counter and set the time of ISR
+  portENTER_CRITICAL_ISR(&mTimerMux);
+  uint8_t pin = mMoverDriverCfg->GetPulsePin();
+  uint8_t readPin = digitalRead(pin);
 
-    digitalWrite(mMoverDriverCfg->GetPulsePin(), HIGH);
-    delayMicroseconds(highDurationUs);
-    digitalWrite(mMoverDriverCfg->GetPulsePin(), LOW);
-    delayMicroseconds(lowDurationUs);
-    mCurrentStep += mCurrentDirection == Direction::FORWARD ? 1 : -1;
-  }
+  digitalWrite(pin, readPin == LOW ? HIGH : LOW);
+  mCurrentStep += readPin == HIGH ?
+        mCurrentDirection == Direction::FORWARD ? 1 : -1
+        : 0;
+  portEXIT_CRITICAL_ISR(&mTimerMux);
+  
+  // Give a semaphore that we can check in the loop
+  xSemaphoreGiveFromISR(timerSemaphore, NULL);
+  // It is safe to use digitalRead/Write here if you want to toggle an output
+
 }
+
+void ARDUINO_ISR_ATTR MoverDriver::OnPulseTimerStatic(void* userData) {
+  MoverDriver* self = static_cast<MoverDriver*>(userData);
+  self->Step();
+}
+
+bool MoverDriver::ReadSwitchState() {
+  return digitalRead(mMoverDriverCfg->GetBottomSwitchPin()) == HIGH;
+
+}
+
+volatile uint32_t toggle_interval_us = 10; // 100 kHz
+volatile bool toggle_pin = false;
+
+/*void loop() {
+  // z.B. Frequenzänderung vom anderen Core
+  delay(1000);
+  portENTER_CRITICAL(&timerMux);
+  toggle_interval_us = 5; // 200 kHz
+  timerAlarmWrite(timer0, toggle_interval_us, true);
+  portEXIT_CRITICAL(&timerMux);
+}*/
+
