@@ -1,0 +1,26 @@
+/*
+ * ===============================================================================
+ * (c) HTL Leonding
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ * Licensed under MIT License.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the license.
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ * All trademarks used in this document are property of their respective owners.
+ * ===============================================================================
+ */
+
+#pragma once
+
+#include <utils/Log.h>
+
+#ifdef LOG_RFS_DBG_ENABLED
+#define RfsLogDbg(format, ...) LogDbg(format, ##__VA_ARGS__)
+#else
+#pragma message("RFS logging is disabled, set build flag: 'LOG_RFS_DBG_ENABLED' to enable it")
+#define RfsLogDbg(format, ...)
+#endif

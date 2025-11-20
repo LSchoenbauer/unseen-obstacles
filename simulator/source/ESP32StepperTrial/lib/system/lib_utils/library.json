@@ -1,0 +1,21 @@
+{
+	"name": "lib_utils",
+	"version": "1.0.0",
+	"description": "LeoIoT Utility Library: A library providing commonly used utility functionality",
+	"keywords": ["LeoIoT", "utils"],
+	"license": "MIT",
+	"includeDir": "include",
+	"srcDir": "src",
+	"frameworks": ["*"],
+	"build": {
+		"libArchive": true,
+		"extraScript": "./hal_selector.py"
+	},
+	"dependencies": {
+		"lib_systemtime": "*"
+	},
+	"authors": {
+		"name": "HTL Leonding",
+		"maintainer": true
+	}
+}

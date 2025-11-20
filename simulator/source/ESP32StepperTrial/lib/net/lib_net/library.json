@@ -1,0 +1,20 @@
+{
+  "name": "lib_net",
+  "version": "1.0.0",
+  "description": "LeoIoT Networking Library: Provides common functionality required for networking",
+  "keywords": ["LeoIoT", "net", "IP", "IPv4", "IPv6", "IP address", "MAC", "MAC address"],
+	"license": "MIT",
+  "includeDir": "include",
+  "srcDir": "src",
+  "frameworks": ["*"],
+  "dependencies": [
+  ],
+  "build": {
+		"libArchive": true,
+		"extraScript": "./hal_selector.py"
+	},
+	"authors": {
+		"name": "HTL Leonding",
+		"maintainer": true
+	}
+}
