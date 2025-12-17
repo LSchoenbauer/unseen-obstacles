@@ -79,23 +79,29 @@ class MoverDriver {
             uint8_t pin;
             bool lastState;
             bool* state;
-        } PinIsrData; 
+        } PinIsrData;
+        typedef struct {
+            uint8_t group;
+            uint8_t num;
+        } HwTimer;
 		void Init();
         uint32_t CalcPulseDurationUs();
         void ProcessDirection();
         void ARDUINO_ISR_ATTR Step();
-        bool ReadSwitchState(uint8_t pin);
         void OnPinDebounce(PinIsrData* data);
         void OnPinChange(PinIsrData* data);
+        void AttachTimerIsr(hw_timer_t* timer, bool(*fn)(void*), void* fnArgs);
 
-        static void ARDUINO_ISR_ATTR OnPulseTimerStatic(void* userData);
+        static bool IRAM_ATTR OnPulseTimerStatic(void* userData);
         static void ARDUINO_ISR_ATTR OnPinChangeStatic(void* userData);
-        static void ARDUINO_ISR_ATTR OnPinDebounceStatic(void* userData);
+        static bool IRAM_ATTR OnPinDebounceStatic(void* userData);
 
         static const uint32_t DEFAULT_RAMPING_STEPS;
         static const uint32_t FULL_REVOLUTION_STEP_COUNT;
         static const uint32_t PULSE_DUTY_CYCLE_PC;
         static const uint32_t MIN_PULSE_DURATION_US;
+        static const uint32_t DEBOUNCE_TIME_MS;
+        static const uint32_t COASTING_TIME_MS;
     
         hw_timer_t* mStepperTimer;
         hw_timer_t* mDeBounceTimer;
@@ -110,6 +116,8 @@ class MoverDriver {
         uint32_t mCurrentSpeed;
         Direction mTargetDirection;
         Direction mCurrentDirection;
+
+        uint32_t mLastMoverTriggerTime;
 
         bool mIsRamping;
         uint32_t mRampingSteps;
