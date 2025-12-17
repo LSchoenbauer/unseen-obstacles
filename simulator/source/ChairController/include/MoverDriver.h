@@ -74,20 +74,32 @@ class MoverDriver {
         MoverDriver(MoverDriverCfgPtr moverDriverCfg);
 
     private:
+        typedef struct { 
+            MoverDriver* moverDriver;
+            uint8_t pin;
+            bool lastState;
+            bool* state;
+        } PinIsrData; 
 		void Init();
         uint32_t CalcPulseDurationUs();
         void ProcessDirection();
         void ARDUINO_ISR_ATTR Step();
-        bool ReadSwitchState();
+        bool ReadSwitchState(uint8_t pin);
+        void OnPinDebounce(PinIsrData* data);
+        void OnPinChange(PinIsrData* data);
 
         static void ARDUINO_ISR_ATTR OnPulseTimerStatic(void* userData);
+        static void ARDUINO_ISR_ATTR OnPinChangeStatic(void* userData);
+        static void ARDUINO_ISR_ATTR OnPinDebounceStatic(void* userData);
 
         static const uint32_t DEFAULT_RAMPING_STEPS;
         static const uint32_t FULL_REVOLUTION_STEP_COUNT;
         static const uint32_t PULSE_DUTY_CYCLE_PC;
         static const uint32_t MIN_PULSE_DURATION_US;
     
-        hw_timer_t* mTimer;
+        hw_timer_t* mStepperTimer;
+        hw_timer_t* mDeBounceTimer;
+
         portMUX_TYPE mTimerMux;
 
         MoverDriverCfgPtr mMoverDriverCfg;

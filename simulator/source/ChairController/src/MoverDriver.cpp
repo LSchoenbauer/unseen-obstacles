@@ -19,7 +19,7 @@ const uint32_t MoverDriver::FULL_REVOLUTION_STEP_COUNT = 200;
 const uint32_t MoverDriver::PULSE_DUTY_CYCLE_PC = 50;
 const uint32_t MoverDriver::MIN_PULSE_DURATION_US = 10;
 
-MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) : mMoverDriverCfg(moverDriverCfg), mCurrentStep(0), mTargetSpeed(0), mSetTargetSpeed(0), mCurrentSpeed(0), mTargetDirection(Direction::FORWARD), mCurrentDirection(Direction::FORWARD), mIsRamping(false), mRampingSteps(DEFAULT_RAMPING_STEPS), mMicrostepFactor(1), mIsAtTop(false), mIsAtCenter(true), mIsAtBottom(false), mTopPosition(0), mCenterPosition(0), mBottomPosition(1), mTimer(NULL), mTimerMux(portMUX_INITIALIZER_UNLOCKED) {
+MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) : mMoverDriverCfg(moverDriverCfg), mCurrentStep(0), mTargetSpeed(0), mSetTargetSpeed(0), mCurrentSpeed(0), mTargetDirection(Direction::FORWARD), mCurrentDirection(Direction::FORWARD), mIsRamping(false), mRampingSteps(DEFAULT_RAMPING_STEPS), mMicrostepFactor(1), mIsAtTop(false), mIsAtCenter(true), mIsAtBottom(false), mTopPosition(0), mCenterPosition(0), mBottomPosition(1), mStepperTimer(NULL), mTimerMux(portMUX_INITIALIZER_UNLOCKED) {
    Init();
 }
 
@@ -40,8 +40,28 @@ void MoverDriver::Init() {
   pinMode(mMoverDriverCfg->GetBottomSwitchPin(), INPUT_PULLUP);
 
   // Timer 0 auf Core 0
-  mTimer = timerBegin(0, 80, true); // 80 MHz / 80 = 1 MHz -> 1 tick = 1 µs
-  timerAttachInterruptArg(mTimer, MoverDriver::OnPulseTimerStatic, this);
+  mStepperTimer = timerBegin(0, 80, true); // 80 MHz / 80 = 1 MHz -> 1 tick = 1 µs
+  timerAttachInterruptArg(mStepperTimer, MoverDriver::OnPulseTimerStatic, this);
+
+  mDeBounceTimer = timerBegin(1, 80 * 1000, true);
+  static PinIsrData topSwitchData = {
+    this, mMoverDriverCfg->GetTopSwitchPin(), false, &mIsAtTop
+  };
+  attachInterruptArg(mMoverDriverCfg->GetTopSwitchPin(), MoverDriver::OnPinChangeStatic, &topSwitchData, CHANGE);
+  timerAttachInterruptArg(mDeBounceTimer, MoverDriver::OnPinDebounceStatic, &topSwitchData);
+
+  static PinIsrData centerSwitchData = {
+    this, mMoverDriverCfg->GetCenterSwitchPin(), false, &mIsAtCenter
+  };
+  attachInterruptArg(mMoverDriverCfg->GetCenterSwitchPin(), MoverDriver::OnPinChangeStatic, &centerSwitchData, CHANGE);
+  timerAttachInterruptArg(mDeBounceTimer, MoverDriver::OnPinDebounceStatic, &centerSwitchData);
+
+  static PinIsrData bottomSwitchData = {
+    this, mMoverDriverCfg->GetBottomSwitchPin(), false, &mIsAtBottom
+  };
+  attachInterruptArg(mMoverDriverCfg->GetBottomSwitchPin(), MoverDriver::OnPinChangeStatic, &bottomSwitchData, CHANGE);
+  timerAttachInterruptArg(mDeBounceTimer, MoverDriver::OnPinDebounceStatic, &bottomSwitchData);
+
 }
 
 void MoverDriver::SetSpeedRpm(uint32_t speedRpm) {
@@ -84,17 +104,19 @@ uint32_t MoverDriver::GetMicrostepFactor() {
 
 bool MoverDriver::IsAtTop() {
   // pin vom switch abfragen. Wenn low is dann is man an der position.
+  mIsAtTop = ReadSwitchState(mMoverDriverCfg->GetTopSwitchPin());
   return mIsAtTop;
   // wenn bottom switch zu geht setzen den step count 0
   // dann wenn isAtCenter zum ersten mal true liefert merken wir uns den step count weil dann simma center. dann bis er wieder aufgeht -1 bereich  für center und dann weiter bis top auch zu geht. diese werte liefern wir mit get center get top etc. position.
 }
 
 bool MoverDriver::IsAtCenter() {
+  mIsAtCenter = ReadSwitchState(mMoverDriverCfg->GetCenterSwitchPin());
   return mIsAtCenter;
 }
 
 bool MoverDriver::IsAtBottom() {
-  mIsAtBottom = digitalRead(mMoverDriverCfg->GetBottomSwitchPin()) == HIGH;
+  mIsAtBottom = ReadSwitchState(mMoverDriverCfg->GetBottomSwitchPin());
   return mIsAtBottom;
 }
 
@@ -124,7 +146,7 @@ void MoverDriver::Drive() {
   } else {
     pulseDurationUs = MIN_PULSE_DURATION_US;
   }
-  timerAlarmWrite(mTimer, pulseDurationUs, true);
+  timerAlarmWrite(mStepperTimer, pulseDurationUs, true);
 
   // TODO
 }
@@ -198,9 +220,38 @@ void ARDUINO_ISR_ATTR MoverDriver::OnPulseTimerStatic(void* userData) {
   self->Step();
 }
 
-bool MoverDriver::ReadSwitchState() {
-  return digitalRead(mMoverDriverCfg->GetBottomSwitchPin()) == HIGH;
+bool MoverDriver::ReadSwitchState(uint8_t pin) {
+  return digitalRead(pin) == HIGH;
 
+}
+
+void ARDUINO_ISR_ATTR MoverDriver::OnPinChangeStatic(void* userData) {
+  if (userData != nullptr) {
+      PinIsrData* data = static_cast<PinIsrData*>(userData);
+      data->moverDriver->OnPinChange(data);
+  }
+}
+
+void MoverDriver::OnPinChange(PinIsrData* data) {
+  if (data != nullptr) {
+    data->lastState = digitalRead(data->pin) == HIGH;
+  }
+}
+
+void ARDUINO_ISR_ATTR MoverDriver::OnPinDebounceStatic(void* userData) {
+  if (userData != nullptr) {
+      PinIsrData* data = static_cast<PinIsrData*>(userData);
+      data->moverDriver->OnPinDebounce(data);
+  }
+}
+
+void MoverDriver::OnPinDebounce(PinIsrData* data) {
+  if (data != nullptr) {
+    bool currentState = digitalRead(data->pin);
+    if ( data->lastState == currentState) {
+      *(data->state) = currentState;
+    }
+  }
 }
 
 volatile uint32_t toggle_interval_us = 10; // 100 kHz
