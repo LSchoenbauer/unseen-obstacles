@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="app-styles.css">
+    <title>LeoIoT - Web Server Test App</title>
+
+  </head>
+  <script>
+    function sendRequest(url) {
+      fetch(url, {
+        method: 'GET'
+      });
+    }
+  </script>
+  <body style="overflow: hidden;">
+	<article>
+		<h1>LeoIoT - Web Server Test App</h1>
+		<section>
+			<p>This is the index page of the LeoIoT web server test application.</p>
+			<p>If you can read this page: <span class="emphasize">IT WORKS :)</span></p>
+      <button onclick="sendRequest('/clickMe')">Click me!</button>
+      <a href="/ping">ping me</a>
+
+      <div id="motors">
+        <div id="motor1">
+          <h1>Motor 1</h1>
+          <div class="buttons">
+            <button onclick="sendRequest('/motor1Up')">Up</button>
+            <button onclick="sendRequest('/motor1Center')">Center</button>
+            <button onclick="sendRequest('/motor1Down')">Down</button>
+          </div>
+        </div>
+        <div id="motor2">
+          <h1>Motor 2</h1>
+          <div class="buttons">
+            <button onclick="sendRequest('/motor2Up')">Up</button>
+            <button onclick="sendRequest('/motor2Center')">Center</button>
+            <button onclick="sendRequest('/motor2Down')">Down</button>
+          </div>
+        </div>
+        <div id="motor3">
+          <h1>Motor 3</h1>
+          <div class="buttons">
+            <button onclick="sendRequest('/motor3Up')">Up</button>
+            <button onclick="sendRequest('/motor3Center')">Center</button>
+            <button onclick="sendRequest('/motor3Down')">Down</button>
+          </div>
+        </div>
+        <div id="motor4">
+          <h1>Motor 4</h1>
+          <div class="buttons">
+            <button onclick="sendRequest('/motor4Up')">Up</button>
+            <button onclick="sendRequest('/motor4Center')">Center</button>
+            <button onclick="sendRequest('/motor4Down')">Down</button>
+          </div>
+        </div>
+      </div>
+		</section>
+	</article>
+  </body>
+</html>

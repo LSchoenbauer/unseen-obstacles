@@ -1,0 +1,21 @@
+{
+	"name": "lib_appfw",
+	"version": "1.0.0",
+	"description": "LeoIoT Application Framework Library: Framework providing common functionality for applications",
+	"keywords": ["LeoIoT", "system", "application", "framework", "appfw"],
+	"license": "MIT",
+	"includeDir": "include",
+	"srcDir": "src",
+	"frameworks": ["*"],
+	"dependencies": {
+			"lib_utils": "*"
+	},
+	"build": {
+		"libArchive": true,
+		"extraScript": "./hal_selector.py"
+	},
+	"authors": {
+		"name": "HTL Leonding",
+		"maintainer": true
+	}
+}
