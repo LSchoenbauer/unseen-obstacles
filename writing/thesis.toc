@@ -5,30 +5,36 @@
 \contentsline {subsection}{\numberline {1.2.1}Interview 1}{4}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Interview 2}{5}{subsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.2.3}Interview 3}{7}{subsection.1.2.3}%
-\contentsline {chapter}{\numberline {2}Umfeldanalyse}{10}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Bewegungen im Virtuellen Raum}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Definition Motion Sickness, Cybersickness, VRISE}{11}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Biologische Ursachen von Cybersickness}{12}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Das Gleichgewichtssystem}{12}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Das Visuelle System}{12}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Ursachen für Cybersickness in der virtuellen Realität}{13}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Sensory Conflict Theory}{13}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Poison Theory}{14}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Postural Instability Theory}{14}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Festlegung der Theorie zur Reduzierung der Cybersickness für die Hardware-Komponente}{15}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4}Reduzierung der Cybersickness}{15}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Hardware Prototyp}{15}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Technologien}{16}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Foo}{16}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Bar}{18}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Deeper}{19}{subsection.4.2.1}%
-\contentsline {subsubsection}{\nonumberline Deepest}{19}{subsubsection*.10}%
-\contentsline {chapter}{\numberline {5}Umsetzung}{20}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Zusammenfassung}{22}{chapter.6}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{V}{chapter*.13}%
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{VI}{chapter*.14}%
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{VII}{chapter*.15}%
-\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{VIII}{chapter*.16}%
+\contentsline {chapter}{\numberline {2}VR-Welt}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Programmierumgebung finden}{10}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Welt einrichten}{11}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Überlegung der Hindernisse}{11}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Erster Prototyp}{12}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Welt gestalten}{13}{subsection.2.2.3}%
+\contentsline {chapter}{\numberline {3}Umfeldanalyse}{15}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Bewegungen im Virtuellen Raum}{16}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Definition Motion Sickness, Cybersickness, VRISE}{16}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Biologische Ursachen von Cybersickness}{17}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Das Gleichgewichtssystem}{17}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Das Visuelle System}{17}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Ursachen für Cybersickness in der virtuellen Realität}{18}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Sensory Conflict Theory}{18}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Poison Theory}{19}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Postural Instability Theory}{19}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Festlegung der Theorie zur Reduzierung der Cybersickness für die Hardware-Komponente}{20}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Reduzierung der Cybersickness}{20}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Hardware Prototyp}{20}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Technologien}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Foo}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Bar}{23}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Deeper}{24}{subsection.5.2.1}%
+\contentsline {subsubsection}{\nonumberline Deepest}{24}{subsubsection*.12}%
+\contentsline {chapter}{\numberline {6}Umsetzung}{25}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{27}{chapter.7}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{VI}{chapter*.15}%
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{VII}{chapter*.16}%
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{VIII}{chapter*.17}%
+\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{IX}{chapter*.18}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\nonumberline Anhang}{IX}{chapter*.17}%
+\contentsline {chapter}{\nonumberline Anhang}{X}{chapter*.19}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
