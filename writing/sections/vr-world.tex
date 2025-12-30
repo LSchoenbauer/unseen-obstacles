@@ -116,3 +116,55 @@ kohärenten und visuell ansprechenden VR-Landschaft führte, ist als erfolgreich
 \end{figure}
 
 
+\section{Interaktion in VR}
+\setauthor{Elisa Kaltenberger}
+
+Virtual Reality (VR) bezeichnet computergenerierte, dreidimensionale Umgebungen, die mittels Head-Mounted 
+Displays (VR-Brillen) vollständig immersiv erlebt werden können. Die Reaktionen der Welt auf Kopf- und 
+Handbewegungen erfolgen in Echtzeit und erzeugen ein Gefühl von Präsenz und Immersion. 
+
+Unity ist eine Entwicklungsplattform, auch Game Engine genannt, welche die Erstellung von VR-Anwendungen 
+und -Interaktionen ermöglicht. Die Kompatibilität erstreckt sich auf die Mehrzahl aktueller VR-Headsets 
+und umfasst Tools für die Erstellung virtueller Räume, die Darstellung von Objekten sowie die Interaktion 
+mit diesen.
+
+(Quelle Unity)
+
+\subsection{Bennutzeroberflächen (UI) in Unity}
+
+Unity stellt ein proprietäres UI-System bereit, das auf sogenannten Canvas-Objekten basiert. Buttons sind 
+standardisierte UI-Elemente, die über ein OnClick-Event verfügen. Das vorliegende Event gestattet die 
+Ausführung einer definierten Funktion nach Aktivierung eines Buttons. Als Beispiel kann das Öffnen eines 
+Pop-ups oder das Auslösen einer Aktion genannt werden.
+
+Für VR-Anwendungen werden diese UI-Elemente nicht als klassische Bildschirm-Overlays genutzt, sondern als
+integraler Bestandteil der dreidimensionalen Szene integriert. Zu diesem Zweck wird der Canvas-Modus auf 
+World Space gesetzt, wodurch Buttons wie reale Objekte im virtuellen Raum positioniert und skaliert werden 
+können.
+
+\subsection{Canvas-Objekte}
+In dem vorliegenden Kontext bezeichnet ein Canvas-Objekt in Unity ein spezielles GameObject, das als 
+grundlegender Container für alle Benutzeroberflächen-Elemente dient. Sämtliche UI-Elemente (User Interface) 
+wie Buttons, Texte, Bilder oder Panels müssen einem Canvas untergeordnet sein, damit sie von Unity korrekt 
+gerendert und dargestellt werden können. Ohne ein Canvas sind UI-Elemente nicht sichtbar, da sie außerhalb 
+der UI-Rendering-Struktur liegen.
+
+Der Canvas definiert die Art und Weise sowie die Position der Benutzeroberflächen im Projekt. Die Aufgabe 
+des Objekts besteht in der Verwaltung des Zeichenbereichs der UI sowie in der Festlegung der Reihenfolge, 
+in der die UI-Elemente gerendert werden. Die Position der Elemente innerhalb der Hierarchie beeinflusst 
+dabei die Überlagerung, sodass höher angeordnete Elemente über darunterliegende angezeigt werden.
+
+Ein zentrales Merkmal des Canvas-Objekts ist der sogenannte Render Mode. Dieser definiert die Art der 
+Darstellung der Benutzeroberfläche. Im Modus "Screen Space – Overlay" wird die UI direkt über der gesamten 
+Szene dargestellt, wobei sie unabhängig von der Kamera ist. Der Modus "Screen Space – Camera" erzeugt die 
+Benutzeroberfläche (UI) unter Zuhilfenahme einer spezifischen Kamera und gestattet die Anwendung perspektivischer 
+Effekte. Für Virtual-Reality-Anwendungen ist insbesondere der Modus "World Space" von Relevanz, da sich die
+Benutzeroberfläche in diesem Modus wie ein normales dreidimensionales Objekt in der Szene verhält. Dies 
+ermöglicht die Platzierung von Buttons und Pop-ups im virtuellen Raum sowie die Betrachtung aus verschiedenen 
+Blickwinkeln.
+
+Darüber hinaus besteht eine enge Kooperation zwischen dem Canvas und dem EventSystem von Unity, welches für 
+die Verarbeitung von Benutzereingaben zuständig ist. In der vorliegenden Arbeit wird dargelegt, dass diese 
+Kombination in VR-Anwendungen die korrekte Weiterleitung von Eingaben von Controllern, etwa über Raycasting, 
+an UI-Elemente wie Buttons ermöglicht. Der Canvas bildet folglich die technische Grundlage dafür, dass 
+Benutzeroberflächen sowohl sichtbar als auch interaktiv sind.

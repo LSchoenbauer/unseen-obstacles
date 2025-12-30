@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  27 DEC 2025 13:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  28 DEC 2025 11:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1676,17 +1676,17 @@ Package pdftex.def Info: pics/question_mark.png  used on input line 20.
 ]
 Package tocbasic Info: character protrusion at toc deactivated on input line 61.
  (thesis.toc
-Overfull \hbox (3.22041pt too wide) detected at line 36
+Overfull \hbox (3.22041pt too wide) detected at line 39
  []\T1/lmss/bx/n/12 VIII
  []
 
-)
+[3
+
+])
 \tf@toc=\write7
 \openout7 = `thesis.toc'.
 
- [3
-
-] [4]
+ [4]
 chapter 1.
 (sections/introduction.tex
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
@@ -1696,13 +1696,13 @@ l.31
       [1
 
 ]
-<pics/Statistik-Einschraekungen.png, id=127, 373.99725pt x 181.8795pt>
+<pics/Statistik-Einschraekungen.png, id=129, 373.99725pt x 181.8795pt>
 File: pics/Statistik-Einschraekungen.png Graphic file (type png)
 <use pics/Statistik-Einschraekungen.png>
 Package pdftex.def Info: pics/Statistik-Einschraekungen.png  used on input line 34.
 (pdftex.def)             Requested size: 373.99632pt x 181.87904pt.
  [2 <./pics/Statistik-Einschraekungen.png>]
-<pics/Statistik-Hauptaktivitaet.png, id=136, 348.1005pt x 287.27325pt>
+<pics/Statistik-Hauptaktivitaet.png, id=138, 348.1005pt x 287.27325pt>
 File: pics/Statistik-Hauptaktivitaet.png Graphic file (type png)
 <use pics/Statistik-Hauptaktivitaet.png>
 Package pdftex.def Info: pics/Statistik-Hauptaktivitaet.png  used on input line 68.
@@ -1712,43 +1712,43 @@ chapter 2.
 (sections/vr-world.tex [10
 
 ] [11] [12]
-<pics/prototyp-welt.jpg, id=184, 659.46375pt x 592.2125pt>
+<pics/prototyp-welt.jpg, id=186, 659.46375pt x 592.2125pt>
 File: pics/prototyp-welt.jpg Graphic file (type jpg)
 <use pics/prototyp-welt.jpg>
 Package pdftex.def Info: pics/prototyp-welt.jpg  used on input line 94.
 (pdftex.def)             Requested size: 329.73106pt x 296.10551pt.
-<pics/umgesetzte-welt.jpg, id=185, 388.45125pt x 557.08125pt>
+<pics/umgesetzte-welt.jpg, id=187, 388.45125pt x 557.08125pt>
 File: pics/umgesetzte-welt.jpg Graphic file (type jpg)
 <use pics/umgesetzte-welt.jpg>
 Package pdftex.def Info: pics/umgesetzte-welt.jpg  used on input line 113.
 (pdftex.def)             Requested size: 271.914pt x 389.95422pt.
-) [13 <./pics/prototyp-welt.jpg>] [14 <./pics/umgesetzte-welt.jpg>]
+ [13 <./pics/prototyp-welt.jpg>] [14 <./pics/umgesetzte-welt.jpg>] [15]) [16]
 chapter 3.
-(sections/related_work.tex) [15
+(sections/related_work.tex) [17
 
 ]
 chapter 4.
-(sections/cyber_sickness.tex [16
+(sections/cyber_sickness.tex [18
 
 ]
-<pics/vestibular-system.jpg, id=213, 1284.8pt x 987.69pt>
+<pics/vestibular-system.jpg, id=225, 1284.8pt x 987.69pt>
 File: pics/vestibular-system.jpg Graphic file (type jpg)
 <use pics/vestibular-system.jpg>
 Package pdftex.def Info: pics/vestibular-system.jpg  used on input line 21.
 (pdftex.def)             Requested size: 256.95544pt x 197.5345pt.
- [17 <./pics/vestibular-system.jpg>] [18] [19]) [20]
+ [19 <./pics/vestibular-system.jpg>] [20] [21]) [22]
 chapter 5.
-(sections/technologies.tex [21
+(sections/technologies.tex [23
 
-] [22] [23]) [24]
+] [24] [25]) [26]
 chapter 6.
 (sections/implementation.tex
-<pics/knuthi.jpg, id=258, 474.27188pt x 266.49562pt>
+<pics/knuthi.jpg, id=271, 474.27188pt x 266.49562pt>
 File: pics/knuthi.jpg Graphic file (type jpg)
 <use pics/knuthi.jpg>
 Package pdftex.def Info: pics/knuthi.jpg  used on input line 17.
 (pdftex.def)             Requested size: 237.13536pt x 133.24748pt.
- [25
+ [27
 
 ]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 26.
@@ -1767,13 +1767,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 33.
-) [26 <./pics/knuthi.jpg>]
+) [28 <./pics/knuthi.jpg>]
 chapter 7.
 (sections/summary.tex
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) [27
+)) [29
 
 {C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] (glossary.tex
 \@gls@deffile=\write8
@@ -1836,10 +1836,10 @@ L3 programming layer <2024-01-04>
 ### semi simple group (level 1) entered at line 116 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 36294 strings out of 474486
- 700658 string characters out of 5743755
+ 36300 strings out of 474486
+ 700721 string characters out of 5743755
  1967542 words of memory out of 5000000
- 57761 multiletter control sequences out of 15000+600000
+ 57762 multiletter control sequences out of 15000+600000
  612309 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,20n,108p,11281b,2548s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1847,9 +1847,9 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{glo:guid} has been referenced but does not exist, replaced by a fixed one
 
 <C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
-Output written on thesis.pdf (39 pages, 1103691 bytes).
+Output written on thesis.pdf (41 pages, 1110821 bytes).
 PDF statistics:
- 466 PDF objects out of 1000 (max. 8388607)
- 108 named destinations out of 1000 (max. 500000)
- 32503 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 483 PDF objects out of 1000 (max. 8388607)
+ 113 named destinations out of 1000 (max. 500000)
+ 32511 words of extra memory for PDF output out of 35830 (max. 10000000)
 
