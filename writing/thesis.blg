@@ -10,50 +10,57 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: bib.bib
+Warning--I didn't find a database entry for "InfH"
+Warning--I didn't find a database entry for "APCW2006"
+Warning--I didn't find a database entry for "Jason2015"
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 ** IEEEtran BST control entry "IEEEexample:BSTcontrol" detected.
+Warning--missing publisher in Crampton2000
+Warning--missing publisher in ISO2025
+Warning--missing publisher in Molly1998
 
 Done.
-You've used 3 entries,
+You've used 22 entries,
             3998 wiz_defined-function locations,
-            817 strings with 7740 characters,
-and the built_in function-call counts, 1137 in all, are:
-= -- 67
-> -- 28
-< -- 5
-+ -- 12
-- -- 6
-* -- 61
-:= -- 195
-add.period$ -- 4
-call.type$ -- 3
+            950 strings with 10452 characters,
+and the built_in function-call counts, 13485 in all, are:
+= -- 1119
+> -- 261
+< -- 117
++ -- 143
+- -- 42
+* -- 622
+:= -- 2145
+add.period$ -- 39
+call.type$ -- 22
 change.case$ -- 1
-chr.to.int$ -- 19
-cite$ -- 3
-duplicate$ -- 90
-empty$ -- 104
-format.name$ -- 5
-if$ -- 231
+chr.to.int$ -- 256
+cite$ -- 25
+duplicate$ -- 980
+empty$ -- 1115
+format.name$ -- 52
+if$ -- 3067
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 16
-newline$ -- 31
-num.names$ -- 2
-pop$ -- 49
+int.to.str$ -- 21
+missing$ -- 160
+newline$ -- 88
+num.names$ -- 21
+pop$ -- 329
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 4
-skip$ -- 79
+skip$ -- 1112
 stack$ -- 0
-substring$ -- 14
-swap$ -- 44
-text.length$ -- 2
+substring$ -- 588
+swap$ -- 779
+text.length$ -- 35
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 3
-warning$ -- 0
-while$ -- 7
-width$ -- 3
-write$ -- 40
+type$ -- 22
+warning$ -- 3
+while$ -- 69
+width$ -- 23
+write$ -- 218
+(There were 6 warnings)

@@ -1,19 +1,19 @@
 # Fdb version 4
-["bibtex thesis"] 1767182881.62905 "thesis.aux" "thesis.bbl" "thesis" 1767183524.21352 0
-  "./bib.bib" 1763554270 806 72a5fd8d7662c934d85c456a5df18811 ""
+["bibtex thesis"] 1767205900.55732 "thesis.aux" "thesis.bbl" "thesis" 1767205905.00544 0
+  "./bib.bib" 1767205887 5811 d7c445e364bd00d88f2eed91a2e1d05e ""
   "./ieeetrande.bst" 1763554270 61980 fd293e0adca6cd19772e5be38250514f ""
-  "thesis.aux" 1767183523 22107 62323abd3b959d10385d027b4a459e99 "pdflatex"
+  "thesis.aux" 1767205903 24576 6a29fc7b3220c0521c06faf395384014 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["makeindex thesis.idx"] 1767182876.55252 "thesis.idx" "thesis.ind" "thesis" 1767183524.21285 0
-  "thesis.idx" 1767183522 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex thesis.idx"] 1767205889.70014 "thesis.idx" "thesis.ind" "thesis" 1767205905.00461 0
+  "thesis.idx" 1767205902 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "thesis.ilg"
   "thesis.ind"
   (rewritten before read)
-["pdflatex"] 1767183520.63075 "e:/19-11-unseen-obstacles/unseen-obstacles/writing/thesis.tex" "thesis.pdf" "thesis" 1767183524.21467 0
+["pdflatex"] 1767205900.87132 "e:/19-11-unseen-obstacles/unseen-obstacles/writing/thesis.tex" "thesis.pdf" "thesis" 1767205905.00637 0
   "C:/Users/School/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1760771351 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/School/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1760771232 13322148 1b2f630e086fb3b38245f14b4a9e45e1 ""
   "C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -227,12 +227,12 @@
   "C:/Users/School/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/School/AppData/Local/Programs/MiKTeX/tex/latex/xmpincl/xmpincl.sty" 1633254124 2832 d498c59e94b7dfa3b4bcf74380ad6348 ""
   "C:/Users/School/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "e:/19-11-unseen-obstacles/unseen-obstacles/writing/thesis.tex" 1767182281 3101 f595e62ed000976de811d8c2d924452d ""
-  "global-const.tex" 1766776327 619 dbc6955fa1b5056b607fd687adba0d03 ""
+  "e:/19-11-unseen-obstacles/unseen-obstacles/writing/thesis.tex" 1767202104 3101 f595e62ed000976de811d8c2d924452d ""
+  "global-const.tex" 1767198387 620 f92af1fe2ed136a5c183f367d686a82b ""
   "glossary.tex" 1763554270 361 e64a8b5f0cec1dade6fdd9693504eada ""
   "header.tex" 1763554270 4767 b7d00df41e273aecbda4cd36aa7cf5f2 ""
   "oath.tex" 1763554270 1334 db7d55b2e3d8794e34024be273dfa030 ""
-  "pdfa.xmpi" 1767183521 5335 d443ac357f52ec2a219798d98f68cf02 "pdflatex"
+  "pdfa.xmpi" 1767205902 5335 083442b8576ed6f36c4cd8694f8af23b "pdflatex"
   "pics/Statistik-Einschraekungen.png" 1763554270 56827 82b5c2537a44ab1caed39788a79429f0 ""
   "pics/Statistik-Hauptaktivitaet.png" 1763554270 102588 63563920c08173ba5a882499eca1db05 ""
   "pics/knuthi.jpg" 1763554270 60610 a8d03c9abfb960ace41eae84b88ab818 ""
@@ -245,7 +245,7 @@
   "pics/vestibular-system.jpg" 1763554270 218758 ef458162887f72ebd66d1bf95f53c53b ""
   "sections/abstract.tex" 1763554270 1129 14463027abcc342bcaaf49d4fd82d765 ""
   "sections/appendix.tex" 1763554270 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "sections/cyber_sickness.tex" 1767182137 29692 b062bc849b655ec7e988de544f617091 ""
+  "sections/cyber_sickness.tex" 1767205893 30481 1cd4b8197ed750601fd4a3e62cbefd49 ""
   "sections/hardware-prototyp.tex" 1767182281 5984 91145509e38bca7935209073658f04a3 ""
   "sections/implementation.tex" 1763554270 1127 6e4748a9b73a69b86744c0214147f0d5 ""
   "sections/introduction.tex" 1767182281 19189 18d9fe8d3b94de946d8700cdd23e558d ""
@@ -253,18 +253,18 @@
   "sections/summary.tex" 1763554270 779 24f8eaf4cd6cc4da62bd71efefbd8ccc ""
   "sections/technologies.tex" 1763554270 220 bf065552b59a3a86c2dfdfc8d33035ff ""
   "sections/vr-world.tex" 1767182281 12500 e0a65307eb7217e08a428ce8d2fb527c ""
-  "thesis.aux" 1767183523 22107 62323abd3b959d10385d027b4a459e99 "pdflatex"
-  "thesis.bbl" 1767182881 1490 83c53a19c72918c910caf3306686a891 "bibtex thesis"
+  "thesis.aux" 1767205903 24576 6a29fc7b3220c0521c06faf395384014 "pdflatex"
+  "thesis.bbl" 1767205900 4881 f925101dd08d03e2f11a64c7af4d9ff9 "bibtex thesis"
   "thesis.gls" 0 -1 0 ""
-  "thesis.glsdefs" 1767183523 2074 982e6c0610b12fd59d7a8058fc1679f0 "pdflatex"
-  "thesis.ind" 1767182876 0 d41d8cd98f00b204e9800998ecf8427e "makeindex thesis.idx"
-  "thesis.lof" 1767183523 1151 c916c7cf4142b8edf1aa43fd82d41286 "pdflatex"
-  "thesis.lol" 1767183523 217 51b1d81d13c70f8ae2023b340dfd3189 "pdflatex"
-  "thesis.lot" 1767183523 233 fc0c858394a8edee3e64cdf44e6828ec "pdflatex"
-  "thesis.tex" 1767182281 3101 f595e62ed000976de811d8c2d924452d ""
-  "thesis.toc" 1767183523 5275 c8ce7f820e736aa9936829a27daa771d "pdflatex"
+  "thesis.glsdefs" 1767205903 2074 982e6c0610b12fd59d7a8058fc1679f0 "pdflatex"
+  "thesis.ind" 1767205889 0 d41d8cd98f00b204e9800998ecf8427e "makeindex thesis.idx"
+  "thesis.lof" 1767205903 1151 2e4de096997a1cafeeedf43b6122dee1 "pdflatex"
+  "thesis.lol" 1767205903 217 51b1d81d13c70f8ae2023b340dfd3189 "pdflatex"
+  "thesis.lot" 1767205903 233 fc0c858394a8edee3e64cdf44e6828ec "pdflatex"
+  "thesis.tex" 1767202104 3101 f595e62ed000976de811d8c2d924452d ""
+  "thesis.toc" 1767205903 5274 9c50f1790275006d8ec54b4dfe4fd45e "pdflatex"
   "thesis.xmpdata" 1763554270 118 a9e9a49b721e0c1d7b3860f5ea2addf5 ""
-  "titlepage/coversheet.pdf" 1767183512 165088 d176239e0d64fcfba6d5825791f2d895 ""
+  "titlepage/coversheet.pdf" 1767198399 165089 d8d8dcecf7545f802408d536e367f79e ""
   (generated)
   "pdfa.xmpi"
   "thesis.aux"
