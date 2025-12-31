@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.18)  31 DEC 2025 13:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.18)  31 DEC 2025 13:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1615,7 +1615,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<pics/question_mark.png, id=50, 992.70876pt x 1284.8pt>
+<pics/question_mark.png, id=47, 992.70876pt x 1284.8pt>
 File: pics/question_mark.png Graphic file (type png)
 <use pics/question_mark.png>
 Package pdftex.def Info: pics/question_mark.png  used on input line 6.
@@ -1726,7 +1726,7 @@ l.31
       [1
 
 ]
-<pics/Statistik-Einschraekungen.png, id=143, 373.99725pt x 181.8795pt>
+<pics/Statistik-Einschraekungen.png, id=140, 373.99725pt x 181.8795pt>
 File: pics/Statistik-Einschraekungen.png Graphic file (type png)
 <use pics/Statistik-Einschraekungen.png>
 Package pdftex.def Info: pics/Statistik-Einschraekungen.png  used on input line 34.
@@ -1736,7 +1736,7 @@ Package pdftex.def Info: pics/Statistik-Einschraekungen.png  used on input line 
 Package babel Info: 'ngerman' activates 'ngerman' shorthands.
 (babel)             Reported on input line 54.
 [2 <./pics/Statistik-Einschraekungen.png>]
-<pics/Statistik-Hauptaktivitaet.png, id=152, 348.1005pt x 287.27325pt>
+<pics/Statistik-Hauptaktivitaet.png, id=149, 348.1005pt x 287.27325pt>
 File: pics/Statistik-Hauptaktivitaet.png Graphic file (type png)
 <use pics/Statistik-Hauptaktivitaet.png>
 Package pdftex.def Info: pics/Statistik-Hauptaktivitaet.png  used on input line 68.
@@ -1766,12 +1766,12 @@ chapter 2.
 [11]
 
 [12]
-<pics/prototyp-welt.jpg, id=200, 659.46375pt x 592.2125pt>
+<pics/prototyp-welt.jpg, id=197, 659.46375pt x 592.2125pt>
 File: pics/prototyp-welt.jpg Graphic file (type jpg)
 <use pics/prototyp-welt.jpg>
 Package pdftex.def Info: pics/prototyp-welt.jpg  used on input line 94.
 (pdftex.def)             Requested size: 329.73106pt x 296.10551pt.
-<pics/umgesetzte-welt.jpg, id=201, 388.45125pt x 557.08125pt>
+<pics/umgesetzte-welt.jpg, id=198, 388.45125pt x 557.08125pt>
 File: pics/umgesetzte-welt.jpg Graphic file (type jpg)
 <use pics/umgesetzte-welt.jpg>
 Package pdftex.def Info: pics/umgesetzte-welt.jpg  used on input line 113.
@@ -1791,12 +1791,12 @@ chapter 3.
 [17
 
 ]
-<pics/prototyp-zwischenstand.jpg, id=228, 926.46124pt x 2055.68pt>
+<pics/prototyp-zwischenstand.jpg, id=225, 926.46124pt x 2055.68pt>
 File: pics/prototyp-zwischenstand.jpg Graphic file (type jpg)
 <use pics/prototyp-zwischenstand.jpg>
 Package pdftex.def Info: pics/prototyp-zwischenstand.jpg  used on input line 46.
 (pdftex.def)             Requested size: 185.28896pt x 411.12872pt.
-<pics/prototyp-ende.jpg, id=229, 926.46124pt x 2055.68pt>
+<pics/prototyp-ende.jpg, id=226, 926.46124pt x 2055.68pt>
 File: pics/prototyp-ende.jpg Graphic file (type jpg)
 <use pics/prototyp-ende.jpg>
 Package pdftex.def Info: pics/prototyp-ende.jpg  used on input line 53.
@@ -1824,7 +1824,7 @@ chapter 5.
 [22
 
 ]
-<pics/vestibular-system.jpg, id=261, 1284.8pt x 987.69pt>
+<pics/vestibular-system.jpg, id=258, 1284.8pt x 987.69pt>
 File: pics/vestibular-system.jpg Graphic file (type jpg)
 <use pics/vestibular-system.jpg>
 Package pdftex.def Info: pics/vestibular-system.jpg  used on input line 21.
@@ -1852,7 +1852,7 @@ Package pdftex.def Info: pics/vestibular-system.jpg  used on input line 21.
 [32]
 
 [33]
-<pics/metaquest-controller-placeholder.jpeg, id=321, 1505.625pt x 1379.1525pt>
+<pics/metaquest-controller-placeholder.jpeg, id=318, 1505.625pt x 1379.1525pt>
 File: pics/metaquest-controller-placeholder.jpeg Graphic file (type jpg)
 <use pics/metaquest-controller-placeholder.jpeg>
 Package pdftex.def Info: pics/metaquest-controller-placeholder.jpeg  used on input line 177.
@@ -1876,7 +1876,7 @@ chapter 6.
 [39]
 chapter 7.
 (sections/implementation.tex
-<pics/knuthi.jpg, id=355, 474.27188pt x 266.49562pt>
+<pics/knuthi.jpg, id=352, 474.27188pt x 266.49562pt>
 File: pics/knuthi.jpg Graphic file (type jpg)
 <use pics/knuthi.jpg>
 Package pdftex.def Info: pics/knuthi.jpg  used on input line 17.
@@ -1983,10 +1983,10 @@ Here is how much of TeX's memory you used:
 
 pdfTeX warning (dest): name{glo:guid} has been referenced but does not exist, replaced by a fixed one
 
-<C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
-Output written on thesis.pdf (54 pages, 1758729 bytes).
+<C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
+Output written on thesis.pdf (54 pages, 1792756 bytes).
 PDF statistics:
- 598 PDF objects out of 1000 (max. 8388607)
+ 599 PDF objects out of 1000 (max. 8388607)
  146 named destinations out of 1000 (max. 500000)
  32582 words of extra memory for PDF output out of 35830 (max. 10000000)
 

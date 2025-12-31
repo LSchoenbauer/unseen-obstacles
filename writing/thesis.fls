@@ -633,6 +633,14 @@ INPUT .\sections\appendix.tex
 INPUT .\sections\appendix.tex
 INPUT sections\appendix.tex
 INPUT thesis.aux
+INPUT C:\Users\School\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss10.pfb
+INPUT C:\Users\School\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss10.pfb
+INPUT C:\Users\School\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss12.pfb
+INPUT C:\Users\School\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss12.pfb
+INPUT C:\Users\School\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss17.pfb
+INPUT C:\Users\School\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss17.pfb
+INPUT C:\Users\School\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmssbx10.pfb
+INPUT C:\Users\School\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmssbx10.pfb
 INPUT C:\Users\School\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx12.pfb
 INPUT C:\Users\School\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmbx12.pfb
 INPUT C:\Users\School\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr12.pfb
