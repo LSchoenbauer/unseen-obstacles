@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.18)  31 DEC 2025 19:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.18)  31 DEC 2025 20:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1916,7 +1916,7 @@ LaTeX Warning: Citation `Jason2015' on page 32 undefined on input line 147.
 [32]
 
 [33]
-<pics/metaquest-controller-placeholder.jpeg, id=399, 1505.625pt x 1379.1525pt>
+<pics/metaquest-controller-placeholder.jpeg, id=401, 1505.625pt x 1379.1525pt>
 File: pics/metaquest-controller-placeholder.jpeg Graphic file (type jpg)
 <use pics/metaquest-controller-placeholder.jpeg>
 Package pdftex.def Info: pics/metaquest-controller-placeholder.jpeg  used on input line 172.
@@ -1940,7 +1940,7 @@ chapter 6.
 [39]
 chapter 7.
 (sections/implementation.tex
-<pics/knuthi.jpg, id=433, 474.27188pt x 266.49562pt>
+<pics/knuthi.jpg, id=435, 474.27188pt x 266.49562pt>
 File: pics/knuthi.jpg Graphic file (type jpg)
 <use pics/knuthi.jpg>
 Package pdftex.def Info: pics/knuthi.jpg  used on input line 17.
@@ -2043,10 +2043,10 @@ LaTeX Warning: There were undefined references.
 ### semi simple group (level 1) entered at line 121 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 36224 strings out of 468080
- 699759 string characters out of 5425283
+ 36226 strings out of 468080
+ 699801 string characters out of 5425283
  1443619 words of memory out of 5000000
- 64020 multiletter control sequences out of 15000+600000
+ 64022 multiletter control sequences out of 15000+600000
  682477 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,20n,110p,11284b,2548s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2054,9 +2054,9 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{glo:guid} has been referenced but does not exist, replaced by a fixed one
 
 <C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/School/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
-Output written on thesis.pdf (55 pages, 1816081 bytes).
+Output written on thesis.pdf (55 pages, 1816380 bytes).
 PDF statistics:
- 687 PDF objects out of 1000 (max. 8388607)
+ 689 PDF objects out of 1000 (max. 8388607)
  166 named destinations out of 1000 (max. 500000)
  32582 words of extra memory for PDF output out of 35830 (max. 10000000)
 
