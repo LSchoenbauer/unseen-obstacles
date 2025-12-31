@@ -1,0 +1,94 @@
+\section{Aufbau des Prototyps}
+\setauthor{Elisa Kaltenberger}
+
+Der Prototyp ist so konstruiert, dass er sowohl präzise Rotationsbewegungen als auch 
+kontrollierte Hebe- und Kippbewegungen des Rollstuhls ermöglicht. Die Konstruktion besteht 
+aus zwei Platten, die in übereinander angeordneter Form miteinander verbunden sind. Die 
+untere Platte befindet sich in einer stabilen und unbeweglichen Position und konstituiert 
+die tragende Basis des Systems. Auf dieser befindet sich eine zweite Platte, die drehbar 
+ausgeführt ist. Die Bewegung der oberen Platte wird durch ein Antriebsrad und einen 
+Schrittmotor initiiert. Der schrittmotor gestattet aufgrund seiner schrittweisen Bewegung 
+eine exakte, fein dosierbare und wiederholgenaue Drehung. Die vorliegende Konstruktion 
+ermöglicht eine millimetergenaue Einstellung der Ausrichtung des Rollstuhls. 
+
+Auf der rotierenden oberen Platte sind drei Wagenheber montiert, die ausschließlich 
+für das Heben und Kippen des Rollstuhls, der auf ihnen platziert wird. Zwei der 
+Wagenheber sind links und rechts an den Seiten der Platte befestigt, sodass sie direkt 
+unter den großen Rädern des Rollstuhls sind. Es obliegt den zuvor genannten Instanzen 
+sowohl die Stabilisierung als auch die Hauptarbeit des Hebens. Die seitlichen Wagenheber 
+können synchron betrieben werden, um den Rollstuhl gleichmäßig anzuheben, oder einzeln 
+angesprochen werden, um eine einsteige Hubbewegung zu ermöglichen. Die asynchrone
+Bestätigung des Rollstuhls erlaubt eine gezielte Kippfunktion, bei der der Rollstuhl 
+kontrolliert auf einer Seite angehoben wird. In der Folge können Neigungen erzielt oder
+bestimmte Positionen erreicht werden, die bei einem symmetrischen Anheben nicht möglich 
+wären.
+
+Der dritte Wagenheber ist im vorderen Bereich der drehbaren Platte positioniert und trägt 
+ebenfalls aktiv zum Heben und Kippen des Rollstuhls bei. Im Gegensatz zu dem zuvor 
+beschriebenen Wagenheber, der lediglich als Stütze dient, ist dieser vordere Wagenheber 
+mit einer Funktion ausgestattet, die es ihm ermöglicht, den Rollstuhl eigenständig 
+anzuheben und zu kippen. Aufgrund seiner Positionierung ermöglicht er eine kontrollierte 
+Vorneigung oder eine kombinierte Kippbewegung in Verbindung mit einem der seitlichen 
+Wagenheber. In der Konsequenz manifestiert sich ein System, dessen Funktionalität die 
+Adjustierung des Rollstuhls in nahezu jede gewünschte Neigung ermöglicht, unabhängig davon, 
+ob eine einseitige, vordere oder kombinierte Kippfunktion erforderlich ist.
+
+Die drei Wagenheber bilden in Kombination ein flexibles Dreipunkt-Stütz- und Hebesystem, 
+das sowohl vertikale Bewegungen als auch gezielte Kippvorgänge sicher und stabil ausführen 
+kann. Die Wagenheber ermöglichen einen Höhen- und Neigungsverstellung des Rollstuhls, während 
+die Plattform selbst eine konstante Bodenhaftung aufweist. Es sei darauf hingewiesen, dass 
+der Schrittmotor erst nach der gewünschten Hebe- oder Kippbewegung die präzise rotatorische 
+Ausrichtung übernimmt- In diesem Prozess werden der Wagenheber und der Rollstuhl vollständig 
+mit der drehbaren Platte vollständig mit der drehbaren Platte mitgeführt.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/prototyp-zwischenstand.jpg}
+    \caption{Prototyp Zwischnstand 13. November}
+    \label{fig:prototyp-zwischenstand}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/prototyp-ende.jpg}
+    \caption{Prototyp Ende 21. November}
+    \label{fig:prototyp-ende}
+\end{figure}
+
+\subsection{Motorenfindung: Schrittmotoren vs. Hydraulik}
+
+Hydrauliksysteme arbeiten mit Flüssigkeiten unter Druck, um signifikante Kräfte zu generieren. 
+Die Verdrängung von Hydrauliköl durch einen Kolben ermöglicht die Erzeugung eines hohen Drucks, 
+der die Bewegung schwerer Lasten oder präziser mechanischer Bewegung ermöglicht.
+
+Derartige Systeme erweisen sich als vorteilhaft, wenn es darum geht, große Kräfte, Drehmomente oder 
+schwere Lasten zu bewegen. Dies ist beispielsweise in Baumaschinen, Hebebühnen oder bei Pressen der 
+Fall.
+
+Allerdings sind hydraulische Anlagen in der Regel durch eine komplexe Konstruktion charakterisiert, 
+die Zylinder, Pumpen und eine Ölfüllung umfasst. Dies impliziert hohe Wartungsaufwendungen, eine 
+aufwändige Installation sowie eine eingeschränkte Flexibilität, insbesondere in Bezug auf feinfühlige 
+oder kontrollierte Bewegungen.
+
+Sofern die betreffende Anwendung keine extrem schweren Lasten bewegt, sondern eher präzise, kontrollierte 
+und wiederholbare Bewegung erfordert, ist eine Hydraulik-Lösung oft zu aufwändig.
+
+Ein Schrittmotor hingegen ist ein bürstenloser Gleichstrommotor, dessen Rotationsbewegung nicht 
+kontinuierlich, sondern in vorgegebenen und gleichmäßigen Schritten erfolgt.
+
+Die Position lässt sich dadurch mit hoher Präzision, Reproduzierbarkeit und ohne zusätzliche Rückführung 
+bestimmen. Dies ist vorteilhaft, wenn eine exakte Positionierung oder punktgenaue Steuerung erforderlich ist.
+
+Die Realisierung von sehr feinen Schritten ist durch den Einsatz von Mikroschritt-Antrieben möglich, 
+wodurch die Bewegungen nahezu glatt und servo-ähnlich wirken, ohne dass ein geschlossener Regelkreis 
+erforderlich ist.
+
+Darüber hinaus zeichnen sich Schrittmotoren im Vergleich zu hydraulischen Systemen durch eine kompakte 
+Bauweise, ein geringes Gewicht, eine einfache Handhabung und Wartung aus. Es besteht keine Notwendigkeit 
+für eine Ölversorgung, hydraulische Leitungen oder Zylinder, was Platz, Aufwand und potenzielle Fehlerquellen 
+reduziert. 
+
+Zusätzlich sind Schrittmotoren insbesondere dann sinnvoll, wenn die Anwendung häufige, gleichförmige oder 
+wiederholbare Bewegungen erfordert, wie sie beispielsweise bei der Indexierung, Positionierung oder 
+automatisierten Abläufen auftreten, und die Last gleichmäßig und vorhersehbar ist.
+
