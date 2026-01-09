@@ -27,15 +27,20 @@ class SimulationData {
         };
 
 		SimulationData(
+            uint32_t timestampMs,
             Mode mode,
             uint32_t pitch,
             uint32_t yaw,
             uint32_t roll,
             uint32_t posX,
+            uint32_t posY,
             uint32_t posZ
-        ): mMode(mode), mPitch(pitch), mYaw(yaw), mRoll(roll), mPosX(posX), mPosZ(posZ){}
+        ): mTimestampMs(timestampMs), mMode(mode), mPitch(pitch), mYaw(yaw), mRoll(roll), mPosX(posX), mPosY(posY), mPosZ(posZ){}
 
 		~SimulationData(){}
+
+        //void SetTimestamp(uint32_t timestampMs);
+        uint32_t GetTimestampMs() const {return mTimestampMs;}
 
         //void SetMode(Mode mode);
         Mode GetMode() const {return mMode;}
@@ -51,15 +56,20 @@ class SimulationData {
 
         //void SetPosX(uint32_t posX);
         uint32_t GetPosX() const {return mPosX;}
+        
+        //void SetPosY(uint32_t posY);
+        uint32_t GetPosY() const {return mPosY;}
 
         //void SetPosY(uint32_t posY);
         uint32_t GetPosZ() const {return mPosZ;}
 
     private:
+        uint32_t mTimestampMs;
         Mode mMode;
-        uint32_t mPitch;
-        uint32_t mYaw;
-        uint32_t mRoll;
+        uint32_t mPitch; // Y-Drehung
+        uint32_t mYaw; // Z-Drehung
+        uint32_t mRoll; // X-Drehung
         uint32_t mPosX;
+        uint32_t mPosY;
         uint32_t mPosZ;
 };

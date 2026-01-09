@@ -22,9 +22,11 @@ const uint32_t MoverDriver::MIN_PULSE_DURATION_US = 10;
 const uint32_t MoverDriver::DEBOUNCE_TIME_MS = 20;
 const uint32_t MoverDriver::COASTING_TIME_MS = 100; // 3 frames at 30 fps
 
-MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) : mMoverDriverCfg(moverDriverCfg), mCurrentStep(0), mTargetSpeed(0), mSetTargetSpeed(0), mCurrentSpeed(0), mTargetDirection(Direction::FORWARD), mCurrentDirection(Direction::FORWARD), mIsRamping(false), mRampingSteps(DEFAULT_RAMPING_STEPS), mMicrostepFactor(1), mIsAtTop(false), mIsAtCenter(true), mIsAtBottom(false), mTopPosition(0), mCenterPosition(0), mBottomPosition(1), mStepperTimer(NULL), mTimerMux(portMUX_INITIALIZER_UNLOCKED), mLastMoverTriggerTime(0) {
+MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) : mMoverDriverCfg(moverDriverCfg), mCurrentStep(0), mTargetSpeed(0), mSetTargetSpeed(0), mCurrentSpeed(0), mTargetDirection(Direction::FORWARD), mCurrentDirection(Direction::FORWARD), mIsRamping(false), mRampingSteps(DEFAULT_RAMPING_STEPS), mMicrostepFactor(1), mIsAtTop(false), mIsAtCenter(true), mIsAtBottom(false), mTopPosition(0), mCenterPosition(0), mBottomPosition(1), mStepperTimer(NULL), mTimerMux(portMUX_INITIALIZER_UNLOCKED), mLastMoverTriggerTime(0), mTimerSemaphore(NULL) {
    Init();
 }
+
+MoverDriver::~MoverDriver(){}
 
 MoverDriverPtr MoverDriver::Create(MoverDriverCfgPtr moverDriverCfg) {
 	return ::std::shared_ptr<MoverDriver>(new MoverDriver(
@@ -33,6 +35,7 @@ MoverDriverPtr MoverDriver::Create(MoverDriverCfgPtr moverDriverCfg) {
 }
 
 void MoverDriver::Init() {
+  mTimerSemaphore = xSemaphoreCreateBinary(); // TODO: semaphore usage
   pinMode(mMoverDriverCfg->GetPulsePin(), OUTPUT);
   pinMode(mMoverDriverCfg->GetDirPin(), OUTPUT);
   digitalWrite(mMoverDriverCfg->GetPulsePin(), LOW);
@@ -228,7 +231,7 @@ void ARDUINO_ISR_ATTR MoverDriver::Step() {
   portEXIT_CRITICAL_ISR(&mTimerMux);
   
   // Give a semaphore that we can check in the loop
-  xSemaphoreGiveFromISR(timerSemaphore, NULL);
+  xSemaphoreGiveFromISR(mTimerSemaphore, NULL);
   // It is safe to use digitalRead/Write here if you want to toggle an output
 
 }

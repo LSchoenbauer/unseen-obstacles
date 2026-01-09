@@ -106,6 +106,7 @@ class MoverDriver {
         hw_timer_t* mStepperTimer;
         hw_timer_t* mDeBounceTimer;
 
+        SemaphoreHandle_t mTimerSemaphore;
         portMUX_TYPE mTimerMux;
 
         MoverDriverCfgPtr mMoverDriverCfg;

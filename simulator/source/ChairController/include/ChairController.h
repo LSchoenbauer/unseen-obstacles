@@ -22,17 +22,17 @@
 #include <stdint.h>
 
 
-class Translator {
+class ChairController {
 	public:
 
-		Translator(
+		ChairController(
             MoverDriverPtr rearLeft,
             MoverDriverPtr rearRight,
             MoverDriverPtr front,
             MoverDriverPtr rotation
         );
 
-		virtual ~Translator();
+		virtual ~ChairController();
 
         void SetCommandModeEnabled(bool enabled);
 
@@ -40,10 +40,24 @@ class Translator {
 
         void AdjustToSimulation(const SimulationData& simulationData);
 
+
     private:
         MoverDriverPtr GetMoverDriver(CommandData::Mover mover);
 
+        void ApplyRotation(uint32_t deltaTimestamp, uint32_t deltaYaw);
+        void ApplyFrontMover(uint32_t deltaTimestamp, uint32_t deltaPitch, uint32_t deltaZ);
+        void ApplyBackMover(uint32_t deltaTimestamp, uint32_t deltaRoll, uint32_t deltaZ);
+        void ApplyShakeMode(uint32_t deltaTimestamp);
+
         static const uint32_t NORMAL_MOVEMENT_SPEED;
+        static const uint32_t DISTANCE_ROTATOR;
+        static const uint32_t CIRCUMFERENCE_ROTATOR_WHEEL;
+        static const uint32_t DISTANCE_FRONT;
+        static const uint32_t STROKE_PER_TURN;
+        static const uint32_t DISTANCE_SIDE_BACK;
+
+        //bei jedem adjust aufruf triggern, jeden 3. frame ca. Richtung und
+        //Geschwindigkeit random ändern, bis stop von Modus, Delta winkel für rütteln,
 
         MoverDriverPtr mRearLeft;
         MoverDriverPtr mRearRight;
