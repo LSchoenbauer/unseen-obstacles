@@ -16,6 +16,7 @@ const uint32_t ChairController::CIRCUMFERENCE_ROTATOR_WHEEL = 314;
 const uint32_t ChairController::DISTANCE_FRONT = 450;
 const uint32_t ChairController::STROKE_PER_TURN = 5;
 const uint32_t ChairController::DISTANCE_SIDE_BACK = 250;
+const uint32_t ChairController::INTENSITY_SHAKING = 10;
 
 ChairController::ChairController(
     MoverDriverPtr rearLeft,
@@ -28,6 +29,19 @@ ChairController::ChairController(
 
 ChairController::~ChairController() {
 
+}
+
+ChairControllerPtr ChairController::Create(
+    MoverDriverPtr rearLeft,
+    MoverDriverPtr rearRight,
+    MoverDriverPtr front,
+    MoverDriverPtr rotation) {
+	return ::std::shared_ptr<ChairController>(new ChairController(
+        rearLeft,
+        rearRight,
+        front,
+        rotation
+    ));
 }
 
 void ChairController::SetCommandModeEnabled(bool enabled) {
@@ -102,10 +116,13 @@ void ChairController::AdjustToSimulation(const SimulationData& simulationData) {
     uint32_t accZ = speedZ - lastSpeedZ;
 
     ApplyRotation(deltaTimestamp, deltaYaw);
-    ApplyFrontMover(deltaTimestamp, deltaPitch, accZ);
-    ApplyBackMover(deltaTimestamp, deltaRoll, accZ); // TODO method call signature check
+    
     if (simulationData.GetMode() == SimulationData::Mode::BUMPING) {
-        ApplyShakeMode(deltaTimestamp);
+        uint32_t wheelchairSpeed = sqrt(pow(simulationData.GetPosX() - lastData.GetPosX(), 2) + pow(simulationData.GetPosY() - lastData.GetPosY(), 2));
+        ApplyShakeMode(deltaTimestamp, INTENSITY_SHAKING, wheelchairSpeed);
+    } else {
+        ApplyFrontMover(deltaTimestamp, deltaPitch, accZ);
+        ApplyBackMover(deltaTimestamp, deltaRoll, accZ); // TODO method call signature check
     }
 
     lastData = simulationData;
@@ -148,13 +165,19 @@ void ChairController::ApplyBackMover(uint32_t deltaTimestamp, uint32_t deltaRoll
     rearRightMover->SetDirection(stroke < 0 ? MoverDriver::Direction::FORWARD : MoverDriver::Direction::BACKWARD);
 }
 
-void ChairController::ApplyShakeMode(uint32_t deltaTimestamp) {
-    uint32_t randomRoll = rand() % 301;  // 0–300
-    uint32_t randomDirection = rand() % 2;
-    randomRoll = randomDirection % 2 == 0 ? randomRoll : 1 / randomRoll;
-    uint32_t randomSpeedMs = rand() % 300 + 50;
+void ChairController::ApplyShakeMode(uint32_t deltaTimestamp, uint32_t intensity, uint32_t wheelchairSpeed) {
+    //TODO wheelchair speed
+    static uint32_t duration = 601;
+    if (duration > 600) {
+        uint32_t randomRoll = (355 + rand() % intensity) % 360;
+        uint32_t randomPitch = (355 + rand() % intensity) % 360;
 
-    ApplyBackMover(deltaTimestamp, randomRoll, randomSpeedMs);
+        ApplyBackMover(deltaTimestamp, randomRoll, 0);
+        ApplyFrontMover(deltaTimestamp, randomPitch, 0);
+        duration = 0;
+    } else {
+        duration += deltaTimestamp;
+    }
 }
 
 MoverDriverPtr ChairController::GetMoverDriver(CommandData::Mover mover) {

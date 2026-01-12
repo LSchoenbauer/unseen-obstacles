@@ -82,6 +82,13 @@ void WifiService::StartWifi(void) {
         wifi_config.ap.authmode = WIFI_AUTH_OPEN;
     }
 
+	esp_netif_ip_info_t ip_config;
+	IP4_ADDR(&ip_config.ip, 192, 168, 7, 3);       // AP IP
+	IP4_ADDR(&ip_config.gw, 192, 168, 7, 3);       // Gateway (same as AP IP)
+	IP4_ADDR(&ip_config.netmask, 255, 255, 255, 0); // Subnet mask
+	esp_rc = esp_netif_set_ip_info(esp_netif_ap, &ip_config);
+	LogDbgRc("Ip adress applied", esp_rc);
+
     esp_rc = esp_wifi_set_mode(WIFI_MODE_AP);
 	LogDbgRc("Wifi set mode to AP", esp_rc);
     esp_rc = esp_wifi_set_config(WIFI_IF_AP, &wifi_config);

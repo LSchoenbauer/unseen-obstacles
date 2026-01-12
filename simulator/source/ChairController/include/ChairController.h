@@ -21,16 +21,12 @@
 #include "MoverDriver.h"
 #include <stdint.h>
 
+class ChairController;
+typedef ::std::shared_ptr<ChairController> ChairControllerPtr;
 
 class ChairController {
 	public:
-
-		ChairController(
-            MoverDriverPtr rearLeft,
-            MoverDriverPtr rearRight,
-            MoverDriverPtr front,
-            MoverDriverPtr rotation
-        );
+        static ChairControllerPtr Create(MoverDriverPtr rearLeft, MoverDriverPtr rearRight, MoverDriverPtr front, MoverDriverPtr rotation);
 
 		virtual ~ChairController();
 
@@ -40,6 +36,13 @@ class ChairController {
 
         void AdjustToSimulation(const SimulationData& simulationData);
 
+    protected:
+        ChairController(
+                MoverDriverPtr rearLeft,
+                MoverDriverPtr rearRight,
+                MoverDriverPtr front,
+                MoverDriverPtr rotation
+            );
 
     private:
         MoverDriverPtr GetMoverDriver(CommandData::Mover mover);
@@ -47,7 +50,7 @@ class ChairController {
         void ApplyRotation(uint32_t deltaTimestamp, uint32_t deltaYaw);
         void ApplyFrontMover(uint32_t deltaTimestamp, uint32_t deltaPitch, uint32_t deltaZ);
         void ApplyBackMover(uint32_t deltaTimestamp, uint32_t deltaRoll, uint32_t deltaZ);
-        void ApplyShakeMode(uint32_t deltaTimestamp);
+        void ApplyShakeMode(uint32_t deltaTimestamp, uint32_t intensity, uint32_t wheelchairSpeed);
 
         static const uint32_t NORMAL_MOVEMENT_SPEED;
         static const uint32_t DISTANCE_ROTATOR;
@@ -55,6 +58,7 @@ class ChairController {
         static const uint32_t DISTANCE_FRONT;
         static const uint32_t STROKE_PER_TURN;
         static const uint32_t DISTANCE_SIDE_BACK;
+        static const uint32_t INTENSITY_SHAKING;
 
         //bei jedem adjust aufruf triggern, jeden 3. frame ca. Richtung und
         //Geschwindigkeit random ändern, bis stop von Modus, Delta winkel für rütteln,

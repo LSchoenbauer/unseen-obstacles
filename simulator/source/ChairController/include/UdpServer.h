@@ -16,39 +16,34 @@
 
 #pragma once
 
-#include <appfw/Application.h>
-#include <RemoteCtrl.h>
-#include "UdpServer.h"
+#include <memory>
+#include <Arduino.h>
+#include <WiFiUdp.h>
+#include <appfw/AppComponent.h>
 #include "ChairController.h"
 
 using namespace AppFw;
 
-class ChairControllerApp : public Application<ChairControllerApp> {
-		typedef Application<ChairControllerApp> Base;
+class UdpServer;
+typedef ::std::shared_ptr<UdpServer> UdpServerPtr;
+
+class UdpServer : public AppComponent {
+		typedef AppComponent Base;
 	public:
-		/** Destructor */
-		virtual ~ChairControllerApp();
+        static UdpServerPtr Create();
 
-		/** Initializes the application. */
-		void Init();
+		~UdpServer();
 
-	private:
-		friend class Singleton<ChairControllerApp> ;
-		/** Singleton constructor */
-		ChairControllerApp();
+        void Init(ChairControllerPtr chairController);
 
-		/** Starts the WiFi feature */
-		void StartRemoteCtrl();
-		
-		void StartVrConnection();
-		
-		/** The HTTP server instance */
-		RemoteCtrl* remoteCtrl;
-		UdpServerPtr mUdpServer;
-		ChairControllerPtr mChairController;
+        virtual void OnEvent(std::shared_ptr<AppEvent> ev);
 
-		MoverDriverCfgPtr mRearLeftCfg;
-		MoverDriverCfgPtr mRearRightCfg;
-		MoverDriverCfgPtr mFrontCfg;
-		MoverDriverCfgPtr mRotationCfg;
+    protected:
+        UdpServer();
+
+    private:
+        void ReceiveData();
+
+        WiFiUDP mUdp;
+        ChairControllerPtr mChairController;
 };

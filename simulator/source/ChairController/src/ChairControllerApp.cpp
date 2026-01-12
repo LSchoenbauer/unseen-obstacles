@@ -10,7 +10,7 @@
 using namespace Rfs;
 
 ChairControllerApp::ChairControllerApp() :
-        Base(), remoteCtrl(0) {
+        Base(), remoteCtrl(0), mUdpServer(), mChairController(), mRearLeftCfg(), mRearRightCfg(), mFrontCfg(), mRotationCfg() {
 }
 
 ChairControllerApp::~ChairControllerApp() {
@@ -28,12 +28,30 @@ void ChairControllerApp::Init() {
 	if (rfs != 0) {
 		rfs->Start();
 	}
+
+    mRearLeftCfg->MoverDriverCfg::Create(33, 14, 36, 39, 35);
+    mRearRightCfg->MoverDriverCfg::Create(18, 26, 5, 23, 19);
+    mFrontCfg->MoverDriverCfg::Create(21, 22, 2,  16, 17);
+    mRotationCfg->MoverDriverCfg::Create(12, 4, 27, 25, 32);
+
     StartRemoteCtrl();
+    StartVrConnection();
 }
 
 void ChairControllerApp::StartRemoteCtrl() {
-    Serial.println("Test2");
     remoteCtrl = RemoteCtrl::GetInstance();
     remoteCtrl->Init();
-    Serial.println("Test3");
+}
+
+void ChairControllerApp::StartVrConnection() {
+    
+    MoverDriverPtr rearLeft = MoverDriver::Create(mRearLeftCfg);
+    MoverDriverPtr rearRight = MoverDriver::Create(mRearRightCfg);
+    MoverDriverPtr front = MoverDriver::Create(mFrontCfg);
+    MoverDriverPtr rotation = MoverDriver::Create(mRotationCfg);
+
+    mChairController = ChairController::Create(rearLeft, rearRight, front, rotation);
+    mUdpServer = UdpServer::Create();
+    mUdpServer->Init(mChairController);
+    Attach(mUdpServer);
 }
