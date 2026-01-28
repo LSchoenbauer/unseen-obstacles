@@ -25,11 +25,14 @@ MoverDriverCfgPtr MoverDriverCfg::Create(
   uint8_t centerPin,
   uint8_t endPin
 ) {
-	return ::std::shared_ptr<MoverDriverCfg>(new MoverDriverCfg(
+  MoverDriverCfg* cfg = new MoverDriverCfg(
     pulsePin,
     dirPin,
     startPin,
     centerPin,
     endPin
-  ));
+  );
+	return ::std::shared_ptr<MoverDriverCfg>(cfg, [](MoverDriverCfg* object){
+    delete object;
+  });
 }

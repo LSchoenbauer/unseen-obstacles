@@ -38,11 +38,12 @@ class UdpServer : public AppComponent {
 
         virtual void OnEvent(std::shared_ptr<AppEvent> ev);
 
+        void ReceiveData(); //TODO should be private
+
     protected:
         UdpServer();
 
     private:
-        void ReceiveData();
 
         WiFiUDP mUdp;
         ChairControllerPtr mChairController;

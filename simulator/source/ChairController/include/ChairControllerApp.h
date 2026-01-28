@@ -32,6 +32,11 @@ class ChairControllerApp : public Application<ChairControllerApp> {
 		/** Initializes the application. */
 		void Init();
 
+		virtual void ProcessEvents();
+
+		void InitializeChairController();
+
+
 	private:
 		friend class Singleton<ChairControllerApp> ;
 		/** Singleton constructor */

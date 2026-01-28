@@ -7,6 +7,8 @@
 #include "soc/soc.h"           // Disable brownout problems
 #include "soc/rtc_cntl_reg.h"  // Disable brownout problems
 
+#include <utils/Log.h>
+
 using namespace Rfs;
 
 ChairControllerApp::ChairControllerApp() :
@@ -19,6 +21,10 @@ ChairControllerApp::~ChairControllerApp() {
 void ChairControllerApp::Init() {
 	WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); //disable brownout detector
 
+    pinMode(BUILTIN_LED, OUTPUT);
+    digitalWrite(BUILTIN_LED, LOW);
+
+
 	Serial.begin(115200);
 	Serial.setDebugOutput(true);
 	Serial.println();
@@ -29,29 +35,37 @@ void ChairControllerApp::Init() {
 		rfs->Start();
 	}
 
-    mRearLeftCfg->MoverDriverCfg::Create(33, 14, 36, 39, 35);
-    mRearRightCfg->MoverDriverCfg::Create(18, 26, 5, 23, 19);
-    mFrontCfg->MoverDriverCfg::Create(21, 22, 2,  16, 17);
-    mRotationCfg->MoverDriverCfg::Create(12, 4, 27, 25, 32);
+    mRearLeftCfg = MoverDriverCfg::Create(33, 14, 36, 39, 35);
+    mRearRightCfg = MoverDriverCfg::Create(18, 26, 5, 23, 19);
+    mFrontCfg = MoverDriverCfg::Create(21, 22, 2,  16, 17);
+    mRotationCfg = MoverDriverCfg::Create(12, 4, 27, 25, 32);
 
-    StartRemoteCtrl();
+    InitializeChairController();
     StartVrConnection();
+    StartRemoteCtrl();
 }
 
 void ChairControllerApp::StartRemoteCtrl() {
     remoteCtrl = RemoteCtrl::GetInstance();
-    remoteCtrl->Init();
+    remoteCtrl->Init(mChairController);
 }
 
-void ChairControllerApp::StartVrConnection() {
-    
+void ChairControllerApp::InitializeChairController() {
     MoverDriverPtr rearLeft = MoverDriver::Create(mRearLeftCfg);
     MoverDriverPtr rearRight = MoverDriver::Create(mRearRightCfg);
     MoverDriverPtr front = MoverDriver::Create(mFrontCfg);
     MoverDriverPtr rotation = MoverDriver::Create(mRotationCfg);
 
     mChairController = ChairController::Create(rearLeft, rearRight, front, rotation);
+}
+
+void ChairControllerApp::StartVrConnection() {
     mUdpServer = UdpServer::Create();
     mUdpServer->Init(mChairController);
     Attach(mUdpServer);
 }
+
+
+    void ChairControllerApp::ProcessEvents() {
+        mUdpServer->ReceiveData();
+    }

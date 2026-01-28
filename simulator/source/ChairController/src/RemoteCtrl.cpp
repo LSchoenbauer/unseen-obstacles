@@ -9,13 +9,15 @@ using namespace Web;
 using namespace Web::Http;
 
 RemoteCtrl::RemoteCtrl() :
-        Base(), mHttpServer(0) {
+        Base(), mHttpServer(0), mChairController() {
 }
 
 RemoteCtrl::~RemoteCtrl() {
 }
 
-void RemoteCtrl::Init() {
+void RemoteCtrl::Init(ChairControllerPtr chairController) {
+	LogDbg("init remotectrl");
+	mChairController = chairController;
 
 	// HTTP server
 
@@ -37,8 +39,11 @@ void RemoteCtrl::Init() {
 	});
 
 	// Motor 1
-	mHttpServer->OnRequest("/motor1Up", [](std::shared_ptr<Web::Http::HttpRequest> req) {
+	mHttpServer->OnRequest("/motor1Up", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 1 UP clicked");
+		const CommandData commandData(CommandData::Command::UP,CommandData::Mover::REAR_LEFT);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 

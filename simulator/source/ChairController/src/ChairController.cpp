@@ -8,6 +8,7 @@
 #include "CommandData.h"
 #include "Arduino.h"
 #include "cmath"
+#include <utils/Log.h>
 
 const uint32_t ChairController::NORMAL_MOVEMENT_SPEED = 60;
 // TODO echte Werte bemessen
@@ -24,7 +25,6 @@ ChairController::ChairController(
     MoverDriverPtr front,
     MoverDriverPtr rotation
 ) : mRearLeft(rearLeft), mRearRight(rearRight), mFront(front), mRotation(rotation), mCommandModeEnabled(false) {
-
 }
 
 ChairController::~ChairController() {
@@ -46,6 +46,7 @@ ChairControllerPtr ChairController::Create(
 
 void ChairController::SetCommandModeEnabled(bool enabled) {
     mCommandModeEnabled = enabled;
+    LogDbg("Command mode set");
 }
 
 void ChairController::ApplyCommand(const CommandData& commandData) {
@@ -53,8 +54,10 @@ void ChairController::ApplyCommand(const CommandData& commandData) {
         MoverDriverPtr mvr = GetMoverDriver(commandData.GetMover());
         switch (commandData.GetCommand()) {
             case CommandData::Command::UP: // TODO Methoden Auslagerung für alle cases
+                LogDbg("Moving up");
                 mvr->SetDirection(MoverDriver::Direction::FORWARD);
                 mvr->SetSpeedRpm(NORMAL_MOVEMENT_SPEED);
+                mvr->Drive();
                 break;
             case CommandData::Command::DOWN:
                 mvr->SetDirection(MoverDriver::Direction::BACKWARD);

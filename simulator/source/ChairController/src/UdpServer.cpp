@@ -17,6 +17,7 @@ void UdpServer::Init(ChairControllerPtr chairController) {
 }
 
 void UdpServer::OnEvent(std::shared_ptr<AppEvent> ev) {
+  LogDbg("in onEvent");
   if (mChairController != nullptr) {
     ReceiveData();
   }
@@ -25,9 +26,9 @@ void UdpServer::OnEvent(std::shared_ptr<AppEvent> ev) {
 void UdpServer::ReceiveData() {
   const uint32_t bufferLength = 64;
   unsigned char buffer[bufferLength];
-
   if (mUdp.parsePacket()) {
     uint32_t bytesRead = mUdp.read(buffer, bufferLength);
+    //LogDbg("Bytesread %d buffer %d %d %d", bytesRead, buffer[0], buffer[1], buffer[2]);
 
     if (bytesRead == 32) {
       uint32_t* data = (uint32_t*) buffer;
@@ -40,6 +41,7 @@ void UdpServer::ReceiveData() {
       uint32_t posY = *(++data);
       uint32_t posZ = *(++data);
       SimulationData simulationData(timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
+    LogDbg("Simdata %d %d %d %d %d %d %d %d", timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
 
       if (mChairController != nullptr) {
         mChairController->AdjustToSimulation(simulationData);

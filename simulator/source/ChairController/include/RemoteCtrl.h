@@ -19,6 +19,7 @@
 #include <utils/Singleton.h>
 #include <rfs/RootFileSystem.h>
 #include <web/http/HttpServer.h>
+#include "ChairController.h"
 
 #include <memory>
 
@@ -35,7 +36,7 @@ class RemoteCtrl : public Singleton<RemoteCtrl> {
 		virtual ~RemoteCtrl();
 
 		/** Initializes the application. */
-		void Init();
+		void Init(ChairControllerPtr chairController);
 
 	private:
 		friend class Singleton<RemoteCtrl> ;
@@ -57,4 +58,6 @@ class RemoteCtrl : public Singleton<RemoteCtrl> {
 
 		static const char* mSsid;
 		static const char* mWifiPw;
+
+		ChairControllerPtr mChairController;
 };
