@@ -21,6 +21,7 @@ ChairControllerApp::~ChairControllerApp() {
 void ChairControllerApp::Init() {
 	WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); //disable brownout detector
 
+    // TODO: Remove debug code for production
     pinMode(BUILTIN_LED, OUTPUT);
     digitalWrite(BUILTIN_LED, LOW);
 
@@ -35,10 +36,16 @@ void ChairControllerApp::Init() {
 		rfs->Start();
 	}
 
-    mRearLeftCfg = MoverDriverCfg::Create(33, 14, 36, 39, 35);
+    // TODO: Create constants for the pins to make the code better readable
+    // TODO: Apply the microstep config from stepper driver
+    mRearLeftCfg  = MoverDriverCfg::Create(33, 14, 36, 39, 35);
     mRearRightCfg = MoverDriverCfg::Create(18, 26, 5, 23, 19);
-    mFrontCfg = MoverDriverCfg::Create(21, 22, 2,  16, 17);
-    mRotationCfg = MoverDriverCfg::Create(12, 4, 27, 25, 32);
+    // TODO Enable the commented line below for production!
+    // Pin 2 is replaced by pin 36 during debugging, because it affects the internal LED!
+    //mFrontCfg     = MoverDriverCfg::Create(21, 22, 2,  16, 17);
+    mFrontCfg     = MoverDriverCfg::Create(21, 22, 36,  16, 17);
+    mRotationCfg  = MoverDriverCfg::Create(12, 4, 27, 25, 32);
+
 
     InitializeChairController();
     StartVrConnection();

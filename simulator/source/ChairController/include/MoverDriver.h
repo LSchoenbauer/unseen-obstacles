@@ -80,35 +80,44 @@ class MoverDriver {
             bool lastState;
             bool* state;
         } PinIsrData;
+
         typedef struct {
             uint8_t group;
             uint8_t num;
         } HwTimer;
-		void Init();
+
+        void Init();
         uint32_t CalcPulseDurationUs();
         void ProcessDirection();
-        void ARDUINO_ISR_ATTR Step();
         void OnPinDebounce(PinIsrData* data);
         void OnPinChange(PinIsrData* data);
         void AttachTimerIsr(hw_timer_t* timer, bool(*fn)(void*), void* fnArgs);
-
+        
+        void IRAM_ATTR Step();
         static bool IRAM_ATTR OnPulseTimerStatic(void* userData);
-        static void ARDUINO_ISR_ATTR OnPinChangeStatic(void* userData);
+        static void IRAM_ATTR OnPinChangeStatic(void* userData);
         static bool IRAM_ATTR OnPinDebounceStatic(void* userData);
+
+        // switches the internal LED of the ESP on or off. The 'divider' decreases the frequency by 1/divider.
+        void IRAM_ATTR IsrDbgBlink(bool state, uint32_t divider);
 
         static const uint32_t DEFAULT_RAMPING_STEPS;
         static const uint32_t FULL_REVOLUTION_STEP_COUNT;
-        static const uint32_t PULSE_DUTY_CYCLE_PC;
+        // TODO: Remove - always apply 50% duty cycle
+        // static const uint32_t PULSE_DUTY_CYCLE_PC;
         static const uint32_t MIN_PULSE_DURATION_US;
+        static const uint32_t MAX_PULSE_DURATION_US;
         static const uint32_t DEBOUNCE_TIME_MS;
-        static const uint32_t COASTING_TIME_MS;
+        static const uint64_t COASTING_TIME_US;
     
         hw_timer_t* mStepperTimer;
+        // TODO: Remove mDebounceTimer -> too few timers available - debouncing must be realized differently.
         hw_timer_t* mDeBounceTimer;
-        
-        hw_timer_t* mDummyTimer;
 
-        SemaphoreHandle_t mTimerSemaphore;
+        // TODO: Use semaphore for ISR - Task synchronization to calculate speed and direction for the next step
+        // Triggering the speed calculation is currently done in "Drive" -> probably better to decouple it from "Drive"
+        // and trigger it after each step in an OS task.
+        // SemaphoreHandle_t mTimerSemaphore;
         portMUX_TYPE mTimerMux;
 
         MoverDriverCfgPtr mMoverDriverCfg;
@@ -120,10 +129,11 @@ class MoverDriver {
         Direction mTargetDirection;
         Direction mCurrentDirection;
 
-        uint32_t mLastMoverTriggerTime;
+        volatile uint64_t mLastMoverTriggerTimeUs;
 
         bool mIsRamping;
         uint32_t mRampingSteps;
+        // TODO: Move to MoverDriverCfg - this must match the configuration of the stepper driver
         uint32_t mMicrostepFactor;
 
         bool mIsAtTop;

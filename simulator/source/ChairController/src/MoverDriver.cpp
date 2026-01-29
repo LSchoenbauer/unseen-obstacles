@@ -17,12 +17,37 @@
 
 const uint32_t MoverDriver::DEFAULT_RAMPING_STEPS = 50;
 const uint32_t MoverDriver::FULL_REVOLUTION_STEP_COUNT = 200;
-const uint32_t MoverDriver::PULSE_DUTY_CYCLE_PC = 50;
-const uint32_t MoverDriver::MIN_PULSE_DURATION_US = 1000;
+// TODO: Remove - always apply 50% duty cycle
+// const uint32_t MoverDriver::PULSE_DUTY_CYCLE_PC = 50;
+const uint32_t MoverDriver::MIN_PULSE_DURATION_US = 50; // > 1 / the specified max frequency of the stepper (200kHz -> 5µs)
+const uint32_t MoverDriver::MAX_PULSE_DURATION_US = 1 * 1000 * 1000; // slower than 1 Hz -> 60 RPM 
 const uint32_t MoverDriver::DEBOUNCE_TIME_MS = 20;
-const uint32_t MoverDriver::COASTING_TIME_MS = 2000; // 3 frames at 30 fps // TODO 100
+const uint64_t MoverDriver::COASTING_TIME_US = 2000 * 1000; // TODO Replace with the line below - this for debugging only
+// const uint64_t MoverDriver::COASTING_TIME_US = 100 * 1000; // 3 frames at 30 fps = 100 ms
 
-MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) : mMoverDriverCfg(moverDriverCfg), mCurrentStep(0), mTargetSpeed(0), mSetTargetSpeed(0), mCurrentSpeed(0), mTargetDirection(Direction::FORWARD), mCurrentDirection(Direction::FORWARD), mIsRamping(false), mRampingSteps(DEFAULT_RAMPING_STEPS), mMicrostepFactor(1), mIsAtTop(false), mIsAtCenter(true), mIsAtBottom(false), mTopPosition(0), mCenterPosition(0), mBottomPosition(1), mStepperTimer(NULL), mTimerMux(portMUX_INITIALIZER_UNLOCKED), mLastMoverTriggerTime(0), mTimerSemaphore(NULL), mDummyTimer(NULL) {
+MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) : 
+      mMoverDriverCfg(moverDriverCfg), 
+      mCurrentStep(0), 
+      mTargetSpeed(0), 
+      mSetTargetSpeed(0), 
+      mCurrentSpeed(0), 
+      mTargetDirection(Direction::FORWARD), 
+      mCurrentDirection(Direction::FORWARD), 
+      mIsRamping(false), 
+      mRampingSteps(DEFAULT_RAMPING_STEPS), 
+      mMicrostepFactor(1), 
+      mIsAtTop(false), 
+      mIsAtCenter(true), 
+      mIsAtBottom(false), 
+      mTopPosition(0), 
+      mCenterPosition(0), 
+      mBottomPosition(1), 
+      mStepperTimer(NULL), 
+      mLastMoverTriggerTimeUs(0),
+      //  mTimerSemaphore(NULL), 
+      //  mDummyTimer(NULL) 
+      mTimerMux(portMUX_INITIALIZER_UNLOCKED)
+{
    Init();
 }
 
@@ -34,12 +59,9 @@ MoverDriverPtr MoverDriver::Create(MoverDriverCfgPtr moverDriverCfg) {
   ));
 }
 
-/*void IRAM_ATTR onDummyTimer() {
-  LogDbg("New timer");
-}*/
-
 void MoverDriver::Init() {
-  mTimerSemaphore = xSemaphoreCreateBinary(); // TODO: semaphore usage
+
+  // mTimerSemaphore = xSemaphoreCreateBinary(); // TODO: semaphore usage
   LogDbg("Mover Driver Config: %p %s", mMoverDriverCfg.get(), mMoverDriverCfg ? "true" : "false");
   pinMode(mMoverDriverCfg->GetPulsePin(), OUTPUT);
   pinMode(mMoverDriverCfg->GetDirPin(), OUTPUT);
@@ -50,10 +72,6 @@ void MoverDriver::Init() {
   pinMode(mMoverDriverCfg->GetCenterSwitchPin(), INPUT_PULLUP);
   pinMode(mMoverDriverCfg->GetBottomSwitchPin(), INPUT_PULLUP);
   static uint8_t timerId = 0;
-  /*mDummyTimer = timerBegin(timerId++, 80, true);
-  timerAttachInterrupt(mDummyTimer, onDummyTimer, true);
-  timerAlarmWrite(mDummyTimer, 1000000, true);
-  timerAlarmEnable(mDummyTimer);*/
 
   // Timer 0 auf Core 0
   mStepperTimer = timerBegin(timerId++, 80, true); // 80 MHz / 80 = 1 MHz -> 1 tick = 1 µs
@@ -111,10 +129,12 @@ uint32_t MoverDriver::GetRampingSteps() {
   return mRampingSteps;
 }
 
+// TODO: Move to MoverDriverCfg - this must match the configuration of the stepper driver
 void MoverDriver::SetMicrostepFactor(uint32_t microstepFactor) {
   mMicrostepFactor = microstepFactor;
 }
 
+// TODO: Move to MoverDriverCfg - this must match the configuration of the stepper driver
 uint32_t MoverDriver::GetMicrostepFactor() {
   return mMicrostepFactor;
 }
@@ -159,30 +179,28 @@ void MoverDriver::CalibratePositionOfWheelchair() {
 
 }
 
-void BlinkBlink(bool maxBlink) {
-  static uint32_t counter = 0;
-  digitalWrite(BUILTIN_LED, maxBlink ? HIGH : LOW);
-  if (counter > maxBlink) {
-    counter = 0;
-  } else {
-    counter++;
-  }
-}
-
 void MoverDriver::Drive() {
   ProcessDirection();
-  uint32_t pulseDurationUs = 400000; //CalcPulseDurationUs() * 1000; //TODO * 100 just for testing
-
-  if (pulseDurationUs >= MIN_PULSE_DURATION_US) {
-    uint32_t highDurationUs = (pulseDurationUs * PULSE_DUTY_CYCLE_PC) / 100;
-    uint32_t lowDurationUs = pulseDurationUs - highDurationUs;
-  } else {
+  uint32_t pulseDurationUs = 1000; //TODO Remove - 1000 just for testing
+  // uint32_t pulseDurationUs = CalcPulseDurationUs();
+  
+  if (pulseDurationUs <= MIN_PULSE_DURATION_US) {
     pulseDurationUs = MIN_PULSE_DURATION_US;
   }
-  mLastMoverTriggerTime = millis();
-  LogDbg("Pulse duration %d", pulseDurationUs);
-  timerAlarmWrite(mStepperTimer, pulseDurationUs, true);
-  timerAlarmEnable(mStepperTimer);
+  if (pulseDurationUs > MAX_PULSE_DURATION_US) {
+    // too slow -> stop it completely
+    timerAlarmDisable(mStepperTimer);
+    // apply direction
+    uint8_t pin = mMoverDriverCfg->GetDirPin();
+    digitalWrite(pin, mCurrentDirection == Direction::FORWARD ? HIGH : LOW); // might be vice versa
+  } else {
+    uint32_t dutyDurationUs = pulseDurationUs / 2;
+    LogDbg("Pulse duration %d", pulseDurationUs);
+    timerAlarmWrite(mStepperTimer, dutyDurationUs, true);
+    timerAlarmEnable(mStepperTimer);
+  }
+
+  mLastMoverTriggerTimeUs = esp_timer_get_time(); // ISR safe time in µs
 }
 
 uint32_t MoverDriver::CalcPulseDurationUs() {
@@ -209,7 +227,7 @@ uint32_t MoverDriver::CalcPulseDurationUs() {
   
   // Calculate the duration of a complete pulse in µs
   uint32_t stepsPerMinute = (mCurrentSpeed * FULL_REVOLUTION_STEP_COUNT * mMicrostepFactor);
-  uint32_t pulseDurationUs = stepsPerMinute != 0 ? (60e6) / stepsPerMinute : 0;
+  uint32_t pulseDurationUs = stepsPerMinute != 0 ? (60e6) / stepsPerMinute : INT_MAX;
 
   if (hasChanged) {
     LogDbg("Target speed: %d rpm, current speed: %d rpm (step: %d, f: %d Hz, tPulse: %d µs, spm: %d)", 
@@ -231,35 +249,36 @@ void MoverDriver::ProcessDirection() {
   }
 }
 
-void ARDUINO_ISR_ATTR MoverDriver::Step() {
+void IRAM_ATTR MoverDriver::Step() {
   // Increment the counter and set the time of ISR
   portENTER_CRITICAL_ISR(&mTimerMux);
 
-  uint32_t durationSinceLastTrigger = millis() - mLastMoverTriggerTime;
+  uint32_t durationSinceLastTriggerUs = esp_timer_get_time() - mLastMoverTriggerTimeUs;
   if (((mCurrentDirection == Direction::FORWARD && !IsAtTop())
       || (mCurrentDirection == Direction::BACKWARD && !IsAtBottom()))
-      && (durationSinceLastTrigger < COASTING_TIME_MS)) {
+      && (durationSinceLastTriggerUs < COASTING_TIME_US)) {
 
-    static bool directionFake = false;
     uint8_t pin = mMoverDriverCfg->GetPulsePin();
-    //uint8_t readPin = digitalRead(pin);
-    directionFake = !directionFake;
-    BlinkBlink(directionFake);
+    uint8_t pinState = digitalRead(pin);
+    // TODO Remove debug and fake implementation
+    // static unit8_t fakeState = LOW;
+    // pinState = fakeState;
+    // fakeState = fakeState == LOW ? HIGH : LOW;
+    IsrDbgBlink(pinState, 250);
 
-    //digitalWrite(pin, readPin == LOW ? HIGH : LOW);
-    digitalWrite(pin, directionFake ? HIGH : LOW);
-    //mCurrentStep += readPin == HIGH ?
-   //       mCurrentDirection == Direction::FORWARD ? 1 : -1
-     //     : 0;
+    digitalWrite(pin, pinState == LOW ? HIGH : LOW);
+    mCurrentStep += pinState == HIGH ?
+         mCurrentDirection == Direction::FORWARD ? 1 : -1
+         : 0;
   } else {
     timerAlarmDisable(mStepperTimer);
+    // TODO: Remove debug code for production
+    digitalWrite(BUILTIN_LED, LOW);
   }
-  portEXIT_CRITICAL_ISR(&mTimerMux);
-  
-  // Give a semaphore that we can check in the loop
-  xSemaphoreGiveFromISR(mTimerSemaphore, NULL);
-  // It is safe to use digitalRead/Write here if you want to toggle an output
 
+  portEXIT_CRITICAL_ISR(&mTimerMux);
+  // TODO: Remove: trigger task execution - not needed
+  // xSemaphoreGiveFromISR(mTimerSemaphore, NULL);
 }
 
 bool IRAM_ATTR MoverDriver::OnPulseTimerStatic(void* userData) {
@@ -268,7 +287,7 @@ bool IRAM_ATTR MoverDriver::OnPulseTimerStatic(void* userData) {
   return false;
 }
 
-void ARDUINO_ISR_ATTR MoverDriver::OnPinChangeStatic(void* userData) {
+void IRAM_ATTR MoverDriver::OnPinChangeStatic(void* userData) {
   if (userData != nullptr) {
       PinIsrData* data = static_cast<PinIsrData*>(userData);
       data->moverDriver->OnPinChange(data);
@@ -311,8 +330,25 @@ void MoverDriver::AttachTimerIsr(hw_timer_t* timer, bool(*fn)(void*), void* fnAr
   timer_isr_callback_add((timer_group_t)hwTimer->group, (timer_idx_t)hwTimer->num, fn, fnArgs, 0);
 }
 
-volatile uint32_t toggle_interval_us = 10; // 100 kHz
-volatile bool toggle_pin = false;
+void IRAM_ATTR MoverDriver::IsrDbgBlink(bool state, uint32_t divider) {
+  // only one instance!
+  // if (mMoverDriverCfg->GetPulsePin() != 33) { return; }
+  static bool ledState = state;
+  static uint32_t counter = 0;
+  if (ledState == state) {
+    counter++; // to change LED state after 'divider' occurrences
+  }
+
+  if (counter >= divider && ledState != state) {
+    // toggles LED upon the next different state after 'divider' is reached
+    digitalWrite(BUILTIN_LED, state ? HIGH : LOW);
+    counter = 0;
+    ledState = state;
+  }
+}
+
+// volatile uint32_t toggle_interval_us = 10; // 100 kHz
+// volatile bool toggle_pin = false;
 
 /*void loop() {
   // z.B. Frequenzänderung vom anderen Core
