@@ -74,7 +74,6 @@ void ChairControllerApp::StartVrConnection() {
     Attach(mUdpServer);
 }
 
-
-    void ChairControllerApp::ProcessEvents() {
-        mUdpServer->ReceiveData();
-    }
+void ChairControllerApp::ProcessEvents() {
+    mUdpServer->ReceiveData();
+}

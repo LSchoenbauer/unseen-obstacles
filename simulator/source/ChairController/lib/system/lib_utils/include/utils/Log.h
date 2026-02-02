@@ -64,12 +64,12 @@
 struct Logger {
 	public:
 		struct LogSink {
-				typedef enum { // items must be bitwise distinct
-					/** No log sink. */
-					None = 0,
-					/** log to serial */
-					Serial = 1,
-				} Enum;
+			typedef enum { // items must be bitwise distinct
+				/** No log sink. */
+				None = 0,
+				/** log to serial */
+				Serial = 1,
+			} Enum;
 		};
 
 		/**
