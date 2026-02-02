@@ -32,8 +32,8 @@ CommandData* CommandData::Acquire(
       data->mCommand = command;
       data->mMover = mover;
     }
-    return data;
   }
+  return data;
 }
 
 void CommandData::Release() {
