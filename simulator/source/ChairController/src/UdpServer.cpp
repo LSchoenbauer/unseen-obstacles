@@ -41,7 +41,7 @@ void UdpServer::ReceiveData() {
       uint32_t posY = *(++data);
       uint32_t posZ = *(++data);
       SimulationData simulationData(timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
-    LogDbg("Simdata %d %d %d %d %d %d %d %d", timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
+      LogDbg("Simdata %d %d %d %d %d %d %d %d", timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
 
       if (mChairController != nullptr) {
         mChairController->AdjustToSimulation(simulationData);

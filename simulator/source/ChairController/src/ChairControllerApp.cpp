@@ -21,15 +21,17 @@ ChairControllerApp::~ChairControllerApp() {
 void ChairControllerApp::Init() {
 	WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); //disable brownout detector
 
+    Logger::Init(Logger::LogSink::Serial);
+
     // TODO: Remove debug code for production
     pinMode(BUILTIN_LED, OUTPUT);
     digitalWrite(BUILTIN_LED, LOW);
 
-
-	Serial.begin(115200);
-	Serial.setDebugOutput(true);
-	Serial.println();
-    Serial.println("Test");
+    // TODO Remove
+	// Serial.begin(115200);
+	// Serial.setDebugOutput(true);
+	// Serial.println();
+    // Serial.println("Test");
     WifiService::GetInstance()->StartWifi();
 	RootFileSystem* rfs = RootFileSystem::GetInstance();
 	if (rfs != 0) {

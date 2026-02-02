@@ -1,6 +1,9 @@
 
 #include "RemoteCtrl.h"
 
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
+
 #include <appfw/AppComponent.h>
 #include <web/MimeTypes.h>
 #include <utils/Log.h>
@@ -38,9 +41,11 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 		req->SendStatus(200);
 	});
 
+	// TODO: shape the routes: /motor/<id>/<command> all lowercase
+
 	// Motor 1
 	mHttpServer->OnRequest("/motor1Up", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
-		LogInfo("HTTP: Button Motor 1 UP clicked");
+		LogInfo("HTTP: Button Motor 1 UP clicked (core %d)", xPortGetCoreID());
 		const CommandData commandData(CommandData::Command::UP,CommandData::Mover::REAR_LEFT);
 		mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);

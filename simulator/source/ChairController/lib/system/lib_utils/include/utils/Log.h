@@ -46,6 +46,15 @@
 #endif
 #ifdef LOG_ERROR_ENABLED
 #define DO_ENABLE_LOG_ERROR
+
+#ifdef LOG_MULTITHREADED
+	#define DO_LOG_MULTITHREADED
+	#include <freertos/FreeRTOS.h>
+	#include <freertos/task.h>
+	#include <freertos/queue.h>
+	#include <freertos/semphr.h>
+#endif
+
 #endif
 
 #else /* LOG_ENABLED */
@@ -55,15 +64,24 @@
 struct Logger {
 	public:
 		struct LogSink {
-				typedef enum {
+				typedef enum { // items must be bitwise distinct
 					/** No log sink. */
-					None,
+					None = 0,
 					/** log to serial */
-					Serial,
+					Serial = 1,
 				} Enum;
 		};
 
-		static void SetSinkEnabled(LogSink::Enum sink, bool enable);
+		/**
+		 * This method initializes logging to the the specified log sinks.
+		 * It must be called once during system initialization.
+		 * 
+		 * Important: This method is not thread safe even if LOG_MULTITHREADED is enabled!
+		 * 
+		 * @param sinksToEnable Bitwise OR of LogSink::Enum values to enable those sinks.
+		 */
+		static void Init(uint8_t sinksToEnable);
+
 		static void LogLineBreak();
 		static void Log(const char* level, const char* msg, ...);
 		static void Log(const char* level, const char* file, const char* fct, int line, const char* msg, ...);
@@ -76,21 +94,69 @@ struct Logger {
 		static void LogLnIfFail(const Rc& rc, const char* level, const char* msg, ...);
 		static void LogLnIfFail(const Rc& rc, const char* level, const char* file, const char* fct, int line, const char* msg, ...);
 		
+		/**
+		 * Sets the file path prefix to remove for file paths in log messages.
+		 * @param trimInclusive The file path prefix to remove in log messages.
+		 */
 		static void ShortenFilePath(const char* trimInclusive);
+
+		/**
+		 * Logs current heap statistics (free heap size and minimum free heap size).
+		 */
 		static void LogHeapStatistix();
 
+		/**
+		 * Converts the given boolean value as "YES" or "NO".
+		 * @param value The boolean value to convert.
+		 * @return "YES" for true, "NO" for false.
+		 */
 		static const char* Dump(bool value);
+		/**
+		 * Converts the given String object to a C string.
+		 * @param value The String object to convert.
+		 * @return The C string or "INV" if the String is invalid.
+		 */
 		static const char* Dump(const String& value);
 
 	private:
+		static uint8_t mEnabledSinks;
 		static const char* mFilePathStarter;
+
+		/**
+		 * Enables or disables the specified log sink.
+		 * @param sink The log sink to enable or disable.
+		 * @param enable true to enable the sink, false to disable it.
+		 */
+		static void SetSinkEnabled(LogSink::Enum sink, bool enable);
+		static bool IsSinkEnabled(LogSink::Enum sink);
+		
 		static const char* GetFileName(const char* file);
 		static const char* GetFilePath(const char* file);
+
 		static int CalcGap(int minLocatorLen, const char* file, const char* fct, int line);
 
 		static void PrintLogMsg(const char* level, bool newLn, const char* file, const char* fct, int line, const Rc* rc,
 		        const char* msg, va_list* args);
+		static void DoLogMessage(const char* msg);
 		static void ToSerial(const char* msg);
+
+		static void CreateLoggingTask();
+#ifdef DO_LOG_MULTITHREADED
+		typedef struct {
+			const char* msg;
+		} LogEvent;
+
+		static const uint32_t mLogBufferLength;
+		static char mLogBuffer[];
+		static size_t mLogBufferStartIdx;
+		static size_t mNextFreeLogBufferIdx;
+
+		static SemaphoreHandle_t mLogMutex;
+		static QueueHandle_t mLogQueue;
+
+		static void LoggingTask(void *pvParameters);
+		static void EnqueueLog(const char* msg);
+#endif
 
 };
 

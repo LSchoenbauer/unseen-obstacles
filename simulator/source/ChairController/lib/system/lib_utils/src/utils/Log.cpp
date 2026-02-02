@@ -23,8 +23,37 @@
 
 const char* Logger::mFilePathStarter = 0;
 
+uint8_t Logger::mEnabledSinks = 0;
+
+#ifdef DO_LOG_MULTITHREADED
+	#pragma message	("LOG: multithreaded logging enabled!")
+	QueueHandle_t Logger::mLogQueue = 0;
+	SemaphoreHandle_t Logger::mLogMutex = 0;
+	
+	const uint32_t Logger::mLogBufferLength = 2048;
+	char Logger::mLogBuffer[mLogBufferLength];
+	size_t Logger::mNextFreeLogBufferIdx = 0;
+	size_t Logger::mLogBufferStartIdx = 0;
+#else
+	#pragma message	("LOG: SINGLE threaded logging only!")
+#endif
+
+void Logger::Init(uint8_t sinksToEnable) {
+	// single vs. multithreaded logging is handled in method
+	CreateLoggingTask();
+
+	for (uint8_t sink = 1; sink < 8; sink <<= 1) { 
+		// run through all possible sink bits
+		if (sinksToEnable & sink) {
+			SetSinkEnabled(static_cast<LogSink::Enum>(sink), true);
+		}
+	}
+}
+
 void Logger::SetSinkEnabled(LogSink::Enum sink, bool enable) {
+
 	if (enable) {
+		mEnabledSinks |= sink;
 		switch (sink) {
 			case LogSink::Serial:
 				Serial.begin(115200);
@@ -34,6 +63,7 @@ void Logger::SetSinkEnabled(LogSink::Enum sink, bool enable) {
 				break;
 		}
 	} else {
+		mEnabledSinks &= ~sink;
 		switch (sink) {
 			case LogSink::Serial:
 				Serial.end();
@@ -42,6 +72,10 @@ void Logger::SetSinkEnabled(LogSink::Enum sink, bool enable) {
 				break;
 		}
 	}
+}
+
+bool Logger::IsSinkEnabled(LogSink::Enum sink) { 
+	return (mEnabledSinks & sink); 
 }
 
 void Logger::LogLineBreak() {
@@ -176,6 +210,7 @@ void Logger::PrintLogMsg(const char* level, bool newLn, const char* file, const 
 			(uint32_t)((sysTime % 1000000l) / 1000l), 
 			(uint32_t)(sysTime % 1000l));
 		str.concat(timeBuffer);
+		str.concat(' ');
 	}
 
 	char buffer[__LogLocatorMinLen__ + 16];
@@ -225,9 +260,67 @@ void Logger::PrintLogMsg(const char* level, bool newLn, const char* file, const 
 		str.concat(__LogLb);
 	}
 
-	Logger::ToSerial(str.c_str());
+	Logger::DoLogMessage(str.c_str());
+}
+
+void Logger::DoLogMessage(const char* msg) {
+#ifdef DO_LOG_MULTITHREADED
+	EnqueueLog(msg);
+#else
+	Logger::ToSerial(msg);
+	// add additional log sinks here
+#endif
 }
 
 void Logger::ToSerial(const char* msg) {
-	Serial.print(msg);
+	if (Logger::IsSinkEnabled(LogSink::Serial)) {
+		Serial.print(msg);
+	}
 }
+
+void Logger::CreateLoggingTask() {
+#ifdef DO_LOG_MULTITHREADED
+	if (mLogMutex == 0) {
+		mLogMutex = xSemaphoreCreateMutex();
+		mLogQueue = xQueueCreate(10, sizeof(LogEvent));
+
+		xTaskCreatePinnedToCore(
+			Logger::LoggingTask,
+			"LoggingTask",
+			2048,           // Stack size
+			NULL,           // Parameter
+			1,              // Priority
+			NULL,           // Task-Handle
+			1               // pinned to core 1
+		);
+	}
+#endif
+}
+
+#ifdef DO_LOG_MULTITHREADED
+
+void Logger::EnqueueLog(const char* msg) {
+	if (xSemaphoreTake(mLogMutex, portMAX_DELAY) == pdTRUE) {
+		size_t msgLen = strlen(msg) + 1;
+		char* buffer = (char*)pvPortMalloc(msgLen);
+		strncpy(buffer, msg, msgLen);
+
+		Logger::LogEvent logEvent = { buffer };
+		xQueueSend(Logger::mLogQueue, &logEvent, portMAX_DELAY);
+		xSemaphoreGive(mLogMutex);
+	}
+}
+
+void Logger::LoggingTask(void *pvParameters) {
+  Logger::LogEvent logEvent;
+  while (true) {
+    if (xQueueReceive(Logger::mLogQueue, &logEvent, portMAX_DELAY) == pdTRUE) {
+      Logger::ToSerial(logEvent.msg);
+	  // add additional log sinks here
+
+	  vPortFree((void*)(logEvent.msg));
+    }
+  }
+}
+
+#endif

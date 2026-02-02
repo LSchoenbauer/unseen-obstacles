@@ -12,6 +12,8 @@
 #include "Arduino.h"
 #include "esp_timer.h"
 #include "driver/timer.h"
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
 
 #include <utils/Log.h>
 
@@ -62,7 +64,7 @@ MoverDriverPtr MoverDriver::Create(MoverDriverCfgPtr moverDriverCfg) {
 void MoverDriver::Init() {
 
   // mTimerSemaphore = xSemaphoreCreateBinary(); // TODO: semaphore usage
-  LogDbg("Mover Driver Config: %p %s", mMoverDriverCfg.get(), mMoverDriverCfg ? "true" : "false");
+  LogDbg("Mover Driver Config: %p %s (core %d)", mMoverDriverCfg.get(), mMoverDriverCfg ? "true" : "false", xPortGetCoreID());
   pinMode(mMoverDriverCfg->GetPulsePin(), OUTPUT);
   pinMode(mMoverDriverCfg->GetDirPin(), OUTPUT);
   digitalWrite(mMoverDriverCfg->GetPulsePin(), LOW);
@@ -180,6 +182,7 @@ void MoverDriver::CalibratePositionOfWheelchair() {
 }
 
 void MoverDriver::Drive() {
+  LogDbg("Drive runs on core: %d\n", xPortGetCoreID());
   ProcessDirection();
   uint32_t pulseDurationUs = 1000; //TODO Remove - 1000 just for testing
   // uint32_t pulseDurationUs = CalcPulseDurationUs();
