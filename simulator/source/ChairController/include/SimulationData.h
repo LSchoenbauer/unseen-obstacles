@@ -17,27 +17,30 @@
 #pragma once
 
 #include <stdint.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/semphr.h>
 
 
 class SimulationData {
-	public:
+    public:
         enum class Mode {
             NORMAL,
             BUMPING
         };
+        
+        ~SimulationData();
 
-		SimulationData(
+        static SimulationData* Acquire(
             uint32_t timestampMs,
-            Mode mode,
+            SimulationData::Mode mode,
             uint32_t pitch,
             uint32_t yaw,
             uint32_t roll,
             uint32_t posX,
             uint32_t posY,
-            uint32_t posZ
-        ): mTimestampMs(timestampMs), mMode(mode), mPitch(pitch), mYaw(yaw), mRoll(roll), mPosX(posX), mPosY(posY), mPosZ(posZ){}
+            uint32_t posZ);
 
-		~SimulationData(){}
+        void Release();
 
         //void SetTimestamp(uint32_t timestampMs);
         uint32_t GetTimestampMs() const {return mTimestampMs;}
@@ -64,7 +67,14 @@ class SimulationData {
         uint32_t GetPosZ() const {return mPosZ;}
 
     private:
-        uint32_t mTimestampMs;
+        static const uint8_t POOL_SIZE;
+        static SimulationData mPool[];
+        static SemaphoreHandle_t mPoolSemaphore;
+
+        SimulationData();
+
+        // if timestamp is 0, the instance is free
+        uint32_t mTimestampMs = 0;
         Mode mMode;
         uint32_t mPitch; // Y-Drehung
         uint32_t mYaw; // Z-Drehung

@@ -46,7 +46,7 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	// Motor 1
 	mHttpServer->OnRequest("/motor1Up", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 1 UP clicked (core %d)", xPortGetCoreID());
-		const CommandData commandData(CommandData::Command::UP,CommandData::Mover::REAR_LEFT);
+		CommandData* commandData = CommandData::Acquire(CommandData::Command::UP, CommandData::Mover::REAR_LEFT);
 		mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);

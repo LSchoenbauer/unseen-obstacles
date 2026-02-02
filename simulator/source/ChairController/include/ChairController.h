@@ -20,21 +20,24 @@
 #include "SimulationData.h"
 #include "MoverDriver.h"
 #include <stdint.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/queue.h>
+#include <freertos/semphr.h>
 
 class ChairController;
 typedef ::std::shared_ptr<ChairController> ChairControllerPtr;
 
 class ChairController {
-	public:
+    public:
         static ChairControllerPtr Create(MoverDriverPtr rearLeft, MoverDriverPtr rearRight, MoverDriverPtr front, MoverDriverPtr rotation);
 
-		virtual ~ChairController();
+        virtual ~ChairController();
 
         void SetCommandModeEnabled(bool enabled);
 
-        void ApplyCommand(const CommandData& commandData);
+        void ApplyCommand(CommandData* commandData);
 
-        void AdjustToSimulation(const SimulationData& simulationData);
+        void AdjustToSimulation(SimulationData* simulationData);
 
     protected:
         ChairController(
@@ -45,7 +48,25 @@ class ChairController {
             );
 
     private:
+        typedef enum {
+            None,
+            Command,
+            Simulation,
+        } EventType;
+
+        typedef struct {
+            const EventType mType;
+            union {
+                CommandData* mCommandData;
+                SimulationData* mSimulationData;
+            } mData;
+        } Event;
+
         MoverDriverPtr GetMoverDriver(CommandData::Mover mover);
+
+        void ProcessEvent();
+        void ProcessSimulationEvent(const SimulationData* simulationData);
+        void ProcessCommandEvent(const CommandData* commandData);
 
         void ApplyRotation(uint32_t deltaTimestamp, uint32_t deltaYaw);
         void ApplyFrontMover(uint32_t deltaTimestamp, uint32_t deltaPitch, uint32_t deltaZ);
@@ -59,6 +80,10 @@ class ChairController {
         static const uint32_t STROKE_PER_TURN;
         static const uint32_t DISTANCE_SIDE_BACK;
         static const uint32_t INTENSITY_SHAKING;
+        
+        // one queue for all instances, although there is only one ChairController instance
+        static SemaphoreHandle_t mMutex;
+        static QueueHandle_t mEventQueue;
 
         //bei jedem adjust aufruf triggern, jeden 3. frame ca. Richtung und
         //Geschwindigkeit random ändern, bis stop von Modus, Delta winkel für rütteln,
@@ -67,6 +92,7 @@ class ChairController {
         MoverDriverPtr mRearRight;
         MoverDriverPtr mFront;
         MoverDriverPtr mRotation;
+        
 
         bool mCommandModeEnabled;
 };

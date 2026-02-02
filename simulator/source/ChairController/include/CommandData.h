@@ -17,10 +17,11 @@
 #pragma once
 
 #include <stdint.h>
-
+#include <freertos/FreeRTOS.h>
+#include <freertos/semphr.h>
 
 class CommandData {
-	public:
+    public:
         enum class Command {
             UP,
             DOWN,
@@ -35,18 +36,26 @@ class CommandData {
             FRONT,
             ROTATION
         };
+        
+        ~CommandData();
 
-		CommandData(
+        static CommandData* Acquire(
             Command command,
-            Mover mover
-        ) : mCommand(command), mMover(mover) {}
+            Mover mover);
 
-		~CommandData(){}
+        void Release();
 
         Command GetCommand() const {return mCommand;}
         Mover GetMover() const {return mMover;}
-
+        
     private:
+        static const uint8_t POOL_SIZE;
+        static CommandData mPool[];
+        static SemaphoreHandle_t mPoolSemaphore;
+        
+        CommandData();
+
+        bool mAllocated = false;
         Command mCommand;
         Mover mMover;
 };
