@@ -55,7 +55,7 @@ class CommandData {
         
         CommandData();
 
-        bool mAllocated = false;
+        bool mAllocated;
         Command mCommand;
         Mover mMover;
 };

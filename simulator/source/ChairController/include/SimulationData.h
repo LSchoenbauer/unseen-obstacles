@@ -74,7 +74,7 @@ class SimulationData {
         SimulationData();
 
         // if timestamp is 0, the instance is free
-        uint32_t mTimestampMs = 0;
+        uint32_t mTimestampMs;
         Mode mMode;
         uint32_t mPitch; // Y-Drehung
         uint32_t mYaw; // Z-Drehung
