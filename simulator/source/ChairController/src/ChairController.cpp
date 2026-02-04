@@ -23,8 +23,11 @@ ChairController::ChairController(
     MoverDriverPtr rearLeft,
     MoverDriverPtr rearRight,
     MoverDriverPtr front,
-    MoverDriverPtr rotation
-) : mRearLeft(rearLeft), mRearRight(rearRight), mFront(front), mRotation(rotation), mCommandModeEnabled(false) {
+    MoverDriverPtr rotation) : 
+        mRearLeft(rearLeft), mRearRight(rearRight), 
+        mFront(front), mRotation(rotation), 
+        mCommandModeEnabled(false) 
+{
 }
 
 ChairController::~ChairController() {
@@ -44,6 +47,9 @@ ChairControllerPtr ChairController::Create(
     ));
 }
 
+// TODO: Probably better solution
+//       Switch automatically to command mode when a command is received
+//       Reduce this method to returning to simulation mode "DisableCommandMode"
 void ChairController::SetCommandModeEnabled(bool enabled) {
     mCommandModeEnabled = enabled;
     LogDbg("Command mode set");
@@ -108,28 +114,30 @@ void ChairController::ApplyCommand(const CommandData& commandData) {
 }
 
 void ChairController::AdjustToSimulation(const SimulationData& simulationData) {
-    // TODO Methoden Auslagerung
-    static SimulationData lastData = simulationData;
-    static uint32_t lastSpeedZ = 0;
-    uint32_t deltaTimestamp = simulationData.GetTimestampMs() - lastData.GetTimestampMs();
-    uint32_t deltaYaw = simulationData.GetYaw() - lastData.GetYaw();
-    uint32_t deltaPitch = simulationData.GetPitch() - lastData.GetPitch();
-    uint32_t deltaRoll = simulationData.GetRoll() - lastData.GetRoll();
-    uint32_t speedZ = simulationData.GetPosZ() - lastData.GetPosZ();
-    uint32_t accZ = speedZ - lastSpeedZ;
+    if (!mCommandModeEnabled) {
+        // TODO Methoden Auslagerung
+        static SimulationData lastData = simulationData;
+        static uint32_t lastSpeedZ = 0;
+        uint32_t deltaTimestamp = simulationData.GetTimestampMs() - lastData.GetTimestampMs();
+        uint32_t deltaYaw = simulationData.GetYaw() - lastData.GetYaw();
+        uint32_t deltaPitch = simulationData.GetPitch() - lastData.GetPitch();
+        uint32_t deltaRoll = simulationData.GetRoll() - lastData.GetRoll();
+        uint32_t speedZ = simulationData.GetPosZ() - lastData.GetPosZ();
+        uint32_t accZ = speedZ - lastSpeedZ;
 
-    ApplyRotation(deltaTimestamp, deltaYaw);
-    
-    if (simulationData.GetMode() == SimulationData::Mode::BUMPING) {
-        uint32_t wheelchairSpeed = sqrt(pow(simulationData.GetPosX() - lastData.GetPosX(), 2) + pow(simulationData.GetPosY() - lastData.GetPosY(), 2));
-        ApplyShakeMode(deltaTimestamp, INTENSITY_SHAKING, wheelchairSpeed);
-    } else {
-        ApplyFrontMover(deltaTimestamp, deltaPitch, accZ);
-        ApplyBackMover(deltaTimestamp, deltaRoll, accZ); // TODO method call signature check
+        ApplyRotation(deltaTimestamp, deltaYaw);
+
+        if (simulationData.GetMode() == SimulationData::Mode::BUMPING) {
+            uint32_t wheelchairSpeed = sqrt(pow(simulationData.GetPosX() - lastData.GetPosX(), 2) + pow(simulationData.GetPosY() - lastData.GetPosY(), 2));
+            ApplyShakeMode(deltaTimestamp, INTENSITY_SHAKING, wheelchairSpeed);
+        } else {
+            ApplyFrontMover(deltaTimestamp, deltaPitch, accZ);
+            ApplyBackMover(deltaTimestamp, deltaRoll, accZ); // TODO method call signature check
+        }
+
+        lastData = simulationData;
+        lastSpeedZ = speedZ;
     }
-
-    lastData = simulationData;
-    lastSpeedZ = speedZ;
 }
 
 void ChairController::ApplyRotation(uint32_t deltaTimestamp, uint32_t deltaYaw) {
