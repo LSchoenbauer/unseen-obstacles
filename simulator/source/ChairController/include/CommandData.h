@@ -17,8 +17,7 @@
 #pragma once
 
 #include <stdint.h>
-#include <freertos/FreeRTOS.h>
-#include <freertos/semphr.h>
+
 
 class CommandData {
     public:
@@ -36,26 +35,18 @@ class CommandData {
             FRONT,
             ROTATION
         };
-        
-        ~CommandData();
 
-        static CommandData* Acquire(
+        CommandData(
             Command command,
-            Mover mover);
+            Mover mover
+        ) : mCommand(command), mMover(mover) {}
 
-        void Release();
+        ~CommandData(){}
 
         Command GetCommand() const {return mCommand;}
         Mover GetMover() const {return mMover;}
         
     private:
-        static const uint8_t POOL_SIZE;
-        static CommandData mPool[];
-        static SemaphoreHandle_t mPoolSemaphore;
-        
-        CommandData();
-
-        bool mAllocated;
         Command mCommand;
         Mover mMover;
 };

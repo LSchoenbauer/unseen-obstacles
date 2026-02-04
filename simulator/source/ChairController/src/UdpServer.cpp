@@ -40,8 +40,7 @@ void UdpServer::ReceiveData() {
       uint32_t posX = *(++data);
       uint32_t posY = *(++data);
       uint32_t posZ = *(++data);
-      SimulationData* simulationData = SimulationData::Acquire(
-        timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
+      SimulationData simulationData(timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
       LogDbg("Simdata %d %d %d %d %d %d %d %d", timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
 
       if (mChairController != nullptr) {

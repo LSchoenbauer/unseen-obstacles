@@ -19,16 +19,15 @@ const uint32_t ChairController::STROKE_PER_TURN = 5;
 const uint32_t ChairController::DISTANCE_SIDE_BACK = 250;
 const uint32_t ChairController::INTENSITY_SHAKING = 10;
 
-SemaphoreHandle_t ChairController::mMutex = xSemaphoreCreateMutex();
-QueueHandle_t ChairController:: mEventQueue = xQueueCreate(8, sizeof(Event));
-
 ChairController::ChairController(
     MoverDriverPtr rearLeft,
     MoverDriverPtr rearRight,
     MoverDriverPtr front,
-    MoverDriverPtr rotation
-) : mRearLeft(rearLeft), mRearRight(rearRight), mFront(front), mRotation(rotation), 
-    mCommandModeEnabled(false) {
+    MoverDriverPtr rotation) : 
+        mRearLeft(rearLeft), mRearRight(rearRight), 
+        mFront(front), mRotation(rotation), 
+        mCommandModeEnabled(false) 
+{
 }
 
 ChairController::~ChairController() {
@@ -47,110 +46,50 @@ ChairControllerPtr ChairController::Create(
     ));
 }
 
+// TODO: Probably better solution
+//       Switch automatically to command mode when a command is received
+//       Reduce this method to returning to simulation mode "DisableCommandMode"
 void ChairController::SetCommandModeEnabled(bool enabled) {
     mCommandModeEnabled = enabled;
     LogDbg("Command mode set");
 }
 
-void ChairController::ApplyCommand(CommandData* commandData) {
-    if (commandData != nullptr) {
-        if (xSemaphoreTake(mMutex, portMAX_DELAY) == pdTRUE) {
-            // enqueue the event
-            Event commandEvent = {
-                EventType::Command,
-                {.mCommandData = commandData}
-            };
-            // wait for a free slot in the queue
-            xQueueSend(mEventQueue, &commandEvent, portMAX_DELAY);
-            xSemaphoreGive(mMutex); 
-        }
-    }
-}
-
-void ChairController::AdjustToSimulation(SimulationData* simulationData) {
-    if (simulationData != nullptr) {
-        if (xSemaphoreTake(mMutex, portMAX_DELAY) == pdTRUE) {
-            // enqueue the event
-            Event simulationEvent = {
-                EventType::Simulation,
-                {.mSimulationData = simulationData}
-            };
-            // wait for a free slot in the queue
-            xQueueSend(mEventQueue, &simulationEvent, portMAX_DELAY);
-            xSemaphoreGive(mMutex); 
-        }
-    }
-}
-
-void ChairController::ProcessEvent() {
-    Event event = { EventType::None };
-    if (xQueueReceive(mEventQueue, &event, portMAX_DELAY) == pdTRUE) {
-        switch (event.mType) {
-            case EventType::Simulation:
-                ProcessSimulationEvent(event.mData.mSimulationData);
-                event.mData.mSimulationData->Release();
-                break;
-                case EventType::Command:
-                ProcessCommandEvent(event.mData.mCommandData);
-                event.mData.mCommandData->Release();
-                break;
-            default:
-                break;
-        }
-    }
-}
-
-void ChairController::ProcessCommandEvent(const CommandData* commandData) {
-    if (commandData != nullptr && mCommandModeEnabled) {
-        MoverDriverPtr mvr = GetMoverDriver(commandData->GetMover());
-        switch (commandData->GetCommand()) {
+void ChairController::ApplyCommand(const CommandData& commandData) {
+    if (mCommandModeEnabled) {
+        MoverDriverPtr mvr = GetMoverDriver(commandData.GetMover());
+        switch (commandData.GetCommand()) {
             case CommandData::Command::UP: // TODO Methoden Auslagerung für alle cases
                 LogDbg("Moving up");
-                mvr->SetDirection(MoverDriver::Direction::FORWARD);
-                mvr->SetSpeedRpm(NORMAL_MOVEMENT_SPEED);
-                mvr->Drive();
+                mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED, MoverDriver::Direction::FORWARD);
                 break;
             case CommandData::Command::DOWN:
-                mvr->SetDirection(MoverDriver::Direction::BACKWARD);
-                mvr->SetSpeedRpm(NORMAL_MOVEMENT_SPEED);
+                mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED, MoverDriver::Direction::BACKWARD);
                 break;
             case CommandData::Command::TO_TOP:{
-                bool isAtTop = mvr->IsAtTop();
-                mvr->SetDirection(MoverDriver::Direction::FORWARD);
-                while (!isAtTop) {
-                    mvr->SetSpeedRpm(NORMAL_MOVEMENT_SPEED);
-                    delayMicroseconds(30000);
-                    isAtTop = mvr->IsAtTop();
+                while (!mvr->IsAtTop()) {
+                    mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED, MoverDriver::Direction::FORWARD);
+                    vTaskDelay(pdMS_TO_TICKS(30));
                 }
                 break;
             }
             case CommandData::Command::TO_CENTER:{
-                bool isAtTop = mvr->IsAtTop();
-                bool isAtBottom = mvr->IsAtBottom();
-                bool isAtCenter = mvr->IsAtCenter();
                 MoverDriver::Direction direction = mvr->GetCurrentPosition() < mvr->GetCenterPosition() ? MoverDriver::Direction::FORWARD : MoverDriver::Direction::BACKWARD; 
                 mvr->SetDirection(direction);
-                while (!isAtCenter) {
-                    if (isAtTop) {
+                while (!mvr->IsAtCenter()) {
+                    if (mvr->IsAtTop()) {
                         direction = MoverDriver::Direction::BACKWARD;
-                    } else if (isAtBottom) {
+                    } else if (mvr->IsAtBottom()) {
                         direction = MoverDriver::Direction::FORWARD;
                     }
-                    mvr->SetSpeedRpm(NORMAL_MOVEMENT_SPEED);
-                    delayMicroseconds(30000);
-                    isAtTop = mvr->IsAtTop();
-                    isAtBottom = mvr->IsAtBottom();
-                    isAtCenter = mvr->IsAtCenter();
+                    mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED, direction);
+                    vTaskDelay(pdMS_TO_TICKS(30));
                 }
                 break;
             }
             case CommandData::Command::TO_BOTTOM:{
-                bool isAtBottom = mvr->IsAtBottom();
-                mvr->SetDirection(MoverDriver::Direction::BACKWARD);
-                while (!isAtBottom) {
-                    mvr->SetSpeedRpm(NORMAL_MOVEMENT_SPEED);
-                    delayMicroseconds(30000);
-                    isAtBottom = mvr->IsAtBottom();
+                while (!mvr->IsAtBottom()) {
+                    mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED, MoverDriver::Direction::BACKWARD);
+                    vTaskDelay(pdMS_TO_TICKS(30));
                 }
                 break;
             }
@@ -158,29 +97,29 @@ void ChairController::ProcessCommandEvent(const CommandData* commandData) {
     }
 }
 
-void ChairController::ProcessSimulationEvent(const SimulationData* simulationData) {
-    if (simulationData != nullptr && !mCommandModeEnabled) {
+void ChairController::AdjustToSimulation(const SimulationData& simulationData) {
+    if (!mCommandModeEnabled) {
         // TODO Methoden Auslagerung
-        static SimulationData lastData = *simulationData;
+        static SimulationData lastData = simulationData;
         static uint32_t lastSpeedZ = 0;
-        uint32_t deltaTimestamp = simulationData->GetTimestampMs() - lastData.GetTimestampMs();
-        uint32_t deltaYaw = simulationData->GetYaw() - lastData.GetYaw();
-        uint32_t deltaPitch = simulationData->GetPitch() - lastData.GetPitch();
-        uint32_t deltaRoll = simulationData->GetRoll() - lastData.GetRoll();
-        uint32_t speedZ = simulationData->GetPosZ() - lastData.GetPosZ();
+        uint32_t deltaTimestamp = simulationData.GetTimestampMs() - lastData.GetTimestampMs();
+        uint32_t deltaYaw = simulationData.GetYaw() - lastData.GetYaw();
+        uint32_t deltaPitch = simulationData.GetPitch() - lastData.GetPitch();
+        uint32_t deltaRoll = simulationData.GetRoll() - lastData.GetRoll();
+        uint32_t speedZ = simulationData.GetPosZ() - lastData.GetPosZ();
         uint32_t accZ = speedZ - lastSpeedZ;
 
         ApplyRotation(deltaTimestamp, deltaYaw);
-        
-        if (simulationData->GetMode() == SimulationData::Mode::BUMPING) {
-            uint32_t wheelchairSpeed = sqrt(pow(simulationData->GetPosX() - lastData.GetPosX(), 2) + pow(simulationData->GetPosY() - lastData.GetPosY(), 2));
+
+        if (simulationData.GetMode() == SimulationData::Mode::BUMPING) {
+            uint32_t wheelchairSpeed = sqrt(pow(simulationData.GetPosX() - lastData.GetPosX(), 2) + pow(simulationData.GetPosY() - lastData.GetPosY(), 2));
             ApplyShakeMode(deltaTimestamp, INTENSITY_SHAKING, wheelchairSpeed);
         } else {
             ApplyFrontMover(deltaTimestamp, deltaPitch, accZ);
             ApplyBackMover(deltaTimestamp, deltaRoll, accZ); // TODO method call signature check
         }
 
-        lastData = *simulationData;
+        lastData = simulationData;
         lastSpeedZ = speedZ;
     }
 }

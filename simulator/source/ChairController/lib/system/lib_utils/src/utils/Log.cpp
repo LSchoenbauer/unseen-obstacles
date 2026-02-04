@@ -22,20 +22,23 @@
 #include <hardwareSerial.h>
 
 const char* Logger::mFilePathStarter = 0;
-
 uint8_t Logger::mEnabledSinks = 0;
 
 #ifdef DO_LOG_MULTITHREADED
 	#pragma message	("LOG: multithreaded logging enabled!")
-	QueueHandle_t Logger::mLogQueue = 0;
-	SemaphoreHandle_t Logger::mLogMutex = 0;
+	QueueHandle_t Logger::mLogQueue = nullptr;
+	SemaphoreHandle_t Logger::mLogMutex = xSemaphoreCreateRecursiveMutex();
 	
 	const uint32_t Logger::mLogBufferLength = 2048;
 	char Logger::mLogBuffer[mLogBufferLength];
 	size_t Logger::mNextFreeLogBufferIdx = 0;
 	size_t Logger::mLogBufferStartIdx = 0;
+	#define ENTER_CR if (xSemaphoreTakeRecursive(mLogMutex, portMAX_DELAY) == pdTRUE) {
+	#define EXIT_CR xSemaphoreGiveRecursive(mLogMutex); }
 #else
 	#pragma message	("LOG: SINGLE threaded logging only!")
+	#define ENTER_CR {
+	#define EXIT_CR }
 #endif
 
 void Logger::Init(uint8_t sinksToEnable) {
@@ -51,7 +54,6 @@ void Logger::Init(uint8_t sinksToEnable) {
 }
 
 void Logger::SetSinkEnabled(LogSink::Enum sink, bool enable) {
-
 	if (enable) {
 		mEnabledSinks |= sink;
 		switch (sink) {
@@ -171,7 +173,9 @@ const char* Logger::Dump(const String& value) {
 // void Logger::LogHeapStatistix() -- board specific implementation
 
 void Logger::ShortenFilePath(const char* trimInclusive) {
-	Logger::mFilePathStarter = trimInclusive;
+	ENTER_CR
+		Logger::mFilePathStarter = trimInclusive;
+	EXIT_CR
 }
 
 const char* Logger::GetFileName(const char* file) {
@@ -181,10 +185,14 @@ const char* Logger::GetFileName(const char* file) {
 
 const char* Logger::GetFilePath(const char* file) {
 	const char* pathStart = 0;
-	if (Logger::mFilePathStarter != 0) {
-		pathStart = strstr(file, Logger::mFilePathStarter);
-	}
-	return pathStart != 0 ? pathStart + (strlen(Logger::mFilePathStarter)) : file;
+	uint32_t offset = 0;
+	ENTER_CR
+		if (Logger::mFilePathStarter != 0) {
+			pathStart = strstr(file, Logger::mFilePathStarter);
+			offset = strlen(Logger::mFilePathStarter);
+		}
+	EXIT_CR
+	return pathStart != 0 ? pathStart + offset : file;
 }
 
 int Logger::CalcGap(int minLocatorLen, const char* file, const char* fct, int line) {
@@ -194,73 +202,83 @@ int Logger::CalcGap(int minLocatorLen, const char* file, const char* fct, int li
 
 void Logger::PrintLogMsg(const char* level, bool newLn, const char* file, const char* fct, int line, const Rc* rc,
         const char* msg, va_list* args) {
-	String str;
-	str.reserve(128);
+	ENTER_CR
+		String str;
+		str.reserve(128);
 
-	if (level != 0) {
-		str.concat(level);
-		str.concat(' ');
-	}
+		if (level != 0) {
+			str.concat(level);
+			str.concat(' ');
+		}
 
-	if (newLn && msg != 0) {
-		char timeBuffer[16];
-		uint64_t sysTime = ::System::SystemTime::GetMicroseconds64();
-		sprintf(timeBuffer, "%03u.%03u.%03u",
-			(uint32_t)(sysTime / 1000000l), 
-			(uint32_t)((sysTime % 1000000l) / 1000l), 
-			(uint32_t)(sysTime % 1000l));
-		str.concat(timeBuffer);
-		str.concat(' ');
-	}
+		if (newLn && msg != 0) {
+			char timeBuffer[16];
+			uint64_t sysTime = ::System::SystemTime::GetMicroseconds64();
+			snprintf(timeBuffer, sizeof(timeBuffer), "%03u.%03u.%03u ",
+				(uint32_t)(sysTime / 1000000l), 
+				(uint32_t)((sysTime % 1000000l) / 1000l), 
+				(uint32_t)(sysTime % 1000l));
+			str.concat(timeBuffer);
+		}
 
-	char buffer[__LogLocatorMinLen__ + 16];
-	char* bufferPtr = buffer;
-	if (file != 0 && fct != 0) {
-		const char* fName = Logger::GetFileName(file);
-		const char* fPath = Logger::GetFilePath(file);
-		int gap = Logger::CalcGap(__LogLocatorMinLen__, fPath, fct, line);
-		size_t strLen = snprintf(buffer, sizeof(buffer), "%s%s::%s #%d:%*s", (file != fPath ? "..." : ""), fPath, fct, line, gap, " ");
-		if (strLen > sizeof(buffer) - 1) {
-			bufferPtr = new char[strLen + 1];
-			if (bufferPtr != 0) {
-				strLen = snprintf(bufferPtr, strLen + 1, "%s%s::%s #%d:%*s", (file != fPath ? "..." : ""), fPath, fct, line, gap, " ");
+#ifdef DO_LOG_MULTITHREADED
+		if (newLn && msg != 0) {
+			char coreBuffer[8];
+			uint8_t coreId = xPortGetCoreID();
+			snprintf(coreBuffer, sizeof(coreBuffer), "C%u ", coreId);
+			str.concat(coreBuffer);
+		}
+#endif
+
+		char buffer[__LogLocatorMinLen__ + 16];
+		char* bufferPtr = buffer;
+		if (file != 0 && fct != 0) {
+			const char* fName = Logger::GetFileName(file);
+			const char* fPath = Logger::GetFilePath(file);
+			int gap = Logger::CalcGap(__LogLocatorMinLen__, fPath, fct, line);
+			size_t strLen = snprintf(buffer, sizeof(buffer), "%s%s::%s #%d:%*s", (file != fPath ? "..." : ""), fPath, fct, line, gap, " ");
+			if (strLen > sizeof(buffer) - 1) {
+				bufferPtr = new char[strLen + 1];
+				if (bufferPtr != 0) {
+					strLen = snprintf(bufferPtr, strLen + 1, "%s%s::%s #%d:%*s", (file != fPath ? "..." : ""), fPath, fct, line, gap, " ");
+				}
+			}
+			str.concat(bufferPtr);
+			if (buffer != bufferPtr) {
+				delete[] bufferPtr;
 			}
 		}
-		str.concat(bufferPtr);
-		if (buffer != bufferPtr) {
-			delete[] bufferPtr;
-		}
-	}
 
-	if (msg != 0) {
-		bufferPtr = buffer;
-		// note: va_list is started and ended in wrapping functions!
-		size_t strLen = vsnprintf(buffer, sizeof(buffer), msg, *args);
-		if (strLen > sizeof(buffer) - 1) {
-			bufferPtr = new char[strLen + 1];
-			if (bufferPtr != 0) {
-				vsnprintf(bufferPtr, strLen + 1, msg, *args);
+		if (msg != 0) {
+			bufferPtr = buffer;
+			// note: va_list is started and ended in wrapping functions!
+			size_t strLen = vsnprintf(buffer, sizeof(buffer), msg, *args);
+			if (strLen > sizeof(buffer) - 1) {
+				bufferPtr = new char[strLen + 1];
+				if (bufferPtr != 0) {
+					vsnprintf(bufferPtr, strLen + 1, msg, *args);
+				}
+			}
+			str.concat(bufferPtr);
+			if (buffer != bufferPtr) {
+				delete[] bufferPtr;
 			}
 		}
-		str.concat(bufferPtr);
-		if (buffer != bufferPtr) {
-			delete[] bufferPtr;
+
+		if (rc != 0) {
+			str.concat(" [#");
+			str.concat(rc->GetCode());
+			str.concat(": ");
+			str.concat(rc->GetName());
+			str.concat(']');
 		}
-	}
+		
+		if (newLn) {
+			str.concat(__LogLb);
+		}
 
-	if (rc != 0) {
-		str.concat(" [#");
-		str.concat(rc->GetCode());
-		str.concat(": ");
-		str.concat(rc->GetName());
-		str.concat(']');
-	}
-	
-	if (newLn) {
-		str.concat(__LogLb);
-	}
-
-	Logger::DoLogMessage(str.c_str());
+		Logger::DoLogMessage(str.c_str());
+	EXIT_CR
 }
 
 void Logger::DoLogMessage(const char* msg) {
@@ -280,10 +298,8 @@ void Logger::ToSerial(const char* msg) {
 
 void Logger::CreateLoggingTask() {
 #ifdef DO_LOG_MULTITHREADED
-	if (mLogMutex == 0) {
-		mLogMutex = xSemaphoreCreateMutex();
+	if (mLogQueue == nullptr) {
 		mLogQueue = xQueueCreate(10, sizeof(LogEvent));
-
 		xTaskCreatePinnedToCore(
 			Logger::LoggingTask,
 			"LoggingTask",
@@ -300,15 +316,14 @@ void Logger::CreateLoggingTask() {
 #ifdef DO_LOG_MULTITHREADED
 
 void Logger::EnqueueLog(const char* msg) {
-	if (xSemaphoreTake(mLogMutex, portMAX_DELAY) == pdTRUE) {
+	ENTER_CR
 		size_t msgLen = strlen(msg) + 1;
 		char* buffer = (char*)pvPortMalloc(msgLen);
 		strncpy(buffer, msg, msgLen);
 
 		Logger::LogEvent logEvent = { buffer };
 		xQueueSend(Logger::mLogQueue, &logEvent, portMAX_DELAY);
-		xSemaphoreGive(mLogMutex);
-	}
+	EXIT_CR
 }
 
 void Logger::LoggingTask(void *pvParameters) {
