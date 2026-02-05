@@ -40,13 +40,13 @@ void ChairControllerApp::Init() {
 
     // TODO: Create constants for the pins to make the code better readable
     // TODO: Apply the microstep config from stepper driver
-    mRearLeftCfg  = MoverDriverCfg::Create("REAR_LEFT", 33, 14, 36, 39, 35, 400);
-    mRearRightCfg = MoverDriverCfg::Create("REAR_RIGHT", 18, 26, 5, 23, 19, 400);
+    mRearLeftCfg  = MoverDriverCfg::Create("REAR_LEFT", 33, 14, 36, 39, 35, 4);
+    mRearRightCfg = MoverDriverCfg::Create("REAR_RIGHT", 18, 26, 5, 23, 19, 4);
     // TODO Enable the commented line below for production!
     // Pin 2 is replaced by pin 36 during debugging, because it affects the internal LED!
     //mFrontCfg     = MoverDriverCfg::Create(21, 22, 2,  16, 17);
-    mFrontCfg     = MoverDriverCfg::Create("FRONT", 21, 22, 36,  16, 17, 400);
-    mRotationCfg  = MoverDriverCfg::Create("ROTATION", 12, 4, 27, 25, 32, 400);
+    mFrontCfg     = MoverDriverCfg::Create("FRONT", 21, 22, 36,  16, 17, 4);
+    mRotationCfg  = MoverDriverCfg::Create("ROTATION", 12, 4, 27, 25, 32, 4);
 
 
     InitializeChairController();
