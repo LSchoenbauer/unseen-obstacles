@@ -18,7 +18,6 @@
 
 #include <memory>
 #include <MoverDriverCfg.h>
-//#include "esp_timer.h"
 #include <Arduino.h>
 
 class MoverDriver;
@@ -171,7 +170,6 @@ class MoverDriver {
 
         void Init();
         void CreateDriverTask();
-        static void StartDriving(void* pvParameters);
         // runs the loop for driving the stepper
         void Drive();
         // retrieves speed and direction from the queue
@@ -184,7 +182,7 @@ class MoverDriver {
         void OnPinDebounce(PinIsrData* data);
         void OnPinChange(PinIsrData* data);
         void AttachTimerIsr(hw_timer_t* timer, bool(*fn)(void*), void* fnArgs);
-        
+
         void IRAM_ATTR Step();
         static bool IRAM_ATTR OnPulseTimerStatic(void* userData);
         static void IRAM_ATTR OnPinChangeStatic(void* userData);
@@ -192,6 +190,9 @@ class MoverDriver {
 
         // switches the internal LED of the ESP on or off. The 'divider' decreases the frequency by 1/divider.
         void IRAM_ATTR IsrDbgBlink(bool state, uint32_t divider);
+
+        // utility method for debugging purposes
+        static const char* DirectionToString(Direction dir);
 
         static const uint32_t MIN_PULSE_DURATION_US;
         static const uint32_t MAX_PULSE_DURATION_US;

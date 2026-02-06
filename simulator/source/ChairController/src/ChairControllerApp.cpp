@@ -1,6 +1,7 @@
 #include "ChairControllerApp.h"
 #include "WifiService.h"
 
+#include <TaskMgmt.h>
 #include <rfs/RootFileSystem.h>
 
 // for disabling brown-out detector
@@ -66,14 +67,20 @@ void ChairControllerApp::InitializeChairController() {
     MoverDriverPtr rotation = MoverDriver::Create(mRotationCfg);
 
     mChairController = ChairController::Create(rearLeft, rearRight, front, rotation);
+    
+    uint32_t initialPriority = uxTaskPriorityGet(NULL);
+    TaskMgmt::TaskConfig taskCfg = TaskMgmt::GetConfig(TaskMgmt::TaskId::CHAIR_CONTROLLER);
+    vTaskPrioritySet(NULL, taskCfg.priority);
+    LogInfo("ChairControllerApp: Changed priority of main task from %d to %d", initialPriority, taskCfg.priority);
+    Attach(mChairController);
 }
 
 void ChairControllerApp::StartVrConnection() {
     mUdpServer = UdpServer::Create();
     mUdpServer->Init(mChairController);
-    Attach(mUdpServer);
+    mUdpServer->Start();
 }
 
 void ChairControllerApp::ProcessEvents() {
-    mUdpServer->ReceiveData();
+    mChairController->OnEvent(nullptr);
 }

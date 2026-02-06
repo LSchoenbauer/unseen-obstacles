@@ -15,6 +15,7 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 
+#include <TaskMgmt.h>
 #include <utils/Log.h>
 
 const uint32_t MoverDriver::MIN_PULSE_DURATION_US = 50; // > 1 / the specified max frequency of the stepper (200kHz -> 5µs)
@@ -130,32 +131,35 @@ void MoverDriver::CreateDriverTask() {
     // create the controller task on core 0
     const char* label = mCfg->GetLabel();
     if (mDriverTask == nullptr) {
-        BaseType_t res = xTaskCreatePinnedToCore(
+        mDriverTask = TaskMgmt::CreateTask(
+            TaskMgmt::TaskId::STEPPER_DRIVER,
             [](void* pvParameters) { // Task function - lambda
                 MoverDriver* driver = static_cast<MoverDriver*>(pvParameters);
                 LogDbg("%s: Driver task started", driver->mCfg->GetLabel());
                 driver->Drive();
             },
-            label,             // Task name
-            4096,              // Stacksize
-            this,              // Parameter - reference to the instance
-            2,                 // Priority
-            &mDriverTask,      // Task handle
-            0                  // pin to core 0
+            this,
+            label
         );
-        if (res != pdPASS) {
-            LogError("%s: Failed to create MoverDriver command task", label);
-        }
+        // TaskMgmt::TaskConfig cfg = TaskMgmt::GetConfig(TaskMgmt::TaskId::STEPPER_DRIVER);
+        // BaseType_t res = xTaskCreatePinnedToCore(
+        //     [](void* pvParameters) { // Task function - lambda
+        //         MoverDriver* driver = static_cast<MoverDriver*>(pvParameters);
+        //         LogDbg("%s: Driver task started", driver->mCfg->GetLabel());
+        //         driver->Drive();
+        //     },
+        //     label,             // Task name
+        //     cfg.stackDepth,    // Stacksize
+        //     this,              // Parameter - reference to the instance
+        //     cfg.priority,      // Priority
+        //     &mDriverTask,      // Task handle
+        //     cfg.core           // pin to core 0
+        // );
+        // if (res != pdPASS) {
+        //     LogError("%s: Failed to create MoverDriver command task", label);
+        // }
     } else {
         LogWarn("%s: Skipped recreation of MoverDriver command task", label);
-    }
-}
-
-void MoverDriver::StartDriving(void* pvParameters) {
-    MoverDriver* driver = static_cast<MoverDriver*>(pvParameters);
-    if (driver != nullptr) {
-        LogDbg("%s: Driver task started",  driver->mCfg->GetLabel());
-        driver->Drive();
     }
 }
 
@@ -181,9 +185,7 @@ void MoverDriver::RetrieveDriveParams() {
             mTargetDirection = driveParams.mDirection;
         }
         LogDbg("%s: applied direction: %s, speed: %d rpm", mCfg->GetLabel(), 
-            (driveParams.mDirection != Direction::NONE ? 
-                (driveParams.mDirection == Direction::FORWARD ? "FORWARD" : "BACKWARD") 
-                : "UNCHANGED"),
+            MoverDriver::DirectionToString(driveParams.mDirection),
             (driveParams.mSpeedRpm < UINT32_MAX ? driveParams.mSpeedRpm : -1));
     }
 }
@@ -205,9 +207,7 @@ void MoverDriver::SetSpeedAndDirection(uint32_t speedRpm, Direction direction) {
         driveParams.SetDirection(direction);
         xQueueSend(mDriverQueue, &driveParams, portMAX_DELAY);
         LogDbg("%s: queued  direction: %s, speed: %d rpm", mCfg->GetLabel(), 
-            (driveParams.mDirection != Direction::NONE ? 
-                (driveParams.mDirection == Direction::FORWARD ? "FORWARD" : "BACKWARD") 
-                : "UNCHANGED"),
+            MoverDriver::DirectionToString(driveParams.mDirection),
             (driveParams.mSpeedRpm < UINT32_MAX ? driveParams.mSpeedRpm : -1));
 
         // reset the stepper running period
@@ -274,14 +274,35 @@ void MoverDriver::CalcStepperValues() {
     //TODO Remove - 1000 just for testing
     // static uint32_t mLastPulseDurationUs = 0;
     // uint32_t pulseDurationUs = 1000; 
+    
+    uint32_t durationSinceLastTriggerUs = esp_timer_get_time() - mLastMoverTriggerTimeUs;
+    if (((durationSinceLastTriggerUs >= COASTING_TIME_US)
+            || (mCurrentDirection == Direction::FORWARD && IsAtTop())
+            || (mCurrentDirection == Direction::BACKWARD && IsAtBottom())))
+  {
+        if (mSetTargetSpeed != 0) {
+            mIsRamping = false;
+            LogDbg("%s: Limit switch reached, stopping stepper (dir: %s, atTop: %d, atBottom: %d, timeout: %s)", 
+                mCfg->GetLabel(),
+                MoverDriver::DirectionToString(mCurrentDirection),
+                IsAtTop(), IsAtBottom(),
+                (durationSinceLastTriggerUs >= COASTING_TIME_US) ? "YES" : "NO"
+            );
+        }
+        mSetTargetSpeed = 0;
+    }
+
     uint32_t pulseDurationUs = CalcPulseDurationUs();
     
     if (pulseDurationUs <= MIN_PULSE_DURATION_US) {
         pulseDurationUs = MIN_PULSE_DURATION_US;
     }
+
     if (pulseDurationUs > MAX_PULSE_DURATION_US) {
         // too slow -> stop it completely
         timerAlarmDisable(mPulseTimer);
+        IsrDbgReset();
+
         // apply direction
         uint8_t pin = mCfg->GetDirPin();
         digitalWrite(pin, mCurrentDirection == Direction::FORWARD ? HIGH : LOW); // might be vice versa
@@ -354,10 +375,11 @@ void IRAM_ATTR MoverDriver::Step() {
     // Increment the counter and set the time of ISR
     portENTER_CRITICAL_ISR(&mPulseIsrMutex);
 
-    uint32_t durationSinceLastTriggerUs = esp_timer_get_time() - mLastMoverTriggerTimeUs;
-    if (((mCurrentDirection == Direction::FORWARD && !IsAtTop())
-            || (mCurrentDirection == Direction::BACKWARD && !IsAtBottom()))
-            && (durationSinceLastTriggerUs < COASTING_TIME_US)) {
+    // TODO: Cleanup - moved to CalcStepperValues()
+    // uint32_t durationSinceLastTriggerUs = esp_timer_get_time() - mLastMoverTriggerTimeUs;
+    // if (((mCurrentDirection == Direction::FORWARD && !IsAtTop())
+    //         || (mCurrentDirection == Direction::BACKWARD && !IsAtBottom()))
+    //         && (durationSinceLastTriggerUs < COASTING_TIME_US)) {
 
         uint8_t pin = mCfg->GetPulsePin();
         uint8_t pinState = digitalRead(pin);
@@ -365,16 +387,18 @@ void IRAM_ATTR MoverDriver::Step() {
         // static unit8_t fakeState = LOW;
         // pinState = fakeState;
         // fakeState = fakeState == LOW ? HIGH : LOW;
-        IsrDbgBlink(pinState, 250);
+        IsrDbgBlink(pinState, 25);
 
         digitalWrite(pin, pinState == LOW ? HIGH : LOW);
         mCurrentStep += pinState == HIGH ?
                 mCurrentDirection == Direction::FORWARD ? 1 : -1
                 : 0;
-    } else {
-        timerAlarmDisable(mPulseTimer);
-        IsrDbgReset();
-    }
+    
+    // TODO: Cleanup - moved to CalcStepperValues()           
+    // } else {
+    //     timerAlarmDisable(mPulseTimer);
+    //     IsrDbgReset();
+    // }
 
     portEXIT_CRITICAL_ISR(&mPulseIsrMutex);
     // TODO: Remove: trigger task execution - not needed
@@ -422,7 +446,6 @@ void MoverDriver::OnPinDebounce(PinIsrData* data) {
         //timerAlarmDisable(mDeBounceTimer);
     }
     portEXIT_CRITICAL_ISR(&mPulseIsrMutex);
-
 }
 
 void MoverDriver::AttachTimerIsr(hw_timer_t* timer, bool(*fn)(void*), void* fnArgs) {
@@ -430,9 +453,17 @@ void MoverDriver::AttachTimerIsr(hw_timer_t* timer, bool(*fn)(void*), void* fnAr
     timer_isr_callback_add((timer_group_t)hwTimer->group, (timer_idx_t)hwTimer->num, fn, fnArgs, 0);
 }
 
+const char* MoverDriver::DirectionToString(Direction dir) {
+    switch (dir) {
+        case Direction::FORWARD:  return "FORWARD";
+        case Direction::BACKWARD: return "BACKWARD";
+        case Direction::NONE:     return "NONE";
+        default:                  return "INVALID";
+    }
+}
+
 void IRAM_ATTR MoverDriver::IsrDbgBlink(bool state, uint32_t divider) {
     // only one instance!
-    // if (mCfg->GetPulsePin() != 33) { return; }
     static bool ledState = state;
     static uint32_t counter = 0;
     if (ledState == state) {

@@ -99,7 +99,7 @@ void AbstractHtmlController::OnAttach(HttpServer& httpServer) {
 	}
 }
 
-void AbstractHtmlController::OnEvent(std::shared_ptr<AppEvent> ev) {
+void AbstractHtmlController::OnEvent(AppEventPtr ev) {
 	// empty by intension
 }
 
