@@ -1,3 +1,13 @@
+\setauthor{Elisa Kaltenberger}
+
+In diesem Kapitel wird die Auswahl der Entwicklungsplattform für die vorliegende 3D-VR-Simulation erläutert. 
+Dabei werden die zentralen Kriterien betrachtet, die Unity gegenüber der Unreal Engine als geeignete Lösung erscheinen 
+ließen. Zunächst wird auf die VR-spezifischen Werkzeuge und Frameworks eingegangen, die eine effiziente Umsetzung von 
+Interaktionen und Bewegungen ermöglichen. Anschließend wird die Bedeutung der Leistungsfähigkeit und Optimierbarkeit 
+der Engine für eine stabile und ruckelfreie VR-Erfahrung diskutiert. Abschließend wird die Zugänglichkeit der 
+Entwicklungsumgebung sowie die praktische Anwendbarkeit im schulischen Kontext hervorgehoben, um die Entscheidung 
+für Unity inhaltlich zu untermauern.
+
 \section{Programmierumgebung finden}
 \setauthor{Elisa Kaltenberger}
 
@@ -6,18 +16,16 @@ auf das Projekt zugeschnittenen Gründen ausgewählt. Die Entwicklung einer 3D-V
 eine sorgfältige Abwägung, wobei Unity insgesamt die bessere Eignung aufwies.
 (Quelle6, Quelle7)
 
-Der entscheidende Faktor war die gewohnte Programmierbasis. Da die schulische Ausbildung ausschließlich 
-auf Java ausgerichtet war, bot Unity mit der Programmiersprache C-Sharp einen idealen und höchst effizienten 
-Übergang. Die Ähnlichkeit der Sprachen in Syntax und objektorientierten Konzepten ermöglichte eine 
-unmittelbare Übertragung des bestehenden Wissens auf die Engine-Programmierung. Dadurch war es möglich, 
-den Fokus von Beginn an auf die spezifischen Herausforderungen der VR-Programmierung zu legen. Zu diesen 
-Herausforderungen zählen beispielsweise Interaktion, Bewegung und die Optimierung der Performance für VR. 
-Die Verwendung der Unreal Engine, die eine komplexere C++-Sprache sowie ein völlig anderes Blueprint-System 
-erfordert hätte, hätte zu einem erheblichen Mehraufwand an Lernzeit geführt und somit wertvolle Zeit für die 
-inhaltliche Entwicklung der Simulation in Anspruch genommen.
+Der entscheidende Faktor für die Wahl von Unity lag in den umfangreichen VR-spezifischen Werkzeugen und der 
+effizienten Entwicklungsumgebung. Unity bietet eine breite Palette an fertigen Komponenten und Schnittstellen 
+für VR-Interaktion und Bewegung. Dadurch konnte von Beginn an der Fokus auf die inhaltlichen Herausforderungen 
+der VR-Programmierung gelegt werden, ohne dass zusätzliche komplexe Anpassungen oder Eigenentwicklungen nötig 
+gewesen wären. Die Unreal Engine hätte aufgrund ihres komplexeren Blueprint-Systems und der stärker auf C++ 
+ausgerichteten Programmierung einen höheren Entwicklungsaufwand verursacht, was die zeitliche Umsetzung der 
+Simulation deutlich verlängert hätte.
 (Quelle6, Quelle8)
 
-Zweitens ist Unity im Bereich VR/XR besonders gut aufgestellt und zugänglich. Über das XR Interaction Toolkit 
+Zusätzlich ist Unity im Bereich VR/XR gut aufgestellt und zugänglich. Über das XR Interaction Toolkit 
 und die OpenXR-Unterstützung werden von Unity standardisierte und gut dokumentierte Frameworks speziell für die 
 VR-Entwicklung angeboten. Diese Tools abstrahieren plattformspezifische Schwierigkeiten und ermöglichen einen 
 effizienten Einstieg in die Entwicklung von Interaktionen für VR-Controller. Obwohl Unreal Engine ebenfalls 
@@ -25,12 +33,11 @@ effizienten Einstieg in die Entwicklung von Interaktionen für VR-Controller. Ob
 aufgrund der hochwertigen, offiziellen Plugins oft als direkter und schulprojektfreundlicher empfunden.
 (Quelle6, Quelle7, Quelle8)
 
-Die Performance-Charakteristik wurde dahingehend modifiziert, dass eine bessere Passung zum Projekt erzielt 
-wurde. Für eine stabile VR-Simulation ist eine hohe und konstante Framerate (FPS) von entscheidender Bedeutung, 
+Für eine stabile VR-Simulation ist eine hohe und konstante Framerate (FPS) von entscheidender Bedeutung, 
 um das Auftreten von Motion Sickness zu vermeiden. Unity-Projekte werden als vergleichsweise ressourcenschonend 
 und gut optimier- sowie kontrollierbar angesehen, was für den überschaubaren Umfang einer schulischen Simulation 
 vorteilhaft war. Obwohl die Unreal Engine häufig eine beeindruckendere Grafik erzeugt, weist sie in zahlreichen 
-Szenarien einen höheren "Basis-Overhead" auf und erfordert eine leistungsstärkere Hardware. Im Rahmen eines 
+Szenarien einen höheren Basis-Overhead auf und erfordert eine leistungsstärkere Hardware. Im Rahmen eines 
 exemplarischen Simulationsprojekts, das sich durch eine starke Fokussierung auf die inhaltliche Interaktion 
 auszeichnete, wurde Unity als die Lösung identifiziert, die ein optimales Verhältnis zwischen visueller Qualität 
 und garantierter Leistung der verfügbaren Hardware aufwies. Dies steht im Gegensatz zu fotorealistischen 
@@ -38,6 +45,14 @@ Visualisierungen, die bei diesem Projekt nicht im Vordergrund standen.
 (Quelle6, Quelle7)
 
 \section{Welt einrichten}
+In diesem Kapitel wird die Entwicklung der VR-Simulation aus der Perspektive von Rollstuhlfahrenden beschrieben. 
+Zunächst werden die zentralen Hindernisse im Alltag, wie Bankautomaten, Bordsteinkanten und unebene Pflastersteine, 
+analysiert und ihre Herausforderungen für die Mobilität aufgezeigt. Aufbauend auf diesen Erkenntnissen wird die 
+Umsetzung in der VR-Umgebung erläutert: vom funktionalen Whitebox-Prototypen, der die physikalische Interaktion 
+und Wahrnehmung der Hindernisse testet, bis hin zur Gestaltung der finalen, realistischen VR-Welt mit detaillierten 
+Assets und städtischer Umgebung. Das Kapitel vermittelt damit sowohl die konzeptionellen Überlegungen als auch 
+die technischen Schritte, die zur Erstellung einer praxisnahen und immersiven VR-Erfahrung führten.
+
 \subsection{Überlegung der Hindernisse}
 Zunächst wurden die signifikanten Hindernisse für Rollstuhlfahrende identifiziert und einer Analyse unterzogen. 
 Auf dieser Grundlage wurde anschließend die VR-Welt gestaltet, um ein möglichst realistisches und zugleich 
@@ -50,18 +65,18 @@ zur Verfügung stehende Bewegungsfläche vor dem Automaten unzureichend. Ein zus
 Sichtschutz dar, da die seitlichen Schutzblenden oder Abdeckungen in der Regel für stehende Personen konzipiert sind.
 
 Eine Bordsteinkante stellt für Rollstuhlfahrer*innen im Alltag eine signifikante Barriere dar. Die Höhe der 
-Bordsteine hat einen signifikanten Einfluss auf die Fähigkeit der Verkehrsteilnehmer, die Straße selbstständig zu 
-überqueren. Selbst geringfügige Höhenunterschiede können eine Gefahr darstellen, da die Räder im Rollstuhl hängen 
+Bordsteine hat einen signifikanten Einfluss auf die Fähigkeit der Verkehrsteilnehmer*innen, die Straße selbstständig zu 
+überqueren. Selbst geringfügige Höhenunterschiede können eine Gefahr darstellen, da die Räder am Rollstuhl hängen 
 bleiben oder das Gefährt umkippen kann. Abgesenkte Bordsteine werden häufig als unzureichend gestaltet wahrgenommen 
 oder deren Nutzung wird durch parkende Autos, Fahrräder oder Baustellen erschwert. Bei Niederschlag kommt es zu 
 einer Wasseransammlung, was das Überfahren zusätzlich erschwert.
 
 Des Weiteren ist festzustellen, dass Pflastersteine problematisch sind. Die unebene Oberfläche des Produkts 
 führt zu einer signifikanten Erschütterung, die sich negativ auf die körperliche Verfassung auswirken kann. 
-Es wurde beobachtet, dass insbesondere die kleinen Vorderräder des untersuchten Objekts in Fugen oder abgesackten 
-Steinen hängen bleiben können. Bei Nässe oder Glätte können Pflastersteine eine erhöhte Rutschgefahr aufweisen, 
-was das Unfallrisiko signifikant erhöhen kann. Zudem ist ein deutlich höherer Kraftaufwand erforderlich, um auf 
-diesen Wegen zu reisen, was die Autonomie der Fortbewegung erheblich einschränkt.
+Es wurde durch die Interviews festgestellt, dass insbesondere die kleinen Vorderräder des untersuchten Objekts 
+in Fugen oder abgesackten Steinen hängen bleiben können. Bei Nässe oder Glätte können Pflastersteine eine erhöhte 
+Rutschgefahr aufweisen, was das Unfallrisiko signifikant erhöhen kann. Zudem ist ein deutlich höherer Kraftaufwand 
+erforderlich, um auf diesen Wegen zu reisen, was die Autonomie der Fortbewegung erheblich einschränkt.
 
 \subsection{Erster Prototyp}
 Der erste Prototyp der VR-Welt wurde in Unity erstellt, um die zuvor identifizierten Hindernisse für 
@@ -98,15 +113,16 @@ sich die Bewegung über ein Feld unebener Pflastersteine in der reinen Gameplay-
 
 \subsection{Welt gestalten}
 Nach erfolgreicher Einrichtung der Testumgebung wurde ein umfangreiches Asset-Paket einer realen Stadt 
-ausgewählt und heruntergeladen. Im Anschluss daran wurden die einzelnen Gebäude manuell aus dem Paket 
-extrahiert, separat aufbereitet und in die virtuelle Realität integriert. Um die Szenerie lebendiger 
-und authentischer wirken zu lassen, wurden zusätzliche Elemente wie detailreiche Gehsteige, verschiedene 
-Fahrzeugmodelle sowie ein vollständiges Straßennetz systematisch hinzugefügt.
+ausgewählt und heruntergeladen, nach dem Kriterieum, dass die Welt realisitisch aussieht. 
+Im Anschluss daran wurden die einzelnen Gebäude manuell aus dem Paket extrahiert, separat aufbereitet und 
+in die virtuelle Realität integriert. Um die Szenerie lebendiger und authentischer wirken zu lassen, 
+wurden zusätzliche Elemente wie detailreiche Gehsteige, verschiedene Fahrzeugmodelle sowie ein vollständiges 
+Straßennetz systematisch hinzugefügt.
 
 Die Modellierung, Texturierung und Integration der weiteren ästhetischen Komponenten, welche nicht durch 
 das Asset-Paket abgedeckt waren, erfolgte individuell. Im Anschluss wurden diese in die virtuelle 
-Umgebung implementiert. Der kreative und technische Prozess, der zur Schaffung einer immersiven, 
-kohärenten und visuell ansprechenden VR-Landschaft führte, ist als erfolgreich zu betrachten.
+Umgebung integriert. Der kreative und technische Prozess, der zur Schaffung einer immersiven, 
+kohärenten und visuell ansprechenden VR-Landschaft führte, war erfolgreich.
 
 \begin{figure}
     \centering
@@ -119,6 +135,17 @@ kohärenten und visuell ansprechenden VR-Landschaft führte, ist als erfolgreich
 \section{Interaktion in VR}
 \setauthor{Elisa Kaltenberger}
 
+In diesem Kapitel wird die technische Grundlage der VR-Entwicklung mit Unity erläutert. Zunächst wird 
+das Konzept der Virtual Reality vorgestellt, wobei die immersive Darstellung dreidimensionaler Umgebungen 
+und die Echtzeit-Interaktion im Fokus stehen. Anschließend wird die Rolle der Unity Engine als 
+Entwicklungsplattform beschrieben, einschließlich der Kompatibilität mit VR-Headsets und der 
+Bereitstellung von Tools für die Erstellung virtueller Szenen und Interaktionen. Darauf aufbauend 
+werden die Benutzeroberflächen in Unity behandelt: Es wird erklärt, wie Canvas-Objekte als Container 
+für UI-Elemente fungieren, welche Render-Modi für VR relevant sind und wie das EventSystem die 
+Interaktivität der UI sicherstellt. Das Kapitel vermittelt damit sowohl die grundlegenden Konzepte 
+der VR-Umgebung als auch die spezifischen Mechanismen zur Umsetzung funktionaler und immersiver 
+Benutzeroberflächen.
+
 Virtual Reality (VR) bezeichnet computergenerierte, dreidimensionale Umgebungen, die mittels Head-Mounted 
 Displays (VR-Brillen) vollständig immersiv erlebt werden können. Die Reaktionen der Welt auf Kopf- und 
 Handbewegungen erfolgen in Echtzeit und erzeugen ein Gefühl von Präsenz und Immersion. 
@@ -130,9 +157,9 @@ mit diesen.
 
 (Quelle10)
 
-\subsection{Bennutzeroberflächen (UI) in Unity}
+\subsection{Benutzeroberflächen (UI) in Unity}
 
-Unity stellt ein proprietäres UI-System bereit, das auf sogenannten Canvas-Objekten basiert. Buttons sind 
+Unity stellt ein eigenes UI-System bereit, das auf sogenannten Canvas-Objekten basiert. Buttons sind 
 standardisierte UI-Elemente, die über ein OnClick-Event verfügen. Das vorliegende Event gestattet die 
 Ausführung einer definierten Funktion nach Aktivierung eines Buttons. Als Beispiel kann das Öffnen eines 
 Pop-ups oder das Auslösen einer Aktion genannt werden.
@@ -155,10 +182,10 @@ in der die UI-Elemente gerendert werden. Die Position der Elemente innerhalb der
 dabei die Überlagerung, sodass höher angeordnete Elemente über darunterliegende angezeigt werden.
 
 Ein zentrales Merkmal des Canvas-Objekts ist der sogenannte Render Mode. Dieser definiert die Art der 
-Darstellung der Benutzeroberfläche. Im Modus "Screen Space – Overlay" wird die UI direkt über der gesamten 
-Szene dargestellt, wobei sie unabhängig von der Kamera ist. Der Modus "Screen Space – Camera" erzeugt die 
+Darstellung der Benutzeroberfläche. Im Modus Screen Space – Overlay wird die UI direkt über der gesamten 
+Szene dargestellt, wobei sie unabhängig von der Kamera ist. Der Modus Screen Space – Camera erzeugt die 
 Benutzeroberfläche (UI) unter Zuhilfenahme einer spezifischen Kamera und gestattet die Anwendung perspektivischer 
-Effekte. Für Virtual-Reality-Anwendungen ist insbesondere der Modus "World Space" von Relevanz, da sich die
+Effekte. Für Virtual-Reality-Anwendungen ist insbesondere der Modus World Space von Relevanz, da sich die
 Benutzeroberfläche in diesem Modus wie ein normales dreidimensionales Objekt in der Szene verhält. Dies 
 ermöglicht die Platzierung von Buttons und Pop-ups im virtuellen Raum sowie die Betrachtung aus verschiedenen 
 Blickwinkeln.
