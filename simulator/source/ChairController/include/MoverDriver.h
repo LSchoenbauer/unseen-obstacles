@@ -18,62 +18,143 @@
 
 #include <memory>
 #include <MoverDriverCfg.h>
-//#include "esp_timer.h"
 #include <Arduino.h>
 
 class MoverDriver;
 typedef ::std::shared_ptr<MoverDriver> MoverDriverPtr;
 
 class MoverDriver {
-	public:
+    public:
         enum class Direction {
+            NONE,
             FORWARD,
             BACKWARD
         };
 
+        /**
+         * Creates a shared pointer of a MoverDriver instance.
+         * @param moverDriverCfg The shared pointer.
+         */
         static MoverDriverPtr Create(MoverDriverCfgPtr moverDriverCfg);
 
-		~MoverDriver();
+        /**
+         * Destructor
+         */
+        ~MoverDriver();
         
+        /**
+         * Enqueues a new target speed in revolutions per minute (rpm).
+         * Note that this method is asynchronous.
+         * @param speedRpm The target speed in revolutions per minute.
+         */
         void SetSpeedRpm(uint32_t speedRpm);
 
-        uint32_t GetCurrentSpeedRpm();
-
+        /**
+         * Enqueues a new target direction.
+         * Note that this method is asynchronous.
+         * @param direction The target direction.
+         */
         void SetDirection(Direction direction);
 
+        /**
+         * Enqueues a new target speed and direction.
+         * Note that this method is asynchronous.
+         * @param speedRpm The target speed in revolutions per minute.
+         * @param direction The target direction.
+         */
+        void SetSpeedAndDirection(uint32_t speedRpm, Direction direction);
+
+        /**
+         * Provides the current speed of the stepper in revolutions per minute (rpm).
+         * The current speed may deviate from the target speed
+         * while the stepper is ramping up or down.
+         * @return The current speed in rpm.
+         */
+        uint32_t GetCurrentSpeedRpm();
+
+        /**
+         * Provides the current direction of the stepper movement.
+         * The current direction may deviate from the target direction 
+         * while the stepper is ramping up or down to zero speed
+         * before changing direction.
+         * @return The current direction.
+         */
         Direction GetCurrentDirection();
 
-        uint32_t GetCurrentPosition();
-
-        void Drive();
-
-        void SetRampingSteps(uint32_t rampingSteps);
-
-        uint32_t GetRampingSteps();
-
-        void SetMicrostepFactor(uint32_t microstepFactor);
-
-        uint32_t GetMicrostepFactor();
-
+        /**
+         * Determines whether the stepper is at the 'top' limit switch.
+         * @return true if the stepper is at the top position, false otherwise.
+         */
         bool IsAtTop();
 
+        /** 
+         * Determines whether the stepper is at the 'center' limit switch.
+         * @return true if the stepper is at the center position, false otherwise.
+         */
         bool IsAtCenter();
 
+        /**
+         * Determines whether the stepper is at the 'bottom' limit switch.
+         * @return true if the stepper is at the bottom position, false otherwise.
+         */
         bool IsAtBottom();
 
+        /**
+         * Provides the absolute step count for the 'top' position.
+         * @return The step count for the top position.
+         */
         uint32_t GetTopPosition();
 
+        /**
+         * Provides the absolute step count for the 'center' position.
+         * @return The step count for the center position.
+         */
         uint32_t GetCenterPosition();
 
+        /**
+         * Provides the absolute step count for the 'bottom' position.
+         * @return The step count for the bottom position.
+         */
         uint32_t GetBottomPosition();
 
-        void CalibratePositionOfWheelchair();
-        
+        /**
+         * Provides the current absolute position in steps.
+         * @return The current position in steps.
+         */
+        uint32_t GetCurrentPosition();
+
+        /**
+         * Performs a calibration run to top position, 
+         * then to bottom position and eventually to center position.
+         */
+        void CalibratePositions();
 
     protected:
         MoverDriver(MoverDriverCfgPtr moverDriverCfg);
 
     private:
+        typedef struct DriveParamData {
+            bool mIsSpeedValid;
+            Direction mDirection;
+            uint32_t mSpeedRpm;
+
+            DriveParamData() : 
+                mIsSpeedValid(false),
+                mDirection(Direction::NONE),
+                mSpeedRpm(false)
+            {}
+
+            void SetSpeed(uint32_t speedRpm) {
+                mIsSpeedValid = true;
+                mSpeedRpm = speedRpm;
+            }
+
+            void SetDirection(Direction direction) {
+                mDirection = direction;
+            }
+
+        } DriveParams;
+
         typedef struct { 
             MoverDriver* moverDriver;
             uint8_t pin;
@@ -81,18 +162,27 @@ class MoverDriver {
             bool* state;
         } PinIsrData;
 
+        // required to workaround limitations of Arduino timer API
         typedef struct {
             uint8_t group;
             uint8_t num;
         } HwTimer;
 
         void Init();
+        void CreateDriverTask();
+        // runs the loop for driving the stepper
+        void Drive();
+        // retrieves speed and direction from the queue
+        void RetrieveDriveParams();
+        // calculates timing and pin values for stepper
+        void CalcStepperValues();
+        // calculates the step puls duration in microseconds
         uint32_t CalcPulseDurationUs();
         void ProcessDirection();
         void OnPinDebounce(PinIsrData* data);
         void OnPinChange(PinIsrData* data);
         void AttachTimerIsr(hw_timer_t* timer, bool(*fn)(void*), void* fnArgs);
-        
+
         void IRAM_ATTR Step();
         static bool IRAM_ATTR OnPulseTimerStatic(void* userData);
         static void IRAM_ATTR OnPinChangeStatic(void* userData);
@@ -101,26 +191,28 @@ class MoverDriver {
         // switches the internal LED of the ESP on or off. The 'divider' decreases the frequency by 1/divider.
         void IRAM_ATTR IsrDbgBlink(bool state, uint32_t divider);
 
-        static const uint32_t DEFAULT_RAMPING_STEPS;
-        static const uint32_t FULL_REVOLUTION_STEP_COUNT;
-        // TODO: Remove - always apply 50% duty cycle
-        // static const uint32_t PULSE_DUTY_CYCLE_PC;
+        // utility method for debugging purposes
+        static const char* DirectionToString(Direction dir);
+
         static const uint32_t MIN_PULSE_DURATION_US;
         static const uint32_t MAX_PULSE_DURATION_US;
         static const uint32_t DEBOUNCE_TIME_MS;
         static const uint64_t COASTING_TIME_US;
     
-        hw_timer_t* mStepperTimer;
-        // TODO: Remove mDebounceTimer -> too few timers available - debouncing must be realized differently.
-        hw_timer_t* mDeBounceTimer;
+        // the task to calculate speed and direction for the next steps
+        TaskHandle_t mDriverTask;
+        // the queue for configuring to the stepper task
+        QueueHandle_t mDriverQueue;
+        // the mutex to protect shared data
+        SemaphoreHandle_t mDriverMutex;
 
-        // TODO: Use semaphore for ISR - Task synchronization to calculate speed and direction for the next step
-        // Triggering the speed calculation is currently done in "Drive" -> probably better to decouple it from "Drive"
-        // and trigger it after each step in an OS task.
-        // SemaphoreHandle_t mTimerSemaphore;
-        portMUX_TYPE mTimerMux;
+        // the timer for generating stepper pulses
+        hw_timer_t* mPulseTimer;
+        // The mutex to protect shared data in timer ISRs globally
+        portMUX_TYPE mPulseIsrMutex;
 
-        MoverDriverCfgPtr mMoverDriverCfg;
+        // the configuration for this mover driver
+        MoverDriverCfgPtr mCfg;
 
         uint32_t mCurrentStep;
         uint32_t mTargetSpeed;
@@ -129,17 +221,18 @@ class MoverDriver {
         Direction mTargetDirection;
         Direction mCurrentDirection;
 
-        volatile uint64_t mLastMoverTriggerTimeUs;
-
-        bool mIsRamping;
-        uint32_t mRampingSteps;
-        // TODO: Move to MoverDriverCfg - this must match the configuration of the stepper driver
-        uint32_t mMicrostepFactor;
-
         bool mIsAtTop;
         bool mIsAtCenter;
         bool mIsAtBottom;
         uint32_t mTopPosition;
         uint32_t mCenterPosition;
         uint32_t mBottomPosition;
+
+        volatile bool mIsRamping;
+        volatile uint64_t mLastMoverTriggerTimeUs;
+
+        uint32_t mLastPulseDurationUs;
+        uint32_t mTransitionStep;
+        double mRampingStartSpeed;
+        double mRampingStepSpeedDif;
 };

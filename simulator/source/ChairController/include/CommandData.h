@@ -20,7 +20,7 @@
 
 
 class CommandData {
-	public:
+    public:
         enum class Command {
             UP,
             DOWN,
@@ -36,16 +36,16 @@ class CommandData {
             ROTATION
         };
 
-		CommandData(
+        CommandData(
             Command command,
             Mover mover
         ) : mCommand(command), mMover(mover) {}
 
-		~CommandData(){}
+        ~CommandData(){}
 
         Command GetCommand() const {return mCommand;}
         Mover GetMover() const {return mMover;}
-
+        
     private:
         Command mCommand;
         Mover mMover;

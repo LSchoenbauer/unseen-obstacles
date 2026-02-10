@@ -1,6 +1,7 @@
 #include "ChairControllerApp.h"
 #include "WifiService.h"
 
+#include <TaskMgmt.h>
 #include <rfs/RootFileSystem.h>
 
 // for disabling brown-out detector
@@ -40,13 +41,13 @@ void ChairControllerApp::Init() {
 
     // TODO: Create constants for the pins to make the code better readable
     // TODO: Apply the microstep config from stepper driver
-    mRearLeftCfg  = MoverDriverCfg::Create(33, 14, 36, 39, 35);
-    mRearRightCfg = MoverDriverCfg::Create(18, 26, 5, 23, 19);
+    mRearLeftCfg  = MoverDriverCfg::Create("REAR_LEFT", 33, 14, 36, 39, 35, 4);
+    mRearRightCfg = MoverDriverCfg::Create("REAR_RIGHT", 18, 26, 5, 23, 19, 4);
     // TODO Enable the commented line below for production!
     // Pin 2 is replaced by pin 36 during debugging, because it affects the internal LED!
     //mFrontCfg     = MoverDriverCfg::Create(21, 22, 2,  16, 17);
-    mFrontCfg     = MoverDriverCfg::Create(21, 22, 36,  16, 17);
-    mRotationCfg  = MoverDriverCfg::Create(12, 4, 27, 25, 32);
+    mFrontCfg     = MoverDriverCfg::Create("FRONT", 21, 22, 36,  16, 17, 4);
+    mRotationCfg  = MoverDriverCfg::Create("ROTATION", 12, 4, 27, 25, 32, 4);
 
 
     InitializeChairController();
@@ -66,14 +67,20 @@ void ChairControllerApp::InitializeChairController() {
     MoverDriverPtr rotation = MoverDriver::Create(mRotationCfg);
 
     mChairController = ChairController::Create(rearLeft, rearRight, front, rotation);
+    
+    uint32_t initialPriority = uxTaskPriorityGet(NULL);
+    TaskMgmt::TaskConfig taskCfg = TaskMgmt::GetConfig(TaskMgmt::TaskId::CHAIR_CONTROLLER);
+    vTaskPrioritySet(NULL, taskCfg.priority);
+    LogInfo("ChairControllerApp: Changed priority of main task from %d to %d", initialPriority, taskCfg.priority);
+    Attach(mChairController);
 }
 
 void ChairControllerApp::StartVrConnection() {
     mUdpServer = UdpServer::Create();
     mUdpServer->Init(mChairController);
-    Attach(mUdpServer);
+    mUdpServer->Start();
 }
 
 void ChairControllerApp::ProcessEvents() {
-    mUdpServer->ReceiveData();
+    mChairController->OnEvent(nullptr);
 }

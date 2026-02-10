@@ -39,36 +39,59 @@ class MoverDriverCfg {
 public:
     ~MoverDriverCfg() {}
 
-    static MoverDriverCfgPtr Create(
+    static MoverDriverCfgPtr Create (
+            const char* label,
             uint8_t pulsePin,
             uint8_t dirPin,
             uint8_t startPin,
             uint8_t centerPin,
-            uint8_t endPin
+            uint8_t endPin,
+            uint32_t microstepFactor
+        );
+
+    static MoverDriverCfgPtr Create (
+            const char* label,
+            uint8_t pulsePin,
+            uint8_t dirPin,
+            uint8_t startPin,
+            uint8_t centerPin,
+            uint8_t endPin,
+            uint32_t microstepFactor,
+            uint32_t rampingSteps
         );
 
     // --- Getters -------------------------------------------------------------
-    uint8_t GetPulsePin()       const { return mPulsePin; }
-    uint8_t GetDirPin()         const { return mDirPin; }
-    uint8_t GetTopSwitchPin()   const { return mTopSwitchPin; }
-    uint8_t GetCenterSwitchPin()const { return mCenterSwitchPin; }
-    uint8_t GetBottomSwitchPin()const { return mBottomSwitchPin; }
+    const char* GetLabel() const       { return mLabel; }
 
-    uint32_t GetRampingSteps()  const { return mRampingSteps; }
+    uint8_t GetPulsePin() const        { return mPulsePin; }
+    uint8_t GetDirPin() const          { return mDirPin; }
+    uint8_t GetTopSwitchPin() const    { return mTopSwitchPin; }
+    uint8_t GetCenterSwitchPin() const { return mCenterSwitchPin; }
+    uint8_t GetBottomSwitchPin() const { return mBottomSwitchPin; }
+
+    uint32_t GetRampingSteps() const    { return mRampingSteps; }
     uint32_t GetMicrostepFactor() const { return mMicrostepFactor; }
+    uint32_t GetFullRevolutionStepCount() const { return FULL_REVOLUTION_STEP_COUNT; }
 
 protected:
-    MoverDriverCfg(
+    MoverDriverCfg (
+        const char* label,
         uint8_t pulsePin,
         uint8_t dirPin,
         uint8_t topSwitchPin,
         uint8_t centerSwitchPin,
         uint8_t bottomSwitchPin,
-        uint32_t rampingSteps = 50,
-        uint32_t microstepFactor = 1
+        uint32_t microstepFactor,
+        uint32_t rampingSteps
     );
 
 private:
+    static const uint32_t DEFAULT_RAMPING_STEPS;
+    static const uint32_t FULL_REVOLUTION_STEP_COUNT;
+
+    // The label for debugging/logging purposes
+    const char* mLabel;
+
     // --- Pins ---
     uint8_t mPulsePin;
     uint8_t mDirPin;

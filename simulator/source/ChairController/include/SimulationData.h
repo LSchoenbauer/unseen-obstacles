@@ -20,13 +20,13 @@
 
 
 class SimulationData {
-	public:
+    public:
         enum class Mode {
             NORMAL,
             BUMPING
         };
 
-		SimulationData(
+        SimulationData(
             uint32_t timestampMs,
             Mode mode,
             uint32_t pitch,
@@ -37,7 +37,7 @@ class SimulationData {
             uint32_t posZ
         ): mTimestampMs(timestampMs), mMode(mode), mPitch(pitch), mYaw(yaw), mRoll(roll), mPosX(posX), mPosY(posY), mPosZ(posZ){}
 
-		~SimulationData(){}
+        ~SimulationData(){}
 
         //void SetTimestamp(uint32_t timestampMs);
         uint32_t GetTimestampMs() const {return mTimestampMs;}

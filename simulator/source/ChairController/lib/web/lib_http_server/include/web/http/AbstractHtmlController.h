@@ -166,7 +166,7 @@ class AbstractHtmlController : public AppEventTarget {
 		 *
 		 * @param ev The received event.
 		 */
-		virtual void OnEvent(std::shared_ptr<AppEvent> ev);
+		virtual void OnEvent(AppEventPtr ev);
 
 		/**
 		 * Is invoked when a request is received, that matches the 'page URI'.
