@@ -54,11 +54,17 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 
 	mHttpServer->OnRequest("/motor1Center", [](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 1 CENTER clicked");
+		const CommandData commandData(CommandData::Command::TO_CENTER,CommandData::Mover::REAR_LEFT);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 
 	mHttpServer->OnRequest("/motor1Down", [](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 1 DOWN clicked");
+		const CommandData commandData(CommandData::Command::DOWN,CommandData::Mover::REAR_LEFT);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 
@@ -66,16 +72,25 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	// Motor 2
 	mHttpServer->OnRequest("/motor2Up", [](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 2 UP clicked");
+		const CommandData commandData(CommandData::Command::UP,CommandData::Mover::REAR_RIGHT);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 
 	mHttpServer->OnRequest("/motor2Center", [](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 2 CENTER clicked");
+		const CommandData commandData(CommandData::Command::TO_CENTER,CommandData::Mover::REAR_RIGHT);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 
 	mHttpServer->OnRequest("/motor2Down", [](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 2 DOWN clicked");
+		const CommandData commandData(CommandData::Command::DOWN,CommandData::Mover::REAR_RIGHT);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 
@@ -83,16 +98,25 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	// Motor 3
 	mHttpServer->OnRequest("/motor3Up", [](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 3 UP clicked");
+		const CommandData commandData(CommandData::Command::UP,CommandData::Mover::FRONT);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 
 	mHttpServer->OnRequest("/motor3Center", [](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 3 CENTER clicked");
+		const CommandData commandData(CommandData::Command::TO_CENTER,CommandData::Mover::FRONT);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 
 	mHttpServer->OnRequest("/motor3Down", [](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 3 DOWN clicked");
+		const CommandData commandData(CommandData::Command::DOWN,CommandData::Mover::FRONT);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 
@@ -100,16 +124,25 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	// Motor 4
 	mHttpServer->OnRequest("/motor4Up", [](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 4 UP clicked");
+		const CommandData commandData(CommandData::Command::UP,CommandData::Mover::ROTATION);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 
 	mHttpServer->OnRequest("/motor4Center", [](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 4 CENTER clicked");
+		const CommandData commandData(CommandData::Command::TO_CENTER,CommandData::Mover::ROTATION);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 
 	mHttpServer->OnRequest("/motor4Down", [](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 4 DOWN clicked");
+		const CommandData commandData(CommandData::Command::DOWN,CommandData::Mover::ROTATION);
+		mChairController->SetCommandModeEnabled(true);
+		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
 
