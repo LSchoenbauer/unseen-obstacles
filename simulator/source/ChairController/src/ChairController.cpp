@@ -100,48 +100,69 @@ void ChairController::OnEvent(AppEventPtr ev) {
     }
 }
 
+void ChairController::CmdUp(MoverDriverPtr mvr) {
+    LogDbg("Moving up");
+
+    for (int i = 0; i < 30; ++i) {
+        mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED,
+                                 MoverDriver::Direction::FORWARD);
+        vTaskDelay(pdMS_TO_TICKS(33));
+    }
+}
+
+void ChairController::CmdDown(MoverDriverPtr mvr) {
+    mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED,
+                             MoverDriver::Direction::BACKWARD);
+}
+
+void ChairController::CmdToTop(MoverDriverPtr mvr) {
+    while (!mvr->IsAtTop()) {
+        mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED,
+                                 MoverDriver::Direction::FORWARD);
+        vTaskDelay(pdMS_TO_TICKS(30));
+    }
+}
+
+void ChairController::CmdToCenter(MoverDriverPtr mvr)
+{
+    auto direction =
+        mvr->GetCurrentPosition() < mvr->GetCenterPosition()
+        ? MoverDriver::Direction::FORWARD
+        : MoverDriver::Direction::BACKWARD;
+
+    mvr->SetDirection(direction);
+
+    while (!mvr->IsAtCenter()) {
+
+        if (mvr->IsAtTop())
+            direction = MoverDriver::Direction::BACKWARD;
+        else if (mvr->IsAtBottom())
+            direction = MoverDriver::Direction::FORWARD;
+
+        mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED, direction);
+        vTaskDelay(pdMS_TO_TICKS(30));
+    }
+}
+
+void ChairController::CmdToBottom(MoverDriverPtr mvr)
+{
+    while (!mvr->IsAtBottom()) {
+        mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED,
+                                 MoverDriver::Direction::BACKWARD);
+        vTaskDelay(pdMS_TO_TICKS(30));
+    }
+}
+
 void ChairController::OnCommand(const CtrlCommandData& cmdData) {
     SetCommandModeEnabled(true);
     MoverDriverPtr mvr = GetMoverDriver(cmdData.mMover);
-    switch (cmdData.mCommand) {
-        case CommandData::Command::UP: // TODO Methoden Auslagerung für alle cases
-            LogDbg("Moving up");
-            for (int i = 0; i < 30; i++) {
-                mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED, MoverDriver::Direction::FORWARD);
-                vTaskDelay(pdMS_TO_TICKS(33));
-            }
-            break;
-        case CommandData::Command::DOWN:
-            mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED, MoverDriver::Direction::BACKWARD);
-            break;
-        case CommandData::Command::TO_TOP:{
-            while (!mvr->IsAtTop()) {
-                mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED, MoverDriver::Direction::FORWARD);
-                vTaskDelay(pdMS_TO_TICKS(30));
-            }
-            break;
-        }
-        case CommandData::Command::TO_CENTER:{
-            MoverDriver::Direction direction = mvr->GetCurrentPosition() < mvr->GetCenterPosition() ? MoverDriver::Direction::FORWARD : MoverDriver::Direction::BACKWARD; 
-            mvr->SetDirection(direction);
-            while (!mvr->IsAtCenter()) {
-                if (mvr->IsAtTop()) {
-                    direction = MoverDriver::Direction::BACKWARD;
-                } else if (mvr->IsAtBottom()) {
-                    direction = MoverDriver::Direction::FORWARD;
-                }
-                mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED, direction);
-                vTaskDelay(pdMS_TO_TICKS(30));
-            }
-            break;
-        }
-        case CommandData::Command::TO_BOTTOM:{
-            while (!mvr->IsAtBottom()) {
-                mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED, MoverDriver::Direction::BACKWARD);
-                vTaskDelay(pdMS_TO_TICKS(30));
-            }
-            break;
-        }
+    switch (cmdData.mCommand)
+    {
+        case CommandData::Command::UP:        CmdUp(mvr); break;
+        case CommandData::Command::DOWN:      CmdDown(mvr); break;
+        case CommandData::Command::TO_TOP:    CmdToTop(mvr); break;
+        case CommandData::Command::TO_CENTER: CmdToCenter(mvr); break;
+        case CommandData::Command::TO_BOTTOM: CmdToBottom(mvr); break;
     }
 }
 

@@ -110,6 +110,12 @@ class ChairController : public AppComponent {
                 mMode(CtrlMode::SIMULATION), mSimulationData(data) {}
         } CtrlData;
 
+        void CmdUp(MoverDriverPtr mvr);
+        void CmdDown(MoverDriverPtr mvr);
+        void CmdToTop(MoverDriverPtr mvr);
+        void CmdToBottom(MoverDriverPtr mvr);
+        void CmdToCenter(MoverDriverPtr mvr);
+        
         void OnCommand(const CtrlCommandData& cmdData);
         void OnSimulationData(const CtrlSimulationData& simData);
 
