@@ -12,6 +12,7 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/queue.h>
 #include <freertos/semphr.h>
+#include <TaskMgmt.h>
 
 const uint32_t ChairController::NORMAL_MOVEMENT_SPEED = 60;
 // TODO echte Werte bemessen
@@ -63,6 +64,12 @@ void ChairController::SetCommandModeEnabled(bool enabled) {
 }
 
 void ChairController::ApplyCommand(const CommandData& commandData) {
+    //TODO: Just for debugging - remove
+    MoverDriverPtr mvr = GetMoverDriver(commandData.GetMover());
+    LogDbg("Is at top: %d",mvr->IsAtTop());
+    LogDbg("Is at center: %d", mvr->IsAtCenter());
+    LogDbg("Is at bottom: %d", mvr->IsAtBottom());
+
     if (xSemaphoreTake(mCtrlMutex, portMAX_DELAY) == pdTRUE) {
         CtrlCommandData data(commandData);
         CtrlData ctrlData(data);
@@ -98,6 +105,11 @@ void ChairController::OnEvent(AppEventPtr ev) {
             // do nothing
             break;
     }
+    
+    // TODO: remove in production
+    TaskMgmt::TraceTaskList();
+    TaskMgmt::TraceTaskDetails();
+    TaskMgmt::TraceTaskStats();
 }
 
 void ChairController::CmdUp(MoverDriverPtr mvr) {
@@ -111,8 +123,11 @@ void ChairController::CmdUp(MoverDriverPtr mvr) {
 }
 
 void ChairController::CmdDown(MoverDriverPtr mvr) {
-    mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED,
+    for (int i = 0; i < 30; ++i) {
+        mvr->SetSpeedAndDirection(NORMAL_MOVEMENT_SPEED,
                              MoverDriver::Direction::BACKWARD);
+        vTaskDelay(pdMS_TO_TICKS(33));
+    }
 }
 
 void ChairController::CmdToTop(MoverDriverPtr mvr) {

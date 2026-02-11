@@ -54,6 +54,9 @@ class TaskMgmt {
          * @return The handle of the created task or nullptr if the task could not be created.
          */
         static TaskHandle_t CreateTask(TaskId taskId, TaskFunction_t taskFn, void* taskParams = nullptr, const char *taskName = nullptr);
+        static void TraceTaskList();
+        static void TraceTaskStats();
+        static void TraceTaskDetails();
 
     private:
         TaskMgmt() = delete;

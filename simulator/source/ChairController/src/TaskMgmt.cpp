@@ -25,7 +25,7 @@ TaskMgmt::TaskConfig TaskMgmt::GetConfig(TaskId taskId) {
 
 TaskHandle_t TaskMgmt::CreateTask(TaskId taskId, TaskFunction_t taskFn, void* taskParams, const char *taskName) {
     BaseType_t res = pdFAIL;
-    TaskHandle_t mHandle = nullptr;
+    TaskHandle_t handle = nullptr;
     TaskConfig cfg = GetConfig(taskId);
     const char* label = (taskName != nullptr) ? taskName : cfg.label;
     if (cfg.core == CoreId::CORE_ANY) {
@@ -35,7 +35,7 @@ TaskHandle_t TaskMgmt::CreateTask(TaskId taskId, TaskFunction_t taskFn, void* ta
             cfg.stackDepth,    // Stacksize
             taskParams,        // Parameter
             cfg.priority,      // Priority
-            &mHandle           // Task handle
+            &handle           // Task handle
         );
     } else {
         res = xTaskCreatePinnedToCore(
@@ -44,7 +44,7 @@ TaskHandle_t TaskMgmt::CreateTask(TaskId taskId, TaskFunction_t taskFn, void* ta
             cfg.stackDepth,    // Stacksize
             taskParams,        // Parameter
             cfg.priority,      // Priority
-            &mHandle,          // Task handle
+            &handle,          // Task handle
             cfg.core           // pin to core 0
         );
     }
@@ -56,9 +56,46 @@ TaskHandle_t TaskMgmt::CreateTask(TaskId taskId, TaskFunction_t taskFn, void* ta
                 label, taskId, cfg.priority, cfg.stackDepth);
         }
         else {
-            LogDbg("Created task %s (ID %d) pinned to core %d with priority %d and stack depth %d",
-                label, taskId, cfg.core, cfg.priority, cfg.stackDepth);
+            LogDbg("Created task %s (ID %d, hdl: %p) pinned to core %d with priority %d and stack depth %d",
+                label, taskId, handle, cfg.core, cfg.priority, cfg.stackDepth);
         }
+        vTaskDelay(pdMS_TO_TICKS(5));
     }
-    return (res == pdPASS) ? mHandle : nullptr;
+    return (res == pdPASS) ? handle : nullptr;
+}
+
+void TaskMgmt::TraceTaskList()
+{
+    // char buffer[2048];
+    // vTaskList(buffer);
+    // LogDbg("Name          State  Prio Stack Num\n");
+    // LogDbg("%s\n", buffer);
+}
+
+void TaskMgmt::TraceTaskStats()
+{
+    // char buffer[2048];
+    // vTaskGetRunTimeStats(buffer);
+    // LogDbg("Task           Time      Percent\n");
+    // LogDbg("%s\n", buffer);
+}
+
+void TaskMgmt::TraceTaskDetails() {
+    // UBaseType_t taskCount = uxTaskGetNumberOfTasks();
+    // TaskStatus_t* statusArray = (TaskStatus_t*)malloc(taskCount * sizeof(TaskStatus_t));
+    // uint32_t totalRunTime;
+
+    // taskCount = uxTaskGetSystemState(
+    //     statusArray,
+    //     taskCount,
+    //     &totalRunTime
+    // );
+
+    // for (int i = 0; i < taskCount; i++) {
+    //     printf("%s: %lu\n",
+    //         statusArray[i].pcTaskName,
+    //         statusArray[i].ulRunTimeCounter);
+    // }
+
+    // free(statusArray);
 }

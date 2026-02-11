@@ -29,10 +29,12 @@ const uint64_t MoverDriver::COASTING_TIME_US = 100 * 1000; // 3 frames at 30 fps
 
 #ifdef ISR_DBG_ENABLED
     #define IsrDbgReset() digitalWrite(BUILTIN_LED, LOW)
-    #define IsrDbgBlink(state, divider) IsrDbgBlink(state, divider)
+    #define IsrDbgBlink(state, divider) IsrDbgBlinkFn(state, divider)
+    #define IsrDbg(state) IsrDbgLedFn(state)
 #else
-    #define ISR_DBG_RESET()
+    #define IsrDbgReset()
     #define IsrDbgBlink(state, divider)
+    #define IsrDbg(state)
 #endif
 
 MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) : 
@@ -49,7 +51,7 @@ MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) :
             mTargetDirection(Direction::FORWARD), 
             mCurrentDirection(Direction::FORWARD), 
             mIsAtTop(false), 
-            mIsAtCenter(true), 
+            mIsAtCenter(false), 
             mIsAtBottom(false), 
             mTopPosition(0), 
             mCenterPosition(0), 
@@ -59,13 +61,18 @@ MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) :
             mLastPulseDurationUs(0),
             mTransitionStep(0),
             mRampingStartSpeed(0.),
-            mRampingStepSpeedDif(0.)
+            mRampingStepSpeedDif(0.),
+            mTopSwitchData(),
+            mCenterSwitchData(),
+            mBottomSwitchData()
+            
 {
     Init();
 }
 
 MoverDriver::~MoverDriver() {
     // task will stop and delete itself
+    LogDbg("%s: destructing", mCfg != nullptr ? mCfg->GetLabel(): "NULL");
     mDriverTask = nullptr;
     if (mPulseTimer != nullptr) {
         timerEnd(mPulseTimer);
@@ -101,20 +108,28 @@ void MoverDriver::Init() {
     pinMode(mCfg->GetCenterSwitchPin(), INPUT_PULLUP);
     pinMode(mCfg->GetBottomSwitchPin(), INPUT_PULLUP);
     static uint8_t timerId = 0;
+    
+    mTopSwitchData = {
+        this, mCfg->GetTopSwitchPin(), false, &mIsAtTop
+    };
+    attachInterruptArg(mCfg->GetTopSwitchPin(), MoverDriver::OnPinChangeStatic, &mTopSwitchData, CHANGE);
 
-    static PinIsrData centerSwitchData = {
+
+    mCenterSwitchData = {
         this, mCfg->GetCenterSwitchPin(), false, &mIsAtCenter
     };
-    attachInterruptArg(mCfg->GetCenterSwitchPin(), MoverDriver::OnPinChangeStatic, &centerSwitchData, CHANGE);
+    attachInterruptArg(mCfg->GetCenterSwitchPin(), MoverDriver::OnPinChangeStatic, &mCenterSwitchData, CHANGE);
 
-    static PinIsrData bottomSwitchData = {
+    mBottomSwitchData = {
         this, mCfg->GetBottomSwitchPin(), false, &mIsAtBottom
     };
-    attachInterruptArg(mCfg->GetBottomSwitchPin(), MoverDriver::OnPinChangeStatic, &bottomSwitchData, CHANGE);
+    attachInterruptArg(mCfg->GetBottomSwitchPin(), MoverDriver::OnPinChangeStatic, &mBottomSwitchData, CHANGE);
 
     mPulseTimer = timerBegin(timerId++, 80, true); // 80 MHz / 80 = 1 MHz -> 1 tick = 1 µs
     timerAlarmDisable(mPulseTimer);
     AttachTimerIsr(mPulseTimer, MoverDriver::OnPulseTimerStatic, this);
+
+    LogDbg("%s: Switchpins: %d %d %d", mCfg->GetLabel(), mCfg->GetTopSwitchPin(), mCfg->GetCenterSwitchPin(), mCfg->GetBottomSwitchPin());
 
     CreateDriverTask();
 }
@@ -165,11 +180,13 @@ void MoverDriver::CreateDriverTask() {
 
 void MoverDriver::Drive() {
     while (mDriverTask != nullptr) {
+        LogDbg("%s driving", mCfg->GetLabel());
         RetrieveDriveParams();
         CalcStepperValues();
-        vTaskDelay(pdMS_TO_TICKS(5)); // recalculate every 5 ms
+        vTaskDelay(pdMS_TO_TICKS(50)); // recalculate every 5 ms
     }
     vTaskDelete(NULL);
+    LogDbg("in drive task over");
 }
 
 void MoverDriver::RetrieveDriveParams() {
@@ -187,6 +204,8 @@ void MoverDriver::RetrieveDriveParams() {
         LogDbg("%s: applied direction: %s, speed: %d rpm", mCfg->GetLabel(), 
             MoverDriver::DirectionToString(driveParams.mDirection),
             (driveParams.mSpeedRpm < UINT32_MAX ? driveParams.mSpeedRpm : -1));
+    } else {
+        LogDbg("%s: in retrievedriveparams else", mCfg->GetLabel());
     }
 }
 
@@ -421,10 +440,12 @@ void IRAM_ATTR MoverDriver::OnPinChangeStatic(void* userData) {
 void MoverDriver::OnPinChange(PinIsrData* data) {
     portENTER_CRITICAL_ISR(&mPulseIsrMutex);
     if (data != nullptr) {
-        data->lastState = digitalRead(data->pin) == HIGH;
+        data->lastState = digitalRead(data->pin) == LOW;
+        *(data->state) = data->lastState;
         //timerAlarmWrite(mDeBounceTimer, DEBOUNCE_TIME_MS, false);
         //timerAlarmEnable(mDeBounceTimer);
     }
+    IsrDbg(data->lastState);
     portEXIT_CRITICAL_ISR(&mPulseIsrMutex);
 }
 
@@ -462,7 +483,7 @@ const char* MoverDriver::DirectionToString(Direction dir) {
     }
 }
 
-void IRAM_ATTR MoverDriver::IsrDbgBlink(bool state, uint32_t divider) {
+void IRAM_ATTR MoverDriver::IsrDbgBlinkFn(bool state, uint32_t divider) {
     // only one instance!
     static bool ledState = state;
     static uint32_t counter = 0;
@@ -478,3 +499,7 @@ void IRAM_ATTR MoverDriver::IsrDbgBlink(bool state, uint32_t divider) {
     }
 }
 
+
+void IRAM_ATTR MoverDriver::IsrDbgLedFn(bool state) {
+    digitalWrite(BUILTIN_LED, state ? HIGH : LOW);
+}

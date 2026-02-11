@@ -189,7 +189,8 @@ class MoverDriver {
         static bool IRAM_ATTR OnPinDebounceStatic(void* userData);
 
         // switches the internal LED of the ESP on or off. The 'divider' decreases the frequency by 1/divider.
-        void IRAM_ATTR IsrDbgBlink(bool state, uint32_t divider);
+        void IRAM_ATTR IsrDbgBlinkFn(bool state, uint32_t divider);
+        void IRAM_ATTR IsrDbgLedFn(bool state);
 
         // utility method for debugging purposes
         static const char* DirectionToString(Direction dir);
@@ -235,4 +236,8 @@ class MoverDriver {
         uint32_t mTransitionStep;
         double mRampingStartSpeed;
         double mRampingStepSpeedDif;
+
+        PinIsrData mCenterSwitchData;
+        PinIsrData mBottomSwitchData;
+        PinIsrData mTopSwitchData;
 };
