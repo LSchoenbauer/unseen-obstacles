@@ -14,6 +14,8 @@
 #include <freertos/semphr.h>
 #include <TaskMgmt.h>
 
+#include <TaskMgmt.h>
+
 const uint32_t ChairController::NORMAL_MOVEMENT_SPEED = 60;
 // TODO echte Werte bemessen
 const uint32_t ChairController::DISTANCE_ROTATOR = 600;
@@ -77,6 +79,9 @@ void ChairController::ApplyCommand(const CommandData& commandData) {
         xQueueOverwrite(mCtrlQueue, &ctrlData); 
         xSemaphoreGive(mCtrlMutex);
     }
+    PrintTasks();
+    PrintTasksDetailed();
+    PrintTaskRuntimeDetails();
 }
 
 void ChairController::AdjustToSimulation(const SimulationData& simulationData) {

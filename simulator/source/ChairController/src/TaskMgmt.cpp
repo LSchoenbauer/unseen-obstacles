@@ -1,6 +1,7 @@
 #include "TaskMgmt.h"
 #include <utils/Log.h>
 
+
 const TaskMgmt::TaskConfig TaskMgmt::mConfigs[] = {
     // index corresponds to 'Task' enum value!
     // ID, label, core, stackDepth, priority (0 (idle) to configMAX_PRIORITIES-1 (max))
@@ -99,3 +100,61 @@ void TaskMgmt::TraceTaskDetails() {
 
     // free(statusArray);
 }
+
+void TaskMgmt::PrintTaskList() {
+    char* taskList = (char *)pvPortMalloc(512 * sizeof(char));
+    if (taskList != nullptr) {
+        vTaskList(taskList);
+        LogInfo("\n=== FreeRTOS Task Overview ===\n");
+        LogInfo("Task Name\t\tState\tPriority\tStack\tTask#");
+        LogInfo("--------------------------------------------------");
+        LogInfo("%s", taskList);
+        LogInfo("--------------------------------------------------");
+        vPortFree(taskList);
+    }
+}
+
+void TaskMgmt::PrintDetailedTaskList() {
+    UBaseType_t taskCount = uxTaskGetNumberOfTasks();
+    TaskStatus_t* taskStates = (TaskStatus_t*)pvPortMalloc(taskCount * sizeof(TaskStatus_t));
+
+    if (taskStates != nullptr) {
+        taskCount = uxTaskGetSystemState(taskStates, taskCount, NULL);
+
+        LogInfo("\n=== FreeRTOS Detailed Task Info ===\n");
+        LogInfo("Task#\tState\tTask Name\t\tPriority\tCore\tStack\tRuntime");
+        LogInfo("----------------------------------------------------------");
+        for (UBaseType_t i = 0; i < taskCount; i++) {
+            LogInfo(
+                "%u\t%d\t%s\t\t%d\t%d\t%u\t%u"
+                , taskStates[i].xTaskNumber
+                , taskStates[i].eCurrentState
+                , taskStates[i].pcTaskName
+                , taskStates[i].uxCurrentPriority
+#ifdef CONFIG_FREERTOS_VTASKLIST_INCLUDE_COREID
+                , taskStates[i].xCoreID
+#else
+                , -1 // core ID not available
+#endif
+                , taskStates[i].usStackHighWaterMark
+                , taskStates[i].ulRunTimeCounter
+            );
+        }
+        LogInfo("----------------------------------------------------------");
+        vPortFree(taskStates);
+    }
+}
+
+void TaskMgmt::PrintTaskRuntimeStatistics() {
+    char* stats = (char* )pvPortMalloc(1024 * sizeof(char));
+    if (stats != NULL) {
+        vTaskGetRunTimeStats(stats);
+        LogInfo("\n=== Runtime Statistics ===\n");
+        LogInfo("Task Name\t\tRuntime\t\tPercentage");
+        LogInfo("----------------------------------------");
+        LogInfo("%s", stats);
+        LogInfo("----------------------------------------");
+        vPortFree(stats);
+    }
+}
+
