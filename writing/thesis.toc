@@ -22,44 +22,48 @@
 \contentsline {subsection}{\numberline {3.2.3}Fertigung der Platine}{22}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Layout in KiCad}{22}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Platinenherstellung}{23}{subsection.3.2.5}%
-\contentsline {chapter}{\numberline {4}Umfeldanalyse}{26}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Bewegungen im Virtuellen Raum}{27}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Definition Motion Sickness, Cybersickness, VRISE}{27}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Biologische Ursachen von Cybersickness}{28}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Das Gleichgewichtssystem}{28}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Das Visuelle System}{28}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Ursachen für Cybersickness in der virtuellen Realität}{29}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Sensory Conflict Theory}{29}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Poison Theory}{30}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Postural Instability Theory}{30}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}Festlegung der Theorie zur Reduzierung der Cybersickness für die Hardware-Komponente}{31}{subsection.5.3.4}%
-\contentsline {section}{\numberline {5.4}Reduzierung der Cybersickness}{31}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Hardware Prototyp}{31}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Einordnung und Zielsetzung der Steuerung im virtuellen Raum}{32}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Anforderungen an eine intuitive und barrierefreie Steuerung}{32}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.1}Intuitivität in VR}{32}{subsection.5.7.1}%
-\contentsline {subsection}{\numberline {5.7.2}Barrierefreiheit im Interaktionsdesign}{32}{subsection.5.7.2}%
-\contentsline {subsection}{\numberline {5.7.3}Zusammenhang zwischen Steuerung und Cybersickness}{34}{subsection.5.7.3}%
-\contentsline {section}{\numberline {5.8}Analyse möglicher Steuerungskonzepte}{34}{section.5.8}%
-\contentsline {subsection}{\numberline {5.8.1}Controller-basierte Steuerung}{34}{subsection.5.8.1}%
-\contentsline {subsection}{\numberline {5.8.2}Bewegungsbasierte Steuerung (Head-/Body-Tracking)}{35}{subsection.5.8.2}%
-\contentsline {subsection}{\numberline {5.8.3}Sitzbasierte-Steuerung}{36}{subsection.5.8.3}%
-\contentsline {section}{\numberline {5.9}Gewähltes Steuerungskonzept und Begründung}{38}{section.5.9}%
-\contentsline {section}{\numberline {5.10}Umsetzung innerhalb der Simulation}{39}{section.5.10}%
-\contentsline {subsection}{\numberline {5.10.1}Mapping von Eingabe zu Bewegung}{39}{subsection.5.10.1}%
-\contentsline {subsection}{\numberline {5.10.2}Verknüpfung von Steuerung, Sitzbewegung und visueller Bewegung}{40}{subsection.5.10.2}%
-\contentsline {subsection}{\numberline {5.10.3}Sicherheitsmechanismen und Bewegungsbegrenzungen}{40}{subsection.5.10.3}%
-\contentsline {chapter}{\numberline {6}Technologien}{41}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Foo}{41}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Bar}{43}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Deeper}{44}{subsection.6.2.1}%
-\contentsline {subsubsection}{\nonumberline Deepest}{44}{subsubsection*.17}%
-\contentsline {chapter}{\numberline {7}Umsetzung}{45}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Zusammenfassung}{47}{chapter.8}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{VI}{chapter*.20}%
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{VIII}{chapter*.21}%
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{IX}{chapter*.22}%
-\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{X}{chapter*.23}%
+\contentsline {subsection}{\numberline {3.2.6}Testen der Platine}{25}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Verkabelung der Motoren}{26}{subsection.3.2.7}%
+\contentsline {subsection}{\numberline {3.2.8}Erste Ansteuerung der Motoren}{28}{subsection.3.2.8}%
+\contentsline {subsection}{\numberline {3.2.9}Tag der offenen Tür HTL-Leonding}{28}{subsection.3.2.9}%
+\contentsline {chapter}{\numberline {4}Umfeldanalyse}{31}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Bewegungen im Virtuellen Raum}{32}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Definition Motion Sickness, Cybersickness, VRISE}{32}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Biologische Ursachen von Cybersickness}{33}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Das Gleichgewichtssystem}{33}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Das Visuelle System}{33}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Ursachen für Cybersickness in der virtuellen Realität}{34}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Sensory Conflict Theory}{34}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Poison Theory}{35}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Postural Instability Theory}{35}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Festlegung der Theorie zur Reduzierung der Cybersickness für die Hardware-Komponente}{36}{subsection.5.3.4}%
+\contentsline {section}{\numberline {5.4}Reduzierung der Cybersickness}{36}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Hardware Prototyp}{36}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Einordnung und Zielsetzung der Steuerung im virtuellen Raum}{37}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Anforderungen an eine intuitive und barrierefreie Steuerung}{37}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Intuitivität in VR}{37}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Barrierefreiheit im Interaktionsdesign}{37}{subsection.5.7.2}%
+\contentsline {subsection}{\numberline {5.7.3}Zusammenhang zwischen Steuerung und Cybersickness}{39}{subsection.5.7.3}%
+\contentsline {section}{\numberline {5.8}Analyse möglicher Steuerungskonzepte}{39}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Controller-basierte Steuerung}{39}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Bewegungsbasierte Steuerung (Head-/Body-Tracking)}{40}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}Sitzbasierte-Steuerung}{41}{subsection.5.8.3}%
+\contentsline {section}{\numberline {5.9}Gewähltes Steuerungskonzept und Begründung}{43}{section.5.9}%
+\contentsline {section}{\numberline {5.10}Umsetzung innerhalb der Simulation}{44}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Mapping von Eingabe zu Bewegung}{44}{subsection.5.10.1}%
+\contentsline {subsection}{\numberline {5.10.2}Verknüpfung von Steuerung, Sitzbewegung und visueller Bewegung}{45}{subsection.5.10.2}%
+\contentsline {subsection}{\numberline {5.10.3}Sicherheitsmechanismen und Bewegungsbegrenzungen}{45}{subsection.5.10.3}%
+\contentsline {chapter}{\numberline {6}Technologien}{46}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Foo}{46}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Bar}{48}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Deeper}{49}{subsection.6.2.1}%
+\contentsline {subsubsection}{\nonumberline Deepest}{49}{subsubsection*.20}%
+\contentsline {chapter}{\numberline {7}Umsetzung}{50}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Zusammenfassung}{52}{chapter.8}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{VI}{chapter*.23}%
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{VIII}{chapter*.24}%
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{IX}{chapter*.25}%
+\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{X}{chapter*.26}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\nonumberline Anhang}{XI}{chapter*.24}%
+\contentsline {chapter}{\nonumberline Anhang}{XI}{chapter*.27}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

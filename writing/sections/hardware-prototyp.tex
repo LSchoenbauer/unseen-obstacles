@@ -233,3 +233,143 @@ Stabilität und Zuverlässigkeit der elektronischen Schaltung bei.
     \caption{Platine Prototyp}
     \label{fig:platine}
 \end{figure}
+
+\subsection{Testen der Platine}
+\setauthor{Elisa Kaltenberger}
+
+Nach erfolgreicher Fertigung und Bestückung der Platine wurden gründliche Testverfahren durchgeführt, um 
+die Funktionalität und Zuverlässigkeit der Platine systematisch zu verifizieren. Ziel dieser Untersuchungen 
+war es, sowohl die Integrität der elektrischen Verbindungen als auch die korrekte Umsetzung der vorgesehenen 
+Schaltfunktionen sicherzustellen.
+
+Bei der grundlegenden elektrischen Üprüfungen wurden Messungen von Spannungen und Signalverläufen an 
+verschiedenen kritischen Punkten der Schaltungen vorgenommen. Dadurch konnte überprüft werden, ob die 
+Versorgungsspannung stabil anliegt, ob unerwünschte Kurzschlüsse oder Unterbrechungen vorliegen und ob 
+sämtliche Komponenten innerhalb ihrer spezifizierten Betriebsparameter arbeiten.
+
+Zur Validierung der korrekten Bestückung und Funktion der LEDs wurde ein spezielles Testprogramm 
+implementiert. Dieses Programm steuerte sämtliche LEDs sequenziell an, sodass sie nacheinander in einer 
+festgelegten Reihenfolge aufblinkten. Durch dieses Verfahren konnte eindeutig festgestellt werden, ob 
+jede LED ordnungsgemäß verbaut, korrekt gelötet und funktionsfähig ist. Darüber hinaus wurden die Widerstände 
+auf der Platine überprüft, um sicherzustellen, dass sie den vorgesehenen Wert aufweisen und somit den 
+Stromfluss entsprechend regulieren.
+
+\subsection{Verkabelung der Motoren}
+\setauthor{Elisa Kaltenberger}
+Nach der erfolgreichen Überprüfung der Platine und der Bestätigung ihrer Funktionalität erfolgte die 
+Verkabelung der Motoren. Dieser Schritt ist von entscheidender Bedeutung, da eine korrekte Verbindung 
+zwischen der Platine und den Motoren die Grundlage für die spätere Steuerung und Funktionalität des gesamten 
+Systems bildet.
+
+Bei dem eingesetzten System handelt es sich um einen bipolaren Schrittmotor Abb. \ref{fig:stepper} mit vier Anschlussleitungen 
+(rot, grün, blau, schwarz), der über einen externen Motortreiber angesteuert wird. Ein solcher Motor besitzt 
+zwei getrennte Wicklungen (Phase A und Phase B), die jeweils über ein Leitungspaar kontaktiert werden. Die
+korrekte Identifikation dieser Wicklungspaare ist essenziell für den ordnungsgemäßen Betrieb. Da die 
+Farbzuordnung der Leitungen herstellerabhängig ist und keiner einheitlichen Norm unterliegt, darf die 
+Verschaltung nicht ausschließlich anhand der Kabelfarben erfolgen. Stattdessen ist entweder das Datenblatt 
+des Motors heranzuziehen oder eine messtechnische Überprüfung durchzuführen. Mittels Widerstandsmessung lässt 
+sich feststellen, welche beiden Leitungen jeweils eine Wicklung bilden, da zwischen ihnen ein geringer 
+ohmscher Widerstand messbar ist, während zwischen Leitungen unterschiedlicher Wicklungen kein Durchgang 
+besteht.
+(Quelle 17, 18)
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/stepper.jpg}
+    \caption{Schrittmotor}
+    \label{fig:stepper}
+\end{figure}
+
+Die vier Motorleitungen werden an die entsprechend gekennzeichneten Klemmen des Motortreibers Abb. \ref{fig:stepper-driver} angeschlossen, 
+die üblicherweise mit A+, A-minus sowie B+, B-minus beschriftet sind. Dabei ist sicherzustellen, dass jedes 
+Wicklungspaar korrekt einer Phase zugeordnet wird. Eine Vertauschung der beiden Wicklungen führt in der 
+Regel zu Fehlfunktionen wie Vibrationen oder einem ausbleibenden Anlauf. Eine Umpolung innerhalb eines 
+Wicklungspaars hingegen bewirkt lediglich eine Änderung der Drehrichtung und stellt keine Gefährdung für 
+die Hardware dar.
+(Quelle 17, 18)
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/stepper-driver.jpg}
+    \caption{Motortreiber}
+    \label{fig:stepper-driver}
+\end{figure}
+
+Die Leitungen müssen in geeigneter Länge abisoliert werden, sodass der blanke Leiter vollständig im 
+Klemmbereich sitzt, ohne dass freiliegende Drahtenden überstehen. Überstehende Leiter oder einzelne 
+herausragende Litzen können Kurzschlüsse verursachen, insbesondere bei eng nebeneinanderliegenden 
+Schraubklemmen. Darüber hinaus sind sämtliche Klemmschrauben mit angemessenem Drehmoment anzuziehen, um 
+einen niedrigen Übergangswiderstand und eine dauerhafte Kontaktstabilität zu gewährleisten. Lockere 
+Verbindungen können zu Spannungsabfällen, ungewollter Erwärmung und instabilem Motorbetrieb führen.
+
+Von der zweiten Anschlussklemme des Motortreibers erfolgt die Spannungsversorgung durch ein Netzteil. 
+Diese Anschlüsse sind mit V+ und GND gekennzeichnet. Es ist zu prüfen, ob die Ausgangsspannung des Netzteils 
+den Spezifikationen des Treibers und des Motors entspricht.
+
+Abschließend erfolgte eine sorgfältige Prüfung aller Verbindungen. Dabei wurden sowohl 
+die korrekte Zuordnung der Wicklungspaare als auch die ordnungsgemäße Spannungsversorgung überprüft. Erst 
+nachdem sichergestellt war, dass keine Kurzschlüsse vorliegen, alle Klemmen fest angezogen sind und die 
+Polarität korrekt angeschlossen wurde, wurde das System unter Spannung gesetzt und später daruf wurde die 
+erste Motoransteuerung durchgeführt.
+
+\subsection{Erste Ansteuerung der Motoren}
+\setauthor{Elisa Kaltenberger}
+Nach der erfolgreichen Verkabelung der Motoren sowie der abschließenden Überprüfung sämtlicher elektrischer 
+Verbindungen erfolgte die erste aktive Ansteuerung der Schrittmotoren. Dieser Schritt stellte einen 
+wesentlichen Meilenstein im Entwicklungsprozess dar, da hierbei nicht nur die Funktion der einzelnen
+Komponenten, sondern das Zusammenspiel der gesamten Antriebseinheit verifiziert wurde.
+
+Für die Implementierung der Ansteuerung war zunächst eine detaillierte Analyse des Schaltplans erforderlich. 
+Dabei wurden die für die Motorsteuerung relevanten Pins der Steuerplatine identifiziert und den entsprechenden 
+Eingängen des Motortreibers eindeutig zugeordnet. Auf Basis dieser Informationen wurde ein spezifisches 
+Testprogramm entwickelt, das die definierten Ausgangspins gezielt ansteuert.
+
+Zur praktischen Erprobung wurde eine Webseite erstellt, die über einen integrierten Webserver bereitgestellt 
+wurde. Auf dieser HTML-Seite wurde ein Button mit der Bezeichnung „Up“ implementiert. Beim Betätigen dieses 
+Buttons wurden die entsprechenden Steuersignale an die Motortreiber ausgegeben, sodass sowohl der linke als 
+auch der rechte Wagenheber synchron nach oben fuhren. Dadurch konnte überprüft werden, ob die 
+Signalverarbeitung, die Drehrichtungseinstellung sowie die Schrittimpulserzeugung korrekt umgesetzt wurden.
+
+\subsection{Tag der offenen Tür HTL-Leonding}
+\setauthor{Elisa Kaltenberger}
+Die Umsetzung dieser Teststeuerung erfolgte bewusst in vereinfachter und provisorischer Form, da sie primär 
+für Demonstrationszwecke im Rahmen des Tages der offenen Tür der HTL Leonding konzipiert war. Ziel war es, 
+die grundsätzliche Funktionsfähigkeit des Systems anschaulich darzustellen und den Besuchern einen Testversuch
+bereitzustellen. Die Leute, die den Tag der offen Tür besuchten Abb. \ref{fig:tdot}, konnten den Button „Up“ 
+im Rollstuhl sitzend betätigen und somit die Bewegung der Wagenheber in echt erleben. 
+
+Nach dem Tag der offenen Tür wurde Feedback der Besucher*innen eingeholt, um sowohl die technische Umsetzung 
+als auch die inhaltliche Wirkung des Projekts zu analysieren. Die Rückmeldungen fielen durchwegs positiv aus 
+und bestätigte die Wirksamkeit des gewählten Demonstrationskonzepts.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/tdot.jpg}
+    \caption{Tag der offenen Tür der HTL Leonding}
+    \label{fig:tdot}
+\end{figure}
+
+Ein Großteil des Publikums bestand aus Schülerinnen und Schülern unterschiedlicher Schulen und Schulstufen. 
+Besonders die jüngeren Besucher*innen zeigten großes Interesse an der interaktiven Steuerungsmöglichkeit. 
+Die Gelegenheit, die Bewegung der Wagenheber eigenständig über die bereitgestellte Weboberfläche auszulösen, 
+wurde mit sichtbarer Begeisterung angenommen. 
+
+Neben dem technischen Interesse zeigte sich auch eine bemerkenswerte inhaltliche Wirkung des Projekts. 
+Zahlreiche Besucher*innen äußerten, dass ihnen zuvor nicht bewusst gewesen sei, mit welchen Herausforderungen 
+Menschen konfrontiert sind, die auf einen Rollstuhl angewiesen sind. Durch die anschauliche Demonstration und 
+die Möglichkeit zur aktiven Interaktion wurde ein stärkeres Bewusstsein für Barrierefreiheit geschaffen. Das 
+Projekt erfüllte somit nicht nur einen technischen, sondern auch einen gesellschaftlich sensibilisierenden 
+Zweck.
+
+Besonders positiv hervorgehoben wurde die gelungene Kombination aus der entwickelten VR-Simulation und dem 
+real bewegbaren Prototypen. Durch die virtuelle Darstellung konnten verschiedenste Bewegungsabläufe und 
+Funktionen des Rollstuhls anschaulich visualisiert werden, während der physische Prototyp die technische 
+Umsetzung unmittelbar erfahrbar machte. Diese Kombination von digitaler Simulation und realer Mechanik 
+ermöglichte ein perfektes Verständnis des Systems und stellte für viele Besucherinnen und Besucher ein 
+besonderes Highlight dar.
+
+Die Möglichkeit, zunächst die Funktionsweise in der virtuellen Umgebung zu erleben und anschließend die 
+tatsächliche Bewegung der Wagenheber am realen Modell auszulösen, schuf eine unmittelbare Verbindung zwischen 
+Theorie und Praxis. Dadurch wurde nicht nur das technische Konzept greifbar, sondern auch dessen praktischer 
+Nutzen deutlich vermittelt. Insbesondere die Interaktivität erhöhte die Identifikation mit dem Projekt und 
+förderte ein nachhaltiges Interesse.

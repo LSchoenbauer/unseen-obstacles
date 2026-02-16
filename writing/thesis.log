@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  15 FEB 2026 17:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  16 FEB 2026 17:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1678,7 +1678,7 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 61.
  (thesis.toc [3
 
 ]
-Overfull \hbox (3.22041pt too wide) detected at line 60
+Overfull \hbox (3.22041pt too wide) detected at line 64
  []\T1/lmss/bx/n/12 VIII
  []
 
@@ -1756,46 +1756,64 @@ File: pics/platine.jpg Graphic file (type jpg)
 <use pics/platine.jpg>
 Package pdftex.def Info: pics/platine.jpg  used on input line 232.
 (pdftex.def)             Requested size: 349.7003pt x 287.87039pt.
-) [25 <./pics/platine.jpg>]
+ [25 <./pics/platine.jpg>]
+<pics/stepper.jpg, id=280, 401.5pt x 401.5pt>
+File: pics/stepper.jpg Graphic file (type jpg)
+<use pics/stepper.jpg>
+Package pdftex.def Info: pics/stepper.jpg  used on input line 278.
+(pdftex.def)             Requested size: 120.45091pt x 120.45091pt.
+ [26 <./pics/stepper.jpg>]
+<pics/stepper-driver.jpg, id=288, 897.3525pt x 741.77126pt>
+File: pics/stepper-driver.jpg Graphic file (type jpg)
+<use pics/stepper-driver.jpg>
+Package pdftex.def Info: pics/stepper-driver.jpg  used on input line 293.
+(pdftex.def)             Requested size: 179.46732pt x 148.35162pt.
+ [27 <./pics/stepper-driver.jpg>]
+<pics/tdot.jpg, id=295, 718.18312pt x 994.46532pt>
+File: pics/tdot.jpg Graphic file (type jpg)
+<use pics/tdot.jpg>
+Package pdftex.def Info: pics/tdot.jpg  used on input line 347.
+(pdftex.def)             Requested size: 143.63408pt x 198.88954pt.
+ [28]) [29 <./pics/tdot.jpg>] [30]
 chapter 4.
 (sections/related_work.tex
 
-LaTeX Warning: Citation `InfH' on page 26 undefined on input line 1.
+LaTeX Warning: Citation `InfH' on page 31 undefined on input line 1.
 
 
-LaTeX Warning: Citation `APCW2006' on page 26 undefined on input line 6.
+LaTeX Warning: Citation `APCW2006' on page 31 undefined on input line 6.
 
-) [26
+) [31
 
 ]
 chapter 5.
-(sections/cyber_sickness.tex [27
+(sections/cyber_sickness.tex [32
 
 ]
-<pics/vestibular-system.jpg, id=292, 1284.8pt x 987.69pt>
+<pics/vestibular-system.jpg, id=326, 1284.8pt x 987.69pt>
 File: pics/vestibular-system.jpg Graphic file (type jpg)
 <use pics/vestibular-system.jpg>
 Package pdftex.def Info: pics/vestibular-system.jpg  used on input line 21.
 (pdftex.def)             Requested size: 256.95544pt x 197.5345pt.
- [28 <./pics/vestibular-system.jpg>] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
-<pics/metaquest-controller-placeholder.jpeg, id=454, 1505.625pt x 1379.1525pt>
+ [33 <./pics/vestibular-system.jpg>] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43]
+<pics/metaquest-controller-placeholder.jpeg, id=488, 1505.625pt x 1379.1525pt>
 File: pics/metaquest-controller-placeholder.jpeg Graphic file (type jpg)
 <use pics/metaquest-controller-placeholder.jpeg>
 Package pdftex.def Info: pics/metaquest-controller-placeholder.jpeg  used on input line 172.
 (pdftex.def)             Requested size: 301.11966pt x 275.8256pt.
- [39 <./pics/metaquest-controller-placeholder.jpeg>]) [40]
+ [44 <./pics/metaquest-controller-placeholder.jpeg>]) [45]
 chapter 6.
-(sections/technologies.tex [41
+(sections/technologies.tex [46
 
-] [42] [43]) [44]
+] [47] [48]) [49]
 chapter 7.
 (sections/implementation.tex
-<pics/knuthi.jpg, id=488, 474.27188pt x 266.49562pt>
+<pics/knuthi.jpg, id=522, 474.27188pt x 266.49562pt>
 File: pics/knuthi.jpg Graphic file (type jpg)
 <use pics/knuthi.jpg>
 Package pdftex.def Info: pics/knuthi.jpg  used on input line 17.
 (pdftex.def)             Requested size: 237.13536pt x 133.24748pt.
- [45
+ [50
 
 ]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 26.
@@ -1814,13 +1832,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 33.
-) [46 <./pics/knuthi.jpg>]
+) [51 <./pics/knuthi.jpg>]
 chapter 8.
 (sections/summary.tex
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) [47
+)) [52
 
 {C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] (glossary.tex
 \@gls@deffile=\write8
@@ -1887,10 +1905,10 @@ LaTeX Warning: There were undefined references.
 ### semi simple group (level 1) entered at line 121 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 36454 strings out of 474486
- 703740 string characters out of 5743755
+ 36490 strings out of 474486
+ 704441 string characters out of 5743755
  1967542 words of memory out of 5000000
- 57839 multiletter control sequences out of 15000+600000
+ 57863 multiletter control sequences out of 15000+600000
  612825 words of font info for 142 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,20n,108p,11281b,2548s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1898,9 +1916,9 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{glo:guid} has been referenced but does not exist, replaced by a fixed one
 
 <C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
-Output written on thesis.pdf (60 pages, 2318180 bytes).
+Output written on thesis.pdf (65 pages, 2573920 bytes).
 PDF statistics:
- 748 PDF objects out of 1000 (max. 8388607)
- 179 named destinations out of 1000 (max. 500000)
- 32600 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 788 PDF objects out of 1000 (max. 8388607)
+ 191 named destinations out of 1000 (max. 500000)
+ 32615 words of extra memory for PDF output out of 35830 (max. 10000000)
 
