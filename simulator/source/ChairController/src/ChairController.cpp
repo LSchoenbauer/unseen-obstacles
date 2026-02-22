@@ -12,9 +12,7 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/queue.h>
 #include <freertos/semphr.h>
-#include <TaskMgmt.h>
-
-#include <TaskMgmt.h>
+#include <os/TaskMgmt.h>
 
 const uint32_t ChairController::NORMAL_MOVEMENT_SPEED = 60;
 // TODO echte Werte bemessen
@@ -62,7 +60,7 @@ ChairControllerPtr ChairController::Create(
 //       Reduce this method to returning to simulation mode "DisableCommandMode"
 void ChairController::SetCommandModeEnabled(bool enabled) {
     mCommandModeEnabled = enabled;
-    LogDbg("Command mode set");
+    LogDbg("ChairController: Command mode set");
 }
 
 void ChairController::ApplyCommand(const CommandData& commandData) {
@@ -71,17 +69,16 @@ void ChairController::ApplyCommand(const CommandData& commandData) {
     LogDbg("Is at top: %d",mvr->IsAtTop());
     LogDbg("Is at center: %d", mvr->IsAtCenter());
     LogDbg("Is at bottom: %d", mvr->IsAtBottom());
+    // end of dbg code
 
     if (xSemaphoreTake(mCtrlMutex, portMAX_DELAY) == pdTRUE) {
+        LogDbg("ChairController: Applying command [%d] for mover [%d]", (int)commandData.GetCommand(), (int)commandData.GetMover());
         CtrlCommandData data(commandData);
         CtrlData ctrlData(data);
         // overwrite the queue with the latest command, older commands are out of interest
         xQueueOverwrite(mCtrlQueue, &ctrlData); 
         xSemaphoreGive(mCtrlMutex);
     }
-    PrintTasks();
-    PrintTasksDetailed();
-    PrintTaskRuntimeDetails();
 }
 
 void ChairController::AdjustToSimulation(const SimulationData& simulationData) {
@@ -110,11 +107,6 @@ void ChairController::OnEvent(AppEventPtr ev) {
             // do nothing
             break;
     }
-    
-    // TODO: remove in production
-    TaskMgmt::TraceTaskList();
-    TaskMgmt::TraceTaskDetails();
-    TaskMgmt::TraceTaskStats();
 }
 
 void ChairController::CmdUp(MoverDriverPtr mvr) {
@@ -174,6 +166,7 @@ void ChairController::CmdToBottom(MoverDriverPtr mvr)
 }
 
 void ChairController::OnCommand(const CtrlCommandData& cmdData) {
+    LogDbg("ChairController: Received command [%d] for mover [%d]", (int)cmdData.mCommand, (int)cmdData.mMover);
     SetCommandModeEnabled(true);
     MoverDriverPtr mvr = GetMoverDriver(cmdData.mMover);
     switch (cmdData.mCommand)
@@ -193,12 +186,12 @@ void ChairController::OnSimulationData(const CtrlSimulationData& simData) {
             mLastSimData = simData;
         }
 
-        uint32_t deltaTimestamp = simData.mTimestampMs - mLastSimData.mTimestampMs;
-        uint32_t deltaYaw = simData.mYaw - mLastSimData.mYaw;
-        uint32_t deltaPitch = simData.mPitch - mLastSimData.mPitch;
-        uint32_t deltaRoll = simData.mRoll - mLastSimData.mRoll;
-        uint32_t speedZ = simData.mPosZ - mLastSimData.mPosZ;
-        uint32_t accZ = speedZ - mLastSpeedZ;
+        int32_t deltaTimestamp = simData.mTimestampMs - mLastSimData.mTimestampMs;
+        int32_t deltaYaw = simData.mYaw - mLastSimData.mYaw;
+        int32_t deltaPitch = simData.mPitch - mLastSimData.mPitch;
+        int32_t deltaRoll = simData.mRoll - mLastSimData.mRoll;
+        int32_t speedZ = simData.mPosZ - mLastSimData.mPosZ;
+        int32_t accZ = speedZ - mLastSpeedZ;
 
         ApplyRotation(deltaTimestamp, deltaYaw);
 
@@ -215,7 +208,7 @@ void ChairController::OnSimulationData(const CtrlSimulationData& simData) {
     }
 }
 
-void ChairController::ApplyRotation(uint32_t deltaTimestamp, uint32_t deltaYaw) {
+void ChairController::ApplyRotation(uint32_t deltaTimestamp, int32_t deltaYaw) {
     double rotationLength = std::abs(M_PI * CIRCUMFERENCE_ROTATOR_WHEEL * deltaYaw / 180.0);
     double stepperTurns = rotationLength / (double)CIRCUMFERENCE_ROTATOR_WHEEL;
 
@@ -226,7 +219,7 @@ void ChairController::ApplyRotation(uint32_t deltaTimestamp, uint32_t deltaYaw) 
     rotator->SetDirection(deltaYaw < 0 ? MoverDriver::Direction::BACKWARD : MoverDriver::Direction::FORWARD);
 }
 
-void ChairController::ApplyFrontMover(uint32_t deltaTimestamp, uint32_t deltaPitch, uint32_t deltaStroke) {
+void ChairController::ApplyFrontMover(uint32_t deltaTimestamp, int32_t deltaPitch, int32_t deltaStroke) {
     double stroke = (std::sin(deltaPitch) * DISTANCE_FRONT) + deltaStroke;
     double stepperTurns = std::abs(stroke / (double)STROKE_PER_TURN);
 
@@ -237,7 +230,7 @@ void ChairController::ApplyFrontMover(uint32_t deltaTimestamp, uint32_t deltaPit
     frontMover->SetDirection(stroke < 0 ? MoverDriver::Direction::BACKWARD : MoverDriver::Direction::FORWARD);
 }
 
-void ChairController::ApplyBackMover(uint32_t deltaTimestamp, uint32_t deltaRoll, uint32_t deltaStroke) {
+void ChairController::ApplyBackMover(uint32_t deltaTimestamp, int32_t deltaRoll, int32_t deltaStroke) {
     double stroke = (std::sin(deltaRoll) * DISTANCE_SIDE_BACK) + deltaStroke;
     double stepperTurns = std::abs(stroke / (double)STROKE_PER_TURN);
 

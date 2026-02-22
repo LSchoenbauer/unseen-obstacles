@@ -21,13 +21,13 @@
 
 namespace AppFw {
 
-typedef const uint32_t EventType;
+typedef uint32_t EventType;
 
 class AppEvent {
 	public:
 
 		/** The concrete type of the event. */
-		static EventType Type = 0x01;
+		static const EventType Type = 0x01;
 
 		virtual bool IsOf(EventType type) const;
 		virtual EventType GetType() const;
@@ -47,7 +47,7 @@ typedef std::shared_ptr<AppEvent> AppEventPtr;
 class AppExecEvent : public AppEvent {
 		typedef AppEvent Base;
 	public:
-		static EventType Type = 0x02;
+		static const EventType Type = 0x02;
 
 		/** Constructor */
 		AppExecEvent();

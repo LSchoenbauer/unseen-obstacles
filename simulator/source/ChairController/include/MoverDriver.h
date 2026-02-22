@@ -237,7 +237,7 @@ class MoverDriver {
         double mRampingStartSpeed;
         double mRampingStepSpeedDif;
 
+        PinIsrData mTopSwitchData;
         PinIsrData mCenterSwitchData;
         PinIsrData mBottomSwitchData;
-        PinIsrData mTopSwitchData;
 };

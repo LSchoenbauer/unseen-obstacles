@@ -233,7 +233,6 @@ void Logger::PrintLogMsg(const char* level, bool newLn, const char* file, const 
 		char buffer[__LogLocatorMinLen__ + 16];
 		char* bufferPtr = buffer;
 		if (file != 0 && fct != 0) {
-			const char* fName = Logger::GetFileName(file);
 			const char* fPath = Logger::GetFilePath(file);
 			int gap = Logger::CalcGap(__LogLocatorMinLen__, fPath, fct, line);
 			size_t strLen = snprintf(buffer, sizeof(buffer), "%s%s::%s #%d:%*s", (file != fPath ? "..." : ""), fPath, fct, line, gap, " ");
@@ -302,7 +301,7 @@ void Logger::CreateLoggingTask() {
 		mLogQueue = xQueueCreate(10, sizeof(LogEvent));
 		xTaskCreatePinnedToCore(
 			Logger::LoggingTask,
-			"LoggingTask",
+			"logger",
 			2048,           // Stack size
 			NULL,           // Parameter
 			1,              // Priority

@@ -18,10 +18,11 @@
 
 #include <appfw/Application.h>
 #include <RemoteCtrl.h>
-#include "UdpServer.h"
+#include <web/udp/UdpServer.h>
 #include "ChairController.h"
 
 using namespace AppFw;
+using namespace Web::Udp;
 
 class ChairControllerApp : public Application<ChairControllerApp> {
 		typedef Application<ChairControllerApp> Base;
@@ -47,9 +48,15 @@ class ChairControllerApp : public Application<ChairControllerApp> {
 		
 		void StartVrConnection();
 		
+		void OnVrDataReceived(const uint8_t* data, size_t dataLength);
+		
 		/** The HTTP server instance */
 		RemoteCtrl* remoteCtrl;
+
+		// TODO: Design flaw - better to move the UDP server and chair controller instances to a separate adapter class, similar to "RemoteCtrl"
 		UdpServerPtr mUdpServer;
+		static const uint16_t VR_SERVER_PORT = 4210;
+		
 		ChairControllerPtr mChairController;
 
 		MoverDriverCfgPtr mRearLeftCfg;

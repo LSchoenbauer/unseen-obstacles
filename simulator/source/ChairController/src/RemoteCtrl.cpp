@@ -19,7 +19,7 @@ RemoteCtrl::~RemoteCtrl() {
 }
 
 void RemoteCtrl::Init(ChairControllerPtr chairController) {
-	LogDbg("init remotectrl");
+	LogDbg("RemoteCtrl: Initializing ...");
 	mChairController = chairController;
 
 	// HTTP server
@@ -47,7 +47,8 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor1Up", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 1 UP clicked (core %d)", xPortGetCoreID());
 		const CommandData commandData(CommandData::Command::UP,CommandData::Mover::REAR_LEFT);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
+		// mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -55,7 +56,8 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor1Center", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 1 CENTER clicked");
 		const CommandData commandData(CommandData::Command::TO_CENTER,CommandData::Mover::REAR_LEFT);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
+		// mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -63,7 +65,8 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor1Down", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 1 DOWN clicked");
 		const CommandData commandData(CommandData::Command::DOWN,CommandData::Mover::REAR_LEFT);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
+		// mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -73,7 +76,8 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor2Up", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 2 UP clicked");
 		const CommandData commandData(CommandData::Command::UP,CommandData::Mover::REAR_RIGHT);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
+		// mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -81,7 +85,8 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor2Center", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 2 CENTER clicked");
 		const CommandData commandData(CommandData::Command::TO_CENTER,CommandData::Mover::REAR_RIGHT);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
+		// mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -89,7 +94,8 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor2Down", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 2 DOWN clicked");
 		const CommandData commandData(CommandData::Command::DOWN,CommandData::Mover::REAR_RIGHT);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
+		// mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -99,7 +105,7 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor3Up", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 3 UP clicked");
 		const CommandData commandData(CommandData::Command::UP,CommandData::Mover::FRONT);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -107,7 +113,8 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor3Center", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 3 CENTER clicked");
 		const CommandData commandData(CommandData::Command::TO_CENTER,CommandData::Mover::FRONT);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
+		// mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -115,7 +122,8 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor3Down", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 3 DOWN clicked");
 		const CommandData commandData(CommandData::Command::DOWN,CommandData::Mover::FRONT);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
+		// mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -125,7 +133,7 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor4Up", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 4 UP clicked");
 		const CommandData commandData(CommandData::Command::UP,CommandData::Mover::ROTATION);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -133,7 +141,8 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor4Center", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 4 CENTER clicked");
 		const CommandData commandData(CommandData::Command::TO_CENTER,CommandData::Mover::ROTATION);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
+		// mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -141,7 +150,8 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	mHttpServer->OnRequest("/motor4Down", [this](std::shared_ptr<Web::Http::HttpRequest> req) {
 		LogInfo("HTTP: Button Motor 4 DOWN clicked");
 		const CommandData commandData(CommandData::Command::DOWN,CommandData::Mover::ROTATION);
-		mChairController->SetCommandModeEnabled(true);
+		// TODO Cleanup obsolete
+		// mChairController->SetCommandModeEnabled(true);
 		mChairController->ApplyCommand(commandData);
 		req->SendStatus(200);
 	});
@@ -154,8 +164,5 @@ void RemoteCtrl::Init(ChairControllerPtr chairController) {
 	// eventually start the server
 	mHttpServer->Start();
 
-	LogInfo("");
-	LogInfo("----------------------------------------------------");
-
-	LogInfo("RemoteCtrl initialized");
+	LogInfo("RemoteCtrl: Initialized");
 }

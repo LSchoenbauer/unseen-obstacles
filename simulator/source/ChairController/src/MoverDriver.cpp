@@ -9,14 +9,17 @@
 */
 
 #include "MoverDriver.h"
-#include "Arduino.h"
-#include "esp_timer.h"
-#include "driver/timer.h"
+#include <Arduino.h>
+#include <esp_timer.h>
+#include <driver/timer.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 
-#include <TaskMgmt.h>
+#include <os/TaskMgmt.h>
+#include <TaskConfigs.h>
 #include <utils/Log.h>
+
+using namespace Os;
 
 const uint32_t MoverDriver::MIN_PULSE_DURATION_US = 50; // > 1 / the specified max frequency of the stepper (200kHz -> 5µs)
 const uint32_t MoverDriver::MAX_PULSE_DURATION_US = 1 * 1000 * 1000; // slower than 1 Hz -> 60 RPM 
@@ -28,10 +31,12 @@ const uint64_t MoverDriver::COASTING_TIME_US = 100 * 1000; // 3 frames at 30 fps
 #define ISR_DBG_ENABLED
 
 #ifdef ISR_DBG_ENABLED
+    #define IsrDbgInit() pinMode(BUILTIN_LED, OUTPUT);
     #define IsrDbgReset() digitalWrite(BUILTIN_LED, LOW)
     #define IsrDbgBlink(state, divider) IsrDbgBlinkFn(state, divider)
     #define IsrDbg(state) IsrDbgLedFn(state)
 #else
+    #define IsrDbgInit()
     #define IsrDbgReset()
     #define IsrDbgBlink(state, divider)
     #define IsrDbg(state)
@@ -96,6 +101,7 @@ MoverDriverPtr MoverDriver::Create(MoverDriverCfgPtr moverDriverCfg) {
 }
 
 void MoverDriver::Init() {
+    IsrDbgInit();
     IsrDbgReset();
     LogDbg("%s: Initializing MoverDriver", mCfg->GetLabel() );
 
@@ -147,32 +153,21 @@ void MoverDriver::CreateDriverTask() {
     const char* label = mCfg->GetLabel();
     if (mDriverTask == nullptr) {
         mDriverTask = TaskMgmt::CreateTask(
-            TaskMgmt::TaskId::STEPPER_DRIVER,
+            TaskConfigs::Get(TaskConfigs::TaskCfgId::STEPPER_DRIVER),
             [](void* pvParameters) { // Task function - lambda
                 MoverDriver* driver = static_cast<MoverDriver*>(pvParameters);
-                LogDbg("%s: Driver task started", driver->mCfg->GetLabel());
+                LogDbg("%s: Driver task created, waiting to run", driver->mCfg->GetLabel());
+                ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(50)); // wait for the signal that task creation is complete
+                LogDbg("%s: Driver task started to run", driver->mCfg->GetLabel());
                 driver->Drive();
             },
             this,
             label
         );
-        // TaskMgmt::TaskConfig cfg = TaskMgmt::GetConfig(TaskMgmt::TaskId::STEPPER_DRIVER);
-        // BaseType_t res = xTaskCreatePinnedToCore(
-        //     [](void* pvParameters) { // Task function - lambda
-        //         MoverDriver* driver = static_cast<MoverDriver*>(pvParameters);
-        //         LogDbg("%s: Driver task started", driver->mCfg->GetLabel());
-        //         driver->Drive();
-        //     },
-        //     label,             // Task name
-        //     cfg.stackDepth,    // Stacksize
-        //     this,              // Parameter - reference to the instance
-        //     cfg.priority,      // Priority
-        //     &mDriverTask,      // Task handle
-        //     cfg.core           // pin to core 0
-        // );
-        // if (res != pdPASS) {
-        //     LogError("%s: Failed to create MoverDriver command task", label);
-        // }
+        if (mDriverTask != nullptr) {
+            LogDbg("%s: Driver task creation completed, starting it now", label);
+            xTaskNotifyGive(mDriverTask); // signal the task that creation is complete
+        }
     } else {
         LogWarn("%s: Skipped recreation of MoverDriver command task", label);
     }
@@ -180,13 +175,13 @@ void MoverDriver::CreateDriverTask() {
 
 void MoverDriver::Drive() {
     while (mDriverTask != nullptr) {
-        LogDbg("%s driving", mCfg->GetLabel());
+        // LogDbg("%s: driving", mCfg->GetLabel());
         RetrieveDriveParams();
         CalcStepperValues();
-        vTaskDelay(pdMS_TO_TICKS(50)); // recalculate every 5 ms
+        vTaskDelay(pdMS_TO_TICKS(5)); // recalculate every 5 ms
     }
     vTaskDelete(NULL);
-    LogDbg("in drive task over");
+    LogDbg("%s: driver task deleted", mCfg->GetLabel());
 }
 
 void MoverDriver::RetrieveDriveParams() {
@@ -204,8 +199,6 @@ void MoverDriver::RetrieveDriveParams() {
         LogDbg("%s: applied direction: %s, speed: %d rpm", mCfg->GetLabel(), 
             MoverDriver::DirectionToString(driveParams.mDirection),
             (driveParams.mSpeedRpm < UINT32_MAX ? driveParams.mSpeedRpm : -1));
-    } else {
-        LogDbg("%s: in retrievedriveparams else", mCfg->GetLabel());
     }
 }
 
