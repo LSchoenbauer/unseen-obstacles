@@ -1,0 +1,40 @@
+{
+  "name": "lib_udp_server",
+  "version": "1.0.0",
+  "description": "LeoIoT UDP Server Library: Provides an extendable UDP server",
+  "keywords": ["LeoIoT", "UDP", "web", "server"],
+	"license": "MIT",
+  "frameworks": ["arduino"],
+  "includeDir": "include",
+  "srcDir": "src",
+  "dependencies": [
+    {
+      "name": "lib_utils",
+      "version": "*",
+      "platforms": ["*"]
+    },
+    {
+      "name": "lib_appfw",
+      "version": "*",
+      "platforms": ["*"]
+    },
+    {
+      "name": "lib_multitasking",
+      "version": "*",
+      "platforms": ["*"]
+    },
+    {
+      "name": "lib_net",
+      "version": "*",
+      "platforms": ["*"]
+    }
+  ],
+  "build": {
+    "libArchive": true,
+    "extraScript": "./hal_selector.py"
+  },
+  "authors": {
+    "name": "HTL Leonding",
+    "maintainer": true
+  }
+}
