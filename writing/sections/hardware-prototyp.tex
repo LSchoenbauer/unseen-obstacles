@@ -18,7 +18,7 @@ aus zwei Platten, die in übereinander angeordneter Form miteinander verbunden s
 untere Platte befindet sich in einer stabilen und unbeweglichen Position und konstituiert 
 die tragende Basis des Systems. Auf dieser befindet sich eine zweite Platte, die drehbar 
 ausgeführt ist. Die Bewegung der oberen Platte wird durch ein Antriebsrad und einen 
-Schrittmotor initiiert. Der schrittmotor gestattet aufgrund seiner schrittweisen Bewegung 
+Schrittmotor initiiert. Der Schrittmotor gestattet aufgrund seiner schrittweisen Bewegung 
 eine exakte, fein dosierbare und wiederholgenaue Drehung. Die vorliegende Konstruktion 
 ermöglicht eine millimetergenaue Einstellung der Ausrichtung des Rollstuhls. 
 
@@ -52,21 +52,20 @@ der Schrittmotor erst nach der gewünschten Hebe- oder Kippbewegung die präzise
 Ausrichtung übernimmt- In diesem Prozess werden der Wagenheber und der Rollstuhl vollständig 
 mit der drehbaren Platte vollständig mit der drehbaren Platte mitgeführt.
 
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.2]{pics/prototyp-zwischenstand.jpg}
-    \caption{Prototyp Zwischnstand 13. November}
-    \label{fig:prototyp-zwischenstand}
-\end{figure}
+\section{Bauungsprozess Hardware Prototyp}
+\setauthor{Elisa Kaltenberger}
+in diesem kapitel geht es um....
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.4]{pics/prototyp-ende.jpg}
+    \includegraphics[scale=0.3]{pics/prototyp-ende.jpg}
     \caption{Prototyp Ende 21. November}
     \label{fig:prototyp-ende}
 \end{figure}
 
+
 \subsection{Motorenfindung: Schrittmotoren vs. Hydraulik}
+\setauthor{Elisa Kaltenberger}
 
 Hydrauliksysteme arbeiten mit Flüssigkeiten unter Druck, um signifikante Kräfte zu generieren. 
 Die Verdrängung von Hydrauliköl durch einen Kolben ermöglicht die Erzeugung eines hohen Drucks, 
@@ -103,3 +102,274 @@ Zusätzlich sind Schrittmotoren insbesondere dann sinnvoll, wenn die Anwendung h
 wiederholbare Bewegungen erfordert, wie sie beispielsweise bei der Indexierung, Positionierung oder 
 automatisierten Abläufen auftreten, und die Last gleichmäßig und vorhersehbar ist.
 
+\subsection{Bauprozess}
+Nachdem entschieden worden war, welche Antriebsart verwendet werden sollte, wurden die Motoren bestellt. 
+Während der Lieferzeit machte man sich Gedanken darüber, wie die Konstruktion des Prototyps aussehen könnte. 
+Die Überlegung war, auf einer Holzplatte eine zweite Platte zu montieren, die mithilfe von Rollen auf der 
+unteren Platte beweglich ist. An der Unterseite dieser oberen, horizontal beweglichen Platte wurden kleine 
+Rollen befestigt, die die horizontale Bewegung ermöglichen.
+
+Zusätzlich wurde in die obere Holzplatte ein längliches Loch gefräst, sodass ein größeres Gummirad 
+darin Platz findet. Dieses Rad ermöglicht die eigentliche horizontale Drehbewegung. Das Gummirad wurde 
+anschließend mithilfe eines selbst gefertigten 3D-gedruckten Bauteils auf der oberen Platte befestigt 
+(siehe Abb. 5: Befestigung des Gummirads). 
+
+Das 3D-Teil wurde in KiCad konstruiert und in der Schule im Keller gedruckt. Es wurde dem Filament 
+ABS gedruckt. Es wurde Acrylnitril-Butadien-Styrol (ABS) gewählt, denn es zeichnet sich durch eine 
+hohe Steifigkeit, 
+Zähigkeit und Festigkeit aus. Das Material zeichnet sich durch eine hohe Schlag- und Kratzfestigkeit 
+aus und weist eine hohe Resilienz gegenüber mechanischen Belastungen auf. Zudem ist ABS beständig 
+gegenüber Ölen, Fetten und vielen Chemikalien. Es weist eine gute Temperaturbeständigkeit auf und 
+bleibt auch bei höheren Temperaturen formstabil. Außerdem lässt sich ABS vielseitig verarbeiten und 
+gut nachbearbeiten, beispielsweise durch Schleifen oder Lackieren.
+(Quelle 11)
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/prototyp-zwischenstand.jpg}
+    \caption{Prototyp Zwischnstand 13. November}
+    \label{fig:prototyp-zwischenstand}
+\end{figure}
+
+Nachdem alles angeschraubt wurde, wurden die Wagenheber provisorisch positioniert, um einen ersten 
+Eindruck von den Prototypen zu gewinnen, siehe Abb. \ref{fig:prototyp-zwischenstand}.
+
+\subsection{Fertigung der Platine}
+\setauthor{Elisa Kaltenberger}
+Die Fertigung der Platine stellt einen zentralen Bestandteil des gesamten Entwicklungsprozesses dar 
+und bildet die Grundlage für die zuverlässige Funktion der elektronischen Schaltung. Von der ersten 
+Konzeption über die Layoutgestaltung bis hin zur eigentlichen Herstellung erfordert dieser Prozess 
+ein präzises und systematisches Vorgehen. Sowohl die sorgfältige Planung mit geeigneten 
+Entwicklungswerkzeugen als auch die fachgerechte Durchführung der einzelnen Fertigungsschritte 
+tragen maßgeblich zur Qualität, Betriebssicherheit und Langlebigkeit der Leiterplatte bei.
+
+Im Folgenden werden zunächst die Entwurfsphase der Leiterplatte sowie anschließend der technische 
+Aufbau und die einzelnen Schritte des Herstellungsprozesses detailliert beschrieben.
+
+\subsection{Layout in KiCad}
+\setauthor{Elisa Kaltenberger}
+Vor Beginn des eigentlichen Herstellungsprozesses wurde die Leiterplatte mithilfe von KiCad 
+vollständig geplant und vorbereitet. Im ersten Schritt erfolgte die Erstellung eines detaillierten 
+Schaltplans. Darin wurden sämtliche elektronischen Komponenten, einschließlich ihrer elektrischen 
+Verbindungen, systematisch erfasst und eindeutig definiert. Der Fokus lag dabei auf einer klar 
+strukturierten Darstellung, einer logisch aufgebauten Verschaltung sowie einer durchdachten Auswahl 
+geeigneter Bauteile im Hinblick auf Funktionalität, Verfügbarkeit und elektrische Belastbarkeit.
+
+Nach der sorgfältigen Überprüfung und Finalisierung des Schaltplans Abb.\ref{fig:schaltplan} wurde das Projekt in den 
+Platinen-Editor von KiCad übertragen. Dort begann die konkrete Layoutgestaltung der Leiterplatte. 
+Zunächst wurden alle Bauteile unter Berücksichtigung funktionaler Zusammenhänge sinnvoll auf der 
+Leiterplatte positioniert. Ziel war es, kurze Signalwege zu ermöglichen, kritische Leitungen zu 
+trennen und eine möglichst übersichtliche Anordnung zu schaffen. Auch mechanische Aspekte, wie 
+Befestigungspunkte oder spätere Einbaumöglichkeiten, wurden dabei berücksichtigt.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{pics/Schaltplan.png}
+    \caption{Schaltplan der Platine}
+    \label{fig:schaltplan}
+\end{figure}
+
+Im nächsten Schritt erfolgte das Routing der Leiterbahnen. Hierbei wurde darauf geachtet, 
+Signalstörungen zu minimieren, Kreuzungen möglichst zu vermeiden und eine saubere, nachvollziehbare 
+Leitungsführung zu gewährleisten. Versorgungsleitungen wurden entsprechend dimensioniert, während 
+empfindliche Signalleitungen mit besonderer Sorgfalt behandelt wurden. Zusätzlich wurden sämtliche 
+Designregeln, wie Mindestabstände zwischen Leiterbahnen, geeignete Leiterbahnbreiten sowie Vorgaben 
+für Durchkontaktierungen, konsequent eingehalten. Abschließend wurde das Layout nochmals überprüft, 
+um mögliche Fehler frühzeitig zu erkennen und eine reibungslose Fertigung der Platine sicherzustellen.
+
+\subsection{Platinenherstellung}
+\setauthor{Elisa Kaltenberger}
+Bei der Herstellung von Leiterplatten kommt dem konstruktiven Aufbau sowie der präzisen Abstimmung 
+der einzelnen Fertigungsschritte eine entscheidende Bedeutung zu. Diesbezüglich sind insbesondere die 
+spätere Funktionalität, Lebensdauer und Betriebssicherheit zu berücksichtigen. Bereits geringfügige 
+Abweichungen im Prozess können die elektrische Leitfähigkeit, die mechanische Stabilität oder die 
+Lötqualität erheblich beeinflussen.
+
+Eine typische Leiterplatte besteht im Wesentlichen aus mehreren aufeinander abgestimmten Schichten. 
+Die Grundlage bildet das Basismaterial, häufig ein glasfaserverstärktes Epoxidharz. Dieses dient als 
+mechanische Trägerstruktur und sorgt gleichzeitig für die notwendige elektrische Isolation zwischen 
+den leitenden Strukturen. Auf dieses Substrat wird eine dünne Kupferschicht aufgebracht beziehungsweise 
+auflaminiert. Sie stellt das eigentliche leitfähige Material dar, aus dem später die Leiterbahnen, 
+Masseflächen und Kontaktpads entstehen. Abschließend wird die Oberfläche mit einer lichtempfindlichen 
+Fotolackschicht versehen. Diese fungiert als temporäre Schutz- und Maskierungsschicht, mit deren Hilfe 
+das gewünschte Leiterbild präzise übertragen werden kann.
+
+Der eigentliche Fertigungsprozess erfolgt in mehreren aufeinander abgestimmten Schritten. Zu Beginn des 
+Verfahrens wird die mit Fotolack beschichtete Kupferfläche mittels UV-Licht belichtet. Hierbei wird eine 
+Belichtungsvorlage verwendet, welche die späteren Leiterbahnen abbildet. An den belichteten Stellen erfolgt 
+eine Aushärtung des Fotolacks, wodurch eine chemische Beständigkeit des Materials gewährleistet wird. Die 
+unbelichteten Bereiche bleiben hingegen löslich.
+
+Darauf folgt die Entwicklung der Platine in einer geeigneten Entwicklerlösung, die häufig auf Basis von 
+Natronlauge basiert.  In diesem Schritt werden die nicht ausgehärteten Fotolackanteile entfernt, wodurch das 
+darunterliegende Kupfer freigelegt wird. Das gewünschte Leiterbild wird dadurch erstmals sichtbar, da nur 
+die durch den gehärteten Fotolack geschützten Bereiche erhalten bleiben.
+
+Im darauffolgenden Ätzprozess wird das freiliegende, ungeschützte Kupfer unter Einsatz spezifischer Ätzmittel 
+einer chemischen Reaktion unterzogen, die zu dessen Abtrag führt. Das Kupfer ist das einzige Element, das nach 
+der Behandlung übrig bleibt und zuvor durch den gehärteten Fotolack geschützt wurde. Diese bilden nun die 
+endgültigen Leiterbahnen der Schaltung. Je nach Aufbau der Platine können danach zusätzliche Arbeitsschritte 
+wie das Bohren von Bauteil- und Durchkontaktierungslöchern erfolgen. Bei mehrlagigen Leiterplatten werden 
+diese Bohrungen metallisiert, um elektrische Verbindungen zwischen verschiedenen Kupferschichten herzustellen.
+
+Nach dem Ätzvorgang wird der verbliebene Fotolack im sogenannten Entschichtungsprozess vollständig entfernt. 
+Die Kupferoberflächen werden gereinigt und gegebenenfalls chemisch nachbehandelt, um eine optimale 
+Weiterverarbeitung zu gewährleisten. Im darauffolgenden Schritt wird die Lötstoppmaske aufgebracht. Diese 
+Schutzschicht bedeckt nahezu die gesamte Leiterplatte und lässt lediglich die Lötpads frei. Sie schützt die 
+Leiterbahnen vor Oxidation, verhindert ungewollte Lötbrücken und verbessert die elektrische sowie mechanische 
+Zuverlässigkeit.
+
+Nachdem alle Schritte der Platinenherstellung erfolgreich abgeschlossen wurden Abb. \ref{fig:platine}, 
+wurden LEDS und Wiederstände auf der Platine verlötet. Es wurden LEDs und Widerstände verbaut, um die 
+Funktionalität der Platine zu gewährleisten. Die LEDs dienen als visuelle Indikatoren für den Betriebszustand 
+der Schaltung, während die Widerstände den Stromfluss regulieren und somit die Bauteile vor Überlastung 
+schützen. Die sorgfältige Auswahl und Anordnung dieser Komponenten auf der Platine tragen maßgeblich zur 
+Stabilität und Zuverlässigkeit der elektronischen Schaltung bei.
+(Quelle 12 bis 16)
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/platine.jpg}
+    \caption{Platine Prototyp}
+    \label{fig:platine}
+\end{figure}
+
+\subsection{Testen der Platine}
+\setauthor{Elisa Kaltenberger}
+
+Nach erfolgreicher Fertigung und Bestückung der Platine wurden gründliche Testverfahren durchgeführt, um 
+die Funktionalität und Zuverlässigkeit der Platine systematisch zu verifizieren. Ziel dieser Untersuchungen 
+war es, sowohl die Integrität der elektrischen Verbindungen als auch die korrekte Umsetzung der vorgesehenen 
+Schaltfunktionen sicherzustellen.
+
+Bei der grundlegenden elektrischen Üprüfungen wurden Messungen von Spannungen und Signalverläufen an 
+verschiedenen kritischen Punkten der Schaltungen vorgenommen. Dadurch konnte überprüft werden, ob die 
+Versorgungsspannung stabil anliegt, ob unerwünschte Kurzschlüsse oder Unterbrechungen vorliegen und ob 
+sämtliche Komponenten innerhalb ihrer spezifizierten Betriebsparameter arbeiten.
+
+Zur Validierung der korrekten Bestückung und Funktion der LEDs wurde ein spezielles Testprogramm 
+implementiert. Dieses Programm steuerte sämtliche LEDs sequenziell an, sodass sie nacheinander in einer 
+festgelegten Reihenfolge aufblinkten. Durch dieses Verfahren konnte eindeutig festgestellt werden, ob 
+jede LED ordnungsgemäß verbaut, korrekt gelötet und funktionsfähig ist. Darüber hinaus wurden die Widerstände 
+auf der Platine überprüft, um sicherzustellen, dass sie den vorgesehenen Wert aufweisen und somit den 
+Stromfluss entsprechend regulieren.
+
+\subsection{Verkabelung der Motoren}
+\setauthor{Elisa Kaltenberger}
+Nach der erfolgreichen Überprüfung der Platine und der Bestätigung ihrer Funktionalität erfolgte die 
+Verkabelung der Motoren. Dieser Schritt ist von entscheidender Bedeutung, da eine korrekte Verbindung 
+zwischen der Platine und den Motoren die Grundlage für die spätere Steuerung und Funktionalität des gesamten 
+Systems bildet.
+
+Bei dem eingesetzten System handelt es sich um einen bipolaren Schrittmotor Abb. \ref{fig:stepper} mit vier Anschlussleitungen 
+(rot, grün, blau, schwarz), der über einen externen Motortreiber angesteuert wird. Ein solcher Motor besitzt 
+zwei getrennte Wicklungen (Phase A und Phase B), die jeweils über ein Leitungspaar kontaktiert werden. Die
+korrekte Identifikation dieser Wicklungspaare ist essenziell für den ordnungsgemäßen Betrieb. Da die 
+Farbzuordnung der Leitungen herstellerabhängig ist und keiner einheitlichen Norm unterliegt, darf die 
+Verschaltung nicht ausschließlich anhand der Kabelfarben erfolgen. Stattdessen ist entweder das Datenblatt 
+des Motors heranzuziehen oder eine messtechnische Überprüfung durchzuführen. Mittels Widerstandsmessung lässt 
+sich feststellen, welche beiden Leitungen jeweils eine Wicklung bilden, da zwischen ihnen ein geringer 
+ohmscher Widerstand messbar ist, während zwischen Leitungen unterschiedlicher Wicklungen kein Durchgang 
+besteht.
+(Quelle 17, 18)
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/stepper.jpg}
+    \caption{Schrittmotor}
+    \label{fig:stepper}
+\end{figure}
+
+Die vier Motorleitungen werden an die entsprechend gekennzeichneten Klemmen des Motortreibers Abb. \ref{fig:stepper-driver} angeschlossen, 
+die üblicherweise mit A+, A-minus sowie B+, B-minus beschriftet sind. Dabei ist sicherzustellen, dass jedes 
+Wicklungspaar korrekt einer Phase zugeordnet wird. Eine Vertauschung der beiden Wicklungen führt in der 
+Regel zu Fehlfunktionen wie Vibrationen oder einem ausbleibenden Anlauf. Eine Umpolung innerhalb eines 
+Wicklungspaars hingegen bewirkt lediglich eine Änderung der Drehrichtung und stellt keine Gefährdung für 
+die Hardware dar.
+(Quelle 17, 18)
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/stepper-driver.jpg}
+    \caption{Motortreiber}
+    \label{fig:stepper-driver}
+\end{figure}
+
+Die Leitungen müssen in geeigneter Länge abisoliert werden, sodass der blanke Leiter vollständig im 
+Klemmbereich sitzt, ohne dass freiliegende Drahtenden überstehen. Überstehende Leiter oder einzelne 
+herausragende Litzen können Kurzschlüsse verursachen, insbesondere bei eng nebeneinanderliegenden 
+Schraubklemmen. Darüber hinaus sind sämtliche Klemmschrauben mit angemessenem Drehmoment anzuziehen, um 
+einen niedrigen Übergangswiderstand und eine dauerhafte Kontaktstabilität zu gewährleisten. Lockere 
+Verbindungen können zu Spannungsabfällen, ungewollter Erwärmung und instabilem Motorbetrieb führen.
+
+Von der zweiten Anschlussklemme des Motortreibers erfolgt die Spannungsversorgung durch ein Netzteil. 
+Diese Anschlüsse sind mit V+ und GND gekennzeichnet. Es ist zu prüfen, ob die Ausgangsspannung des Netzteils 
+den Spezifikationen des Treibers und des Motors entspricht.
+
+Abschließend erfolgte eine sorgfältige Prüfung aller Verbindungen. Dabei wurden sowohl 
+die korrekte Zuordnung der Wicklungspaare als auch die ordnungsgemäße Spannungsversorgung überprüft. Erst 
+nachdem sichergestellt war, dass keine Kurzschlüsse vorliegen, alle Klemmen fest angezogen sind und die 
+Polarität korrekt angeschlossen wurde, wurde das System unter Spannung gesetzt und später daruf wurde die 
+erste Motoransteuerung durchgeführt.
+
+\subsection{Erste Ansteuerung der Motoren}
+\setauthor{Elisa Kaltenberger}
+Nach der erfolgreichen Verkabelung der Motoren sowie der abschließenden Überprüfung sämtlicher elektrischer 
+Verbindungen erfolgte die erste aktive Ansteuerung der Schrittmotoren. Dieser Schritt stellte einen 
+wesentlichen Meilenstein im Entwicklungsprozess dar, da hierbei nicht nur die Funktion der einzelnen
+Komponenten, sondern das Zusammenspiel der gesamten Antriebseinheit verifiziert wurde.
+
+Für die Implementierung der Ansteuerung war zunächst eine detaillierte Analyse des Schaltplans erforderlich. 
+Dabei wurden die für die Motorsteuerung relevanten Pins der Steuerplatine identifiziert und den entsprechenden 
+Eingängen des Motortreibers eindeutig zugeordnet. Auf Basis dieser Informationen wurde ein spezifisches 
+Testprogramm entwickelt, das die definierten Ausgangspins gezielt ansteuert.
+
+Zur praktischen Erprobung wurde eine Webseite erstellt, die über einen integrierten Webserver bereitgestellt 
+wurde. Auf dieser HTML-Seite wurde ein Button mit der Bezeichnung „Up“ implementiert. Beim Betätigen dieses 
+Buttons wurden die entsprechenden Steuersignale an die Motortreiber ausgegeben, sodass sowohl der linke als 
+auch der rechte Wagenheber synchron nach oben fuhren. Dadurch konnte überprüft werden, ob die 
+Signalverarbeitung, die Drehrichtungseinstellung sowie die Schrittimpulserzeugung korrekt umgesetzt wurden.
+
+\subsection{Tag der offenen Tür HTL-Leonding}
+\setauthor{Elisa Kaltenberger}
+Die Umsetzung dieser Teststeuerung erfolgte bewusst in vereinfachter und provisorischer Form, da sie primär 
+für Demonstrationszwecke im Rahmen des Tages der offenen Tür der HTL Leonding konzipiert war. Ziel war es, 
+die grundsätzliche Funktionsfähigkeit des Systems anschaulich darzustellen und den Besuchern einen Testversuch
+bereitzustellen. Die Leute, die den Tag der offen Tür besuchten Abb. \ref{fig:tdot}, konnten den Button „Up“ 
+im Rollstuhl sitzend betätigen und somit die Bewegung der Wagenheber in echt erleben. 
+
+Nach dem Tag der offenen Tür wurde Feedback der Besucher*innen eingeholt, um sowohl die technische Umsetzung 
+als auch die inhaltliche Wirkung des Projekts zu analysieren. Die Rückmeldungen fielen durchwegs positiv aus 
+und bestätigte die Wirksamkeit des gewählten Demonstrationskonzepts.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/tdot.jpg}
+    \caption{Tag der offenen Tür der HTL Leonding}
+    \label{fig:tdot}
+\end{figure}
+
+Ein Großteil des Publikums bestand aus Schülerinnen und Schülern unterschiedlicher Schulen und Schulstufen. 
+Besonders die jüngeren Besucher*innen zeigten großes Interesse an der interaktiven Steuerungsmöglichkeit. 
+Die Gelegenheit, die Bewegung der Wagenheber eigenständig über die bereitgestellte Weboberfläche auszulösen, 
+wurde mit sichtbarer Begeisterung angenommen. 
+
+Neben dem technischen Interesse zeigte sich auch eine bemerkenswerte inhaltliche Wirkung des Projekts. 
+Zahlreiche Besucher*innen äußerten, dass ihnen zuvor nicht bewusst gewesen sei, mit welchen Herausforderungen 
+Menschen konfrontiert sind, die auf einen Rollstuhl angewiesen sind. Durch die anschauliche Demonstration und 
+die Möglichkeit zur aktiven Interaktion wurde ein stärkeres Bewusstsein für Barrierefreiheit geschaffen. Das 
+Projekt erfüllte somit nicht nur einen technischen, sondern auch einen gesellschaftlich sensibilisierenden 
+Zweck.
+
+Besonders positiv hervorgehoben wurde die gelungene Kombination aus der entwickelten VR-Simulation und dem 
+real bewegbaren Prototypen. Durch die virtuelle Darstellung konnten verschiedenste Bewegungsabläufe und 
+Funktionen des Rollstuhls anschaulich visualisiert werden, während der physische Prototyp die technische 
+Umsetzung unmittelbar erfahrbar machte. Diese Kombination von digitaler Simulation und realer Mechanik 
+ermöglichte ein perfektes Verständnis des Systems und stellte für viele Besucherinnen und Besucher ein 
+besonderes Highlight dar.
+
+Die Möglichkeit, zunächst die Funktionsweise in der virtuellen Umgebung zu erleben und anschließend die 
+tatsächliche Bewegung der Wagenheber am realen Modell auszulösen, schuf eine unmittelbare Verbindung zwischen 
+Theorie und Praxis. Dadurch wurde nicht nur das technische Konzept greifbar, sondern auch dessen praktischer 
+Nutzen deutlich vermittelt. Insbesondere die Interaktivität erhöhte die Identifikation mit dem Projekt und 
+förderte ein nachhaltiges Interesse.
