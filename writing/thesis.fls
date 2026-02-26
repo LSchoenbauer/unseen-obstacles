@@ -518,6 +518,14 @@ INPUT .\pics\Statistik-Hauptaktivitaet.png
 INPUT .\pics\Statistik-Hauptaktivitaet.png
 INPUT .\pics\Statistik-Hauptaktivitaet.png
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmssbx10.tfm
+INPUT .\sections\handbuch.tex
+INPUT .\sections\handbuch.tex
+INPUT sections\handbuch.tex
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmr12.tfm
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-ts1.enc
 INPUT .\sections\vr-world.tex
 INPUT .\sections\vr-world.tex
 INPUT .\sections\vr-world.tex
@@ -660,11 +668,6 @@ INPUT .\sections\summary.tex
 INPUT .\sections\summary.tex
 INPUT .\sections\summary.tex
 INPUT sections\summary.tex
-INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
-INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
-INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
-INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmr12.tfm
-INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-ts1.enc
 INPUT .\glossary.tex
 INPUT .\glossary.tex
 INPUT .\glossary.tex
