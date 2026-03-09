@@ -45,6 +45,7 @@ Visualisierungen, die bei diesem Projekt nicht im Vordergrund standen.
 (Quelle6, Quelle7)
 
 \section{Welt einrichten}
+\setauthor{Elisa Kaltenberger}
 In diesem Kapitel wird die Entwicklung der VR-Simulation aus der Perspektive von Rollstuhlfahrenden beschrieben. 
 Zunächst werden die zentralen Hindernisse im Alltag, wie Bankautomaten, Bordsteinkanten und unebene Pflastersteine, 
 analysiert und ihre Herausforderungen für die Mobilität aufgezeigt. Aufbauend auf diesen Erkenntnissen wird die 
@@ -54,15 +55,23 @@ Assets und städtischer Umgebung. Das Kapitel vermittelt damit sowohl die konzep
 die technischen Schritte, die zur Erstellung einer praxisnahen und immersiven VR-Erfahrung führten.
 
 \subsection{Überlegung der Hindernisse}
+\setauthor{Elisa Kaltenberger}
 Zunächst wurden die signifikanten Hindernisse für Rollstuhlfahrende identifiziert und einer Analyse unterzogen. 
 Auf dieser Grundlage wurde anschließend die VR-Welt gestaltet, um ein möglichst realistisches und zugleich 
 bestmögliches Ergebnis zu erzielen.
 
-Für Menschen mit Mobilitätseinschränkungen kann die Nutzung eines Bankautomaten eine Herausforderung darstellen. 
+Für Menschen mit Mobilitätseinschränkungen kann die Nutzung eines Bankautomaten eine Herausforderung darstellen Abb. \ref{fig:vr-world:bankomat}. 
 In einer signifikanten Anzahl von Fällen sind die Automaten zu hoch angebracht, was dazu führt, dass sowohl der 
 Bildschirm als auch das Tastenfeld nur mit einem hohen Aufwand erreicht werden können. In vielen Fällen ist die 
 zur Verfügung stehende Bewegungsfläche vor dem Automaten unzureichend. Ein zusätzliches Problem stellt der 
 Sichtschutz dar, da die seitlichen Schutzblenden oder Abdeckungen in der Regel für stehende Personen konzipiert sind.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/bankautomat-ki-generiert.png}
+    \caption{Bankautomat, der für Rollstuhlfahrende schwer zugänglich ist}
+    \label{fig:vr-world:bankomat}
+\end{figure}
 
 Eine Bordsteinkante stellt für Rollstuhlfahrer*innen im Alltag eine signifikante Barriere dar. Die Höhe der 
 Bordsteine hat einen signifikanten Einfluss auf die Fähigkeit der Verkehrsteilnehmer*innen, die Straße selbstständig zu 
@@ -79,7 +88,8 @@ Rutschgefahr aufweisen, was das Unfallrisiko signifikant erhöhen kann. Zudem is
 erforderlich, um auf diesen Wegen zu reisen, was die Autonomie der Fortbewegung erheblich einschränkt.
 
 \subsection{Erster Prototyp}
-Der erste Prototyp der VR-Welt wurde in Unity erstellt, um die zuvor identifizierten Hindernisse für 
+\setauthor{Elisa Kaltenberger}
+Der erste Prototyp der VR-Welt wurde in Unity erstellt Abb. \ref{fig:vr-world:prototyp}, um die zuvor identifizierten Hindernisse für 
 Rollstuhlfahrende zu simulieren. Dabei wurden verschiedene Umgebungen modelliert, die typische Herausforderungen 
 im Alltag darstellen, wie z.B. Bankautomaten, Bordsteinkanten und Pflastersteine.
 
@@ -106,14 +116,15 @@ sich die Bewegung über ein Feld unebener Pflastersteine in der reinen Gameplay-
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.5]{pics/prototyp-welt.jpg}
+    \includegraphics[scale=0.6]{pics/prototyp-welt.jpg}
     \caption{Prototyp der VR-Welt mit Hindernissen für Rollstuhlfahrende}
     \label{fig:vr-world:prototyp}
 \end{figure}
 
 \subsection{Welt gestalten}
+\setauthor{Elisa Kaltenberger}
 Nach erfolgreicher Einrichtung der Testumgebung wurde ein umfangreiches Asset-Paket einer realen Stadt 
-ausgewählt und heruntergeladen, nach dem Kriterieum, dass die Welt realisitisch aussieht. 
+ausgewählt und heruntergeladen, nach dem Kriterieum, dass die Welt realisitisch aussieht Abb. \ref{fig:vr-world:umgesetzte-welt}. 
 Im Anschluss daran wurden die einzelnen Gebäude manuell aus dem Paket extrahiert, separat aufbereitet und 
 in die virtuelle Realität integriert. Um die Szenerie lebendiger und authentischer wirken zu lassen, 
 wurden zusätzliche Elemente wie detailreiche Gehsteige, verschiedene Fahrzeugmodelle sowie ein vollständiges 
@@ -126,7 +137,7 @@ kohärenten und visuell ansprechenden VR-Landschaft führte, war erfolgreich.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.7]{pics/umgesetzte-welt.jpg}
+    \includegraphics[scale=0.8]{pics/umgesetzte-welt.jpg}
     \caption{Umgesetzte VR-Welt mit Hindernissen für Rollstuhlfahrende}
     \label{fig:vr-world:umgesetzte-welt}
 \end{figure}
@@ -158,6 +169,7 @@ mit diesen.
 (Quelle10)
 
 \subsection{Benutzeroberflächen (UI) in Unity}
+\setauthor{Elisa Kaltenberger}
 
 Unity stellt ein eigenes UI-System bereit, das auf sogenannten Canvas-Objekten basiert. Buttons sind 
 standardisierte UI-Elemente, die über ein OnClick-Event verfügen. Das vorliegende Event gestattet die 
@@ -170,6 +182,7 @@ World Space gesetzt, wodurch Buttons wie reale Objekte im virtuellen Raum positi
 können.
 
 \subsection{Canvas-Objekte}
+\setauthor{Elisa Kaltenberger}
 In dem vorliegenden Kontext bezeichnet ein Canvas-Objekt in Unity ein spezielles GameObject, das als 
 grundlegender Container für alle Benutzeroberflächen-Elemente dient. Sämtliche UI-Elemente (User Interface) 
 wie Buttons, Texte, Bilder oder Panels müssen einem Canvas untergeordnet sein, damit sie von Unity korrekt 
@@ -182,8 +195,8 @@ in der die UI-Elemente gerendert werden. Die Position der Elemente innerhalb der
 dabei die Überlagerung, sodass höher angeordnete Elemente über darunterliegende angezeigt werden.
 
 Ein zentrales Merkmal des Canvas-Objekts ist der sogenannte Render Mode. Dieser definiert die Art der 
-Darstellung der Benutzeroberfläche. Im Modus Screen Space – Overlay wird die UI direkt über der gesamten 
-Szene dargestellt, wobei sie unabhängig von der Kamera ist. Der Modus Screen Space – Camera erzeugt die 
+Darstellung der Benutzeroberfläche. Im Modus Screen Space, Overlay wird die UI direkt über der gesamten 
+Szene dargestellt, wobei sie unabhängig von der Kamera ist. Der Modus Screen Space, Camera erzeugt die 
 Benutzeroberfläche (UI) unter Zuhilfenahme einer spezifischen Kamera und gestattet die Anwendung perspektivischer 
 Effekte. Für Virtual-Reality-Anwendungen ist insbesondere der Modus World Space von Relevanz, da sich die
 Benutzeroberfläche in diesem Modus wie ein normales dreidimensionales Objekt in der Szene verhält. Dies 
@@ -196,3 +209,17 @@ Kombination in VR-Anwendungen die korrekte Weiterleitung von Eingaben von Contro
 an UI-Elemente wie Buttons ermöglicht. Der Canvas bildet folglich die technische Grundlage dafür, dass 
 Benutzeroberflächen sowohl sichtbar als auch interaktiv sind.
 (Quelle9)
+
+In dem Projekt wurden mehrere Pop-ups Abb. \ref{fig:vr-world:pop-ups}  erstellt, die als Canvas-Objekte in der VR-Welt positioniert wurden. 
+Diese Pop-ups erscheinen, wenn der Nutzer sich über eine bestimmte Stelle in der Szene bewegt. 
+Sie enthalten Informationen zu den Hindernissen, die in der Simulation dargestellt werden, und ermöglich somit 
+ein besseres Verständnis der Herausforderungen, mit denen Rollstuhlfahrende im Alltag konfrontiert sind. Die 
+Pop-ups sind so gestaltet, dass sie leicht lesbar und visuell ansprechend sind, um die Aufmerksamkeit der 
+Nutzer zu gewinnen und die Informationen effektiv zu vermitteln. 
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{pics/pop-up.png}
+    \caption{Pop-ups in der VR-Welt, die Informationen zu den Hindernissen vermitteln}
+    \label{fig:vr-world:pop-ups}
+\end{figure}

@@ -54,11 +54,33 @@ mit der drehbaren Platte vollständig mit der drehbaren Platte mitgeführt.
 
 \section{Bauungsprozess Hardware Prototyp}
 \setauthor{Elisa Kaltenberger}
-in diesem kapitel geht es um....
+In diesem Kapitel wird der gesamte Entwicklungs- und Fertigungsprozess des Hardware-Prototyps 
+detailliert beschrieben. Zunächst wird die Entscheidungsfindung hinsichtlich der geeigneten 
+Antriebsart erläutert, wobei Schrittmotoren mit hydraulischen Systemen verglichen und die 
+Gründe für die Wahl der Schrittmotoren dargelegt werden.
+
+Anschließend wird der mechanische Aufbau des Prototyps beschrieben, von der Grundkonstruktion 
+mit Holzplatten und Rollenmechanismus bis hin zur Integration des Gummirads sowie der 
+Entwicklung und Fertigung eines eigenen 3D-gedruckten Bauteils aus ABS.
+
+
+Ein weiterer zentraler Bestandteil des Kapitels ist die Entwicklung der elektronischen 
+Steuerplatine. Dabei werden sowohl die Planung und das Layout in KiCad als auch der vollständige 
+Herstellungsprozess der Leiterplatte ausführlich erläutert. Ergänzend dazu werden die durchgeführten 
+Testverfahren zur Überprüfung der Funktionalität beschrieben.
+
+Darüber hinaus wird die fachgerechte Verkabelung der Schrittmotoren inklusive Motortreiber und 
+Spannungsversorgung dargestellt. Die erste Ansteuerung der Motoren über eine eigens entwickelte 
+Weboberfläche markiert dabei einen wichtigen Meilenstein im Entwicklungsprozess.
+
+Abschließend behandelt das Kapitel die Präsentation des Prototyps am Tag der offenen Tür der HTL 
+Leonding, das erhaltene Feedback sowie den weiteren technischen Ausbau des Systems durch die 
+Integration von Mikroschaltern zur Positionsbestimmung und Sicherheit.
+
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.3]{pics/prototyp-ende.jpg}
+    \includegraphics[scale=0.5]{pics/prototyp-ende.jpg}
     \caption{Prototyp Ende 21. November}
     \label{fig:prototyp-ende}
 \end{figure}
@@ -112,7 +134,14 @@ Rollen befestigt, die die horizontale Bewegung ermöglichen.
 Zusätzlich wurde in die obere Holzplatte ein längliches Loch gefräst, sodass ein größeres Gummirad 
 darin Platz findet. Dieses Rad ermöglicht die eigentliche horizontale Drehbewegung. Das Gummirad wurde 
 anschließend mithilfe eines selbst gefertigten 3D-gedruckten Bauteils auf der oberen Platte befestigt 
-(siehe Abb. 5: Befestigung des Gummirads). 
+siehe Abb. 5 \ref{fig:gummirad}. 
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.15]{pics/gummirad.jpg}
+    \caption{Gummirad auf der oberen Platte befestigt}
+    \label{fig:gummirad}
+\end{figure}
 
 Das 3D-Teil wurde in KiCad konstruiert und in der Schule im Keller gedruckt. Es wurde dem Filament 
 ABS gedruckt. Es wurde Acrylnitril-Butadien-Styrol (ABS) gewählt, denn es zeichnet sich durch eine 
@@ -275,7 +304,7 @@ besteht.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.3]{pics/stepper.jpg}
+    \includegraphics[scale=0.5]{pics/stepper.jpg}
     \caption{Schrittmotor}
     \label{fig:stepper}
 \end{figure}
@@ -290,7 +319,7 @@ die Hardware dar.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.2]{pics/stepper-driver.jpg}
+    \includegraphics[scale=0.3]{pics/stepper-driver.jpg}
     \caption{Motortreiber}
     \label{fig:stepper-driver}
 \end{figure}
@@ -344,7 +373,7 @@ und bestätigte die Wirksamkeit des gewählten Demonstrationskonzepts.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.2]{pics/tdot.jpg}
+    \includegraphics[scale=0.6]{pics/tdot.jpg}
     \caption{Tag der offenen Tür der HTL Leonding}
     \label{fig:tdot}
 \end{figure}
@@ -368,8 +397,35 @@ Umsetzung unmittelbar erfahrbar machte. Diese Kombination von digitaler Simulati
 ermöglichte ein perfektes Verständnis des Systems und stellte für viele Besucherinnen und Besucher ein 
 besonderes Highlight dar.
 
-Die Möglichkeit, zunächst die Funktionsweise in der virtuellen Umgebung zu erleben und anschließend die 
-tatsächliche Bewegung der Wagenheber am realen Modell auszulösen, schuf eine unmittelbare Verbindung zwischen 
-Theorie und Praxis. Dadurch wurde nicht nur das technische Konzept greifbar, sondern auch dessen praktischer 
-Nutzen deutlich vermittelt. Insbesondere die Interaktivität erhöhte die Identifikation mit dem Projekt und 
-förderte ein nachhaltiges Interesse.
+\subsection{Weiterer Ausbau des Prototyps}
+\setauthor{Elisa Kaltenberger}
+Nach dem Tag der offenen Tür wurden die Wagenheber weiter ausgebaut und sowohl mechanisch als auch 
+elektrisch optimiert. Es wurden Microschalter Abb. \ref{fig:microschalter} angebracht, immer jeweils 
+vier Stück pro Heber, um die genaue Position des Wagenhebers auslesen zu können. Einer für die unterste 
+Position, einer für die höchste Position, einer für die Mitte und einer, um zu erkennen, ob der Rollstuhl 
+überhaupt auf dem Hardware-Prototyp steht.
+
+Die Microschalter wurden auf einer stabilen Metallschiene montiert, die fest mit dem Wagenheber verschraubt 
+wurde. Auf dieser Schiene befindet sich zusätzlich der Motor, der den Wagenheber antreibt. Durch diese 
+kompakte Anordnung konnten kurze Kabelwege realisiert und die Störanfälligkeit des Systems reduziert werden. 
+Sobald die Schalter betätigt werden, wird ein Signal an die Platine gesendet, um die aktuelle Position des 
+Wagenhebers eindeutig zu bestimmen.
+
+Die Signale der Microschalter werden dabei digital ausgewertet, sodass jederzeit klar erkennbar ist, in 
+welchem Bewegungsbereich sich der Wagenheber befindet. Dies verhindert einen möglichen Überlauf, falls der 
+Wagenheber zu weit nach oben oder unten fährt, und ermöglicht eine genaue Steuerung der Bewegungen. 
+
+Die mittlere Position wird als Referenzpunkt für definierte Fahrhöhen genutzt, wodurch wiederholbare und 
+reproduzierbare Bewegungsabläufe gewährleistet werden können. Der Schalter zur Erkennung des Rollstuhls 
+sorgt dafür, dass der Hebevorgang nur dann gestartet werden kann, wenn sich tatsächlich ein Rollstuhl auf 
+dem Prototyp befindet. Dadurch wird ein unbeabsichtigtes Hochfahren ohne Last verhindert und die 
+Betriebssicherheit deutlich erhöht.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/microschalter.jpg}
+    \caption{Microschalter des Wagenhebers}
+    \label{fig:microschalter}
+\end{figure}
+
+
