@@ -100,7 +100,7 @@ private:
     uint8_t mBottomSwitchPin;
 
     // --- Additional tuning ---
-    uint32_t mRampingSteps;
     uint32_t mMicrostepFactor;
+    uint32_t mRampingSteps;
 };
 

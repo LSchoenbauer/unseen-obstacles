@@ -1,0 +1,20 @@
+{
+	"name": "lib_multitasking",
+	"version": "1.0.0",
+	"description": "LeoIoT Multitasking Library: Supplements FreeRTOS task management for ESP platforms",
+	"keywords": ["LeoIoT", "multitasking"],
+	"license": "MIT",
+	"includeDir": "include",
+	"srcDir": "src",
+	"frameworks": ["arduino"],
+	"dependencies": [
+	],
+	"build": {
+		"libArchive": true,
+		"extraScript": "./hal_selector.py"
+	},
+	"authors": {
+		"name": "HTL Leonding",
+		"maintainer": true
+	}
+}

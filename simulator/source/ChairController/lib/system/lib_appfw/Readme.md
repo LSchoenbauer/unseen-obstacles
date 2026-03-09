@@ -8,7 +8,8 @@ This framework provides a structured, event-driven architecture to help you buil
 - [Key Components](#key-components)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
-  - [Prerequisites](#prerequisites)
+    - [PlatformIO](#platformio)
+    - [Manual Installation](#manual-installation)
 - [Usage](#usage)
   - [Application Structure](#application-structure)
   - [Event Handling](#event-handling)
@@ -152,7 +153,7 @@ Logging helps in monitoring application state and troubleshooting event flows.
 
 ## Dependencies
 
-This library depends on `lib_utils`. 
+This library depends on `lib_utils`.
 
 ## Contributing
 

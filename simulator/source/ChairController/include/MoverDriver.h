@@ -19,12 +19,17 @@
 #include <memory>
 #include <MoverDriverCfg.h>
 #include <Arduino.h>
+#include <utils/Log.h>
 
 class MoverDriver;
 typedef ::std::shared_ptr<MoverDriver> MoverDriverPtr;
 
 class MoverDriver {
     public:
+        static const Logger::Tag LTAG_CFG; /// for logging related to configuration issues
+        static const Logger::Tag LTAG_CTR; /// for logging related to control issues (e.g. setting speed/direction)
+        static const Logger::Tag LTAG_DRV; /// for logging related to the internal driver loop (e.g. timing, pin values, etc.)
+
         enum class Direction {
             NONE,
             FORWARD,
@@ -237,7 +242,7 @@ class MoverDriver {
         double mRampingStartSpeed;
         double mRampingStepSpeedDif;
 
+        PinIsrData mTopSwitchData;
         PinIsrData mCenterSwitchData;
         PinIsrData mBottomSwitchData;
-        PinIsrData mTopSwitchData;
 };

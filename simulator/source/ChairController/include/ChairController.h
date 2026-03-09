@@ -121,9 +121,9 @@ class ChairController : public AppComponent {
 
         MoverDriverPtr GetMoverDriver(CommandData::Mover mover);
 
-        void ApplyRotation(uint32_t deltaTimestamp, uint32_t deltaYaw);
-        void ApplyFrontMover(uint32_t deltaTimestamp, uint32_t deltaPitch, uint32_t deltaZ);
-        void ApplyBackMover(uint32_t deltaTimestamp, uint32_t deltaRoll, uint32_t deltaZ);
+        void ApplyRotation(uint32_t deltaTimestamp, int32_t deltaYaw);
+        void ApplyFrontMover(uint32_t deltaTimestamp, int32_t deltaPitch, int32_t deltaZ);
+        void ApplyBackMover(uint32_t deltaTimestamp, int32_t deltaRoll, int32_t deltaZ);
         void ApplyShakeMode(uint32_t deltaTimestamp, uint32_t intensity, uint32_t wheelchairSpeed);
 
         static const uint32_t NORMAL_MOVEMENT_SPEED;
