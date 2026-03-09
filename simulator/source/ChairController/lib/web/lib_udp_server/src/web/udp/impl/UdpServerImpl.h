@@ -16,37 +16,31 @@
 
 #pragma once
 
-#include <memory>
+#include <web/udp/UdpServer.h>
 #include <Arduino.h>
-#include <WiFiUdp.h>
 #include <appfw/AppComponent.h>
-#include "ChairController.h"
+#include <os/TaskMgmt.h>
+#include <web/udp/impl/ArduinoUdp.h>
+#include <memory>
 
-using namespace AppFw;
+namespace Web {
+namespace Udp {
 
-class UdpServer;
-typedef ::std::shared_ptr<UdpServer> UdpServerPtr;
-
-class UdpServer {
-        typedef AppComponent Base;
+class UdpServerImpl : public UdpServer {
+		typedef UdpServer Base;
     public:
-        static UdpServerPtr Create();
-
-        ~UdpServer();
-
-        void Init(ChairControllerPtr chairController);
-
-        void Start(); //TODO should be private
+        static UdpServerPtr Create(uint16_t port, size_t packetBufferSize);
+        UdpServerImpl(uint16_t port, size_t packetBufferSize);
+        virtual ~UdpServerImpl();
 
     protected:
-        UdpServer();
+        virtual bool StartListening(uint16_t port) override;
+        virtual size_t RetrieveNextPacket(uint8_t* packetBuffer, size_t packetBufferSize) override;
+        virtual size_t Respond(const uint8_t* data, size_t dataLength) override;
 
     private:
-        // listens for incoming UDP packets in server task
-        void Listen();
-
-        TaskHandle_t mServerTask;
-
-        WiFiUDP mUdp;
-        ChairControllerPtr mChairController;
+        ArduinoUdp mUdp;
 };
+
+}
+} // namespace Web::Udp

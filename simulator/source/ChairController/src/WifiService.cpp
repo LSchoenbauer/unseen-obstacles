@@ -8,6 +8,7 @@
 #include "esp_mac.h"
 #include "esp_wifi.h"
 #include "esp_event.h"
+#include "esp_netif.h"
 #include "esp_log.h"
 #include "nvs_flash.h"
 
@@ -35,13 +36,13 @@ void WifiService::OnWifiEvent(void* arg, esp_event_base_t event_base, int32_t ev
 			case WIFI_EVENT_AP_STACONNECTED: {
 				wifi_event_ap_staconnected_t* src = (wifi_event_ap_staconnected_t*) event_data;
 				MacAddress mac(src->mac);
-				LogInfo("WiFi AP: Client connected: %s", mac.ToString());
+				LogInfo("WiFi AP: Client connected: %s", mac.ToString().c_str());
 				break;
 			}
 			case WIFI_EVENT_AP_STADISCONNECTED: {
 				wifi_event_ap_stadisconnected_t* src = (wifi_event_ap_stadisconnected_t*) event_data;
 				MacAddress mac(src->mac);
-				LogInfo("WiFi AP: Client disconnected: %s", mac.ToString());
+				LogInfo("WiFi AP: Client disconnected: %s", mac.ToString().c_str());
 				break;
 			}
 			default:
@@ -67,12 +68,16 @@ void WifiService::StartWifi(void) {
 
     wifi_config_t wifi_config = {
 		.ap = {
-			// .ssid = mSsid,
-			// .password = mWifiPw,
+			.ssid = {0}, // will be set later
+			.password = {0}, // will be set later
 			.ssid_len = (uint8_t) strlen(mSsid),
 			.channel = mChannel,
 			.authmode = WIFI_AUTH_WPA2_PSK,
+			.ssid_hidden = 0,
 			.max_connection = mMaxClients,
+			.beacon_interval = 100,
+			.pairwise_cipher = WIFI_CIPHER_TYPE_CCMP,
+			.ftm_responder = false,
 		},
 	};
 	strcpy((char*)wifi_config.ap.ssid, mSsid);
@@ -83,16 +88,20 @@ void WifiService::StartWifi(void) {
     }
 
 	esp_netif_ip_info_t ip_config;
-	IP4_ADDR(&ip_config.ip, 192, 168, 7, 3);       // AP IP
-	IP4_ADDR(&ip_config.gw, 192, 168, 7, 3);       // Gateway (same as AP IP)
-	IP4_ADDR(&ip_config.netmask, 255, 255, 255, 0); // Subnet mask
-	esp_rc = esp_netif_set_ip_info(esp_netif_ap, &ip_config);
-	LogDbgRc("Ip adress applied", esp_rc);
+	IP4_ADDR(&ip_config.ip,      192, 168, 7, 3);    // AP IP
+	IP4_ADDR(&ip_config.gw,      192, 168, 7, 3);    // Gateway (same as AP IP)
+	IP4_ADDR(&ip_config.netmask, 255, 255, 255, 0);  // Subnet mask
 
     esp_rc = esp_wifi_set_mode(WIFI_MODE_AP);
 	LogDbgRc("Wifi set mode to AP", esp_rc);
     esp_rc = esp_wifi_set_config(WIFI_IF_AP, &wifi_config);
 	LogDbgRc("Wifi set config", esp_rc);
+	esp_rc = esp_netif_dhcps_stop(esp_netif_ap);
+	LogDbgRc("DHCP server stopped", esp_rc);
+	esp_rc = esp_netif_set_ip_info(esp_netif_ap, &ip_config);
+	LogDbgRc("IP address applied", esp_rc);
+	esp_rc = esp_netif_dhcps_start(esp_netif_ap);
+	LogDbgRc("DHCP server started again", esp_rc);
     esp_rc = esp_wifi_start();
 	LogDbgRc("Wifi start", esp_rc);
 
