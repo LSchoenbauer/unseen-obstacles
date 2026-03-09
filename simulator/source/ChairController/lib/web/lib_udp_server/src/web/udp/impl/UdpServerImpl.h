@@ -20,7 +20,7 @@
 #include <Arduino.h>
 #include <appfw/AppComponent.h>
 #include <os/TaskMgmt.h>
-#include <WiFiUdp.h>
+#include <web/udp/impl/ArduinoUdp.h>
 #include <memory>
 
 namespace Web {
@@ -36,9 +36,10 @@ class UdpServerImpl : public UdpServer {
     protected:
         virtual bool StartListening(uint16_t port) override;
         virtual size_t RetrieveNextPacket(uint8_t* packetBuffer, size_t packetBufferSize) override;
+        virtual size_t Respond(const uint8_t* data, size_t dataLength) override;
 
     private:
-        WiFiUDP mUdp;
+        ArduinoUdp mUdp;
 };
 
 }

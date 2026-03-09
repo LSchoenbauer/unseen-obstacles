@@ -15,7 +15,10 @@
  */
 
 #include "UdpServerImpl.h"
+#include <net/Ip4Address.h>
 #include <utils/Log.h>
+
+using namespace Net;
 
 namespace Web {
 namespace Udp {
@@ -39,10 +42,31 @@ size_t UdpServerImpl::RetrieveNextPacket(uint8_t* packetBuffer, size_t packetBuf
     size_t dataSize = mUdp.parsePacket();
     if (dataSize > 0) {
         size_t bytesRead = mUdp.read(packetBuffer, packetBufferSize);
-        LogDbg("UDP Server: Packet with %d bytes received and %d bytes read", dataSize, bytesRead);
+        LogDbgT(LTAG_RX, "UDP Server: Packet with %d bytes received and %d bytes read", dataSize, bytesRead);
         dataSize = bytesRead;
     }
     return dataSize;
+}
+
+size_t UdpServerImpl::Respond(const uint8_t* data, size_t dataLength) {
+    size_t sentByteCnt = 0;
+    Ip4Address clientIP = mUdp.remoteIP();
+    Ip4Address clientPort = mUdp.remotePort();
+    if (mUdp.beginPacket(mUdp.remoteIP(), mUdp.remotePort()) == 0) {
+        LogWarnT(LTAG_TX, "UDP Server: Failed to send packet to %s:%d - check NW connection and call 'Start(...)' beforehand", clientIP.toString().c_str(), clientPort);
+    } else {
+        sentByteCnt = mUdp.write(data, dataLength);
+        if (mUdp.endPacket() == 0) {
+            LogWarnT(LTAG_TX, "UDP Server: Failed to send packet to %s:%d - endPacket() failed", clientIP.toString().c_str(), clientPort);
+        } else {
+            if (sentByteCnt != dataLength) {
+                LogWarnT(LTAG_TX, "UDP Server: Failed to send complete packet to %s:%d - only %d of %d bytes sent", clientIP.toString().c_str(), clientPort, sentByteCnt, dataLength);
+            } else {
+                LogDbgT(LTAG_TX, "UDP Server: Sent packet to %s:%d, size: %d, content: %.*s", clientIP.toString().c_str(), clientPort, sentByteCnt, sentByteCnt, data);
+            }
+        }
+    }
+    return dataLength;
 }
 
 }

@@ -17,7 +17,6 @@
 
 #include <os/TaskMgmt.h>
 #include <TaskConfigs.h>
-#include <utils/Log.h>
 
 using namespace Os;
 
@@ -41,6 +40,10 @@ const uint64_t MoverDriver::COASTING_TIME_US = 100 * 1000; // 3 frames at 30 fps
     #define IsrDbgBlink(state, divider)
     #define IsrDbg(state)
 #endif
+
+const Logger::Tag MoverDriver::LTAG_CFG = CreateLogTag("MD_CFG");
+const Logger::Tag MoverDriver::LTAG_CTR = CreateLogTag("MD_CTR");
+const Logger::Tag MoverDriver::LTAG_DRV = CreateLogTag("MD_DRV");
 
 MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) : 
             mDriverTask(nullptr),
@@ -77,7 +80,7 @@ MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) :
 
 MoverDriver::~MoverDriver() {
     // task will stop and delete itself
-    LogDbg("%s: destructing", mCfg != nullptr ? mCfg->GetLabel(): "NULL");
+    LogDbgT(LTAG_CFG, "%s: destructing", mCfg != nullptr ? mCfg->GetLabel(): "NULL");
     mDriverTask = nullptr;
     if (mPulseTimer != nullptr) {
         timerEnd(mPulseTimer);
@@ -103,7 +106,7 @@ MoverDriverPtr MoverDriver::Create(MoverDriverCfgPtr moverDriverCfg) {
 void MoverDriver::Init() {
     IsrDbgInit();
     IsrDbgReset();
-    LogDbg("%s: Initializing MoverDriver", mCfg->GetLabel() );
+    LogDbgT(LTAG_CFG, "%s: Initializing MoverDriver", mCfg->GetLabel() );
 
     pinMode(mCfg->GetPulsePin(), OUTPUT);
     pinMode(mCfg->GetDirPin(), OUTPUT);
@@ -135,7 +138,7 @@ void MoverDriver::Init() {
     timerAlarmDisable(mPulseTimer);
     AttachTimerIsr(mPulseTimer, MoverDriver::OnPulseTimerStatic, this);
 
-    LogDbg("%s: Switchpins: %d %d %d", mCfg->GetLabel(), mCfg->GetTopSwitchPin(), mCfg->GetCenterSwitchPin(), mCfg->GetBottomSwitchPin());
+    LogDbgT(LTAG_CFG, "%s: Switchpins: %d %d %d", mCfg->GetLabel(), mCfg->GetTopSwitchPin(), mCfg->GetCenterSwitchPin(), mCfg->GetBottomSwitchPin());
 
     CreateDriverTask();
 }
@@ -156,32 +159,32 @@ void MoverDriver::CreateDriverTask() {
             TaskConfigs::Get(TaskConfigs::TaskCfgId::STEPPER_DRIVER),
             [](void* pvParameters) { // Task function - lambda
                 MoverDriver* driver = static_cast<MoverDriver*>(pvParameters);
-                LogDbg("%s: Driver task created, waiting to run", driver->mCfg->GetLabel());
+                LogDbgT(LTAG_CFG, "%s: Driver task created, waiting to run", driver->mCfg->GetLabel());
                 ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(50)); // wait for the signal that task creation is complete
-                LogDbg("%s: Driver task started to run", driver->mCfg->GetLabel());
+                LogDbgT(LTAG_CFG, "%s: Driver task started to run", driver->mCfg->GetLabel());
                 driver->Drive();
             },
             this,
             label
         );
         if (mDriverTask != nullptr) {
-            LogDbg("%s: Driver task creation completed, starting it now", label);
+            LogDbgT(LTAG_CFG, "%s: Driver task creation completed, starting it now", label);
             xTaskNotifyGive(mDriverTask); // signal the task that creation is complete
         }
     } else {
-        LogWarn("%s: Skipped recreation of MoverDriver command task", label);
+        LogWarnT(LTAG_CFG, "%s: Skipped recreation of MoverDriver command task", label);
     }
 }
 
 void MoverDriver::Drive() {
     while (mDriverTask != nullptr) {
-        // LogDbg("%s: driving", mCfg->GetLabel());
+        // LogDbgT(LTAG_DRV, "%s: driving", mCfg->GetLabel());
         RetrieveDriveParams();
         CalcStepperValues();
         vTaskDelay(pdMS_TO_TICKS(5)); // recalculate every 5 ms
     }
     vTaskDelete(NULL);
-    LogDbg("%s: driver task deleted", mCfg->GetLabel());
+    LogDbgT(LTAG_CFG, "%s: driver task deleted", mCfg->GetLabel());
 }
 
 void MoverDriver::RetrieveDriveParams() {
@@ -196,7 +199,7 @@ void MoverDriver::RetrieveDriveParams() {
             mIsRamping = (mTargetDirection == driveParams.mDirection ? mIsRamping : false);
             mTargetDirection = driveParams.mDirection;
         }
-        LogDbg("%s: applied direction: %s, speed: %d rpm", mCfg->GetLabel(), 
+        LogDbgT(LTAG_CTR, "%s: applied direction: %s, speed: %d rpm", mCfg->GetLabel(), 
             MoverDriver::DirectionToString(driveParams.mDirection),
             (driveParams.mSpeedRpm < UINT32_MAX ? driveParams.mSpeedRpm : -1));
     }
@@ -218,7 +221,7 @@ void MoverDriver::SetSpeedAndDirection(uint32_t speedRpm, Direction direction) {
         }
         driveParams.SetDirection(direction);
         xQueueSend(mDriverQueue, &driveParams, portMAX_DELAY);
-        LogDbg("%s: queued  direction: %s, speed: %d rpm", mCfg->GetLabel(), 
+        LogDbgT(LTAG_CTR, "%s: queued  direction: %s, speed: %d rpm", mCfg->GetLabel(), 
             MoverDriver::DirectionToString(driveParams.mDirection),
             (driveParams.mSpeedRpm < UINT32_MAX ? driveParams.mSpeedRpm : -1));
 
@@ -294,7 +297,7 @@ void MoverDriver::CalcStepperValues() {
   {
         if (mSetTargetSpeed != 0) {
             mIsRamping = false;
-            LogDbg("%s: Limit switch reached, stopping stepper (dir: %s, atTop: %d, atBottom: %d, timeout: %s)", 
+            LogDbgT(LTAG_DRV, "%s: Limit switch reached, stopping stepper (dir: %s, atTop: %d, atBottom: %d, timeout: %s)", 
                 mCfg->GetLabel(),
                 MoverDriver::DirectionToString(mCurrentDirection),
                 IsAtTop(), IsAtBottom(),
@@ -320,7 +323,7 @@ void MoverDriver::CalcStepperValues() {
         digitalWrite(pin, mCurrentDirection == Direction::FORWARD ? HIGH : LOW); // might be vice versa
 
         if (mLastPulseDurationUs <= MAX_PULSE_DURATION_US) {
-            LogDbg("%s: Stepper stopped (last %d, MAX: %d)", mCfg->GetLabel()
+            LogDbgT(LTAG_DRV, "%s: Stepper stopped (last %d, MAX: %d)", mCfg->GetLabel()
                 , mLastPulseDurationUs, MAX_PULSE_DURATION_US);
             mLastPulseDurationUs = MAX_PULSE_DURATION_US + 1;
         }
@@ -329,8 +332,8 @@ void MoverDriver::CalcStepperValues() {
         timerAlarmWrite(mPulseTimer, dutyDurationUs, true);
         timerAlarmEnable(mPulseTimer);
         if (mLastPulseDurationUs != pulseDurationUs) {
-            LogDbg("%s: Pulse timer period: %d µs (last %d)", mCfg->GetLabel(), pulseDurationUs
-            , mLastPulseDurationUs);
+            LogDbgT(LTAG_DRV, "%s: Pulse timer period: %d µs (last %d)", mCfg->GetLabel()
+			, pulseDurationUs , mLastPulseDurationUs);
             mLastPulseDurationUs = pulseDurationUs;
         }
     }
@@ -364,8 +367,9 @@ uint32_t MoverDriver::CalcPulseDurationUs() {
     uint32_t pulseDurationUs = stepsPerMinute != 0 ? (60e6) / stepsPerMinute : INT_MAX;
 
     if (hasChanged) {
-        LogDbg("%s: Target speed: %d rpm, current speed: %d rpm (step: %d, f: %d Hz, tPulse: %d µs, spm: %d)", 
-            mCfg->GetLabel(), mTargetSpeed, mCurrentSpeed, mTransitionStep, pulseDurationUs != 0 ? (1000000 / pulseDurationUs) : 0, pulseDurationUs, stepsPerMinute);
+        LogDbgT(LTAG_DRV, "%s: Target speed: %d rpm, current speed: %d rpm (step: %d, f: %d Hz, tPulse: %d µs, spm: %d)", 
+            mCfg->GetLabel(), mTargetSpeed, mCurrentSpeed, mTransitionStep, 
+			pulseDurationUs != 0 ? (1000000 / pulseDurationUs) : 0, pulseDurationUs, stepsPerMinute);
     }
 
     return pulseDurationUs;

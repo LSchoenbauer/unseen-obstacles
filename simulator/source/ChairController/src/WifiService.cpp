@@ -36,13 +36,13 @@ void WifiService::OnWifiEvent(void* arg, esp_event_base_t event_base, int32_t ev
 			case WIFI_EVENT_AP_STACONNECTED: {
 				wifi_event_ap_staconnected_t* src = (wifi_event_ap_staconnected_t*) event_data;
 				MacAddress mac(src->mac);
-				LogInfo("WiFi AP: Client connected: %s", mac.ToString());
+				LogInfo("WiFi AP: Client connected: %s", mac.ToString().c_str());
 				break;
 			}
 			case WIFI_EVENT_AP_STADISCONNECTED: {
 				wifi_event_ap_stadisconnected_t* src = (wifi_event_ap_stadisconnected_t*) event_data;
 				MacAddress mac(src->mac);
-				LogInfo("WiFi AP: Client disconnected: %s", mac.ToString());
+				LogInfo("WiFi AP: Client disconnected: %s", mac.ToString().c_str());
 				break;
 			}
 			default:

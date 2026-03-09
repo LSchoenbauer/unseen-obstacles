@@ -23,6 +23,7 @@
 
 const char* Logger::mFilePathStarter = 0;
 uint8_t Logger::mEnabledSinks = 0;
+const Logger::Tag Logger::mNoTag = 0;
 
 #ifdef DO_LOG_MULTITHREADED
 	#pragma message	("LOG: multithreaded logging enabled!")
@@ -33,8 +34,8 @@ uint8_t Logger::mEnabledSinks = 0;
 	char Logger::mLogBuffer[mLogBufferLength];
 	size_t Logger::mNextFreeLogBufferIdx = 0;
 	size_t Logger::mLogBufferStartIdx = 0;
-	#define ENTER_CR if (xSemaphoreTakeRecursive(mLogMutex, portMAX_DELAY) == pdTRUE) {
-	#define EXIT_CR xSemaphoreGiveRecursive(mLogMutex); }
+	#define ENTER_CR if (mLogMutex == nullptr || xSemaphoreTakeRecursive(mLogMutex, portMAX_DELAY) == pdTRUE) {
+	#define EXIT_CR if (mLogMutex != nullptr) { xSemaphoreGiveRecursive(mLogMutex); } }
 #else
 	#pragma message	("LOG: SINGLE threaded logging only!")
 	#define ENTER_CR {
@@ -80,84 +81,208 @@ bool Logger::IsSinkEnabled(LogSink::Enum sink) {
 	return (mEnabledSinks & sink); 
 }
 
+std::unordered_map<Logger::Tag, std::string>& Logger::GetTagLabels() {
+	static std::unordered_map<Logger::Tag, std::string> tagLabels;
+	return tagLabels;
+}
+
+std::unordered_map<Logger::Tag, Logger::Level>& Logger::GetTagLevels() {
+	static std::unordered_map<Logger::Tag, Logger::Level> tagLevels;
+	return tagLevels;
+}
+
+Logger::Tag Logger::RegisterTag(Tag tag, const char* label) {
+	ENTER_CR
+		if (label != nullptr && tag != mNoTag) {
+			GetTagLabels()[tag] = label;
+		}
+	EXIT_CR
+	return tag;
+}
+
+void Logger::SetMaxTagLevel(Tag tag, Level level) {
+	ENTER_CR
+		if (tag != mNoTag) {
+			if (level == nullptr) {
+				GetTagLevels().erase(tag);
+			} else {
+				GetTagLevels()[tag] = level;
+			}
+		}
+	EXIT_CR
+}
+
+bool Logger::IsTagEnabled(Tag tag, Level level) {
+	bool isEnabled = (tag == mNoTag) || level == nullptr;
+	ENTER_CR
+		isEnabled = isEnabled || GetTagLevels().count(tag) == 0; // not defined -> enabled
+		if (!isEnabled) {
+			isEnabled |= IsLevelAtLeast(level, GetTagLevels()[tag]);
+		}
+	EXIT_CR
+	return isEnabled;
+}
+
 void Logger::LogLineBreak() {
-	Logger::PrintLogMsg(0, true, 0, 0, 0, 0, 0, 0);
+	Logger::PrintLogMsg(mNoTag, 0, true, 0, 0, 0, 0, 0, 0);
 }
 
-void Logger::Log(const char* level, const char* msg, ...) {
+void Logger::LogLineBreak(Tag tag) {
+	Logger::PrintLogMsg(tag, 0, true, 0, 0, 0, 0, 0, 0);
+}
+
+void Logger::Log(Level level, const char* msg, ...) {
 	va_list args;
 	va_start(args, msg);
-	Logger::PrintLogMsg(level, false, 0, 0, 0, 0, msg, &args);
+	Logger::PrintLogMsg(mNoTag, level, false, 0, 0, 0, 0, msg, &args);
 	va_end(args);
 }
 
-void Logger::LogLn(const char* level, const char* msg, ...) {
+void Logger::Log(Tag tag, Level level, const char* msg, ...) {
 	va_list args;
 	va_start(args, msg);
-	Logger::PrintLogMsg(level, true, 0, 0, 0, 0, msg, &args);
+	Logger::PrintLogMsg(tag, level, false, 0, 0, 0, 0, msg, &args);
 	va_end(args);
 }
 
-void Logger::Log(const char* level, const char* file, const char* fct, int line, const char* msg, ...) {
+void Logger::LogLn(Level level, const char* msg, ...) {
 	va_list args;
 	va_start(args, msg);
-	Logger::PrintLogMsg(level, false, file, fct, line, 0, msg, &args);
+	Logger::PrintLogMsg(mNoTag, level, true, 0, 0, 0, 0, msg, &args);
 	va_end(args);
 }
 
-void Logger::LogLn(const char* level, const char* file, const char* fct, int line, const char* msg, ...) {
+void Logger::LogLn(Tag tag, Level level, const char* msg, ...) {
 	va_list args;
 	va_start(args, msg);
-	Logger::PrintLogMsg(level, true, file, fct, line, 0, msg, &args);
+	Logger::PrintLogMsg(tag, level, true, 0, 0, 0, 0, msg, &args);
 	va_end(args);
 }
 
-void Logger::LogLn(const char* level, const Rc& rc, const char* msg, ...) {
+void Logger::Log(Level level, const char* file, const char* fct, int line, const char* msg, ...) {
 	va_list args;
 	va_start(args, msg);
-	Logger::PrintLogMsg(level, true, 0, 0, 0, &rc, msg, &args);
+	Logger::PrintLogMsg(mNoTag, level, false, file, fct, line, 0, msg, &args);
 	va_end(args);
 }
 
-void Logger::LogLn(const char* level, const char* file, const char* fct, int line, const Rc& rc, const char* msg, ...) {
+void Logger::Log(Tag tag, Level level, const char* file, const char* fct, int line, const char* msg, ...) {
 	va_list args;
 	va_start(args, msg);
-	Logger::PrintLogMsg(level, true, file, fct, line, &rc, msg, &args);
+	Logger::PrintLogMsg(tag, level, false, file, fct, line, 0, msg, &args);
 	va_end(args);
 }
 
-void Logger::LogLnIfFail(bool rc, const char* level, const char* msg, ...) {
+void Logger::LogLn(Level level, const char* file, const char* fct, int line, const char* msg, ...) {
+	va_list args;
+	va_start(args, msg);
+	Logger::PrintLogMsg( mNoTag, level, true, file, fct, line, 0, msg, &args);
+	va_end(args);
+}
+
+void Logger::LogLn(Tag tag, Level level, const char* file, const char* fct, int line, const char* msg, ...) {
+	va_list args;
+	va_start(args, msg);
+	Logger::PrintLogMsg(tag, level, true, file, fct, line, 0, msg, &args);
+	va_end(args);
+}
+
+void Logger::LogLn(Level level, const Rc& rc, const char* msg, ...) {
+	va_list args;
+	va_start(args, msg);
+	Logger::PrintLogMsg(mNoTag, level, true, 0, 0, 0, &rc, msg, &args);
+	va_end(args);
+}
+
+void Logger::LogLn(Tag tag, Level level, const Rc& rc, const char* msg, ...) {
+	va_list args;
+	va_start(args, msg);
+	Logger::PrintLogMsg(tag, level, true, 0, 0, 0, &rc, msg, &args);
+	va_end(args);
+}
+
+void Logger::LogLn(Level level, const char* file, const char* fct, int line, const Rc& rc, const char* msg, ...) {
+	va_list args;
+	va_start(args, msg);
+	Logger::PrintLogMsg(mNoTag, level, true, file, fct, line, &rc, msg, &args);
+	va_end(args);
+}
+
+void Logger::LogLn(Tag tag, Level level, const char* file, const char* fct, int line, const Rc& rc, const char* msg, ...) {
+	va_list args;
+	va_start(args, msg);
+	Logger::PrintLogMsg(tag, level, true, file, fct, line, &rc, msg, &args);
+	va_end(args);
+}
+
+void Logger::LogLnIfFail(bool rc, Level level, const char* msg, ...) {
 	if (!rc) {
 		va_list args;
 		va_start(args, msg);
-		Logger::PrintLogMsg(level, true, 0, 0, 0, 0, msg, &args);
+		Logger::PrintLogMsg(mNoTag, level, true, 0, 0, 0, 0, msg, &args);
 		va_end(args);
 	}
 }
 
-void Logger::LogLnIfFail(bool rc, const char* level, const char* file, const char* fct, int line, const char* msg, ...) {
+void Logger::LogLnIfFail(Tag tag, bool rc, Level level, const char* msg, ...) {
 	if (!rc) {
 		va_list args;
 		va_start(args, msg);
-		Logger::PrintLogMsg(level, true, file, fct, line, 0, msg, &args);
+		Logger::PrintLogMsg(tag, level, true, 0, 0, 0, 0, msg, &args);
 		va_end(args);
 	}
 }
 
-void Logger::LogLnIfFail(const Rc& rc, const char* level, const char* msg, ...) {
-	if (!rc.IsOk()) {
+void Logger::LogLnIfFail(bool rc, Level level, const char* file, const char* fct, int line, const char* msg, ...) {
+	if (!rc) {
 		va_list args;
 		va_start(args, msg);
-		Logger::PrintLogMsg(level, true, 0, 0, 0, &rc, msg, &args);
+		Logger::PrintLogMsg(mNoTag, level, true, file, fct, line, 0, msg, &args);
 		va_end(args);
 	}
 }
 
-void Logger::LogLnIfFail(const Rc& rc, const char* level, const char* file, const char* fct, int line, const char* msg, ...) {
+void Logger::LogLnIfFail(Tag tag, bool rc, Level level, const char* file, const char* fct, int line, const char* msg, ...) {
+	if (!rc) {
+		va_list args;
+		va_start(args, msg);
+		Logger::PrintLogMsg(tag, level, true, file, fct, line, 0, msg, &args);
+		va_end(args);
+	}
+}
+
+void Logger::LogLnIfFail(const Rc& rc, Level level, const char* msg, ...) {
 	if (!rc.IsOk()) {
 		va_list args;
 		va_start(args, msg);
-		Logger::PrintLogMsg(level, true, file, fct, line, &rc, msg, &args);
+		Logger::PrintLogMsg(mNoTag, level, true, 0, 0, 0, &rc, msg, &args);
+		va_end(args);
+	}
+}
+
+void Logger::LogLnIfFail(Tag tag, const Rc& rc, Level level, const char* msg, ...) {
+	if (!rc.IsOk()) {
+		va_list args;
+		va_start(args, msg);
+		Logger::PrintLogMsg(tag, level, true, 0, 0, 0, &rc, msg, &args);
+		va_end(args);
+	}
+}
+
+void Logger::LogLnIfFail(const Rc& rc, Level level, const char* file, const char* fct, int line, const char* msg, ...) {
+	if (!rc.IsOk()) {
+		va_list args;
+		va_start(args, msg);
+		Logger::PrintLogMsg(mNoTag, level, true, file, fct, line, &rc, msg, &args);
+		va_end(args);
+	}
+}
+
+void Logger::LogLnIfFail(Tag tag, const Rc& rc, Level level, const char* file, const char* fct, int line, const char* msg, ...) {
+	if (!rc.IsOk()) {
+		va_list args;
+		va_start(args, msg);
+		Logger::PrintLogMsg(tag, level, true, file, fct, line, &rc, msg, &args);
 		va_end(args);
 	}
 }
@@ -171,6 +296,12 @@ const char* Logger::Dump(const String& value) {
 }
 
 // void Logger::LogHeapStatistix() -- board specific implementation
+
+ bool Logger::IsLevelAtLeast(Level level, Level threshold) {
+	int levelIdx = strstr(LogLevelOrder, level) - LogLevelOrder;
+	int thresholdIdx = strstr(LogLevelOrder, threshold) - LogLevelOrder;
+	return (levelIdx > 0 ) && (levelIdx >= thresholdIdx);
+ }
 
 void Logger::ShortenFilePath(const char* trimInclusive) {
 	ENTER_CR
@@ -200,83 +331,99 @@ int Logger::CalcGap(int minLocatorLen, const char* file, const char* fct, int li
 	return minLocatorLen > len ? minLocatorLen - len : 1;
 }
 
-void Logger::PrintLogMsg(const char* level, bool newLn, const char* file, const char* fct, int line, const Rc* rc,
-        const char* msg, va_list* args) {
+void Logger::PrintLogMsg(Tag tag, Level level, bool newLn, const char* file, const char* fct, int line, 
+		const Rc* rc, const char* msg, va_list* args) {
 	ENTER_CR
-		String str;
-		str.reserve(128);
+		if (IsTagEnabled(tag, level)) {
 
-		if (level != 0) {
-			str.concat(level);
-			str.concat(' ');
-		}
+			// kept for debugging purposes, can be removed later
+			// for (const auto& [tag, label] : Logger::GetTagLabels()) {
+			// 	char buffer[128];
+			// 	snprintf(buffer, sizeof(buffer), "--> Tag: %x, Label: %s\n", static_cast<int>(tag), label.c_str());
+			// 	DoLogMessage(buffer);
+			// }
 
-		if (newLn && msg != 0) {
-			char timeBuffer[16];
-			uint64_t sysTime = ::System::SystemTime::GetMicroseconds64();
-			snprintf(timeBuffer, sizeof(timeBuffer), "%03u.%03u.%03u ",
-				(uint32_t)(sysTime / 1000000l), 
-				(uint32_t)((sysTime % 1000000l) / 1000l), 
-				(uint32_t)(sysTime % 1000l));
-			str.concat(timeBuffer);
-		}
+			String str;
+			str.reserve(128);
+
+			if (level != 0) {
+				str.concat(level);
+				str.concat(' ');
+			}
+
+			if (newLn && msg != 0) {
+				char timeBuffer[16];
+				uint64_t sysTime = ::System::SystemTime::GetMicroseconds64();
+				snprintf(timeBuffer, sizeof(timeBuffer), "%03u.%03u.%03u ",
+					(uint32_t)(sysTime / 1000000l), 
+					(uint32_t)((sysTime % 1000000l) / 1000l), 
+					(uint32_t)(sysTime % 1000l));
+				str.concat(timeBuffer);
+			}
 
 #ifdef DO_LOG_MULTITHREADED
-		if (newLn && msg != 0) {
-			char coreBuffer[8];
-			uint8_t coreId = xPortGetCoreID();
-			snprintf(coreBuffer, sizeof(coreBuffer), "C%u ", coreId);
-			str.concat(coreBuffer);
-		}
+			if (newLn && msg != 0) {
+				char coreBuffer[8];
+				uint8_t coreId = xPortGetCoreID();
+				snprintf(coreBuffer, sizeof(coreBuffer), "C%u ", coreId);
+				str.concat(coreBuffer);
+			}
 #endif
 
-		char buffer[__LogLocatorMinLen__ + 16];
-		char* bufferPtr = buffer;
-		if (file != 0 && fct != 0) {
-			const char* fPath = Logger::GetFilePath(file);
-			int gap = Logger::CalcGap(__LogLocatorMinLen__, fPath, fct, line);
-			size_t strLen = snprintf(buffer, sizeof(buffer), "%s%s::%s #%d:%*s", (file != fPath ? "..." : ""), fPath, fct, line, gap, " ");
-			if (strLen > sizeof(buffer) - 1) {
-				bufferPtr = new char[strLen + 1];
-				if (bufferPtr != 0) {
-					strLen = snprintf(bufferPtr, strLen + 1, "%s%s::%s #%d:%*s", (file != fPath ? "..." : ""), fPath, fct, line, gap, " ");
+			if (tag != mNoTag && GetTagLabels().count(tag) > 0) {
+				str.concat("[");
+				str.concat(GetTagLabels()[tag].c_str());
+				str.concat("] ");
+			}
+
+			char buffer[__LogLocatorMinLen__ + 16];
+			char* bufferPtr = buffer;
+			if (file != 0 && fct != 0) {
+				const char* fPath = Logger::GetFilePath(file);
+				int gap = Logger::CalcGap(__LogLocatorMinLen__, fPath, fct, line);
+				size_t strLen = snprintf(buffer, sizeof(buffer), "%s%s::%s #%d:%*s", (file != fPath ? "..." : ""), fPath, fct, line, gap, " ");
+				if (strLen > sizeof(buffer) - 1) {
+					bufferPtr = new char[strLen + 1];
+					if (bufferPtr != 0) {
+						strLen = snprintf(bufferPtr, strLen + 1, "%s%s::%s #%d:%*s", (file != fPath ? "..." : ""), fPath, fct, line, gap, " ");
+					}
+				}
+				str.concat(bufferPtr);
+				if (buffer != bufferPtr) {
+					delete[] bufferPtr;
 				}
 			}
-			str.concat(bufferPtr);
-			if (buffer != bufferPtr) {
-				delete[] bufferPtr;
-			}
-		}
 
-		if (msg != 0) {
-			bufferPtr = buffer;
-			// note: va_list is started and ended in wrapping functions!
-			size_t strLen = vsnprintf(buffer, sizeof(buffer), msg, *args);
-			if (strLen > sizeof(buffer) - 1) {
-				bufferPtr = new char[strLen + 1];
-				if (bufferPtr != 0) {
-					vsnprintf(bufferPtr, strLen + 1, msg, *args);
+			if (msg != 0) {
+				bufferPtr = buffer;
+				// note: va_list is started and ended in wrapping functions!
+				size_t strLen = vsnprintf(buffer, sizeof(buffer), msg, *args);
+				if (strLen > sizeof(buffer) - 1) {
+					bufferPtr = new char[strLen + 1];
+					if (bufferPtr != 0) {
+						vsnprintf(bufferPtr, strLen + 1, msg, *args);
+					}
+				}
+				str.concat(bufferPtr);
+				if (buffer != bufferPtr) {
+					delete[] bufferPtr;
 				}
 			}
-			str.concat(bufferPtr);
-			if (buffer != bufferPtr) {
-				delete[] bufferPtr;
+
+			if (rc != 0) {
+				str.concat(" [#");
+				str.concat(rc->GetCode());
+				str.concat(": ");
+				str.concat(rc->GetName());
+				str.concat(']');
 			}
-		}
+			
+			if (newLn) {
+				str.concat(__LogLb);
+			}
 
-		if (rc != 0) {
-			str.concat(" [#");
-			str.concat(rc->GetCode());
-			str.concat(": ");
-			str.concat(rc->GetName());
-			str.concat(']');
+			Logger::DoLogMessage(str.c_str());
 		}
-		
-		if (newLn) {
-			str.concat(__LogLb);
-		}
-
-		Logger::DoLogMessage(str.c_str());
 	EXIT_CR
 }
 

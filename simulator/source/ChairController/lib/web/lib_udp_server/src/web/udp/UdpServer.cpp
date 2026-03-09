@@ -18,12 +18,15 @@
 #include <web/udp/impl/UdpServerImpl.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
-#include <utils/Log.h>
 
 namespace Web {
 namespace Udp {
 
 using namespace Os;
+
+const Logger::Tag UdpServer::LTAG_CFG = CreateLogTag("UDP_CFG");
+const Logger::Tag UdpServer::LTAG_RX = CreateLogTag("UDP_RX");
+const Logger::Tag UdpServer::LTAG_TX = CreateLogTag("UDP_TX");
 
 UdpServerPtr UdpServer::Create(uint16_t port, size_t packetBufferSize) {
     return UdpServerImpl::Create(port, packetBufferSize);
@@ -33,7 +36,7 @@ UdpServer::UdpServer(uint16_t port, size_t packetBufferSize) :
         mPort(port), mPacketBufferSize(packetBufferSize), 
         mPacketHandler(nullptr), mServerTask(nullptr) 
 {
-    LogDbg("UDP Server: Created with port '%d' and buffer size %d", port, mPacketBufferSize);
+    LogDbgT(LTAG_CFG, "UDP Server: Created with port '%d' and buffer size %d", port, mPacketBufferSize);
 }
 
 UdpServer::~UdpServer() {
@@ -43,7 +46,7 @@ UdpServer::~UdpServer() {
 
 void UdpServer::OnPacket(UdpPacketHandler packetHandler) {
     mPacketHandler = packetHandler;
-    LogDbg("UDP Server: Packet handler attached");
+    LogDbgT(LTAG_CFG, "UDP Server: Packet handler attached");
 }
 
 void UdpServer::Start() {
@@ -64,28 +67,28 @@ void UdpServer::Start(const TaskMgmt::TaskConfig& taskCfg) {
                 taskCfg,
                 [](void* params) { // Task function - lambda
                     UdpServer* server = static_cast<UdpServer*>(params);
-                    LogDbg("UDP Server: Task created, waiting to start ...");
+                    LogDbgT(LTAG_CFG, "UDP Server: Task created, waiting to start ...");
                     ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(50)); // wait for the signal that task creation is complete
-                    LogDbg("UDP Server: Started");
+                    LogDbgT(LTAG_CFG, "UDP Server: Started");
                     server->Listen();
                 },
                 this
             );
             if (mServerTask != nullptr) {
-                LogDbg("UDP Server: Server task creation completed, starting it now");
+                LogDbgT(LTAG_CFG, "UDP Server: Server task creation completed, starting it now");
                 xTaskNotifyGive(mServerTask); // signal the task that creation is complete
             }
         } else {
-            LogError("UDP Server: Denied starting server: No packet handler attached!");
+            LogErrorT(LTAG_CFG, "UDP Server: Denied starting server: No packet handler attached!");
         }
     } else {
-        LogWarn("UDP Server: Skipped recreation of server task");
+        LogWarnT(LTAG_CFG, "UDP Server: Skipped recreation of server task");
     }
 }
 
 void UdpServer::Stop() {
     if (mServerTask != nullptr) {
-        LogDbg("UDP Server: Stopping server task");
+        LogDbgT(LTAG_CFG, "UDP Server: Stopping server task");
         vTaskDelete(mServerTask);
         mServerTask = nullptr;
     }
@@ -95,22 +98,22 @@ void UdpServer::Listen() {
     uint8_t buffer[mPacketBufferSize];
 
     if (StartListening(mPort)) {
-        LogDbg("UDP Server: Listening on port %d...", mPort);
+        LogDbgT(LTAG_CFG, "UDP Server: Listening on port %d...", mPort);
         while (mServerTask != nullptr) {
             size_t dataSize = RetrieveNextPacket(buffer, mPacketBufferSize);
             if (dataSize > 0) {
                 OnDataReceived(buffer, dataSize);
             } else {
                 // RetrieveNextPacket(...) is supposed to block, but in some environments it doesn't
-                // LogDbg("UDP Server: No data received");
+                // LogDbgT(LTAG_RX, "UDP Server: No data received");
                 vTaskDelay(pdMS_TO_TICKS(5)); // wait a bit before checking for new packets to avoid busy waiting
             }
         }
-        LogDbg("UDP Server: Stopped listening");
+        LogDbgT(LTAG_CFG, "UDP Server: Stopped listening");
         vTaskDelay(pdMS_TO_TICKS(100));
         vTaskDelete(NULL);
     } else  {
-        LogError("UDP Server: Failed to start server on port %d", mPort);
+        LogErrorT(LTAG_CFG, "UDP Server: Failed to start server on port %d", mPort);
     }
 }
 

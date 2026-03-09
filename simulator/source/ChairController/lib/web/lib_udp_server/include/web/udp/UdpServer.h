@@ -19,6 +19,7 @@
 #include <os/TaskMgmt.h>
 #include <functional>
 #include <memory>
+#include <utils/Log.h>
 
 namespace Web {
 namespace Udp {
@@ -33,6 +34,9 @@ typedef ::std::function<void(const uint8_t* data, size_t dataLength)> UdpPacketH
 
 class UdpServer {
     public:
+        static const Logger::Tag LTAG_CFG; /// for logging related to configuration issues
+        static const Logger::Tag LTAG_RX;  /// for logging related to received packets
+        static const Logger::Tag LTAG_TX;  /// for logging related to transmitted packets
 
         /**
          * Creates a new UDP server instance with the given port.
@@ -76,6 +80,16 @@ class UdpServer {
          */
         void Stop();
 
+        /**
+         * Sends an UDP packet with the specified data and length to the client from which the last packet was received.
+         * Important: The method can only be called after a packet was received via "OnDataReceived(...)",
+         * otherwise the client information is not available.
+         * @param data The data to send in the UDP packet.
+         * @param dataLength The length of the data to send in bytes.
+         * @return The number of bytes successfully sent, or zero if the packet was not sent.
+         */
+        virtual size_t Respond(const uint8_t* data, size_t dataLength) = 0;
+
     protected:
         UdpServer(uint16_t port, size_t packetBufferSize);
         virtual ~UdpServer();
@@ -107,7 +121,7 @@ class UdpServer {
          * @param dataLength The length of the received packet data stored in the buffer in bytes.
          */
         virtual void OnDataReceived(const uint8_t* data, size_t dataLength);
-        
+
     private:
         uint16_t mPort;
         size_t mPacketBufferSize;

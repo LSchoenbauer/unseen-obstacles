@@ -1,5 +1,6 @@
 #include "ChairControllerApp.h"
 #include "WifiService.h"
+#include "MoverDriver.h"
 
 #include <os/TaskMgmt.h>
 #include <TaskConfigs.h>
@@ -24,7 +25,13 @@ ChairControllerApp::~ChairControllerApp() {
 void ChairControllerApp::Init() {
 	WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); //disable brownout detector
 
+	// Initialize logging and set log levels
     Logger::Init(Logger::LogSink::Serial);
+	SetMaxLogTagLevel(UdpServer::LTAG_RX, LOG_LEVEL_WARN);
+	SetMaxLogTagLevel(UdpServer::LTAG_TX, LOG_LEVEL_WARN);
+	SetMaxLogTagLevel(MoverDriver::LTAG_CFG, LOG_LEVEL_DEBUG);
+	SetMaxLogTagLevel(MoverDriver::LTAG_CTR, LOG_LEVEL_DEBUG);
+	SetMaxLogTagLevel(MoverDriver::LTAG_DRV, LOG_LEVEL_WARN);
 
     WifiService::GetInstance()->StartWifi();
 	RootFileSystem* rfs = RootFileSystem::GetInstance();
@@ -88,24 +95,36 @@ void ChairControllerApp::ProcessEvents() {
 
 // TODO: Design flaw - better to move this method to a separate adapter class, similar to "RemoteCtrl"
 void ChairControllerApp::OnVrDataReceived(const uint8_t* data, size_t dataLength) {
-    if (data != nullptr && dataLength == 32) {
-        const uint32_t* vrData = reinterpret_cast<const uint32_t*>(data);
-        // the order of the following lines is important because of the binary data format
-        uint32_t timeStamp = *vrData;
-        SimulationData::Mode mode = (SimulationData::Mode) *(++vrData);
-        uint32_t pitch = *(++vrData);
-        uint32_t yaw = *(++vrData);
-        uint32_t roll = *(++vrData);
-        uint32_t posX = *(++vrData);
-        uint32_t posY = *(++vrData);
-        uint32_t posZ = *(++vrData);
-        SimulationData simulationData(timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
-        LogDbg("ChairControllerApp: Received %d %d %d %d %d %d %d %d", timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
+    const char* ping = "PING";
+    const size_t pingDataLen = strlen(ping);
+    const char* response = "PONG";
+    const size_t responseDataLen = strlen(response);
 
-        if (mChairController != nullptr) {
-            mChairController->AdjustToSimulation(simulationData);
+    if (data != nullptr) {
+        if (dataLength == pingDataLen && strncmp(reinterpret_cast<const char*>(data), ping, pingDataLen) == 0) {
+            LogError("ChairControllerApp: Received protocol signal: %.*s (%d)", dataLength, data, dataLength);
+            mUdpServer->Respond(reinterpret_cast<const uint8_t*>(response), responseDataLen);
+        } else if (dataLength == 32) {
+            const uint32_t* vrData = reinterpret_cast<const uint32_t*>(data);
+            // the order of the following lines is important because of the binary data format
+            uint32_t timeStamp = *vrData;
+            SimulationData::Mode mode = (SimulationData::Mode) *(++vrData);
+            uint32_t pitch = *(++vrData);
+            uint32_t yaw = *(++vrData);
+            uint32_t roll = *(++vrData);
+            uint32_t posX = *(++vrData);
+            uint32_t posY = *(++vrData);
+            uint32_t posZ = *(++vrData);
+            SimulationData simulationData(timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
+            LogDbg("ChairControllerApp: Received %d %d %d %d %d %d %d %d", timeStamp, mode, pitch, yaw, roll, posX, posY, posZ);
+
+            if (mChairController != nullptr) {
+                mChairController->AdjustToSimulation(simulationData);
+            }
+        } else {
+            LogError("ChairControllerApp: Parsing VR data failed: Invalid length");
         }
     } else {
-        LogError("ChairControllerApp: Parsing VR data failed: Invalid length");
+        LogWarn("ChairControllerApp: No data received (NULL).");
     }
 }

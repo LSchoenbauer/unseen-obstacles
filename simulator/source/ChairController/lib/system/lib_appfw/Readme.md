@@ -4,23 +4,21 @@ This framework provides a structured, event-driven architecture to help you buil
 
 ## Table of Contents
 
-- [Event-Driven Application Framework for Arduino/ESP32](#event-driven-application-framework-for-arduinoesp32)
-  - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-  - [Key Components](#key-components)
-  - [Getting Started](#getting-started)
-    - [Installation](#installation)
-      - [PlatformIO](#platformio)
-      - [Manual Installation](#manual-installation)
-  - [Usage](#usage)
-    - [Application Structure](#application-structure)
-    - [Event Handling](#event-handling)
-    - [Dispatching Events](#dispatching-events)
-    - [Logging](#logging)
-  - [Dependencies](#dependencies)
-  - [Contributing](#contributing)
-  - [Support](#support)
-  - [License](#license)
+- [Overview](#overview)
+- [Key Components](#key-components)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+    - [PlatformIO](#platformio)
+    - [Manual Installation](#manual-installation)
+- [Usage](#usage)
+  - [Application Structure](#application-structure)
+  - [Event Handling](#event-handling)
+  - [Dispatching Events](#dispatching-events)
+  - [Logging](#logging)
+- [Dependencies](#dependencies)
+- [Contributing](#contributing)
+- [Support](#support)
+- [License](#license)
 
 ## Overview
 
