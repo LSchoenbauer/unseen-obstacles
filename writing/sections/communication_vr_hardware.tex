@@ -1,0 +1,165 @@
+Die Kopplung des physischen Hardware-Prototyps mit der virtuellen Simulationsumgebung konstituiert einen zentralen Bestandteil des Projekts. Insbesondere im Kontext von Virtual-Reality-Anwendungen ermöglicht die Integration realer Eingabegeräte mit virtuellen Systemmodellen eine realitätsnahe Interaktion sowie die Untersuchung von Systemverhalten unter kontrollierten Bedingungen.
+
+Eine zentrale Herausforderung bei der Implementierung solcher hybrider Systeme besteht in der zuverlässigen und latenzarmen Kommunikation zwischen der Hardwarekomponente und der VR-Anwendung. Um eine konsistente Abbildung des physischen System innerhalt der virtuellen Umgebung zu gewährleisten, ist ein kontinuierlicher Austausch von Zustands- und Steuerdaten erforderlich. Dabei spielen Aspekte wie die Datenformatierung, die Synchronisation der Systemzustände sowie die Minimierung von Übertragungs- und Verarbeitungszeiten eine entscheidende Rolle für die Gesamtperformance des Systems.
+
+In diesem Abschnitt wird die Implementierung Kommunikationsarchitektur zwischen dem Hardwareprototyp und der VR-Simulation beschrieben. Zunächst erfolgt eine Erläuterung der grundlegenden Systemstruktur sowie der Rolle der einzelnen Komponenten. Im Anschluss erfolgt die Darstellung des verwendeten Kommunikationsmechanismus sowie des zugrunde liegenden Datenprotokolls. Abschließend werden die Implementierungsdetails der Schnittstelle sowie Maßnahmen zur Gewährleistung einer stabilen und konsistenten Datenübertragung erörtert. 
+
+\section{Systemarchitektur des Gesamtsystems}
+\setauthor{Linnea Schönbauer}
+
+Hier grundlegender Aufbau des Systems
+hardware prototyp Umgebung
+steuerungssoftware C++
+bissl noch vr simulation Unity, C sharp  hier halt mehr auf die Sprache eingehen 
+kommunikationsschnittstelle zwischen beiden
+
+Das System besteht aus zwei Hauptkomponenten: Dem physischen Hardwareprototypen und einer VR-Simulation die über eine gemeinsame Kommunikationsschnittstelle verbunden sind. 
+
+Architekturabbildung
+
+beschreiben:
+welche komponenten existieren, welche Aufgaben haben sie, wie sind sie miteinander verunden
+
+\section{Architektur des VR-Projekts}
+\setauthor{Linnea Schönbauer}
+Die virtuelle Simulation wurde unter Verwendung der Game Engine Unity realisiert. Unity ist eine weit verbreitete Entwicklungsumgebung zur Erstellung interaktiver 3D-Anwendungen und Virtual-Reality-Systeme. Dee Engine stellt eine integrierte Entwicklungsumgebung bereit, welche Werkzeuge zur Szenengestaltung, Physiksimulation, Skriptprogrammierung sowie zur Verwaltung komplexer Objektstrukturen umfasst.
+
+Ein zentrales Merkmal der Architektur von Unity ist die objektorientierte Organisation der virtuellen Welt. In der vorliegenden Arbeit wird dargelegt, dass sämtliche Elemente einer Simulation als Objekte innerhalb einer Szene modelliert werden. Zudem wird erörtert, dass die Steuerung dieser Objekte über ein komponentenbasiertes System erfolgt. (QUELLE Unity Seite)
+
+Unity organisiert alle Inhalte einer Simulation in sogenannten Szenen, die jeweils eine hierarchische Baumstruktur aus GameObjects bilden. Eine Szene konstituiert eine abgeschlossene virtuelle Umgebung, welche sämtliche geometrischen Objekte, Lichtquellen, Kameras sowie Interaktionskomponenten enthält.
+
+Die Struktur innerhalt einer Szene folgt einer hierarchischen Organisation, in der einzelne GameObjects in Parent-Child-Beziehungen zueinander stehen können. Diese Struktur ermöglicht eine effiziente Verwaltung komplexer Objektsysteme, da Transformationen eines übergeordneten Objekts automatisch auf seine untergeordneten Elemente übertragen werden.
+
+BEISPIEL ROLLSTUHL ALS CHILD OBJEKT DES XOR RIGS UND AUSSERDEM FOTO VON DER HIERARCHIE IN UNITY
+
+In dem Computerspiel-Entwicklungsprogramm Unity wird jedes Element der virtuellen Welt als sogenanntes GameObject bezeichnet. GameObjects dienen als Container für verschiedene Komponenten, welche dsa Verhalten und die Eigenschaften des jeweiligen Objekts definieren. Ein GameObject verfügt anfänglich über keine Funktionalität sondern diese wird erst durch die hinzugefügten Komponenten erworben. 
+
+Als illustrierende Beispiele für GameObjects innerhalt der Simulation seien etwa Gebäude der virtuellen Stadtumgebung, Straßenelemente, Kollisionsobjekte oder der virtuelle Rollstuhl genannt, der als zentrales Interaktionselement der Anwendung dient \ref{chapter:vr-world}. (QUELLE UNITY SEITE)
+
+\subsection{Physikalisches Bewegungsmodell}
+\setauthor{Linnea Schönbauer}
+Die Bewegung des virtuellen Rollstuhls innerhalb der Simulation basiert auf der Physik-Engine der Game Engine Unity. Anstatt die Positionsänderungen direkt zu manipulieren, wird ein physikalisches Bewegungsmodell verwendet, das auf der sogenannten Rigidbody-Komponente basiert. (QUELLE RIGIDBODY)
+
+Diese Komponente gestattet die Simulation physikalischer Eigenschaften wie Masse, Gravitation sowie Kollisionen mit anderen Objekten der virtuellen Umgebung. Dies resultiert in einem realistischeren Bewegungsverhalten, insbesondere beim Befahren von Steigungen oder beim Kontakt mit Hindernissen innerhalb der simulierten Stadtumgebung.
+
+Im Rahmen des vorliegenden Systems wird der virtuelle Rollstuhl daher als physikalisches Objekt modelliert, dessen Position und Orientierung über die Bewegungsfunktionen der Rigidbody-Komponente gesteuert werden. 
+
+\subsection{Positions- und Orientierungsparameter des virtuellen Rollstuhls}
+\setauthor{Linnea Schönbauer}
+Die Simulation des virtuellen Rollstuhls erfolgt unter Verwendung von Positions- und Orientierungsdaten zur adäquaten Beschreibung der Bewegung innerhalb der Simulation. Diese Werte beschreiben den aktuellen Zustand des Objekts im dreidimensionalen Raum und bilden gleichzeitig die Grundlage für die spätere Übertragung an den Hardwareprototyp.
+
+\subsubsection{Positionskoordinaten}
+\setauthor{Linnea Schönbauer}
+Die Position eines Objekts in der Simulation wird durch ein kartesisches Koordinatensystem beschrieben. Die Position eines Objekts wird durch drei Koordinaten entlang der räumlichen Achse definiert.
+
+Die Koordinate PosX beschreibt die Position entlang der horizontalen X-Achse, während PosZ die Bewegung entlang der Tiefenachse der virtuellen Umgebung angibt. Die vertikale Position wird durch PosY beschrieben und repräsentiert die Höhe des Objekts innerhalb der Szene.
+
+\subsubsection{Orientierung im Raum}
+\setauthor{Linnea Schönbauer}
+Abgesehen von der Position ist auch die Orientierung des Rollstuhls im Raum von signifikanter Relevanz. Die vorliegende Beschreibung gibt Aufschluss über die Ausrichtung des Objekts relativ zu den drei Raumachsen.
+
+In einer Vielzahl von 3D-Systemen wird diese Orientierung durch sogenannte Euler-Angles repräsentiert, welche drei Rotationswinkel entlang der Raumachsen definieren. (QUELLE)
+
+BEISPIEL BILD VON DEM EULER FREIHEITSGRADE DIAGRAMM KREIS SPHERE QUELLE
+
+\subsubsection{Pitch, Yaw und Roll}
+\setauthor{Linnea Schönbauer}
+Die Orientierung wird durch drei Rotationswinkel beschrieben, die jeweils eine Drehung um eine der Raumachsen repräsentieren.
+
+Pitch beschreibt die Rotation um die seitliche Achse des Objekts und entspricht einer Vorwärts- oder Rückwärtsneigung. Das Befahren einer steilen Rampe führt beispielsweise zu einer signifikanten Änderung des Pitch.
+
+Yaw beschreibt die Rotation um die vertikale Achse und determiniert damit die Blickrichtung des Rollstuhls innerhalb der Umgebung.
+
+Roll beschreibt die seitliche Neigung des Objekts um die Vorwärtsachse. Ein Beispiel für eine derartige Situation wäre das Befahren eines hohen Bordsteins, wobei sich das Fahrzeug mit einem Reifen auf dem Gehweg und mit dem anderen auf der Straße befindet.
+
+\subsubsection{Freiheitsgrade des Systems}
+\setauthor{Linnea Schönbauer}
+Die Bewegung des Rollstuhls lässt sich somit durch sechs Freiheitsgrade beschreiben. Drei dieser Freiheitsgrade betreffen die Position des Objekts im Raum (Translation entlang der X-, Y- und Z-Achse), während die übrigen drei Freiheitsgrade die Orientierung des Objekts beschreiben (Rotation um die drei Raumachsen).
+
+\subsection{Verarbeitung der Benutzereingaben}
+\setauthor{Linnea Schönbauer}
+Die Steuerung des virtuellen Rollstuhls erfolgt durch Eingaben des Benutzers, welche durch das Input-System von Unity erfasst werden. Diese Eingaben werden als zweidimensionaler Eingabevektor interpretiert, der sowohl Vorwärtsbewegung als auch Rotationsbewegung repräsentiert.
+
+Der vertikale Anteil des Eingabevektors determiniert die Vorwärts, beziehungsweise Rückwärtsbewegung des Rollstuhls innerhalb der Szene, während der horizontale Anteil zur Steuerung der Drehbewegung um die vertikale Achse verwendet wird.
+
+Die vorliegende Aufteilung ermöglicht die unabhängige Kontrolle von Translation und Rotation, wodurch eine intuitive Navigation innerhalb der virtuellen Umgebung ermöglicht wird. (QUELLE bzw. Wiederholung von Kapitel Bewegung im virtuellen Raum)
+
+\subsection{Berechnung der Translation und Rotation}
+\setauthor{Linnea Schönbauer}
+Die Bewegung des Rollstuhls lässt sich in zwei grundlegende Bewegungsarten unterteilen: Die translatorische Bewegung entlang der Blickrichtung sowie die Rotationsbewegung um die vertikale Achse.
+
+Die Berechnung der Vorwärtsbewegung erfolgt entlang der lokalen Vorwärtsrichtung des Rollstuhls. Diese Richtung entspricht der aktuellen Orientierung des Rollstuhls innerhalb der Szene und wird über die Transformationsdaten des Objekts bestimmt. Die tatsächliche Verschiebung pro Simulationsschritt ergibt sich demnach aus der definierten Bewegungsgeschwindigkeit sowie der Zeitdauer des jeweiligen Physiks-Updates.
+
+Darüber hinaus besteht die Möglichkeit, den Rollstuhl um die vertikale Achse zu rotieren, wodurch Richtungsänderungen innerhalb der virtuellen Umgebung ermöglicht werden. Die Rotationsgeschwindigkeit wird über einen separaten Parameter gesteuert und ebenfalls innerhalb des Physik-Update-Zyklus der Simulation berechnet. (QUELLE CODE?)
+
+
+
+
+\section {Datenaustausch zwischen Simulation und Hardware}
+\setauthor{Linnea Schönbauer}
+hier erklären welche daten zwischen simulation und hardware übertragen werden.
+z.b. halt das pitch, yaw, roll, etc. position, und halt auch wie man das aus der simulation kriegen
+
+außerdem beschreiben: datenformat, übertragunsgfrequenz, kommunikationsprotokoll also das ganze udp beschreiben und auch mit app und so
+
+
+\section{Steuerungslogik und Regelkreis}
+\setauthor{Linnea Schönbauer}
+hier beschreiben wie die Simulation Bewegungsbefehle generiert und wie die hardware darauf reagiert:
+
+ablauf eventuell:
+simulation berechnet einen neuen Zustand
+zielposiition oder bewegungsbefehl wird erzeugt
+befehl wird an den hardwarecontroller übertragen
+hardware führt bewegung aus
+sensoren liefern feedback (also sie erheben sich die heber)
+simulation wird aktualisiert
+
+das ist geschlossener Regelkreis hier kann man auch skizze einfügen Immersion
+
+Buzzwords: Control Loop, Feedback Loop, Regelkreis
+
+\section{Synchronisation zwischen Simulation und Hardware}
+\setauthor{Linnea Schönbauer}
+hier beschreib das problem dass simulation und hardware oft mit unterschiedlichen aktualisierungsraten arbeiten also vr rendering oft 90 hz und hardware steuerung oft 100 hz.
+
+führt potentiell zu:
+positionsabweichungen, verzögerungen, instabile Bewegungen
+
+deshalb werden synchronisationsmethoden verwendet, z.B.:
+zeitstempel, interpolation, vorhersagemodelle
+
+\section{Latenz und Echtzeitanforderungen}
+\setauthor{Linnea Schönbauer}
+Hier erklären warum niedrige Latenz wichtig ist.
+
+In VR-Systemen entsteht Verzögerung durch:
+sensordatenerfassung, Datenübertragungn, Verarbeitung, Renderkng, Hardwarebewegung
+
+Diese gesamte Verzögerung wird oft Motion-to-Photon-Latenz genannt. 
+
+Zu hohe Latenz kann dazu führen dass:
+Bewegungen nicht synchron erscheinen, Interaktionen unnatürlich wirken, Systeminstabilität entsteht
+
+\section{Hardware-in-the-Loop Integration}
+\setauthor{Linnea Schönbauer}
+Hier kann man system theoretisch Einordnen 
+
+wahrscheinlich sit projekt hardware-in-the-loop system. Das heißt ein reales Hardwaregerät ist Teil einer Simulation. Simulation und Hardware beeinflussen sich gegenseitig bzw. eigentlich nur die simulation die hardware.
+Die simulation berechnet umgebung, bewegungen. Die Hardware führt reale Bewegungen aus.
+
+\section{Abbildung der Simulationsbewegungen auf die Hardware}
+\setauthor{Linnea Schönbauer}
+hier wird dann der kernpunkt des Bulletpoints erklärt. Wie sich die Hardware entsprechend der Simulation bewegt
+
+Typischer Ablauf:
+Simulation berechnet zielzustand. also in dem fall position und yaw und pitch etc.
+
+transformation in das koordinatensystem der hardware
+berechnungn von steuerbefehlen also motorposition, aktuatorsteuerung,
+ (hier auch code snippets von den calculations in mover driver? und die eine sizze von wenns auf am berg steht einfügen)
+hardware führt bewegung aus
+
+\section{Implementierungsdetails}
+\setauthor{Linnea Schönbauer}
+ughhh keine Ahnung nochmal alles zusammenfassen maybe
