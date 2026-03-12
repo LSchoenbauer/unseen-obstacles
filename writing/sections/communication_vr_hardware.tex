@@ -20,7 +20,7 @@ Architekturabbildung
 beschreiben:
 welche komponenten existieren, welche Aufgaben haben sie, wie sind sie miteinander verunden
 
-\section{Architektur des VR-Projekts}
+\section{Systemarchitektur des VR-Projekts}
 \setauthor{Linnea Schönbauer}
 Die virtuelle Simulation wurde unter Verwendung der Game Engine Unity realisiert. Unity ist eine weit verbreitete Entwicklungsumgebung zur Erstellung interaktiver 3D-Anwendungen und Virtual-Reality-Systeme. Dee Engine stellt eine integrierte Entwicklungsumgebung bereit, welche Werkzeuge zur Szenengestaltung, Physiksimulation, Skriptprogrammierung sowie zur Verwaltung komplexer Objektstrukturen umfasst.
 
@@ -88,20 +88,116 @@ Die vorliegende Aufteilung ermöglicht die unabhängige Kontrolle von Translatio
 \setauthor{Linnea Schönbauer}
 Die Bewegung des Rollstuhls lässt sich in zwei grundlegende Bewegungsarten unterteilen: Die translatorische Bewegung entlang der Blickrichtung sowie die Rotationsbewegung um die vertikale Achse.
 
-Die Berechnung der Vorwärtsbewegung erfolgt entlang der lokalen Vorwärtsrichtung des Rollstuhls. Diese Richtung entspricht der aktuellen Orientierung des Rollstuhls innerhalb der Szene und wird über die Transformationsdaten des Objekts bestimmt. Die tatsächliche Verschiebung pro Simulationsschritt ergibt sich demnach aus der definierten Bewegungsgeschwindigkeit sowie der Zeitdauer des jeweiligen Physiks-Updates.
+Die Berechnung der Vorwärtsbewegung erfolgt entlang der lokalen Vorwärtsrichtung des Rollstuhls. Diese Richtung entspricht der aktuellen Orientierung des Rollstuhls innerhalb der Szene und wird über die Transformationsdaten des Objekts bestimmt. Die tatsächliche Verschiebung pro Simulationsschritt ergibt sich demnach aus der definierten Bewegungsgeschwindigkeit sowie der Zeitdauer des jeweiligen Physik-Updates.
 
 Darüber hinaus besteht die Möglichkeit, den Rollstuhl um die vertikale Achse zu rotieren, wodurch Richtungsänderungen innerhalb der virtuellen Umgebung ermöglicht werden. Die Rotationsgeschwindigkeit wird über einen separaten Parameter gesteuert und ebenfalls innerhalb des Physik-Update-Zyklus der Simulation berechnet. (QUELLE CODE?)
 
+\section{Systemarchitektur des Hardware-Prototypen}
+\setauthor{Linnea Schönbauer}
+Neben der mechanischen Konstruktion der Plattform, die in Kapitel 6 beschrieben wurde, ist für den Betrieb des Systems eine elektronische Steuerung erforderlich, welche die Bewegungen der Plattform koordiniert und ansteuert. Diese Steuerung bildet die zentrale Schnittstelle zwischen der virtuellen Simulation und den mechanischen Aktuatoren des Hardwareprototyps.
 
+Die Steuerungsarchitektur basiert auf einem Mikrocontroller des Typ ESP32, der als zentrale Recheneinheit innerhalb des Systems fungiert. Der Mikrocontroller übernimmt mehrere Aufgaben: Einerseits empfängt er Bewegungsdaten aus der Simulation über eine Netzwerkverbindung, andererseits berechnet er daraus die notwendigen Steuerbefehle für die einzelnen Schrittmotoren der Plattform.
 
+Die eigentliche mechanische Bewegung wird durch mehrere Schrittmotoren erzeugt, welche die Wagenheber sowie die Rotationsbewegung der Plattform antreiben. Schrittmotoren eignen sich für diese Anwendung besonders gut, da sie eine präzise, schrittweise Bewegung ermöglichen und somit eine exakte Positionierung der Plattform erlauben. Die Steuerung dieser Motoren erfolgt über spezielle Motortreiber, welche die Signale des Mikrocontrollers in die erforderlichen elektrischen Impulse für die Motoren umsetzt. (QUELLE html Seite)
 
-\section {Datenaustausch zwischen Simulation und Hardware}
+\subsection{Verarbeitung der Simulationsdaten}
+\setauthor{Linnea Schönbauer}
+Die Steuerung der Plattform basiert auf Bewegungsdaten, die aus der virtuellen Simulation generiert werden. Diese Daten beschreiben die aktuelle Position und Orientierung des virtuellen Rollstuhls in der simulierten Umgebung. Insbesondere werden Rotationsparameter verwendet, die die Neigung und Ausrichtung des Rollstuhls im Raum beschreiben. Die Orientierung wird dabei über drei Rotationswinkel, sogenannte Pitch-, Roll- und Yaw-Winkel, dargestellt. Diese Parameter beschreiben die Rotation des Objekts um die drei Raumachsen und bilden somit eine vollständige Beschreibung der räumlichen Orientierung (referez zu obrigen subdings über die winkel euler).
+Während der Simulation werden diese Werte kontinuierlich aktualisiert und and die Steuerung des Hardwareprototypen übertragen.
+
+\subsection{Umrechnung von Simulationsdaten in Motorbewegungen}
+\setauthor{Linnea Schönbauer}
+Die in der virtuellen Simulation berechneten Bewegungsdaten müssen in konkrete Bewegungsbefehle für die physische Plattform übersetzt werden. Das Ziel dieses Prozesses besteht darin, die Bewegungen des virtuellen Rollstuhls möglichst realitätsnah auf die mechanische Struktur des Hardware-Prototypen zu übertragen. Hierzu werden die in der Simulation ermittelten Lage- und Positionsänderungen in entsprechende Bewegungen der einzelnen Aktoren des Systems umgerechnet.
+
+Die Simulation stellt dabei in regelmäßigen Zeitabständen (NOCH GENAUER QUELLE) die aktuellen Zustandsgrößen des virtuellen Systems bereit. Zu diesen gehören insbesondere die Rotationswinkel um die drei Raumachsen (Yaw, Pitch und Roll) sowie die Position im dreidimensionalen Raum. Für die Steuerung der Plattform werden jedoch nicht die absoluten Werte dieser Größen verwendet, sondern deren zeitliche Änderungen zwischen zwei aufeinanderfolgenden Simulationsschritten.
+
+Die Berechnung der Bewegungsbefehle erfolgt daher auf Basis der Differenzen zwischen den aktuellen und den zuvor empfangenen Simulationsdaten.
+
+\subsubsection{Differenzberechnung - Delta Werte}
+\setauthor{Linnea Schönbauer}
+Zur Bestimmung der erforderlichen Plattformbewegung werden zunächst die Differenzen der Orientierungswinkel zwischen zwei aufeinanderfolgenden Simulationszuständen berechnet. Diese Differenzen repräsentieren die tatsächlich während eines Simulationsintervalls erfolgte Bewegung des virtuellen Rollstuhls.
+\begin{verbatim}
+        int32_t deltaYaw = simData.mYaw - mLastSimData.mYaw;
+        int32_t deltaPitch = simData.mPitch - mLastSimData.mPitch;
+        int32_t deltaRoll = simData.mRoll - mLastSimData.mRoll;
+
+\end{verbatim}
+Diese Differenzwerte bilden die Grundlage für die nachfolgende Berechnung der erforderlichen Hub- und Senkgröße.
+
+\subsubsection{Rotation des Stuhls - Yaw}
+\setauthor{Linnea Schönbauer}
+Die Drehbewegung des virtuellen Rollstuhls um die vertikale Achse wird durch einen separaten Rotationsaktuator ausgeführt. Grundlage der Berechnung ist die Änderung des Yaw-Winkels zwischen zwei Simulationszeitpunkten.
+
+Eine Winkeländerung entspricht auf der realen Plattform einer bestimmten Bogenlänge entlang des Kreisumfangs des Rotationsmechanismus. Siehe r in BEISPIEL SKIZZE VON ROTATION YAW
+
+HIER BEISPIEL BERECHNUNG NOCH EINFÜGEN Auftrag 1
+
+\subsubsection{Berechnung der Motorumdrehungen}
+\setauthor{Linnea Schönbauer}
+CODE UND AUFTRAG 2 BEISPIEL
+
+\subsubsection{Berechnung der Drehzahl}
+\setauthor{Linnea Schönbauer}
+CODE UND AUFTRAG 3 BEISPIEL
+
+\subsubsection{Pitch und Roll (Trigenometrie)}
+\setauthor{Linnea Schönbauer}
+CODE UND AUFTRAG 4 UND SKIZZENNN BEISPIEL
+
+\subsubsection{Schrittmotor Umsetzung}
+\setauthor{Linnea Schönbauer}
+CODE UND AUFTRAG 5 BEISPIEL
+
+\section{Datenaustausch zwischen Simulation und Hardware}
 \setauthor{Linnea Schönbauer}
 hier erklären welche daten zwischen simulation und hardware übertragen werden.
 z.b. halt das pitch, yaw, roll, etc. position, und halt auch wie man das aus der simulation kriegen
 
 außerdem beschreiben: datenformat, übertragunsgfrequenz, kommunikationsprotokoll also das ganze udp beschreiben und auch mit app und so
 
+\subsection{Netzwerkarchitektur des Systems}
+\setauthor{Linnea Schönbauer}
+Für den Datenaustausch zwischen der virtuellen Simulation und dem Hardware-Prototyp wird eine drahtlose Netzwerkverbindung verwendet. Die Netzwerkarchitektur basiert auf einem Mikrocontroller des Typs ESP32. Dieser fungiert sowohl als Steuerungseinheit der Plattform als auch als drahtloser Zugangspunkt. (QUELLE)
+
+Der Mikrocontroller stellt ein eigenes WLAN-Netzwerk bereit mit dem sich das System auf dem die VR-Simulation ausgeführt wird verbinden kann. Der Vorteil dieser Architektur ist, dass keine zusätzliche Netzwerkinfrastruktur erforderlich ist und die Kommunikation direkt zwischen Simulation und Hardware erfolgen kann.
+
+Der Mikrocontroller wird dabei im sogenannten Access-Point-Modus betrieben. In diesem Modus erzeugt das Gerät ein eigenständiges WLAN-Netzwerk mit einer definierten SSID und einem festgelegten Zugangspasswort. Die IP-Adresse des Zugangspunkts ist statisch konfiguriert, sodass der Kommunikationspartner innerhalb der Simulation stets eine bekannte Zieladresse verwenden kann.
+
+Im vorliegenden System wird die Adresse \emph{192.168.7.3} als feste IP-Adresse für den Mikrocontroller verwendet. Somit kann die VR-Simulation die Bewegungsdaten direkt an diese Adresse senden.
+
+\subsection{Auswahl des Kommunikationsprotokolls}
+\setauthor{Linnea Schönbauer}
+Für die Übertragung der Simulationsdaten zwischen der VR-Anwendung und dem Hardware-Prototyp wurde das Netzwerkprotokoll User Datagram Protocol (UDP) ausgewählt. UDP ist ein verbindungsloses Transportprotokoll, das im Gegensatz zum Transmission Control Protocol (TCP) keine garantierte Zustellung der Datenpakete sicherstellt. (QUELLE)
+
+Die Wahl von UDP ist insbesondere bei Echtzeitanwendungen üblich, da das Protokoll eine sehr geringe Kommunikationslatenz aufweist. Während TCP zusätzliche Mechanismen zur Fehlerkorrektur, Paketbestätigung und Wiederholung verlorener Daten implementiert, verzichtet UDP auf diese Funktionen. Dadurch kann die Übertragung deutlich schneller erfolgen. (QUELLE)
+
+Für das vorliegende System ist diese Eigenschaft vorteilhaft, da die übertragenen Daten kontinuierlich aktualisiert werden. Sollte ein Datenpaket verloren gehen, kann es durch das unmittelbar folgende Paket ersetzt werden, ohne dass dies einen signifikanten Einfluss auf die Bewegungssteuerung hat.
+
+Durch die Verwendung von UDP kann somit eine effiziente und latenzarme Kommunikation zwischen Simulation und Hardware realisiert werden. (QUELLE)
+
+\subsection{Implementierung des UDP-Senders in Unity}
+\setauthor{Linnea Schönbauer}
+Innerhalb der VR-Simulation realisiert eine speziell implementierte Unity-Komponente den Datentransfer. Diese ist als Skript implementiert und wird dem virtuellen Rollstuhlobjekt innerhalb der Simulation zugewiesen.
+
+Die Implementierung basiert auf der .NET-Netzwerkbibliothek, die über die Klasse UdpClient eine einfache Möglichkeit zur Übertragung von UDP-Paketen bereitstellt. (QUELLE)
+
+Während der Initialisierung der Anwendung wird zunächst ein UDP-Client erstellt und mit der Zieladresse des Mikrocontrollers konfiguriert. IP-Adresse und Netzwerkport können im Unity-Editor konfiguriert werden, wodurch eine flexible Anpassung an unterschiedliche Testumgebungen möglich ist.
+
+Die eigentliche Datenübertragung erfolgt innerhalb der Update-Schleife der Unity-Engin. Dabei wird in regelmäßigen Zeitabständen (QUELLE BEISPIEL WIE VIEL GENAU CODE) die aktuelle Position und Orientierung des virtuellen Rollstuhls ausgelesen und anschließend als Netzwerkpaket an den Mikrocontroller übertragen.
+
+Durch diese Implementierung wird sichergestellt, dass die Bewegungsdaten der Simulation kontinuierlich an den Hardware-Prototyp weitergeleitet werden. (QUELLE)
+
+\subsection{Aufbau des Datenpakets}
+\setauthor{Linnea Schönbauer}
+Die Bewegungsdaten werden in Form eines binären Datenpakets übertragen. Dieses besteht aus mehreren Ganzzahlwerten mit einer Größe von jeweils 32 Bit. (QUELLE ODER WARUM AUSBAUEN?)
+
+\begin{center}
+\begin{tabular}{ c c c }
+ \emph{cell1} & \emph{cell2} \\ 
+ cell4 & cell5 \\  
+ cell7 & cell8    
+\end{tabular}
+\end{center}
 
 \section{Steuerungslogik und Regelkreis}
 \setauthor{Linnea Schönbauer}
