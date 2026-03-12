@@ -192,12 +192,40 @@ Durch diese Implementierung wird sichergestellt, dass die Bewegungsdaten der Sim
 Die Bewegungsdaten werden in Form eines binären Datenpakets übertragen. Dieses besteht aus mehreren Ganzzahlwerten mit einer Größe von jeweils 32 Bit. (QUELLE ODER WARUM AUSBAUEN?)
 
 \begin{center}
-\begin{tabular}{ c c c }
- \emph{cell1} & \emph{cell2} \\ 
- cell4 & cell5 \\  
- cell7 & cell8    
+\begin{tabular}{ c c }
+ \textbf{Feld} & \textbf{Beschreibung} \\ 
+ timestamp & Zeitstempel \\  
+ mode & Untergrundmodus (Gehsteig, Kopfsteinpflaster, Straße) \\
+ pitch & Rotation um X-Achse \\
+ yaw & Rotation um Y-Achse \\
+ roll & Rotation um Z-Achse \\
+ posX & Position entlang X \\
+ posZ & Position entlang Z \\
+ posY & Position entlang Y
 \end{tabular}
 \end{center}
+
+Die Rotationswerte werden zunächst aus der Quaternion-Rotation des Unity-Objekts berechnet und dann in Euler-Winkel umgewandelt. Diese werden dann mit einem Skalierungsfaktor multipliziert, um eine höhere numerische Auflösung zu erreichen. (QUELLE BEISPIEL CODE WARUM HAT MAN DAS GEMACHT AUSBAUEN)
+
+Mithilfe dieser Skalierung können GLeitkommazahlen effizient als Ganzzahlen übertragen werden, ohne dass zusätzliche Rechenoperationen auf dem Mikrocontroller erforderlich sind.
+
+Die Position des Objekts wird auf ähnliche Weise codiert: Die Positionswerte werden mit dem gleichen Skalierungsfaktor multipliziert. (QUELLE CODE)
+
+\subsection{Implementierung des UDP-Servers}
+\setauthor{Linnea Schönbauer}
+Die Simulationsdaten werden auf dem Mikrocontroller über einen speziell implementierten UDP-Server empfangen. Dieser wird als eigenständige Aufgabe innerhalb des Echtzeitbetriebssystems des Mikrocontroller ausgeführt.
+
+Nach dem Start der Anwendung wird ein Server-Task erstellt. Dieser wartet dauerhaft auf eingehende Netzwerkpakete. Sobald ein neues Paket empfangen wird, wird dieses in einem internen Puffer gespeichert und anschließend an eine definierte Paketverarbeitungsfunktion übergeben (QUELLE CODE UND WARUM).
+
+Die Implementierung basiert auf einer kontinuierlichen Empfangsschliefe, die wiederholt überprüft, ob neue Netzwerkpakete eingetroffen sind. Wenn das System ein gültiges Datenpaket erkennt, leitet es dessen Inhalt an einen registrierten Paket-Handler weiter.
+
+Durch diese Architektur sind Netzwerkkommunikation und Bewegungssteuerung klar voneinander getrennt, da die empfangenen Daten zunächst isoliert verarbeitet werden können, bevor sie in Steuerbefehle für die Aktuatoren umgewandelt werden. (QUELLE BEISPIEL CODE WARUM UND CORS ERWÄHNEN)
+
+\subsection{Übertragungsfrequenz der Simulationsdaten}
+\setauthor{Linnea Schönbauer}
+Die Aktualisierung der Bewegungsdaten erfolgt mit einer festen Übertragungsfrequenz von etwa 60 Hz. Diese Frequenz entspricht der typischen Bildwiederholrate vieler VR-Anwendungen und gewährleistet eine ausreichende zeitliche Auflösung der Bewegungsinformationen. (QUELLE)
+
+Die Datenübertragung wird durch einen Timer innerhalb der Unity-Anwendung gesteuert. In jedem Aktualisierungsintervall wird überprüft, ob die definierte Zeitspanne seit dem letzten Sendevorgang überschritten wurde. Ist dies der Fall, wird ein neues Datenpaket erzeugt und übertragen. (QUELLE CODE UND WARUM ÜBERHAUPT SO GEMACHT QUELLE)
 
 \section{Steuerungslogik und Regelkreis}
 \setauthor{Linnea Schönbauer}
