@@ -22,9 +22,9 @@
 \contentsline {subsection}{\numberline {5.2.1}Überlegung der Hindernisse}{17}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Erster Prototyp}{19}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}Welt gestalten}{20}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Interaktion in VR}{22}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Interaktion in VR}{21}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Benutzeroberflächen (UI) in Unity}{22}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Canvas-Objekte}{23}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.2}Canvas-Objekte}{22}{subsection.5.3.2}%
 \contentsline {chapter}{\numberline {6}Hardware Prototyp}{25}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Aufbau des Prototyps}{25}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Bauungsprozess Hardware Prototyp}{26}{section.6.2}%
@@ -118,9 +118,9 @@
 \contentsline {chapter}{\numberline {11}Umsetzung}{88}{chapter.11}%
 \contentsline {chapter}{\numberline {12}Zusammenfassung}{90}{chapter.12}%
 \contentsline {chapter}{\nonumberline Literaturverzeichnis}{VI}{chapter*.61}%
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{VIII}{chapter*.62}%
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{IX}{chapter*.63}%
-\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{X}{chapter*.64}%
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{IX}{chapter*.62}%
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{X}{chapter*.63}%
+\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{XI}{chapter*.64}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\nonumberline Anhang}{XI}{chapter*.65}%
+\contentsline {chapter}{\nonumberline Anhang}{XII}{chapter*.65}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

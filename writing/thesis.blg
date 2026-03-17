@@ -19,45 +19,45 @@ Warning--missing publisher in ISO2025
 Warning--missing publisher in Molly1998
 
 Done.
-You've used 23 entries,
+You've used 40 entries,
             3998 wiz_defined-function locations,
-            950 strings with 10571 characters,
-and the built_in function-call counts, 13815 in all, are:
-= -- 1141
-> -- 265
+            1045 strings with 13083 characters,
+and the built_in function-call counts, 19796 in all, are:
+= -- 1599
+> -- 333
 < -- 117
-+ -- 145
-- -- 43
-* -- 631
-:= -- 2203
-add.period$ -- 41
-call.type$ -- 23
++ -- 179
+- -- 60
+* -- 831
+:= -- 3333
+add.period$ -- 75
+call.type$ -- 40
 change.case$ -- 1
 chr.to.int$ -- 256
-cite$ -- 26
-duplicate$ -- 1007
-empty$ -- 1161
-format.name$ -- 53
-if$ -- 3144
+cite$ -- 43
+duplicate$ -- 1504
+empty$ -- 1824
+format.name$ -- 70
+if$ -- 4443
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 165
-newline$ -- 91
-num.names$ -- 22
-pop$ -- 345
+int.to.str$ -- 39
+missing$ -- 275
+newline$ -- 166
+num.names$ -- 39
+pop$ -- 692
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 4
-skip$ -- 1142
+skip$ -- 1629
 stack$ -- 0
-substring$ -- 588
-swap$ -- 792
+substring$ -- 600
+swap$ -- 1051
 text.length$ -- 35
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 23
+type$ -- 40
 warning$ -- 3
-while$ -- 70
-width$ -- 24
-write$ -- 225
+while$ -- 87
+width$ -- 41
+write$ -- 380
 (There were 3 warnings)

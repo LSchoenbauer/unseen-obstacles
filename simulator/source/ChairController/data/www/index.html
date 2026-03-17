@@ -15,6 +15,10 @@
         method: 'GET'
       });
     }
+
+    function backToSimulation() {
+      fetch('/backToSimulation');
+    }
   </script>
   <body>
 	<article>
@@ -24,6 +28,8 @@
 			<p>If you can read this page: <span class="emphasize">IT WORKS :)</span></p>
       <button onclick="sendRequest('/clickMe')">Click me!</button>
       <a href="/ping">ping me</a>
+
+      <button onclick="backToSimulation()">Back to simulation</button>
 
       <div id="motors">
         <div id="motor1">

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  17 MAR 2026 15:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  17 MAR 2026 17:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1687,12 +1687,7 @@ Overfull \hbox (44.09773pt too wide) in paragraph at lines 29--30
 Package tocbasic Info: character protrusion at toc deactivated on input line 61.
  (thesis.toc [3
 
-]
-Overfull \hbox (3.22041pt too wide) detected at line 121
- []\T1/lmss/bx/n/12 VIII
- []
-
-)
+])
 \tf@toc=\write7
 \openout7 = `thesis.toc'.
 
@@ -1702,22 +1697,22 @@ chapter 1.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.31 
+l.17 
       [1
 
 ]
-<pics/Statistik-Einschraekungen.png, id=173, 373.99725pt x 181.8795pt>
+<pics/Statistik-Einschraekungen.png, id=185, 373.99725pt x 181.8795pt>
 File: pics/Statistik-Einschraekungen.png Graphic file (type png)
 <use pics/Statistik-Einschraekungen.png>
-Package pdftex.def Info: pics/Statistik-Einschraekungen.png  used on input line 34.
+Package pdftex.def Info: pics/Statistik-Einschraekungen.png  used on input line 20.
 (pdftex.def)             Requested size: 373.99632pt x 181.87904pt.
  [2 <./pics/Statistik-Einschraekungen.png>]
-<pics/Statistik-Hauptaktivitaet.png, id=183, 348.1005pt x 287.27325pt>
+<pics/Statistik-Hauptaktivitaet.png, id=216, 348.1005pt x 287.27325pt>
 File: pics/Statistik-Hauptaktivitaet.png Graphic file (type png)
 <use pics/Statistik-Hauptaktivitaet.png>
-Package pdftex.def Info: pics/Statistik-Hauptaktivitaet.png  used on input line 70.
+Package pdftex.def Info: pics/Statistik-Hauptaktivitaet.png  used on input line 49.
 (pdftex.def)             Requested size: 348.09964pt x 287.27255pt.
- [3 <./pics/Statistik-Hauptaktivitaet.png>] [4] [5] [6] [7] [8]) [9]
+ [3 <./pics/Statistik-Hauptaktivitaet.png>] [4] [5] [6] [7]) [8] [9]
 chapter 2.
 (sections/related_work.tex
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 30.
@@ -1738,106 +1733,106 @@ chapter 5.
 (sections/vr-world.tex [16
 
 ] [17]
-<pics/bankautomat-ki-generiert.png, id=258, 1027.84pt x 1541.76pt>
+<pics/bankautomat-ki-generiert.png, id=303, 1027.84pt x 1541.76pt>
 File: pics/bankautomat-ki-generiert.png Graphic file (type png)
 <use pics/bankautomat-ki-generiert.png>
-Package pdftex.def Info: pics/bankautomat-ki-generiert.png  used on input line 71.
+Package pdftex.def Info: pics/bankautomat-ki-generiert.png  used on input line 37.
 (pdftex.def)             Requested size: 308.35437pt x 462.53157pt.
  [18 <./pics/bankautomat-ki-generiert.png (PNG copy)>] [19]
-<pics/prototyp-welt.jpg, id=272, 659.46375pt x 592.2125pt>
+<pics/prototyp-welt.jpg, id=319, 659.46375pt x 592.2125pt>
 File: pics/prototyp-welt.jpg Graphic file (type jpg)
 <use pics/prototyp-welt.jpg>
-Package pdftex.def Info: pics/prototyp-welt.jpg  used on input line 119.
+Package pdftex.def Info: pics/prototyp-welt.jpg  used on input line 63.
 (pdftex.def)             Requested size: 395.68129pt x 355.33023pt.
  [20 <./pics/prototyp-welt.jpg>]
-<pics/umgesetzte-welt.jpg, id=280, 388.45125pt x 557.08125pt>
+<pics/umgesetzte-welt.jpg, id=327, 388.45125pt x 557.08125pt>
 File: pics/umgesetzte-welt.jpg Graphic file (type jpg)
 <use pics/umgesetzte-welt.jpg>
-Package pdftex.def Info: pics/umgesetzte-welt.jpg  used on input line 140.
+Package pdftex.def Info: pics/umgesetzte-welt.jpg  used on input line 80.
 (pdftex.def)             Requested size: 310.76141pt x 445.6656pt.
- [21 <./pics/umgesetzte-welt.jpg>] [22] [23]
-<pics/pop-up.png, id=297, 639.5895pt x 344.487pt>
+ [21 <./pics/umgesetzte-welt.jpg>] [22]
+<pics/pop-up.png, id=342, 639.5895pt x 344.487pt>
 File: pics/pop-up.png Graphic file (type png)
 <use pics/pop-up.png>
-Package pdftex.def Info: pics/pop-up.png  used on input line 222.
+Package pdftex.def Info: pics/pop-up.png  used on input line 137.
 (pdftex.def)             Requested size: 447.70958pt x 241.13924pt.
 
-Overfull \hbox (6.69185pt too wide) in paragraph at lines 222--223
+Overfull \hbox (6.69185pt too wide) in paragraph at lines 137--138
  [][] 
  []
 
-) [24 <./pics/pop-up.png>]
+) [23] [24 <./pics/pop-up.png>]
 chapter 6.
 (sections/hardware-prototyp.tex [25
 
 ] [26]
-<pics/prototyp-ende.jpg, id=312, 694.84593pt x 1026.08344pt>
+<pics/prototyp-ende.jpg, id=365, 694.84593pt x 1026.08344pt>
 File: pics/prototyp-ende.jpg Graphic file (type jpg)
 <use pics/prototyp-ende.jpg>
-Package pdftex.def Info: pics/prototyp-ende.jpg  used on input line 83.
+Package pdftex.def Info: pics/prototyp-ende.jpg  used on input line 84.
 (pdftex.def)             Requested size: 347.4221pt x 513.04047pt.
  [27] [28 <./pics/prototyp-ende.jpg>]
-<pics/gummirad.jpg, id=324, 1931.215pt x 2055.68pt>
+<pics/gummirad.jpg, id=377, 1931.215pt x 2055.68pt>
 File: pics/gummirad.jpg Graphic file (type jpg)
 <use pics/gummirad.jpg>
-Package pdftex.def Info: pics/gummirad.jpg  used on input line 141.
+Package pdftex.def Info: pics/gummirad.jpg  used on input line 142.
 (pdftex.def)             Requested size: 289.66975pt x 308.3387pt.
-<pics/prototyp-zwischenstand.jpg, id=325, 694.84593pt x 1047.16219pt>
+<pics/prototyp-zwischenstand.jpg, id=379, 694.84593pt x 1047.16219pt>
 File: pics/prototyp-zwischenstand.jpg Graphic file (type jpg)
 <use pics/prototyp-zwischenstand.jpg>
-Package pdftex.def Info: pics/prototyp-zwischenstand.jpg  used on input line 158.
+Package pdftex.def Info: pics/prototyp-zwischenstand.jpg  used on input line 152.
 (pdftex.def)             Requested size: 208.45538pt x 314.15108pt.
  [29] [30 <./pics/gummirad.jpg>]
-<pics/Schaltplan.png, id=340, 892.5345pt x 490.83376pt>
+<pics/Schaltplan.png, id=394, 892.5345pt x 490.83376pt>
 File: pics/Schaltplan.png Graphic file (type png)
 <use pics/Schaltplan.png>
-Package pdftex.def Info: pics/Schaltplan.png  used on input line 196.
+Package pdftex.def Info: pics/Schaltplan.png  used on input line 190.
 (pdftex.def)             Requested size: 446.26616pt x 245.41628pt.
 
-Overfull \hbox (5.24843pt too wide) in paragraph at lines 196--197
+Overfull \hbox (5.24843pt too wide) in paragraph at lines 190--191
  [][] 
  []
 
 [31 <./pics/prototyp-zwischenstand.jpg>] [32 <./pics/Schaltplan.png>] [33]
-<pics/platine.jpg, id=360, 1748.5325pt x 1439.3775pt>
+<pics/platine.jpg, id=418, 1748.5325pt x 1439.3775pt>
 File: pics/platine.jpg Graphic file (type jpg)
 <use pics/platine.jpg>
-Package pdftex.def Info: pics/platine.jpg  used on input line 261.
+Package pdftex.def Info: pics/platine.jpg  used on input line 255.
 (pdftex.def)             Requested size: 349.7003pt x 287.87039pt.
  [34 <./pics/platine.jpg>]
-<pics/stepper.jpg, id=367, 401.5pt x 401.5pt>
+<pics/stepper.jpg, id=432, 401.5pt x 401.5pt>
 File: pics/stepper.jpg Graphic file (type jpg)
 <use pics/stepper.jpg>
-Package pdftex.def Info: pics/stepper.jpg  used on input line 307.
+Package pdftex.def Info: pics/stepper.jpg  used on input line 301.
 (pdftex.def)             Requested size: 200.7495pt x 200.7495pt.
-<pics/stepper-driver.jpg, id=369, 897.3525pt x 741.77126pt>
+<pics/stepper-driver.jpg, id=434, 897.3525pt x 741.77126pt>
 File: pics/stepper-driver.jpg Graphic file (type jpg)
 <use pics/stepper-driver.jpg>
-Package pdftex.def Info: pics/stepper-driver.jpg  used on input line 322.
+Package pdftex.def Info: pics/stepper-driver.jpg  used on input line 316.
 (pdftex.def)             Requested size: 269.20782pt x 222.5331pt.
  [35] [36 <./pics/stepper.jpg> <./pics/stepper-driver.jpg>] [37]
 File: pics/tdot.jpg Graphic file (type jpg)
 <use pics/tdot.jpg>
-Package pdftex.def Info: pics/tdot.jpg  used on input line 376.
+Package pdftex.def Info: pics/tdot.jpg  used on input line 370.
 (pdftex.def)             Requested size: 430.9132pt x 596.68379pt.
  [38] [39]
-<pics/microschalter.jpg, id=399, 881.2925pt x 1003.75pt>
+<pics/microschalter.jpg, id=467, 881.2925pt x 1003.75pt>
 File: pics/microschalter.jpg Graphic file (type jpg)
 <use pics/microschalter.jpg>
-Package pdftex.def Info: pics/microschalter.jpg  used on input line 426.
+Package pdftex.def Info: pics/microschalter.jpg  used on input line 420.
 (pdftex.def)             Requested size: 176.25537pt x 200.74644pt.
 ) [40] [41 <./pics/microschalter.jpg>]
 chapter 7.
 (sections/cyber_sickness.tex [42
 
 ]
-<pics/vestibular-system.jpg, id=416, 1284.8pt x 987.69pt>
+<pics/vestibular-system.jpg, id=484, 1284.8pt x 987.69pt>
 File: pics/vestibular-system.jpg Graphic file (type jpg)
 <use pics/vestibular-system.jpg>
 Package pdftex.def Info: pics/vestibular-system.jpg  used on input line 21.
 (pdftex.def)             Requested size: 256.95544pt x 197.5345pt.
  [43 <./pics/vestibular-system.jpg>] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53]
-<pics/metaquest-controller-placeholder.jpeg, id=579, 1505.625pt x 1379.1525pt>
+<pics/metaquest-controller-placeholder.jpeg, id=647, 1505.625pt x 1379.1525pt>
 File: pics/metaquest-controller-placeholder.jpeg Graphic file (type jpg)
 <use pics/metaquest-controller-placeholder.jpeg>
 Package pdftex.def Info: pics/metaquest-controller-placeholder.jpeg  used on input line 172.
@@ -1847,7 +1842,7 @@ chapter 8.
 (sections/communication_vr_hardware.tex [56
 
 ] [57] [58]
-<pics/yz-and-pitch-roll-and-yaw-systems.png, id=607, 432.61626pt x 380.42125pt>
+<pics/yz-and-pitch-roll-and-yaw-systems.png, id=675, 432.61626pt x 380.42125pt>
 File: pics/yz-and-pitch-roll-and-yaw-systems.png Graphic file (type png)
 <use pics/yz-and-pitch-roll-and-yaw-systems.png>
 Package pdftex.def Info: pics/yz-and-pitch-roll-and-yaw-systems.png  used on input line 65.
@@ -1867,13 +1862,13 @@ Overfull \hbox (9.75749pt too wide) in paragraph at lines 147--147
  []
 
 [64]
-<pics/rotation-sketch.png, id=656, 332.74312pt x 264.23718pt>
+<pics/rotation-sketch.png, id=724, 332.74312pt x 264.23718pt>
 File: pics/rotation-sketch.png Graphic file (type png)
 <use pics/rotation-sketch.png>
 Package pdftex.def Info: pics/rotation-sketch.png  used on input line 168.
 (pdftex.def)             Requested size: 332.7423pt x 264.23653pt.
  [65{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./pics/rotation-sketch.png>] [66]
-<pics/front-mover-sketch.png, id=681, 501.37312pt x 264.23718pt>
+<pics/front-mover-sketch.png, id=749, 501.37312pt x 264.23718pt>
 File: pics/front-mover-sketch.png Graphic file (type png)
 <use pics/front-mover-sketch.png>
 Package pdftex.def Info: pics/front-mover-sketch.png  used on input line 216.
@@ -1884,7 +1879,7 @@ Overfull \hbox (60.35416pt too wide) in paragraph at lines 216--217
  []
 
 [67] [68 <./pics/front-mover-sketch.png>] [69]
-<pics/back-mover-sketch.png, id=709, 332.74312pt x 264.23718pt>
+<pics/back-mover-sketch.png, id=777, 332.74312pt x 264.23718pt>
 File: pics/back-mover-sketch.png Graphic file (type png)
 <use pics/back-mover-sketch.png>
 Package pdftex.def Info: pics/back-mover-sketch.png  used on input line 273.
@@ -1905,7 +1900,7 @@ chapter 10.
 ] [85] [86]) [87]
 chapter 11.
 (sections/implementation.tex
-<pics/knuthi.jpg, id=818, 474.27188pt x 266.49562pt>
+<pics/knuthi.jpg, id=886, 474.27188pt x 266.49562pt>
 File: pics/knuthi.jpg Graphic file (type jpg)
 <use pics/knuthi.jpg>
 Package pdftex.def Info: pics/knuthi.jpg  used on input line 17.
@@ -1935,13 +1930,13 @@ No file thesis.gls.
 chapter without number
 [6
 
-]) [7]
+] [7]) [8]
 Package tocbasic Info: character protrusion at lof deactivated on input line 151.
  (thesis.lof)
 \tf@lof=\write9
 \openout9 = `thesis.lof'.
 
- [8
+ [9
 
 ]
 Package tocbasic Info: character protrusion at lot deactivated on input line 152.
@@ -1961,7 +1956,7 @@ Class scrreprt Warning: Usage of \float@listhead detected!
 (scrreprt)              Implementation of \float@listhead will
 (scrreprt)              be removed from KOMA-Script soon on input line 153.
 
-[9
+[10
 
 ]
 chapter without number
@@ -1969,11 +1964,11 @@ chapter without number
 \tf@lol=\write11
 \openout11 = `thesis.lol'.
 
- [10
+ [11
 
 ]
 chapter without number
-(sections/appendix.tex) [11
+(sections/appendix.tex) [12
 
 ] (thesis.aux)
  ***********
@@ -1986,17 +1981,17 @@ L3 programming layer <2024-01-04>
 ### semi simple group (level 1) entered at line 141 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 36732 strings out of 474486
- 709269 string characters out of 5743755
+ 36767 strings out of 474486
+ 709964 string characters out of 5743755
  1967542 words of memory out of 5000000
- 57969 multiletter control sequences out of 15000+600000
+ 57986 multiletter control sequences out of 15000+600000
  612825 words of font info for 142 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,20n,108p,11281b,2548s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
-Output written on thesis.pdf (103 pages, 5928659 bytes).
+Output written on thesis.pdf (104 pages, 5951325 bytes).
 PDF statistics:
- 1186 PDF objects out of 1200 (max. 8388607)
- 312 named destinations out of 1000 (max. 500000)
+ 1282 PDF objects out of 1440 (max. 8388607)
+ 330 named destinations out of 1000 (max. 500000)
  32786 words of extra memory for PDF output out of 35830 (max. 10000000)
 
