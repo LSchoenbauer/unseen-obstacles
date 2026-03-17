@@ -64,17 +64,63 @@
 \contentsline {subsection}{\numberline {7.10.1}Mapping von Eingabe zu Bewegung}{54}{subsection.7.10.1}%
 \contentsline {subsection}{\numberline {7.10.2}Verknüpfung von Steuerung, Sitzbewegung und visueller Bewegung}{55}{subsection.7.10.2}%
 \contentsline {subsection}{\numberline {7.10.3}Sicherheitsmechanismen und Bewegungsbegrenzungen}{55}{subsection.7.10.3}%
-\contentsline {chapter}{\numberline {8}Technologien}{56}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Foo}{56}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Bar}{58}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}Deeper}{59}{subsection.8.2.1}%
-\contentsline {subsubsection}{\nonumberline Deepest}{59}{subsubsection*.24}%
-\contentsline {chapter}{\numberline {9}Umsetzung}{60}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Zusammenfassung}{62}{chapter.10}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{VI}{chapter*.27}%
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{VIII}{chapter*.28}%
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{IX}{chapter*.29}%
-\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{X}{chapter*.30}%
+\contentsline {chapter}{\numberline {8}Kommunikation zwischen Hardwareprototyp und VR-Simulation}{56}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Systemarchitektur des Gesamtsystems}{57}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Systemarchitektur des VR-Projekts}{57}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Physikalisches Bewegungsmodell}{58}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Positions- und Orientierungsparameter des virtuellen Rollstuhls}{59}{subsection.8.2.2}%
+\contentsline {subsubsection}{\nonumberline Positionskoordinaten}{59}{subsubsection*.24}%
+\contentsline {subsubsection}{\nonumberline Orientierung im Raum}{59}{subsubsection*.26}%
+\contentsline {subsubsection}{\nonumberline Pitch, Yaw und Roll}{61}{subsubsection*.29}%
+\contentsline {subsubsection}{\nonumberline Freiheitsgrade des Systems}{61}{subsubsection*.31}%
+\contentsline {subsection}{\numberline {8.2.3}Verarbeitung der Benutzereingaben}{61}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Berechnung der Translation und Rotation}{62}{subsection.8.2.4}%
+\contentsline {section}{\numberline {8.3}Systemarchitektur des Hardware-Prototypen}{62}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Verarbeitung der Simulationsdaten}{63}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Umrechnung von Simulationsdaten in Motorbewegungen}{63}{subsection.8.3.2}%
+\contentsline {subsubsection}{\nonumberline Differenzberechnung - Delta Werte}{63}{subsubsection*.33}%
+\contentsline {subsubsection}{\nonumberline Berechnung der Rotationsbewegung (Yaw)}{64}{subsubsection*.35}%
+\contentsline {subsubsection}{\nonumberline Umrechnung des Rotationswinkels in eine lineare Bewegung}{65}{subsubsection*.37}%
+\contentsline {subsubsection}{\nonumberline Umrechnung der Wegstrecke in Motorumdrehungen}{66}{subsubsection*.40}%
+\contentsline {subsubsection}{\nonumberline Berechnung der Motordrehzahl}{66}{subsubsection*.42}%
+\contentsline {subsubsection}{\nonumberline Berechnung der Neigungsbewegung des vorderen Aktuators (Pitch)}{67}{subsubsection*.44}%
+\contentsline {subsubsection}{\nonumberline Umrechnung der Hubbewegung in Motorrotation}{69}{subsubsection*.47}%
+\contentsline {subsubsection}{\nonumberline Berechnung der seitlichen Neigung über die hinteren Aktuatoren (Roll)}{69}{subsubsection*.49}%
+\contentsline {subsubsection}{\nonumberline Integration dynamischer Bewegungsanteile}{70}{subsubsection*.52}%
+\contentsline {subsubsection}{\nonumberline Gegensinnige Ansteuerung der hinteren Aktuatoren}{71}{subsubsection*.54}%
+\contentsline {subsubsection}{\nonumberline Synchronisation der Motorbewegungen}{71}{subsubsection*.56}%
+\contentsline {subsection}{\numberline {8.3.3}Netzwerkarchitektur des Systems}{72}{subsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.3.4}Auswahl des Kommunikationsprotokolls}{72}{subsection.8.3.4}%
+\contentsline {subsection}{\numberline {8.3.5}Implementierung des UDP-Senders in Unity}{73}{subsection.8.3.5}%
+\contentsline {subsection}{\numberline {8.3.6}Aufbau des Datenpakets}{73}{subsection.8.3.6}%
+\contentsline {subsection}{\numberline {8.3.7}Implementierung des UDP-Servers}{74}{subsection.8.3.7}%
+\contentsline {subsection}{\numberline {8.3.8}Übertragungsfrequenz der Simulationsdaten}{75}{subsection.8.3.8}%
+\contentsline {section}{\numberline {8.4}Latenz und Echtzeitverhalten des Systems}{75}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Definition von Systemlatenz bezogen auf das Projekt}{76}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}Latenz in der Simulation}{76}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}Netzwerkbedingte Latenz}{77}{subsection.8.4.3}%
+\contentsline {subsection}{\numberline {8.4.4}Verarbeitungslatenz im Mikrocontroller}{77}{subsection.8.4.4}%
+\contentsline {subsection}{\numberline {8.4.5}Mechanische Reaktionszeit}{78}{subsection.8.4.5}%
+\contentsline {subsection}{\numberline {8.4.6}Maßnahmen zur Reduktion der Latenz}{78}{subsection.8.4.6}%
+\contentsline {section}{\numberline {8.5}Koordination mehrerer Aktuatoren zur Plattformbewegung}{79}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Gleichzeitige Motorsteuerung}{79}{subsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.5.2}Bewegungsgrenzen}{79}{subsection.8.5.2}%
+\contentsline {chapter}{\numberline {9}Gestalterische Elemente zur Förderung der Immersion}{81}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Nutzerführung und Einführung in die Simulation}{81}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Visuelle Zusammenfassung der Hindernisse}{82}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Akustische Gestaltung der Simulation}{82}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Situationsabhängige Soundeffekte}{83}{section.9.4}%
+\contentsline {chapter}{\numberline {10}Technologien}{84}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Foo}{84}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Bar}{86}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Deeper}{87}{subsection.10.2.1}%
+\contentsline {subsubsection}{\nonumberline Deepest}{87}{subsubsection*.58}%
+\contentsline {chapter}{\numberline {11}Umsetzung}{88}{chapter.11}%
+\contentsline {chapter}{\numberline {12}Zusammenfassung}{90}{chapter.12}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{VI}{chapter*.61}%
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{VIII}{chapter*.62}%
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{IX}{chapter*.63}%
+\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{X}{chapter*.64}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\nonumberline Anhang}{XI}{chapter*.31}%
+\contentsline {chapter}{\nonumberline Anhang}{XI}{chapter*.65}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
