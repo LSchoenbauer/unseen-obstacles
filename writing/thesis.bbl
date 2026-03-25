@@ -219,4 +219,274 @@ S.~Wilbur und M.~Slater, ,,{A Framework for Immersive Virtual Environments
 K.~Stanney, C.~Fidopiastis, und L.~Foster, ,,{Virtual Reality Is Sexist: But It
   Does Not Have to Be},'' \emph{Frontiers in Robotics and AI}, Vol.~7, 2020.
 
+\bibitem{Bowman2004}
+D.~A. Bowman, R.~P. McMahan \emph{et~al.}, \emph{{3D User Interfaces - Theory
+  and Practice}}.\hskip 1em plus 0.5em minus 0.4em\relax Addison-Wesley
+  Professional, 2004.
+
+\bibitem{Perez2025}
+P.~Perez und Rafael, ,,{Immersive Virtual Reality Environments for Embodied
+  Learning of Engineering Students},'' Ph.D. dissertation, 2025.
+
+\bibitem{Coppik}
+N.~Coppik, P.~Becker, und M.~Ritter, \emph{{Low-Latency Real-Time Applications
+  on Heterogeneous MPSoCs}}.\hskip 1em plus 0.5em minus 0.4em\relax Dagstuhl
+  Publishing.
+
+\bibitem{Cleland2022}
+G.~Cleland, D.~Wu \emph{et~al.}, \emph{{FedComm: Understanding Communication
+  Protocols for Edge-based Federated Learning}}.\hskip 1em plus 0.5em minus
+  0.4em\relax IEEE, 2022.
+
+\bibitem{Alam2025}
+M.~Alam, ,,{Low Latency Network Protocol for Time Sensitive Applications},''
+  Tech. Rep., 2025.
+
+\bibitem{Unity}
+\BIBentryALTinterwordspacing
+Unity, ,,{Unity Manual},'' 2026. Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/UnityManual.html%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Unity2}
+\BIBentryALTinterwordspacing
+------, ,,{Introduction to components}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/Components.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Unity3}
+\BIBentryALTinterwordspacing
+------, ,,{Introduction to components}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/Components.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Unity4}
+\BIBentryALTinterwordspacing
+------, ,,{Hierarchy}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/Hierarchy.html%0A%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Unity5}
+\BIBentryALTinterwordspacing
+------, ,,{Lightning}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/Lighting.html%0A%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Unity6}
+\BIBentryALTinterwordspacing
+------, ,,{Class Parent Constraint}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/class-ParentConstraint.html%0A%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Unity7}
+\BIBentryALTinterwordspacing
+------, ,,{Class Object}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/class-Object.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{NVIDIA}
+\BIBentryALTinterwordspacing
+NVIDIA, ,,{NVIDIA Physics}.'' Online verfügbar:
+  \url{https://developer.nvidia.com/physx-sdk%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Bourg2013}
+D.~M. Bourg und B.~Bywaleo, \emph{{Physics for Game Developers: Science, Math
+  and Code for Realistic Effects}}, 2013.
+
+\bibitem{Unity8}
+\BIBentryALTinterwordspacing
+Unity, ,,{Unity Rigidbody}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/class-Rigidbody.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Unity9}
+\BIBentryALTinterwordspacing
+------, ,,{Physics Section}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/PhysicsSection.html%0A%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Foley1997}
+J.~D. Foley, \emph{{Computer Graphics: Principles and Practice}}.\hskip 1em
+  plus 0.5em minus 0.4em\relax Addison-Wesley Professional, 1997.
+
+\bibitem{Vries}
+\BIBentryALTinterwordspacing
+J.~de~Vries, ,,{Coordinate Systems}.'' Online verfügbar:
+  \url{https://learnopengl.com/Getting-started/Coordinate-Systems}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Unity10}
+\BIBentryALTinterwordspacing
+Unity, ,,{Unity Class Transform}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/class-Transform.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Craig2020}
+J.~J. Craig, \emph{{Introduction to robotics : mechanics and control}}.\hskip
+  1em plus 0.5em minus 0.4em\relax Upper Saddle River : Pearson, 2020.
+
+\bibitem{Diebel2006}
+J.~Diebel, ,,{Representing Attitude: Euler Angles, Unit Quaternions, and
+  Rotation Vectors},'' Ph.D. dissertation, Stanford University, 2006.
+
+\bibitem{Huck}
+\BIBentryALTinterwordspacing
+R.~C. Huck, ,,{Euler-Winkel}.'' Online verfügbar:
+  \url{https://www.researchgate.net/figure/yz-and-pitch-roll-and-yaw-systems_fig4_253569466}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Unity11}
+\BIBentryALTinterwordspacing
+Unity, ,,{Unity Input System}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/Input.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Bishop2006}
+R.~H. Bishop, \emph{{MECHATRONICS AN INTRODUCTION}}.\hskip 1em plus 0.5em minus
+  0.4em\relax CRC Press Taylor and Francis Group, 2006.
+
+\bibitem{ESPIDF}
+\BIBentryALTinterwordspacing
+,,{ESP-IDF Programming Guide}.'' Online verfügbar:
+  \url{https://docs.espressif.com/projects/esp-idf/en/latest/esp32}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Embedded}
+\BIBentryALTinterwordspacing
+Embedded, ,,{Embedded Dokumentation}.'' Online verfügbar:
+  \url{https://www.embedded.com/%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Baral2026}
+A.~Baral, ,,{Zeitgem{\"{a}}{\ss}e Antriebstechnik},'' \emph{EBSCO Industries},
+  2026.
+
+\bibitem{Astrom2021}
+K.~Astr{\"{o}}m und R.~Murray, \emph{{Feedback Systems: An Introduction for
+  Scientists and Engineers, Second Edition}}, 2021.
+
+\bibitem{Harashima1996}
+F.~Harashima, ,,{Intelligent Mechatronics},'' Ph.D. dissertation, University of
+  Tokyo, 1996.
+
+\bibitem{Bohme1967}
+G.~B{\"{o}}hme, \emph{{Elementar-mathematische Grundlagen}}.\hskip 1em plus
+  0.5em minus 0.4em\relax SPringer Verlag Berlin / Heidelberg / New York, 1967.
+
+\bibitem{Goldberg1991}
+D.~Goldberg, ,,{What Every Computer Scientist Should Know About Floating-Point
+  Arithmetic},'' \emph{Computing Surveys}, 1991.
+
+\bibitem{Siciliano1959}
+B.~Siciliano und L.~Villani, \emph{{Robot Force Control}}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Kluwer Academic Publisher Group, 1959.
+
+\bibitem{Slater2016}
+M.~Slater und M.~V. Sanchez-Vives, ,,{Enhancing Our Lives with Immersive
+  Virtual Reality},'' \emph{Frontiers in Robotics and AI}, Vol.~3, Nr.~74,
+  S.~47, 2016.
+
+\bibitem{Steuer1992}
+J.~Steuer, ,,{Defining Virtual Reality: Dimensions Determining Telepresence},''
+  \emph{Journal of Communication}, S. 73--93, 1992.
+
+\bibitem{Bauhaus}
+\BIBentryALTinterwordspacing
+Bauhaus, ,,{Bauhaus - Wagenheber}.'' Online verfügbar:
+  \url{https://www.bauhaus.at/wagenheber/unitec-scherenwagenheber/p/12595805}
+\BIBentrySTDinterwordspacing
+
+\bibitem{EspressifArduino}
+\BIBentryALTinterwordspacing
+{Espressif Arduino}, ,,{Wi-Fi API}.'' Online verfügbar:
+  \url{https://docs.espressif.com/projects/arduino-esp32/en/latest/api/wifi.html%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Wikipedia}
+\BIBentryALTinterwordspacing
+Wikipedia, ,,{Wikipedia - ESP32}.'' Online verfügbar:
+  \url{https://fr.wikipedia.org/wiki/ESP32%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ESP32WifiAccessPoint}
+\BIBentryALTinterwordspacing
+,,{ESP32 WIFI SOFT ACCESS POINT}.'' Online verfügbar:
+  \url{https://lonelybinary.com/blogs/learn/esp32-wifi-soft-access-point}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Postel1980}
+\BIBentryALTinterwordspacing
+J.~Postel, ,,{User Datagram Protocol},'' 1980. Online verfügbar:
+  \url{https://datatracker.ietf.org/doc/html/rfc768%0A%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Peterson2007}
+L.~L. Peterson und B.~S. Davie, \emph{{Computer Networks: A Systems
+  Approach}}.\hskip 1em plus 0.5em minus 0.4em\relax Morgan Kaufmann
+  Publishers, 2007.
+
+\bibitem{Microsoft}
+\BIBentryALTinterwordspacing
+Microsoft, ,,{Microsoft - .Net UDP Client}.'' Online verfügbar:
+  \url{https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.udpclient?view=net-10.0}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Unity12}
+\BIBentryALTinterwordspacing
+Unity, ,,{Quaternion and euler rotations in Unity}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/QuaternionAndEulerRotationsInUnity.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{LaValle2023}
+S.~M. LaValle, \emph{{Virtual Reality}}.\hskip 1em plus 0.5em minus 0.4em\relax
+  Cambridge University Press, 2023.
+
+\bibitem{Unity13}
+\BIBentryALTinterwordspacing
+Unity, ,,{Unity: Execution Order}.'' Online verfügbar:
+  \url{https://docs.unity3d.com/Manual/execution-order.html%0A%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Hou2024}
+X.~Hou, B.~Vogel-Heuser \emph{et~al.}, \emph{{Modellierung und Validierung von
+  Latenzzeiten in industriellen Agentensystemen mit Digitalen Zwillingen der
+  KI.Fabrik}}.\hskip 1em plus 0.5em minus 0.4em\relax DE GRUYTER OLDENBOURG,
+  2024.
+
+\bibitem{FreeRTOS}
+\BIBentryALTinterwordspacing
+FreeRTOS, ,,{FreeRTOS}.'' Online verfügbar: \url{https://www.freertos.org/%0A}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Nielsen1993}
+J.~Nielsen, \emph{{Usability Engineering}}.\hskip 1em plus 0.5em minus
+  0.4em\relax Academic Press, 1993.
+
+\bibitem{Kolb2015}
+D.~A. Kolb, \emph{{Experiential Learning: Experience as the Source of Learning
+  and Development}}.\hskip 1em plus 0.5em minus 0.4em\relax Pearson Education,
+  Inc., 2015.
+
+\bibitem{Dede2009}
+\BIBentryALTinterwordspacing
+C.~Dede, ,,{Immersive Interfaces for Engagement and Learning},''
+  \emph{Science}, Vol. 323, Nr. 5910, S. 66--69, 2009. Online verfügbar:
+  \url{https://www.science.org/doi/abs/10.1126/science.1167311}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Begault2000}
+D.~Begault, \emph{{NASATM2000-209606 3-D Sound for Virtual Reality and
+  Multimedia}}.\hskip 1em plus 0.5em minus 0.4em\relax National Aeronautics and
+  Space Administration, 2000.
+
+\bibitem{Kleiner2007}
+M.~Kleiner, P.~Larsson \emph{et~al.}, ,,{When What You Hear is What You See :
+  Presence and Auditory-Visual Integration in Virtual Environments},''
+  \emph{Academia}, S.~8, 2007.
+
+\bibitem{Frieder}
+K.~Frieder, Z.~Pascal, und P.~Nico, ,,{Umgebung, Soundscape - Planung einer
+  akustischen},'' Ph.D. dissertation, Technische Hochschule Bingen.
+
 \end{thebibliography}

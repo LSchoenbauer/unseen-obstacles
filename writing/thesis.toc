@@ -65,22 +65,22 @@
 \contentsline {subsection}{\numberline {7.10.2}Verknüpfung von Steuerung, Sitzbewegung und visueller Bewegung}{55}{subsection.7.10.2}%
 \contentsline {subsection}{\numberline {7.10.3}Sicherheitsmechanismen und Bewegungsbegrenzungen}{55}{subsection.7.10.3}%
 \contentsline {chapter}{\numberline {8}Kommunikation zwischen Hardwareprototyp und VR-Simulation}{56}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Systemarchitektur des Gesamtsystems}{57}{section.8.1}%
+\contentsline {section}{\numberline {8.1}Systemarchitektur des Gesamtsystems}{56}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Systemarchitektur des VR-Projekts}{57}{section.8.2}%
 \contentsline {subsection}{\numberline {8.2.1}Physikalisches Bewegungsmodell}{58}{subsection.8.2.1}%
 \contentsline {subsection}{\numberline {8.2.2}Positions- und Orientierungsparameter des virtuellen Rollstuhls}{59}{subsection.8.2.2}%
 \contentsline {subsubsection}{\nonumberline Positionskoordinaten}{59}{subsubsection*.25}%
 \contentsline {subsubsection}{\nonumberline Orientierung im Raum}{59}{subsubsection*.27}%
-\contentsline {subsubsection}{\nonumberline Pitch, Yaw und Roll}{61}{subsubsection*.30}%
+\contentsline {subsubsection}{\nonumberline Pitch, Yaw und Roll}{59}{subsubsection*.30}%
 \contentsline {subsubsection}{\nonumberline Freiheitsgrade des Systems}{61}{subsubsection*.32}%
 \contentsline {subsection}{\numberline {8.2.3}Verarbeitung der Benutzereingaben}{61}{subsection.8.2.3}%
-\contentsline {subsection}{\numberline {8.2.4}Berechnung der Translation und Rotation}{62}{subsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.2.4}Berechnung der Translation und Rotation}{61}{subsection.8.2.4}%
 \contentsline {section}{\numberline {8.3}Systemarchitektur des Hardware-Prototypen}{62}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Verarbeitung der Simulationsdaten}{63}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.1}Verarbeitung der Simulationsdaten}{62}{subsection.8.3.1}%
 \contentsline {subsection}{\numberline {8.3.2}Umrechnung von Simulationsdaten in Motorbewegungen}{63}{subsection.8.3.2}%
 \contentsline {subsubsection}{\nonumberline Differenzberechnung - Delta Werte}{63}{subsubsection*.34}%
 \contentsline {subsubsection}{\nonumberline Berechnung der Rotationsbewegung (Yaw)}{64}{subsubsection*.36}%
-\contentsline {subsubsection}{\nonumberline Umrechnung des Rotationswinkels in eine lineare Bewegung}{65}{subsubsection*.38}%
+\contentsline {subsubsection}{\nonumberline Umrechnung des Rotationswinkels in eine lineare Bewegung}{64}{subsubsection*.38}%
 \contentsline {subsubsection}{\nonumberline Umrechnung der Wegstrecke in Motorumdrehungen}{66}{subsubsection*.41}%
 \contentsline {subsubsection}{\nonumberline Berechnung der Motordrehzahl}{66}{subsubsection*.43}%
 \contentsline {subsubsection}{\nonumberline Berechnung der Neigungsbewegung des vorderen Aktuators (Pitch)}{67}{subsubsection*.45}%
@@ -89,38 +89,32 @@
 \contentsline {subsubsection}{\nonumberline Integration dynamischer Bewegungsanteile}{70}{subsubsection*.53}%
 \contentsline {subsubsection}{\nonumberline Gegensinnige Ansteuerung der hinteren Aktuatoren}{71}{subsubsection*.55}%
 \contentsline {subsubsection}{\nonumberline Synchronisation der Motorbewegungen}{71}{subsubsection*.57}%
-\contentsline {subsection}{\numberline {8.3.3}Netzwerkarchitektur des Systems}{72}{subsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.3.3}Netzwerkarchitektur des Systems}{71}{subsection.8.3.3}%
 \contentsline {subsection}{\numberline {8.3.4}Auswahl des Kommunikationsprotokolls}{72}{subsection.8.3.4}%
-\contentsline {subsection}{\numberline {8.3.5}Implementierung des UDP-Senders in Unity}{73}{subsection.8.3.5}%
+\contentsline {subsection}{\numberline {8.3.5}Implementierung des UDP-Senders in Unity}{72}{subsection.8.3.5}%
 \contentsline {subsection}{\numberline {8.3.6}Aufbau des Datenpakets}{73}{subsection.8.3.6}%
 \contentsline {subsection}{\numberline {8.3.7}Implementierung des UDP-Servers}{74}{subsection.8.3.7}%
-\contentsline {subsection}{\numberline {8.3.8}Übertragungsfrequenz der Simulationsdaten}{75}{subsection.8.3.8}%
+\contentsline {subsection}{\numberline {8.3.8}Übertragungsfrequenz der Simulationsdaten}{74}{subsection.8.3.8}%
 \contentsline {section}{\numberline {8.4}Latenz und Echtzeitverhalten des Systems}{75}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Definition von Systemlatenz bezogen auf das Projekt}{76}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.1}Definition von Systemlatenz bezogen auf das Projekt}{75}{subsection.8.4.1}%
 \contentsline {subsection}{\numberline {8.4.2}Latenz in der Simulation}{76}{subsection.8.4.2}%
-\contentsline {subsection}{\numberline {8.4.3}Netzwerkbedingte Latenz}{77}{subsection.8.4.3}%
+\contentsline {subsection}{\numberline {8.4.3}Netzwerkbedingte Latenz}{76}{subsection.8.4.3}%
 \contentsline {subsection}{\numberline {8.4.4}Verarbeitungslatenz im Mikrocontroller}{77}{subsection.8.4.4}%
-\contentsline {subsection}{\numberline {8.4.5}Mechanische Reaktionszeit}{78}{subsection.8.4.5}%
+\contentsline {subsection}{\numberline {8.4.5}Mechanische Reaktionszeit}{77}{subsection.8.4.5}%
 \contentsline {subsection}{\numberline {8.4.6}Maßnahmen zur Reduktion der Latenz}{78}{subsection.8.4.6}%
-\contentsline {section}{\numberline {8.5}Koordination mehrerer Aktuatoren zur Plattformbewegung}{79}{section.8.5}%
+\contentsline {section}{\numberline {8.5}Koordination mehrerer Aktuatoren zur Plattformbewegung}{78}{section.8.5}%
 \contentsline {subsection}{\numberline {8.5.1}Gleichzeitige Motorsteuerung}{79}{subsection.8.5.1}%
 \contentsline {subsection}{\numberline {8.5.2}Bewegungsgrenzen}{79}{subsection.8.5.2}%
-\contentsline {chapter}{\numberline {9}Gestalterische Elemente zur Förderung der Immersion}{81}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Nutzerführung und Einführung in die Simulation}{81}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Visuelle Zusammenfassung der Hindernisse}{82}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Akustische Gestaltung der Simulation}{82}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Situationsabhängige Soundeffekte}{83}{section.9.4}%
-\contentsline {chapter}{\numberline {10}Technologien}{84}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Foo}{84}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Bar}{86}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}Deeper}{87}{subsection.10.2.1}%
-\contentsline {subsubsection}{\nonumberline Deepest}{87}{subsubsection*.59}%
-\contentsline {chapter}{\numberline {11}Umsetzung}{88}{chapter.11}%
-\contentsline {chapter}{\numberline {12}Zusammenfassung}{90}{chapter.12}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{VI}{chapter*.62}%
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{IX}{chapter*.63}%
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{X}{chapter*.64}%
-\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{XI}{chapter*.65}%
+\contentsline {chapter}{\numberline {9}Gestalterische Elemente zur Förderung der Immersion}{80}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Nutzerführung und Einführung in die Simulation}{80}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Visuelle Zusammenfassung der Hindernisse}{81}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Akustische Gestaltung der Simulation}{81}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Situationsabhängige Soundeffekte}{82}{section.9.4}%
+\contentsline {chapter}{\numberline {10}Zusammenfassung}{83}{chapter.10}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{VI}{chapter*.58}%
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{XI}{chapter*.59}%
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{XII}{chapter*.60}%
+\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{XIII}{chapter*.61}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\nonumberline Anhang}{XII}{chapter*.66}%
+\contentsline {chapter}{\nonumberline Anhang}{XIV}{chapter*.62}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

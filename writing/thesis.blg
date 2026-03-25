@@ -17,47 +17,53 @@ Database file #1: bib.bib
 Warning--missing publisher in Crampton2000
 Warning--missing publisher in ISO2025
 Warning--missing publisher in Molly1998
+Warning--missing school in Perez2025
+Warning--empty year in Coppik
+Warning--missing institution in Alam2025
+Warning--missing publisher in Bourg2013
+Warning--missing publisher in Astrom2021
+Warning--empty year in Frieder
 
 Done.
-You've used 40 entries,
+You've used 92 entries,
             3998 wiz_defined-function locations,
-            1045 strings with 13083 characters,
-and the built_in function-call counts, 19796 in all, are:
-= -- 1599
-> -- 333
-< -- 117
-+ -- 179
-- -- 60
-* -- 831
-:= -- 3333
-add.period$ -- 75
-call.type$ -- 40
+            1311 strings with 19167 characters,
+and the built_in function-call counts, 38767 in all, are:
+= -- 3008
+> -- 627
+< -- 137
++ -- 325
+- -- 128
+* -- 1511
+:= -- 6744
+add.period$ -- 177
+call.type$ -- 92
 change.case$ -- 1
-chr.to.int$ -- 256
-cite$ -- 43
-duplicate$ -- 1504
-empty$ -- 1824
-format.name$ -- 70
-if$ -- 4443
+chr.to.int$ -- 292
+cite$ -- 101
+duplicate$ -- 3098
+empty$ -- 3853
+format.name$ -- 150
+if$ -- 8607
 int.to.chr$ -- 0
-int.to.str$ -- 39
-missing$ -- 275
-newline$ -- 166
-num.names$ -- 39
-pop$ -- 692
+int.to.str$ -- 91
+missing$ -- 616
+newline$ -- 374
+num.names$ -- 89
+pop$ -- 1722
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 4
-skip$ -- 1629
+skip$ -- 3163
 stack$ -- 0
-substring$ -- 600
-swap$ -- 1051
-text.length$ -- 35
+substring$ -- 726
+swap$ -- 1922
+text.length$ -- 43
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 40
-warning$ -- 3
-while$ -- 87
-width$ -- 41
-write$ -- 380
-(There were 3 warnings)
+type$ -- 92
+warning$ -- 9
+while$ -- 147
+width$ -- 93
+write$ -- 818
+(There were 9 warnings)
