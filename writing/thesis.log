@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  25 MAR 2026 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  29 MAR 2026 20:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1436,7 +1436,11 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 35.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (thesis.aux)
+) (thesis.aux
+
+LaTeX Warning: Label `fig:vr-world:bankomat' multiply defined.
+
+)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
@@ -1753,57 +1757,62 @@ chapter 5.
 (sections/vr-world.tex [16
 
 ] [17]
-<pics/bankautomat-ki-generiert.png, id=300, 1027.84pt x 1541.76pt>
+<pics/bankautomat-ki-generiert.png, id=301, 1027.84pt x 1541.76pt>
 File: pics/bankautomat-ki-generiert.png Graphic file (type png)
 <use pics/bankautomat-ki-generiert.png>
-Package pdftex.def Info: pics/bankautomat-ki-generiert.png  used on input line 37.
+Package pdftex.def Info: pics/bankautomat-ki-generiert.png  used on input line 35.
 (pdftex.def)             Requested size: 308.35437pt x 462.53157pt.
- [18 <./pics/bankautomat-ki-generiert.png (PNG copy)>] [19]
-<pics/prototyp-welt.jpg, id=316, 659.46375pt x 592.2125pt>
+ [18 <./pics/bankautomat-ki-generiert.png (PNG copy)>]
+File: pics/bankautomat-ki-generiert.png Graphic file (type png)
+<use pics/bankautomat-ki-generiert.png>
+Package pdftex.def Info: pics/bankautomat-ki-generiert.png  used on input line 57.
+(pdftex.def)             Requested size: 308.35437pt x 462.53157pt.
+ [19] [20]
+<pics/prototyp-welt.jpg, id=323, 659.46375pt x 592.2125pt>
 File: pics/prototyp-welt.jpg Graphic file (type jpg)
 <use pics/prototyp-welt.jpg>
-Package pdftex.def Info: pics/prototyp-welt.jpg  used on input line 63.
+Package pdftex.def Info: pics/prototyp-welt.jpg  used on input line 66.
 (pdftex.def)             Requested size: 395.68129pt x 355.33023pt.
- [20 <./pics/prototyp-welt.jpg>]
-<pics/umgesetzte-welt.jpg, id=324, 388.45125pt x 557.08125pt>
+ [21 <./pics/prototyp-welt.jpg>]
+<pics/umgesetzte-welt.jpg, id=331, 388.45125pt x 557.08125pt>
 File: pics/umgesetzte-welt.jpg Graphic file (type jpg)
 <use pics/umgesetzte-welt.jpg>
-Package pdftex.def Info: pics/umgesetzte-welt.jpg  used on input line 80.
+Package pdftex.def Info: pics/umgesetzte-welt.jpg  used on input line 83.
 (pdftex.def)             Requested size: 310.76141pt x 445.6656pt.
- [21 <./pics/umgesetzte-welt.jpg>] [22]
-<pics/pop-up.png, id=339, 639.5895pt x 344.487pt>
+ [22 <./pics/umgesetzte-welt.jpg>] [23] [24]
+<pics/pop-up.png, id=352, 639.5895pt x 344.487pt>
 File: pics/pop-up.png Graphic file (type png)
 <use pics/pop-up.png>
-Package pdftex.def Info: pics/pop-up.png  used on input line 137.
+Package pdftex.def Info: pics/pop-up.png  used on input line 138.
 (pdftex.def)             Requested size: 447.70958pt x 241.13924pt.
 
-Overfull \hbox (6.69185pt too wide) in paragraph at lines 137--138
+Overfull \hbox (6.69185pt too wide) in paragraph at lines 138--139
  [][] 
  []
 
-) [23] [24 <./pics/pop-up.png>]
+) [25 <./pics/pop-up.png>]
 chapter 6.
-(sections/hardware-prototyp.tex [25
+(sections/hardware-prototyp.tex [26
 
-] [26]
-<pics/prototyp-ende.jpg, id=362, 694.84593pt x 1026.08344pt>
+] [27]
+<pics/prototyp-ende.jpg, id=369, 694.84593pt x 1026.08344pt>
 File: pics/prototyp-ende.jpg Graphic file (type jpg)
 <use pics/prototyp-ende.jpg>
 Package pdftex.def Info: pics/prototyp-ende.jpg  used on input line 84.
 (pdftex.def)             Requested size: 347.4221pt x 513.04047pt.
- [27] [28 <./pics/prototyp-ende.jpg>]
-<pics/gummirad.jpg, id=374, 1931.215pt x 2055.68pt>
+ [28] [29 <./pics/prototyp-ende.jpg>]
+<pics/gummirad.jpg, id=381, 1931.215pt x 2055.68pt>
 File: pics/gummirad.jpg Graphic file (type jpg)
 <use pics/gummirad.jpg>
 Package pdftex.def Info: pics/gummirad.jpg  used on input line 142.
 (pdftex.def)             Requested size: 289.66975pt x 308.3387pt.
-<pics/prototyp-zwischenstand.jpg, id=376, 694.84593pt x 1047.16219pt>
+<pics/prototyp-zwischenstand.jpg, id=383, 694.84593pt x 1047.16219pt>
 File: pics/prototyp-zwischenstand.jpg Graphic file (type jpg)
 <use pics/prototyp-zwischenstand.jpg>
 Package pdftex.def Info: pics/prototyp-zwischenstand.jpg  used on input line 152.
 (pdftex.def)             Requested size: 208.45538pt x 314.15108pt.
- [29] [30 <./pics/gummirad.jpg>]
-<pics/Schaltplan.png, id=391, 892.5345pt x 490.83376pt>
+ [30] [31 <./pics/gummirad.jpg>]
+<pics/Schaltplan.png, id=399, 892.5345pt x 490.83376pt>
 File: pics/Schaltplan.png Graphic file (type png)
 <use pics/Schaltplan.png>
 Package pdftex.def Info: pics/Schaltplan.png  used on input line 190.
@@ -1813,61 +1822,61 @@ Overfull \hbox (5.24843pt too wide) in paragraph at lines 190--191
  [][] 
  []
 
-[31 <./pics/prototyp-zwischenstand.jpg>] [32 <./pics/Schaltplan.png>] [33]
-<pics/platine.jpg, id=415, 1748.5325pt x 1439.3775pt>
+[32 <./pics/prototyp-zwischenstand.jpg>] [33 <./pics/Schaltplan.png>] [34]
+<pics/platine.jpg, id=422, 1748.5325pt x 1439.3775pt>
 File: pics/platine.jpg Graphic file (type jpg)
 <use pics/platine.jpg>
 Package pdftex.def Info: pics/platine.jpg  used on input line 255.
 (pdftex.def)             Requested size: 349.7003pt x 287.87039pt.
- [34 <./pics/platine.jpg>]
-<pics/stepper.jpg, id=429, 401.5pt x 401.5pt>
+ [35 <./pics/platine.jpg>]
+<pics/stepper.jpg, id=436, 401.5pt x 401.5pt>
 File: pics/stepper.jpg Graphic file (type jpg)
 <use pics/stepper.jpg>
 Package pdftex.def Info: pics/stepper.jpg  used on input line 301.
 (pdftex.def)             Requested size: 200.7495pt x 200.7495pt.
-<pics/stepper-driver.jpg, id=431, 897.3525pt x 741.77126pt>
+<pics/stepper-driver.jpg, id=438, 897.3525pt x 741.77126pt>
 File: pics/stepper-driver.jpg Graphic file (type jpg)
 <use pics/stepper-driver.jpg>
 Package pdftex.def Info: pics/stepper-driver.jpg  used on input line 316.
 (pdftex.def)             Requested size: 269.20782pt x 222.5331pt.
- [35] [36 <./pics/stepper.jpg> <./pics/stepper-driver.jpg>] [37]
+ [36] [37 <./pics/stepper.jpg> <./pics/stepper-driver.jpg>] [38]
 File: pics/tdot.jpg Graphic file (type jpg)
 <use pics/tdot.jpg>
 Package pdftex.def Info: pics/tdot.jpg  used on input line 370.
 (pdftex.def)             Requested size: 430.9132pt x 596.68379pt.
- [38] [39]
-<pics/microschalter.jpg, id=464, 881.2925pt x 1003.75pt>
+ [39] [40]
+<pics/microschalter.jpg, id=471, 881.2925pt x 1003.75pt>
 File: pics/microschalter.jpg Graphic file (type jpg)
 <use pics/microschalter.jpg>
 Package pdftex.def Info: pics/microschalter.jpg  used on input line 420.
 (pdftex.def)             Requested size: 176.25537pt x 200.74644pt.
-) [40] [41 <./pics/microschalter.jpg>]
+) [41] [42 <./pics/microschalter.jpg>]
 chapter 7.
-(sections/cyber_sickness.tex [42
+(sections/cyber_sickness.tex [43
 
 ]
-<pics/vestibular-system.jpg, id=481, 1284.8pt x 987.69pt>
+<pics/vestibular-system.jpg, id=489, 1284.8pt x 987.69pt>
 File: pics/vestibular-system.jpg Graphic file (type jpg)
 <use pics/vestibular-system.jpg>
 Package pdftex.def Info: pics/vestibular-system.jpg  used on input line 21.
 (pdftex.def)             Requested size: 256.95544pt x 197.5345pt.
- [43 <./pics/vestibular-system.jpg>] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53]
-<pics/metaquest-controller-placeholder.jpeg, id=644, 1505.625pt x 1379.1525pt>
+ [44 <./pics/vestibular-system.jpg>] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54]
+<pics/metaquest-controller-placeholder.jpeg, id=650, 1505.625pt x 1379.1525pt>
 File: pics/metaquest-controller-placeholder.jpeg Graphic file (type jpg)
 <use pics/metaquest-controller-placeholder.jpeg>
 Package pdftex.def Info: pics/metaquest-controller-placeholder.jpeg  used on input line 172.
 (pdftex.def)             Requested size: 301.11966pt x 275.8256pt.
- [54 <./pics/metaquest-controller-placeholder.jpeg>]) [55]
+ [55 <./pics/metaquest-controller-placeholder.jpeg>]) [56]
 chapter 8.
-(sections/communication_vr_hardware.tex [56
+(sections/communication_vr_hardware.tex [57
 
-] [57] [58]
-<pics/yz-and-pitch-roll-and-yaw-systems.png, id=723, 432.61626pt x 380.42125pt>
+] [58] [59]
+<pics/yz-and-pitch-roll-and-yaw-systems.png, id=729, 432.61626pt x 380.42125pt>
 File: pics/yz-and-pitch-roll-and-yaw-systems.png Graphic file (type png)
 <use pics/yz-and-pitch-roll-and-yaw-systems.png>
 Package pdftex.def Info: pics/yz-and-pitch-roll-and-yaw-systems.png  used on input line 63.
 (pdftex.def)             Requested size: 432.6152pt x 380.4203pt.
- [59] [60 <./pics/yz-and-pitch-roll-and-yaw-systems.png>] [61] [62]
+ [60] [61 <./pics/yz-and-pitch-roll-and-yaw-systems.png>] [62] [63]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 122.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1876,19 +1885,19 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [63]
+ [64]
 Overfull \hbox (9.75749pt too wide) in paragraph at lines 145--145
 []        \T1/lmtt/m/n/12 deltaTimestamp = simData.mTimestampMs - mLastSimData.mTimestampMs[] 
  []
 
-[64]
-<pics/rotation-sketch.png, id=811, 332.74312pt x 264.23718pt>
+[65]
+<pics/rotation-sketch.png, id=817, 332.74312pt x 264.23718pt>
 File: pics/rotation-sketch.png Graphic file (type png)
 <use pics/rotation-sketch.png>
 Package pdftex.def Info: pics/rotation-sketch.png  used on input line 166.
 (pdftex.def)             Requested size: 332.7423pt x 264.23653pt.
- [65{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./pics/rotation-sketch.png>] [66]
-<pics/front-mover-sketch.png, id=842, 501.37312pt x 264.23718pt>
+ [66{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./pics/rotation-sketch.png>] [67]
+<pics/front-mover-sketch.png, id=849, 501.37312pt x 264.23718pt>
 File: pics/front-mover-sketch.png Graphic file (type png)
 <use pics/front-mover-sketch.png>
 Package pdftex.def Info: pics/front-mover-sketch.png  used on input line 214.
@@ -1898,24 +1907,24 @@ Overfull \hbox (60.35416pt too wide) in paragraph at lines 214--215
  [][] 
  []
 
-[67 <./pics/front-mover-sketch.png>] [68]
-<pics/back-mover-sketch.png, id=870, 332.74312pt x 264.23718pt>
+[68 <./pics/front-mover-sketch.png>] [69]
+<pics/back-mover-sketch.png, id=876, 332.74312pt x 264.23718pt>
 File: pics/back-mover-sketch.png Graphic file (type png)
 <use pics/back-mover-sketch.png>
 Package pdftex.def Info: pics/back-mover-sketch.png  used on input line 271.
 (pdftex.def)             Requested size: 332.7423pt x 264.23653pt.
- [69]
+ [70]
 Overfull \hbox (3.58249pt too wide) in paragraph at lines 290--290
 []        \T1/lmtt/m/n/12 stroke = (sin(DegToRad(deltaRoll / 100.0)) * DISTANCE_SIDE_BACK)[] 
  []
 
-[70 <./pics/back-mover-sketch.png>] [71] [72] [73] [74] [75] [76] [77] [78]) [79]
+[71 <./pics/back-mover-sketch.png>] [72] [73] [74] [75] [76] [77] [78] [79]) [80]
 chapter 9.
-(sections/immersion.tex [80
+(sections/immersion.tex [81
 
-] [81]) [82]
+] [82]) [83]
 chapter 10.
-(sections/summary.tex) [83
+(sections/summary.tex) [84
 
 ] (glossary.tex
 \@gls@deffile=\write8
@@ -1981,23 +1990,27 @@ See the caption package documentation for explanation.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 131 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 36388 strings out of 474486
- 706247 string characters out of 5743755
+ 36394 strings out of 474486
+ 706315 string characters out of 5743755
  1947542 words of memory out of 5000000
  57591 multiletter control sequences out of 15000+600000
- 606622 words of font info for 140 fonts, out of 8000000 for 9000
+ 606880 words of font info for 142 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,20n,108p,11281b,2548s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (99 pages, 5875393 bytes).
+Output written on thesis.pdf (100 pages, 5876909 bytes).
 PDF statistics:
- 1432 PDF objects out of 1440 (max. 8388607)
- 352 named destinations out of 1000 (max. 500000)
+ 1439 PDF objects out of 1440 (max. 8388607)
+ 354 named destinations out of 1000 (max. 500000)
  27634 words of extra memory for PDF output out of 29859 (max. 10000000)
 

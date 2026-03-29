@@ -1,25 +1,23 @@
 \setauthor{Elisa Kaltenberger}
 
-In diesem Kapitel wird die Auswahl der Entwicklungsplattform für die vorliegende 3D-VR-Simulation erläutert. Dabei werden die zentralen Kriterien betrachtet, die Unity gegenüber der Unreal Engine als geeignete Lösung erscheinen ließen. Zunächst wird auf die VR-spezifischen Werkzeuge und Frameworks eingegangen, die eine effiziente Umsetzung von Interaktionen und Bewegungen ermöglichen. Anschließend wird die Bedeutung der Leistungsfähigkeit und Optimierbarkeit der Engine für eine stabile und ruckelfreie VR-Erfahrung diskutiert. Abschließend wird die Zugänglichkeit der Entwicklungsumgebung sowie die praktische Anwendbarkeit im schulischen Kontext hervorgehoben, um die Entscheidung 
-für Unity inhaltlich zu untermauern.
+In diesem Kapitel wird die Auswahl der Entwicklungsplattform für die vorliegende 3D-VR-Simulation erläutert. Dabei werden die zentralen Kriterien betrachtet, die Unity gegenüber der \textit{Unreal Engine} als geeignete Lösung erscheinen ließen. Zunächst wird auf die VR-spezifischen Werkzeuge und Frameworks eingegangen, die eine effiziente Umsetzung von Interaktionen und Bewegungen ermöglichen. Anschließend wird die Bedeutung der Leistungsfähigkeit und Optimierbarkeit der Engine für eine stabile und ruckelfreie VR-Erfahrung diskutiert. Abschließend wird die Zugänglichkeit der Entwicklungsumgebung sowie die praktische Anwendbarkeit im schulischen Kontext hervorgehoben, um die Entscheidung für Unity inhaltlich zu untermauern.
 
 \section{Programmierumgebung finden}
 \setauthor{Elisa Kaltenberger}
 
-Für die vorliegende Diplomarbeit wurde die Unity Engine gegenüber der Unreal Engine aus mehreren, 
-auf das Projekt zugeschnittenen Gründen ausgewählt. Die Entwicklung einer 3D-VR-Simulation erforderte 
+Für die vorliegende Diplomarbeit wurde die \textit{Unity Engine} gegenüber der \textit{Unreal Engine} aus mehreren, auf das Projekt zugeschnittenen Gründen ausgewählt. Die Entwicklung einer 3D-VR-Simulation erforderte 
 eine sorgfältige Abwägung, wobei Unity insgesamt die bessere Eignung aufwies.
 \cite{NimrodKramer2024}, \cite{YuriPitomcev2025}
 
-Der entscheidende Faktor für die Wahl von Unity lag in den umfangreichen VR-spezifischen Werkzeugen und der effizienten Entwicklungsumgebung. Unity bietet eine breite Palette an fertigen Komponenten und Schnittstellen für VR-Interaktion und Bewegung. Dadurch konnte von Beginn an der Fokus auf die inhaltlichen Herausforderungen der VR-Programmierung gelegt werden, ohne dass zusätzliche komplexe Anpassungen oder Eigenentwicklungen nötig gewesen wären. Die Unreal Engine hätte aufgrund ihres komplexeren Blueprint-Systems und der stärker auf C++ ausgerichteten Programmierung einen höheren Entwicklungsaufwand verursacht, was die zeitliche Umsetzung der Simulation deutlich verlängert hätte.
+Der entscheidende Faktor für die Wahl von Unity lag in den umfangreichen VR-spezifischen Werkzeugen und der effizienten Entwicklungsumgebung. Unity bietet eine breite Palette an fertigen Komponenten und Schnittstellen für VR-Interaktion und Bewegung. Dadurch konnte von Beginn an der Fokus auf die inhaltlichen Herausforderungen der VR-Programmierung gelegt werden, ohne dass zusätzliche komplexe Anpassungen oder Eigenentwicklungen nötig gewesen wären. \textit{Unreal Engine} hätte aufgrund des komplexeren Blueprint-Systems und der stärker auf C++ ausgerichteten Programmierung einen höheren Entwicklungsaufwand verursacht, was die zeitliche Umsetzung der Simulation deutlich verlängert hätte.
 \cite{NimrodKramer2024}, \cite{XRBootcamp2022}
 
 Zusätzlich ist Unity im Bereich VR/XR gut aufgestellt und zugänglich. Über das XR Interaction Toolkit 
-und die OpenXR-Unterstützung werden von Unity standardisierte und gut dokumentierte Frameworks speziell für die VR-Entwicklung angeboten. Diese Tools abstrahieren plattformspezifische Schwierigkeiten und ermöglichen einen effizienten Einstieg in die Entwicklung von Interaktionen für VR-Controller. Obwohl Unreal Engine ebenfalls über ausgeprägte VR-Fähigkeiten verfügt, wird der Einstieg in die VR-Interaktionsprogrammierung mit Unity aufgrund der hochwertigen, offiziellen Plugins oft als direkter und schulprojektfreundlicher empfunden.
+und die OpenXR-Unterstützung werden von Unity standardisierte und gut dokumentierte Frameworks speziell für die VR-Entwicklung angeboten. Diese Tools abstrahieren plattformspezifische Schwierigkeiten und ermöglichen einen effizienten Einstieg in die Entwicklung von Interaktionen für VR-Controller. Obwohl die \textit{Unreal Engine} ebenfalls über ausgeprägte VR-Fähigkeiten verfügt, wird der Einstieg in die VR-Interaktionsprogrammierung mit Unity aufgrund der hochwertigen, offiziellen Plugins oft als direkter und schulprojektfreundlicher empfunden.
 \cite{NimrodKramer2024}, \cite{YuriPitomcev2025}, \cite{XRBootcamp2022}
 
 
-Für eine stabile VR-Simulation ist eine hohe und konstante Framerate (FPS) von entscheidender Bedeutung, um das Auftreten von Motion Sickness zu vermeiden. Unity-Projekte werden als vergleichsweise ressourcenschonend und gut optimier- sowie kontrollierbar angesehen, was für den überschaubaren Umfang einer schulischen Simulation vorteilhaft war. Obwohl die Unreal Engine häufig eine beeindruckendere Grafik erzeugt, weist sie in zahlreichen Szenarien einen höheren Basis-Overhead auf und erfordert eine leistungsstärkere Hardware. Im Rahmen eines exemplarischen Simulationsprojekts, das sich durch eine starke Fokussierung auf die inhaltliche Interaktion auszeichnete, wurde Unity als die Lösung identifiziert, die ein optimales Verhältnis zwischen visueller Qualität und garantierter Leistung der verfügbaren Hardware aufwies. Dies steht im Gegensatz zu fotorealistischen Visualisierungen, die bei diesem Projekt nicht im Vordergrund standen.
+Für eine stabile VR-Simulation ist eine hohe und konstante Framerate (FPS) von entscheidender Bedeutung, um das Auftreten von Motion Sickness zu vermeiden. Unity-Projekte werden als vergleichsweise ressourcenschonend und gut optimier- sowie kontrollierbar angesehen, was für den überschaubaren Umfang einer schulischen Simulation vorteilhaft war. Obwohl die \textit{Unreal Engine} häufig eine beeindruckendere Grafik erzeugt, weist sie in zahlreichen Szenarien einen höheren Basis-Overhead auf und erfordert eine leistungsstärkere Hardware. Im Rahmen eines exemplarischen Simulationsprojekts, das sich durch eine starke Fokussierung auf die inhaltliche Interaktion auszeichnete, wurde Unity als die Lösung identifiziert, die ein optimales Verhältnis zwischen visueller Qualität und garantierter Leistung der verfügbaren Hardware aufwies. Dies steht im Gegensatz zu fotorealistischen Visualisierungen, die bei diesem Projekt nicht im Vordergrund standen.
 \cite{NimrodKramer2024}, \cite{YuriPitomcev2025}
 
 \section{Welt einrichten}
@@ -28,7 +26,7 @@ In diesem Kapitel wird die Entwicklung der VR-Simulation aus der Perspektive von
 
 \subsection{Überlegung der Hindernisse}
 \setauthor{Elisa Kaltenberger}
-Zunächst wurden die signifikanten Hindernisse für Rollstuhlfahrende identifiziert und einer Analyse unterzogen. Auf dieser Grundlage wurde anschließend die VR-Welt gestaltet, um ein möglichst realistisches und zugleich bestmögliches Ergebnis zu erzielen.
+Zunächst wurden die signifikanten Hindernisse für Rollstuhlfahrende im Rahmen von Interviews identifiziert und analysiert. Auf dieser Grundlage wurde anschließend die VR-Welt gestaltet, um ein möglichst realistisches und zugleich bestmögliches Ergebnis zu erzielen.
 
 Für Menschen mit Mobilitätseinschränkungen kann die Nutzung eines Bankautomaten eine Herausforderung darstellen Abb. \ref{fig:vr-world:bankomat}. In einer signifikanten Anzahl von Fällen sind die Automaten zu hoch angebracht, was dazu führt, dass sowohl der Bildschirm als auch das Tastenfeld nur mit einem hohen Aufwand erreicht werden können. In vielen Fällen ist die zur Verfügung stehende Bewegungsfläche vor dem Automaten unzureichend. Ein zusätzliches Problem stellt der Sichtschutz dar, da die seitlichen Schutzblenden oder Abdeckungen in der Regel für stehende Personen konzipiert sind.
 
@@ -45,16 +43,21 @@ Des Weiteren ist festzustellen, dass Pflastersteine problematisch sind. Die uneb
 
 \subsection{Erster Prototyp}
 \setauthor{Elisa Kaltenberger}
-Der erste Prototyp der VR-Welt wurde in Unity erstellt Abb. \ref{fig:vr-world:prototyp}, um die zuvor identifizierten Hindernisse für Rollstuhlfahrende zu simulieren. Dabei wurden verschiedene Umgebungen modelliert, die typische Herausforderungen im Alltag darstellen, wie z.B. Bankautomaten, Bordsteinkanten und Pflastersteine.
+Der erste Prototyp der VR-Welt wurde in Unity erstellt Abb. \ref{fig:vr-world:prototyp}, um die zuvor identifizierten Hindernisse für Rollstuhlfahrende zu simulieren. 
 
 In der ersten konkreten Umsetzungsphase des Projekts wurde ein strategischer Fokus auf Funktionalität und Nutzerperspektive gelegt. Hierzu wurde bewusst auf den Import komplexer, fertiger 3D-Assets verzichtet. Unter „Assets“ versteht man in diesem Kontext vollständig texturierte Modelle wie Gebäude, Autos oder detaillierte Oberflächenmaterialien, die üblicherweise für die visuelle Vollendung einer virtuellen Umgebung genutzt werden.
 
-Stattdessen wurde eine minimalistische, abstrakte Testumgebung erstellt, die auch als Whitebox- oder 
-Greybox-Prototyp bezeichnet wird. Die vorliegende Struktur besteht ausschließlich aus einfachen 
-geometrischen Grundkörpern, die direkt innerhalb der Unity Engine erzeugt und arrangiert wurden. 
+Stattdessen wurde eine minimalistische, abstrakte Testumgebung erstellt, die auch als Whitebox- oder Greybox-Prototyp bezeichnet wird, siehe Abb. \ref{fig:vr-world:prototyp}. Die vorliegende Struktur besteht ausschließlich aus einfachen geometrischen Grundkörpern, die direkt innerhalb der \textit{Unity Engine} erzeugt und arrangiert wurden. 
 Die gesamte Szene wurde folglich in einer reduzierten, häufig einfarbigen oder grob gerasterten 
 Darstellung präsentiert.
 \cite{AkankshaVerma2017}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pics/bankautomat-ki-generiert.png}
+    \caption{Bankautomat, der für Rollstuhlfahrende schwer zugänglich ist}
+    \label{fig:vr-world:bankomat}
+\end{figure}
 
 Das primäre und ausschließliche Ziel dieser Phase war die funktionale Validierung der zentralen Hindernisse ausschließlich aus der spezifischen Perspektive eines Rollstuhlfahrers. Es ging nicht um realistische Darstellung, sondern um die Beantwortung essenzieller technischer und konzeptioneller Fragen: Werden die Hindernisse aus der festgelegten Sitzhöhe korrekt und eindeutig wahrgenommen? Funktioniert die physikalische Kollisionserkennung an Bordsteinen und Kanten wie intendiert? Löst die Platzierung eines simulierten Bankautomaten das gewünschte Interaktionsproblem (Unerreichbarkeit, eingeschränkte Sicht) aus? Wie fühlt sich die Bewegung über ein Feld unebener Pflastersteine in der reinen Gameplay-Logik an? 
 
@@ -69,7 +72,7 @@ Das primäre und ausschließliche Ziel dieser Phase war die funktionale Validier
 \setauthor{Elisa Kaltenberger}
 Nach erfolgreicher Einrichtung der Testumgebung wurde ein umfangreiches Asset-Paket einer realen Stadt 
 ausgewählt und heruntergeladen, nach dem Kriterieum, dass die Welt realisitisch aussieht Abb. \ref{fig:vr-world:umgesetzte-welt}. 
-Im Anschluss daran wurden die einzelnen Gebäude manuell aus dem Paket extrahiert, separat aufbereitet und in die virtuelle Realität integriert. Um die Szenerie lebendiger und authentischer wirken zu lassen, wurden zusätzliche Elemente wie detailreiche Gehsteige, verschiedene Fahrzeugmodelle sowie ein vollständiges Straßennetz systematisch hinzugefügt.
+Im Anschluss daran wurden die einzelnen Gebäude manuell aus dem Paket extrahiert und in die virtuelle Realität integriert. Um die Szenerie lebendiger und authentischer wirken zu lassen, wurden zusätzliche Elemente wie detailreiche Gehsteige, verschiedene Fahrzeugmodelle sowie ein vollständiges Straßennetz systematisch hinzugefügt.
 
 Die Modellierung, Texturierung und Integration der weiteren ästhetischen Komponenten, welche nicht durch das Asset-Paket abgedeckt waren, erfolgte individuell. Im Anschluss wurden diese in die virtuelle 
 Umgebung integriert. Der kreative und technische Prozess, der zur Schaffung einer immersiven, 
@@ -88,16 +91,14 @@ kohärenten und visuell ansprechenden VR-Landschaft führte, war erfolgreich.
 
 In diesem Kapitel wird die technische Grundlage der VR-Entwicklung mit Unity erläutert. Zunächst wird 
 das Konzept der Virtual Reality vorgestellt, wobei die immersive Darstellung dreidimensionaler Umgebungen und die Echtzeit-Interaktion im Fokus stehen. Anschließend wird die Rolle der Unity Engine als Entwicklungsplattform beschrieben, einschließlich der Kompatibilität mit VR-Headsets und der 
-Bereitstellung von Tools für die Erstellung virtueller Szenen und Interaktionen. Darauf aufbauend 
-werden die Benutzeroberflächen in Unity behandelt: Es wird erklärt, wie Canvas-Objekte als Container 
-für UI-Elemente fungieren, welche Render-Modi für VR relevant sind und wie das EventSystem die 
-Interaktivität der UI sicherstellt. Das Kapitel vermittelt damit sowohl die grundlegenden Konzepte 
-der VR-Umgebung als auch die spezifischen Mechanismen zur Umsetzung funktionaler und immersiver 
-Benutzeroberflächen.
+Bereitstellung von Tools für die Erstellung virtueller Szenen und Interaktionen. Darauf aufbauend werden die Benutzeroberflächen in Unity behandelt: Es wird erklärt, wie Canvas-Objekte als Container für UI-Elemente fungieren, welche Render-Modi für VR relevant sind und wie das EventSystem die 
+Interaktivität der UI sicherstellt. Das Kapitel vermittelt damit sowohl die grundlegenden Konzepte der VR-Umgebung als auch die spezifischen Mechanismen zur Umsetzung funktionaler und immersiver Benutzeroberflächen.
 
-Virtual Reality (VR) bezeichnet computergenerierte, dreidimensionale Umgebungen, die mittels Head-Mounted Displays (VR-Brillen) vollständig immersiv erlebt werden können. Die Reaktionen der Welt auf Kopf- und Handbewegungen erfolgen in Echtzeit und erzeugen ein Gefühl von Präsenz und Immersion. 
+Um die technischen Grundlagen und den Kontext dieser Umsetzung besser zu verstehen, wird im Folgenden zunächst der Begriff der Virtual Reality näher erläutert.
 
-Unity ist eine Entwicklungsplattform, auch Game Engine genannt, welche die Erstellung von VR-Anwendungen und -Interaktionen ermöglicht. Die Kompatibilität erstreckt sich auf die Mehrzahl aktueller VR-Headsets und umfasst Tools für die Erstellung virtueller Räume, die Darstellung von Objekten sowie die Interaktion mit diesen.
+Virtual Reality (VR), auch Game Engine genannt, bezeichnet computergenerierte, dreidimensionale Umgebungen, die mittels Head-Mounted Displays (VR-Brillen) vollständig immersiv erlebt werden können. Die Reaktionen der Welt auf Kopf- und Handbewegungen erfolgen in Echtzeit und erzeugen ein Gefühl von Präsenz und Immersion. 
+
+Die Kompatibilität erstreckt sich auf die Mehrzahl aktueller VR-Headsets und umfasst Tools für die Erstellung virtueller Räume, die Darstellung von Objekten sowie die Interaktion mit diesen.
 \cite{Unity2026}
 
 \subsection{Benutzeroberflächen (UI) in Unity}
