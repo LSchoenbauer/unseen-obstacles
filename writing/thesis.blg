@@ -25,45 +25,45 @@ Warning--missing publisher in Astrom2021
 Warning--empty year in Frieder
 
 Done.
-You've used 92 entries,
+You've used 94 entries,
             3998 wiz_defined-function locations,
-            1311 strings with 19167 characters,
-and the built_in function-call counts, 38767 in all, are:
-= -- 3008
-> -- 627
+            1319 strings with 19312 characters,
+and the built_in function-call counts, 39427 in all, are:
+= -- 3052
+> -- 635
 < -- 137
-+ -- 325
-- -- 128
-* -- 1511
-:= -- 6744
-add.period$ -- 177
-call.type$ -- 92
++ -- 329
+- -- 130
+* -- 1529
+:= -- 6860
+add.period$ -- 181
+call.type$ -- 94
 change.case$ -- 1
 chr.to.int$ -- 292
-cite$ -- 101
-duplicate$ -- 3098
-empty$ -- 3853
-format.name$ -- 150
-if$ -- 8607
+cite$ -- 103
+duplicate$ -- 3152
+empty$ -- 3945
+format.name$ -- 152
+if$ -- 8761
 int.to.chr$ -- 0
-int.to.str$ -- 91
-missing$ -- 616
-newline$ -- 374
-num.names$ -- 89
-pop$ -- 1722
+int.to.str$ -- 93
+missing$ -- 626
+newline$ -- 380
+num.names$ -- 91
+pop$ -- 1754
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 4
-skip$ -- 3163
+skip$ -- 3223
 stack$ -- 0
 substring$ -- 726
-swap$ -- 1922
+swap$ -- 1948
 text.length$ -- 43
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 92
+type$ -- 94
 warning$ -- 9
-while$ -- 147
-width$ -- 93
-write$ -- 818
+while$ -- 149
+width$ -- 95
+write$ -- 832
 (There were 9 warnings)

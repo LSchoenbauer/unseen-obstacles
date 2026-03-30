@@ -67,6 +67,14 @@ Unity, ,,VR-Development - https://learn.unity.com/pathway/vr-development,''
   2026. Online verfügbar: \url{https://learn.unity.com/pathway/vr-development}
 \BIBentrySTDinterwordspacing
 
+\bibitem{AshleyGodbold2017}
+A.~Godbold, \emph{UI Development with Unity}.\hskip 1em plus 0.5em minus
+  0.4em\relax packt, 2017.
+
+\bibitem{Unity2021}
+Unity, \emph{User interface design and implementation in Unity}.\hskip 1em plus
+  0.5em minus 0.4em\relax Unity, 2021.
+
 \bibitem{KennyMcLachlan2024}
 \BIBentryALTinterwordspacing
 K.~McLachlan, ,,User Interface in Unity-Buttons,'' 2024. Online verfügbar:
@@ -77,6 +85,23 @@ K.~McLachlan, ,,User Interface in Unity-Buttons,'' 2024. Online verfügbar:
 A.~Bandyopadhyay, \emph{Fabrication of ABS/Graphene Oxide Composite Filament
   for Fused Filament Fabrication (FFF) 3D Printing}.\hskip 1em plus 0.5em minus
   0.4em\relax Hindawi, 2018.
+
+\bibitem{KEM2021}
+\BIBentryALTinterwordspacing
+KEM, ,,Was sind Schrittmotoren, welche Typen gibt es und wie funktionieren
+  sie?'' 2021. Online verfügbar:
+  \url{https://kem.industrie.de/elektromotoren/was-sind-schrittmotoren-welche-typen-gibt-es-und-wie-funktionieren-sie/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Nanotec2024}
+\BIBentryALTinterwordspacing
+Nanotec, ,,FUNKTIONSWEISE EINES SCHRITTMOTORS,'' 2024. Online verfügbar:
+  \url{https://www.nanotec.com/eu/de/knowledge-base/funktionsweise-eines-schrittmotors}
+\BIBentrySTDinterwordspacing
+
+\bibitem{RestonCondit2004}
+R.~Condit, \emph{Stepping Motors Fundamentals}.\hskip 1em plus 0.5em minus
+  0.4em\relax Microchip Technology Inc., 2004.
 
 \bibitem{WikiBooks2026}
 \BIBentryALTinterwordspacing
@@ -101,23 +126,6 @@ E.~Roßhaupter, ,,Fotolack,'' 2024. Online verfügbar:
 Lan, ,,Was ist PCB-Fotolack und warum ist er wichtig?'' 2024. Online
   verfügbar: \url{https://www.venture-mfg.com/de/Was-ist-PCB-Fotolack%3F/}
 \BIBentrySTDinterwordspacing
-
-\bibitem{KEM2021}
-\BIBentryALTinterwordspacing
-KEM, ,,Was sind Schrittmotoren, welche Typen gibt es und wie funktionieren
-  sie?'' 2021. Online verfügbar:
-  \url{https://kem.industrie.de/elektromotoren/was-sind-schrittmotoren-welche-typen-gibt-es-und-wie-funktionieren-sie/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Nanotec2024}
-\BIBentryALTinterwordspacing
-Nanotec, ,,FUNKTIONSWEISE EINES SCHRITTMOTORS,'' 2024. Online verfügbar:
-  \url{https://www.nanotec.com/eu/de/knowledge-base/funktionsweise-eines-schrittmotors}
-\BIBentrySTDinterwordspacing
-
-\bibitem{RestonCondit2004}
-R.~Condit, \emph{Stepping Motors Fundamentals}.\hskip 1em plus 0.5em minus
-  0.4em\relax Microchip Technology Inc., 2004.
 
 \bibitem{Gavgani2018}
 A.~M. Gavgani, F.~R. Walker \emph{et~al.}, ,,{A comparative study of

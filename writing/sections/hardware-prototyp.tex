@@ -13,8 +13,7 @@ sicherstellen.
 \setauthor{Elisa Kaltenberger}
 
 Der Prototyp ist so konstruiert, dass er sowohl präzise Rotationsbewegungen als auch 
-kontrollierte Hebe- und Kippbewegungen des Rollstuhls ermöglicht. Die Konstruktion besteht 
-aus zwei Platten, die in übereinander angeordneter Form miteinander verbunden sind. Die 
+kontrollierte Hebe- und Kippbewegungen des Rollstuhls ermöglicht. Die Konstruktion besteht aus zwei Platten, die in übereinander angeordneter Form miteinander verbunden sind. Die 
 untere Platte befindet sich in einer stabilen und unbeweglichen Position und konstituiert 
 die tragende Basis des Systems. Auf dieser befindet sich eine zweite Platte, die drehbar 
 ausgeführt ist. Die Bewegung der oberen Platte wird durch ein Antriebsrad und einen 
@@ -45,12 +44,18 @@ Adjustierung des Rollstuhls in nahezu jede gewünschte Neigung ermöglicht, unab
 ob eine einseitige, vordere oder kombinierte Kippfunktion erforderlich ist.
 
 Die drei Wagenheber bilden in Kombination ein flexibles Dreipunkt-Stütz- und Hebesystem, 
-das sowohl vertikale Bewegungen als auch gezielte Kippvorgänge sicher und stabil ausführen 
-kann. Die Wagenheber ermöglichen einen Höhen- und Neigungsverstellung des Rollstuhls, während 
-die Plattform selbst eine konstante Bodenhaftung aufweist. Es sei darauf hingewiesen, dass 
-der Schrittmotor erst nach der gewünschten Hebe- oder Kippbewegung die präzise rotatorische 
-Ausrichtung übernimmt- In diesem Prozess werden der Wagenheber und der Rollstuhl vollständig 
-mit der drehbaren Platte vollständig mit der drehbaren Platte mitgeführt.
+das sowohl vertikale Bewegungen als auch gezielte Kippvorgänge sicher und stabil ausführen kann. Die Wagenheber ermöglichen einen Höhen- und Neigungsverstellung des Rollstuhls, während die Plattform selbst eine konstante Bodenhaftung aufweist. Es sei darauf hingewiesen, dass der Schrittmotor erst nach der gewünschten Hebe- oder Kippbewegung die präzise rotatorische Ausrichtung übernimmt- In diesem Prozess werden der Wagenheber und der Rollstuhl vollständig mit der drehbaren Platte vollständig mit der drehbaren Platte mitgeführt.
+
+Zuerst wurde ein Prototyp aus Papier konstruiert, siehe Abb. \ref{fig:prototyp-papier}. Der abgebildete Prototyp wurde fast identisch umgesetzt, wobei jedoch eine Positionsänderung der beiden Heber, die sich in der Abbildung befinden, vorgenommen wurde. Der einzelne Wagenheber wurde  nach vorne versetzt und die zwei seitlichen Wagenheber hinter den Rädern des Rollstuhls platziert.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{pics/prototyp-papier.jpg}
+    \caption{Prototyp aus Papier}
+    \label{fig:prototyp-papier}
+\end{figure}
+
 
 \section{Bauungsprozess Hardware Prototyp}
 \setauthor{Elisa Kaltenberger}
@@ -125,6 +130,8 @@ Zusätzlich sind Schrittmotoren insbesondere dann sinnvoll, wenn die Anwendung h
 wiederholbare Bewegungen erfordert, wie sie beispielsweise bei der Indexierung, Positionierung oder 
 automatisierten Abläufen auftreten, und die Last gleichmäßig und vorhersehbar ist.
 
+\cite{KEM2021}, \cite{Nanotec2024}, \cite{RestonCondit2004}
+
 \subsection{Bauprozess}
 Nachdem entschieden worden war, welche Antriebsart verwendet werden sollte, wurden die Motoren bestellt. 
 Während der Lieferzeit machte man sich Gedanken darüber, wie die Konstruktion des Prototyps aussehen könnte. 
@@ -132,7 +139,7 @@ Die Überlegung war, auf einer Holzplatte eine zweite Platte zu montieren, die m
 unteren Platte beweglich ist. An der Unterseite dieser oberen, horizontal beweglichen Platte wurden kleine 
 Rollen befestigt, die die horizontale Bewegung ermöglichen.
 
-Zusätzlich wurde in die obere Holzplatte ein längliches Loch gefräst, sodass ein größeres Gummirad 
+Zusätzlich wurde in die obere Holzplatte ein längliches Loch gefräst, sodass ein größeres Gummirad, siehe Abb. \ref{fig:platte-saegen},
 darin Platz findet. Dieses Rad ermöglicht die eigentliche horizontale Drehbewegung. Das Gummirad wurde 
 anschließend mithilfe eines selbst gefertigten 3D-gedruckten Bauteils auf der oberen Platte befestigt 
 siehe Abb. 5 \ref{fig:gummirad}. 
@@ -142,6 +149,13 @@ siehe Abb. 5 \ref{fig:gummirad}.
     \includegraphics[scale=0.15]{pics/gummirad.jpg}
     \caption{Gummirad auf der oberen Platte befestigt}
     \label{fig:gummirad}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{pics/platte-saegen.jpg}
+    \caption{Platte fräsen}
+    \label{fig:platte-saegen}
 \end{figure}
 
 Das 3D-Teil wurde in KiCad konstruiert und in der Schule im Keller gedruckt. Es wurde dem Filament ABS gedruckt. Es wurde Acrylnitril-Butadien-Styrol (ABS) gewählt, denn es zeichnet sich durch eine hohe Steifigkeit, Zähigkeit und Festigkeit aus. Das Material zeichnet sich durch eine hohe Schlag- und Kratzfestigkeit aus und weist eine hohe Resilienz gegenüber mechanischen Belastungen auf. Zudem ist ABS beständig gegenüber Ölen, Fetten und vielen Chemikalien. Es weist eine gute Temperaturbeständigkeit auf und bleibt auch bei höheren Temperaturen formstabil. Außerdem lässt sich ABS vielseitig verarbeiten und gut nachbearbeiten, beispielsweise durch Schleifen oder Lackieren.
@@ -154,8 +168,15 @@ Das 3D-Teil wurde in KiCad konstruiert und in der Schule im Keller gedruckt. Es 
     \label{fig:prototyp-zwischenstand}
 \end{figure}
 
-Nachdem alles angeschraubt wurde, wurden die Wagenheber provisorisch positioniert, um einen ersten 
+Nachdem alles angeschraubt wurde, siehe Abb. \ref{fig:platte-bohren}, wurden die Wagenheber provisorisch positioniert, um einen ersten 
 Eindruck von den Prototypen zu gewinnen, siehe Abb. \ref{fig:prototyp-zwischenstand}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pics/platte-bohren.jpg}
+    \caption{Platte bohren}
+    \label{fig:platte-bohren}
+\end{figure}
 
 \subsection{Fertigung der Platine}
 \setauthor{Elisa Kaltenberger}
@@ -178,7 +199,7 @@ Verbindungen, systematisch erfasst und eindeutig definiert. Der Fokus lag dabei 
 strukturierten Darstellung, einer logisch aufgebauten Verschaltung sowie einer durchdachten Auswahl 
 geeigneter Bauteile im Hinblick auf Funktionalität, Verfügbarkeit und elektrische Belastbarkeit.
 
-Nach der sorgfältigen Überprüfung und Finalisierung des Schaltplans Abb.\ref{fig:schaltplan} wurde das Projekt in den 
+Nach der sorgfältigen Überprüfung und Finalisierung des Schaltplans, siehe Abb.\ref{fig:schaltplan}, wurde das Projekt in den 
 Platinen-Editor von KiCad übertragen. Dort begann die konkrete Layoutgestaltung der Leiterplatte. 
 Zunächst wurden alle Bauteile unter Berücksichtigung funktionaler Zusammenhänge sinnvoll auf der 
 Leiterplatte positioniert. Ziel war es, kurze Signalwege zu ermöglichen, kritische Leitungen zu 
@@ -242,7 +263,7 @@ Schutzschicht bedeckt nahezu die gesamte Leiterplatte und lässt lediglich die L
 Leiterbahnen vor Oxidation, verhindert ungewollte Lötbrücken und verbessert die elektrische sowie mechanische 
 Zuverlässigkeit.
 
-Nachdem alle Schritte der Platinenherstellung erfolgreich abgeschlossen wurden Abb. \ref{fig:platine}, 
+Nachdem alle Schritte der Platinenherstellung erfolgreich abgeschlossen wurden, siehe Abb. \ref{fig:platine}, 
 wurden LEDS und Wiederstände auf der Platine verlötet. Es wurden LEDs und Widerstände verbaut, um die 
 Funktionalität der Platine zu gewährleisten. Die LEDs dienen als visuelle Indikatoren für den Betriebszustand 
 der Schaltung, während die Widerstände den Stromfluss regulieren und somit die Bauteile vor Überlastung 
@@ -284,7 +305,7 @@ Verkabelung der Motoren. Dieser Schritt ist von entscheidender Bedeutung, da ein
 zwischen der Platine und den Motoren die Grundlage für die spätere Steuerung und Funktionalität des gesamten 
 Systems bildet.
 
-Bei dem eingesetzten System handelt es sich um einen bipolaren Schrittmotor Abb. \ref{fig:stepper} mit vier Anschlussleitungen 
+Bei dem eingesetzten System handelt es sich um einen bipolaren Schrittmotor, siehe Abb. \ref{fig:stepper}, mit vier Anschlussleitungen 
 (rot, grün, blau, schwarz), der über einen externen Motortreiber angesteuert wird. Ein solcher Motor besitzt 
 zwei getrennte Wicklungen (Phase A und Phase B), die jeweils über ein Leitungspaar kontaktiert werden. Die
 korrekte Identifikation dieser Wicklungspaare ist essenziell für den ordnungsgemäßen Betrieb. Da die 
@@ -309,7 +330,7 @@ Wicklungspaar korrekt einer Phase zugeordnet wird. Eine Vertauschung der beiden 
 Regel zu Fehlfunktionen wie Vibrationen oder einem ausbleibenden Anlauf. Eine Umpolung innerhalb eines 
 Wicklungspaars hingegen bewirkt lediglich eine Änderung der Drehrichtung und stellt keine Gefährdung für 
 die Hardware dar.
-(Quelle 17, 18)
+\cite{KEM2021}, \cite{Nanotec2024}, \cite{RestonCondit2004}
 
 \begin{figure}
     \centering
@@ -391,7 +412,7 @@ Umsetzung unmittelbar erfahrbar machte. Diese Kombination von digitaler Simulati
 ermöglichte ein perfektes Verständnis des Systems und stellte für viele Besucherinnen und Besucher ein 
 besonderes Highlight dar.
 
-\subsection{Weiterer Ausbau des Prototyps} \label:{sec:microschalter }
+\subsection{Weiterer Ausbau des Prototyps} 
 \setauthor{Elisa Kaltenberger}
 Nach dem Tag der offenen Tür wurden die Wagenheber weiter ausgebaut und sowohl mechanisch als auch 
 elektrisch optimiert. Es wurden Microschalter Abb. \ref{fig:microschalter} angebracht, immer jeweils 
@@ -417,7 +438,7 @@ Betriebssicherheit deutlich erhöht.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.2]{pics/microschalter.jpg}
+    \includegraphics[scale=0.15]{pics/microschalter.jpg}
     \caption{Microschalter des Wagenhebers}
     \label{fig:microschalter}
 \end{figure}
