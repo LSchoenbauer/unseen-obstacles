@@ -13,25 +13,13 @@ sicherstellen.
 \setauthor{Elisa Kaltenberger}
 
 Der Prototyp ist so konstruiert, dass er sowohl präzise Rotationsbewegungen als auch 
-kontrollierte Hebe- und Kippbewegungen des Rollstuhls ermöglicht. Die Konstruktion besteht aus zwei Platten, die in übereinander angeordneter Form miteinander verbunden sind. Die 
-untere Platte befindet sich in einer stabilen und unbeweglichen Position und konstituiert 
-die tragende Basis des Systems. Auf dieser befindet sich eine zweite Platte, die drehbar 
-ausgeführt ist. Die Bewegung der oberen Platte wird durch ein Antriebsrad und einen 
-Schrittmotor initiiert. Der Schrittmotor gestattet aufgrund seiner schrittweisen Bewegung 
-eine exakte, fein dosierbare und wiederholgenaue Drehung. Die vorliegende Konstruktion 
-ermöglicht eine millimetergenaue Einstellung der Ausrichtung des Rollstuhls. 
+kontrollierte Hebe- und Kippbewegungen des Rollstuhls ermöglicht. Die Konstruktion besteht aus zwei Platten, die in übereinander angeordneter Form miteinander verbunden sind. Die untere Platte befindet sich in einer stabilen und unbeweglichen Position und konstituiert die tragende Basis des Systems. Auf dieser befindet sich eine zweite Platte, die drehbar ausgeführt ist. Die Bewegung der oberen Platte wird durch ein Antriebsrad und einen Schrittmotor initiiert. Der Schrittmotor gestattet aufgrund seiner schrittweisen Bewegung eine exakte, fein dosierbare und wiederholgenaue Drehung. Die vorliegende Konstruktion ermöglicht eine millimetergenaue Einstellung der Ausrichtung des Rollstuhls. 
 
 Auf der rotierenden oberen Platte sind drei Wagenheber montiert, die ausschließlich 
 für das Heben und Kippen des Rollstuhls, der auf ihnen platziert wird. Zwei der 
 Wagenheber sind links und rechts an den Seiten der Platte befestigt, sodass sie direkt 
 unter den großen Rädern des Rollstuhls sind. Es obliegt den zuvor genannten Instanzen 
-sowohl die Stabilisierung als auch die Hauptarbeit des Hebens. Die seitlichen Wagenheber 
-können synchron betrieben werden, um den Rollstuhl gleichmäßig anzuheben, oder einzeln 
-angesprochen werden, um eine einsteige Hubbewegung zu ermöglichen. Die asynchrone
-Bestätigung des Rollstuhls erlaubt eine gezielte Kippfunktion, bei der der Rollstuhl 
-kontrolliert auf einer Seite angehoben wird. In der Folge können Neigungen erzielt oder
-bestimmte Positionen erreicht werden, die bei einem symmetrischen Anheben nicht möglich 
-wären.
+sowohl die Stabilisierung als auch die Hauptarbeit des Hebens. Die seitlichen Wagenheber können synchron betrieben werden, um den Rollstuhl gleichmäßig anzuheben, oder einzeln angesprochen werden, um eine einsteige Hubbewegung zu ermöglichen. Die asynchrone Bestätigung des Rollstuhls erlaubt eine gezielte Kippfunktion, bei der der Rollstuhl kontrolliert auf einer Seite angehoben wird. In der Folge können Neigungen erzielt oder bestimmte Positionen erreicht werden, die bei einem symmetrischen Anheben nicht möglich wären.
 
 Der dritte Wagenheber ist im vorderen Bereich der drehbaren Platte positioniert und trägt 
 ebenfalls aktiv zum Heben und Kippen des Rollstuhls bei. Im Gegensatz zu dem zuvor 
@@ -74,6 +62,7 @@ Ein weiterer zentraler Bestandteil des Kapitels ist die Entwicklung der elektron
 Steuerplatine. Dabei werden sowohl die Planung und das Layout in KiCad als auch der vollständige 
 Herstellungsprozess der Leiterplatte ausführlich erläutert. Ergänzend dazu werden die durchgeführten 
 Testverfahren zur Überprüfung der Funktionalität beschrieben.
+\cite{BerndWiebus2013}
 
 Darüber hinaus wird die fachgerechte Verkabelung der Schrittmotoren inklusive Motortreiber und 
 Spannungsversorgung dargestellt. Die erste Ansteuerung der Motoren über eine eigens entwickelte 
@@ -86,7 +75,7 @@ Integration von Mikroschaltern zur Positionsbestimmung und Sicherheit.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.5]{pics/prototyp-ende.jpg}
+    \includegraphics[scale=0.6]{pics/prototyp-ende.jpg}
     \caption{Prototyp Ende 21. November}
     \label{fig:prototyp-ende}
 \end{figure}
@@ -95,40 +84,35 @@ Integration von Mikroschaltern zur Positionsbestimmung und Sicherheit.
 \subsection{Motorenfindung: Schrittmotoren vs. Hydraulik}
 \setauthor{Elisa Kaltenberger}
 
-Hydrauliksysteme arbeiten mit Flüssigkeiten unter Druck, um signifikante Kräfte zu generieren. 
-Die Verdrängung von Hydrauliköl durch einen Kolben ermöglicht die Erzeugung eines hohen Drucks, 
-der die Bewegung schwerer Lasten oder präziser mechanischer Bewegung ermöglicht.
+Hydrauliksysteme arbeiten mit Flüssigkeiten unter Druck, um signifikante Kräfte zu generieren. Die Verdrängung von Hydrauliköl durch einen Kolben ermöglicht die Erzeugung eines hohen Drucks, der die Bewegung schwerer Lasten oder präziser mechanischer Bewegung ermöglicht.
+\cite{HorstGrollius2022}
 
-Derartige Systeme erweisen sich als vorteilhaft, wenn es darum geht, große Kräfte, Drehmomente oder 
-schwere Lasten zu bewegen. Dies ist beispielsweise in Baumaschinen, Hebebühnen oder bei Pressen der 
-Fall.
+Derartige Systeme erweisen sich als vorteilhaft, wenn es darum geht, große Kräfte, Drehmomente oder schwere Lasten zu bewegen. Dies ist beispielsweise in Baumaschinen, Hebebühnen oder bei Pressen der Fall.
+\cite{HorstGrollius2022}
 
-Allerdings sind hydraulische Anlagen in der Regel durch eine komplexe Konstruktion charakterisiert, 
-die Zylinder, Pumpen und eine Ölfüllung umfasst. Dies impliziert hohe Wartungsaufwendungen, eine 
-aufwändige Installation sowie eine eingeschränkte Flexibilität, insbesondere in Bezug auf feinfühlige 
-oder kontrollierte Bewegungen.
 
-Sofern die betreffende Anwendung keine extrem schweren Lasten bewegt, sondern eher präzise, kontrollierte 
-und wiederholbare Bewegung erfordert, ist eine Hydraulik-Lösung oft zu aufwändig.
+Allerdings sind hydraulische Anlagen in der Regel durch eine komplexe Konstruktion charakterisiert, die Zylinder, Pumpen und eine Ölfüllung umfasst. Dies impliziert hohe Wartungsaufwendungen, eine aufwändige Installation sowie eine eingeschränkte Flexibilität, insbesondere in Bezug auf feinfühlige oder kontrollierte Bewegungen.
+\cite{HorstGrollius2022}
 
-Ein Schrittmotor hingegen ist ein bürstenloser Gleichstrommotor, dessen Rotationsbewegung nicht 
-kontinuierlich, sondern in vorgegebenen und gleichmäßigen Schritten erfolgt.
 
-Die Position lässt sich dadurch mit hoher Präzision, Reproduzierbarkeit und ohne zusätzliche Rückführung 
-bestimmen. Dies ist vorteilhaft, wenn eine exakte Positionierung oder punktgenaue Steuerung erforderlich ist.
+Sofern die betreffende Anwendung keine extrem schweren Lasten bewegt, sondern eher präzise, kontrollierte und wiederholbare Bewegung erfordert, ist eine Hydraulik-Lösung oft zu aufwändig.
 
-Die Realisierung von sehr feinen Schritten ist durch den Einsatz von Mikroschritt-Antrieben möglich, 
-wodurch die Bewegungen nahezu glatt und servo-ähnlich wirken, ohne dass ein geschlossener Regelkreis 
-erforderlich ist.
+Ein Schrittmotor hingegen ist ein bürstenloser Gleichstrommotor, dessen Rotationsbewegung nicht kontinuierlich, sondern in vorgegebenen und gleichmäßigen Schritten erfolgt.
+\cite{KEM2021}, \cite{Nanotec2024}, \cite{RestonCondit2004}
 
-Darüber hinaus zeichnen sich Schrittmotoren im Vergleich zu hydraulischen Systemen durch eine kompakte 
-Bauweise, ein geringes Gewicht, eine einfache Handhabung und Wartung aus. Es besteht keine Notwendigkeit 
-für eine Ölversorgung, hydraulische Leitungen oder Zylinder, was Platz, Aufwand und potenzielle Fehlerquellen 
+
+Die Position lässt sich dadurch mit hoher Präzision, Reproduzierbarkeit und ohne zusätzliche Rückführung bestimmen. Dies ist vorteilhaft, wenn eine exakte Positionierung oder punktgenaue Steuerung erforderlich ist.
+\cite{KEM2021}, \cite{Nanotec2024}, \cite{RestonCondit2004}
+
+
+Die Realisierung von sehr feinen Schritten ist durch den Einsatz von Mikroschritt-Antrieben möglich, wodurch die Bewegungen nahezu glatt und servo-ähnlich wirken, ohne dass ein geschlossener Regelkreis erforderlich ist.
+\cite{KEM2021}, \cite{Nanotec2024}, \cite{RestonCondit2004}
+
+Darüber hinaus zeichnen sich Schrittmotoren im Vergleich zu hydraulischen Systemen durch eine kompakte Bauweise, ein geringes Gewicht, eine einfache Handhabung und Wartung aus. Es besteht keine Notwendigkeit für eine Ölversorgung, hydraulische Leitungen oder Zylinder, was Platz, Aufwand und potenzielle Fehlerquellen 
 reduziert. 
+\cite{KEM2021}, \cite{Nanotec2024}, \cite{RestonCondit2004}
 
-Zusätzlich sind Schrittmotoren insbesondere dann sinnvoll, wenn die Anwendung häufige, gleichförmige oder 
-wiederholbare Bewegungen erfordert, wie sie beispielsweise bei der Indexierung, Positionierung oder 
-automatisierten Abläufen auftreten, und die Last gleichmäßig und vorhersehbar ist.
+Zusätzlich sind Schrittmotoren insbesondere dann sinnvoll, wenn die Anwendung häufige, gleichförmige oder wiederholbare Bewegungen erfordert, wie sie beispielsweise bei der Indexierung, Positionierung oder automatisierten Abläufen auftreten, und die Last gleichmäßig und vorhersehbar ist.
 
 \cite{KEM2021}, \cite{Nanotec2024}, \cite{RestonCondit2004}
 
@@ -142,7 +126,7 @@ Rollen befestigt, die die horizontale Bewegung ermöglichen.
 Zusätzlich wurde in die obere Holzplatte ein längliches Loch gefräst, sodass ein größeres Gummirad, siehe Abb. \ref{fig:platte-saegen},
 darin Platz findet. Dieses Rad ermöglicht die eigentliche horizontale Drehbewegung. Das Gummirad wurde 
 anschließend mithilfe eines selbst gefertigten 3D-gedruckten Bauteils auf der oberen Platte befestigt 
-siehe Abb. 5 \ref{fig:gummirad}. 
+siehe Abb. \ref{fig:gummirad}. 
 
 \begin{figure}
     \centering
@@ -153,17 +137,17 @@ siehe Abb. 5 \ref{fig:gummirad}.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.4]{pics/platte-saegen.jpg}
+    \includegraphics[scale=0.5]{pics/platte-saegen.jpg}
     \caption{Platte fräsen}
     \label{fig:platte-saegen}
 \end{figure}
 
 Das 3D-Teil wurde in KiCad konstruiert und in der Schule im Keller gedruckt. Es wurde dem Filament ABS gedruckt. Es wurde Acrylnitril-Butadien-Styrol (ABS) gewählt, denn es zeichnet sich durch eine hohe Steifigkeit, Zähigkeit und Festigkeit aus. Das Material zeichnet sich durch eine hohe Schlag- und Kratzfestigkeit aus und weist eine hohe Resilienz gegenüber mechanischen Belastungen auf. Zudem ist ABS beständig gegenüber Ölen, Fetten und vielen Chemikalien. Es weist eine gute Temperaturbeständigkeit auf und bleibt auch bei höheren Temperaturen formstabil. Außerdem lässt sich ABS vielseitig verarbeiten und gut nachbearbeiten, beispielsweise durch Schleifen oder Lackieren.
-\cite{AmitBandyopadhyay2018}
+\cite{AmitBandyopadhyay2018}, \cite{BerndWiebus2013}
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.3]{pics/prototyp-zwischenstand.jpg}
+    \includegraphics[scale=0.4]{pics/prototyp-zwischenstand.jpg}
     \caption{Prototyp Zwischnstand 13. November}
     \label{fig:prototyp-zwischenstand}
 \end{figure}
@@ -221,55 +205,32 @@ Designregeln, wie Mindestabstände zwischen Leiterbahnen, geeignete Leiterbahnbr
 für Durchkontaktierungen, konsequent eingehalten. Abschließend wurde das Layout nochmals überprüft, 
 um mögliche Fehler frühzeitig zu erkennen und eine reibungslose Fertigung der Platine sicherzustellen.
 
+\cite{BerndWiebus2013}
+
 \subsection{Platinenherstellung}
 \setauthor{Elisa Kaltenberger}
-Bei der Herstellung von Leiterplatten kommt dem konstruktiven Aufbau sowie der präzisen Abstimmung 
-der einzelnen Fertigungsschritte eine entscheidende Bedeutung zu. Diesbezüglich sind insbesondere die 
-spätere Funktionalität, Lebensdauer und Betriebssicherheit zu berücksichtigen. Bereits geringfügige 
-Abweichungen im Prozess können die elektrische Leitfähigkeit, die mechanische Stabilität oder die 
-Lötqualität erheblich beeinflussen.
+Bei der Herstellung von Leiterplatten kommt dem konstruktiven Aufbau sowie der präzisen Abstimmung der einzelnen Fertigungsschritte eine entscheidende Bedeutung zu. Diesbezüglich sind insbesondere die spätere Funktionalität, Lebensdauer und Betriebssicherheit zu berücksichtigen. Bereits geringfügige Abweichungen im Prozess können die elektrische Leitfähigkeit, die mechanische Stabilität oder die Lötqualität erheblich beeinflussen.
+\cite{GeraldZickert2023}
 
-Eine typische Leiterplatte besteht im Wesentlichen aus mehreren aufeinander abgestimmten Schichten. 
-Die Grundlage bildet das Basismaterial, häufig ein glasfaserverstärktes Epoxidharz. Dieses dient als 
-mechanische Trägerstruktur und sorgt gleichzeitig für die notwendige elektrische Isolation zwischen 
-den leitenden Strukturen. Auf dieses Substrat wird eine dünne Kupferschicht aufgebracht beziehungsweise 
-auflaminiert. Sie stellt das eigentliche leitfähige Material dar, aus dem später die Leiterbahnen, 
-Masseflächen und Kontaktpads entstehen. Abschließend wird die Oberfläche mit einer lichtempfindlichen 
-Fotolackschicht versehen. Diese fungiert als temporäre Schutz- und Maskierungsschicht, mit deren Hilfe 
-das gewünschte Leiterbild präzise übertragen werden kann.
+Eine typische Leiterplatte besteht im Wesentlichen aus mehreren aufeinander abgestimmten Schichten. Die Grundlage bildet das Basismaterial, häufig ein glasfaserverstärktes Epoxidharz. Dieses dient als mechanische Trägerstruktur und sorgt gleichzeitig für die notwendige elektrische Isolation zwischen den leitenden Strukturen. Auf dieses Substrat wird eine dünne Kupferschicht aufgebracht beziehungsweise auflaminiert. Sie stellt das eigentliche leitfähige Material dar, aus dem später die Leiterbahnen, Masseflächen und Kontaktpads entstehen. Abschließend wird die Oberfläche mit einer lichtempfindlichen Fotolackschicht versehen. Diese fungiert als temporäre Schutz- und Maskierungsschicht, mit deren Hilfe das gewünschte Leiterbild präzise übertragen werden kann.
+\cite{GeraldZickert2023}
 
-Der eigentliche Fertigungsprozess erfolgt in mehreren aufeinander abgestimmten Schritten. Zu Beginn des 
-Verfahrens wird die mit Fotolack beschichtete Kupferfläche mittels UV-Licht belichtet. Hierbei wird eine 
-Belichtungsvorlage verwendet, welche die späteren Leiterbahnen abbildet. An den belichteten Stellen erfolgt 
-eine Aushärtung des Fotolacks, wodurch eine chemische Beständigkeit des Materials gewährleistet wird. Die 
-unbelichteten Bereiche bleiben hingegen löslich.
+Der eigentliche Fertigungsprozess erfolgt in mehreren aufeinander abgestimmten Schritten. Zu Beginn des Verfahrens wird die mit Fotolack beschichtete Kupferfläche mittels UV-Licht belichtet. Hierbei wird eine Belichtungsvorlage verwendet, welche die späteren Leiterbahnen abbildet. An den belichteten Stellen erfolgt eine Aushärtung des Fotolacks, wodurch eine chemische Beständigkeit des Materials gewährleistet wird. Die unbelichteten Bereiche bleiben hingegen löslich.
+\cite{ErichRohaupter2024}, \cite{Lan2024}
 
-Darauf folgt die Entwicklung der Platine in einer geeigneten Entwicklerlösung, die häufig auf Basis von 
-Natronlauge basiert.  In diesem Schritt werden die nicht ausgehärteten Fotolackanteile entfernt, wodurch das 
-darunterliegende Kupfer freigelegt wird. Das gewünschte Leiterbild wird dadurch erstmals sichtbar, da nur 
-die durch den gehärteten Fotolack geschützten Bereiche erhalten bleiben.
+Darauf folgt die Entwicklung der Platine in einer geeigneten Entwicklerlösung, die häufig auf Basis von Natronlauge basiert.  In diesem Schritt werden die nicht ausgehärteten Fotolackanteile entfernt, wodurch das darunterliegende Kupfer freigelegt wird. Das gewünschte Leiterbild wird dadurch erstmals sichtbar, da nur die durch den gehärteten Fotolack geschützten Bereiche erhalten bleiben.
+\cite{ErichRohaupter2024}, \cite{Lan2024}
 
-Im darauffolgenden Ätzprozess wird das freiliegende, ungeschützte Kupfer unter Einsatz spezifischer Ätzmittel 
-einer chemischen Reaktion unterzogen, die zu dessen Abtrag führt. Das Kupfer ist das einzige Element, das nach 
-der Behandlung übrig bleibt und zuvor durch den gehärteten Fotolack geschützt wurde. Diese bilden nun die 
-endgültigen Leiterbahnen der Schaltung. Je nach Aufbau der Platine können danach zusätzliche Arbeitsschritte 
-wie das Bohren von Bauteil- und Durchkontaktierungslöchern erfolgen. Bei mehrlagigen Leiterplatten werden 
-diese Bohrungen metallisiert, um elektrische Verbindungen zwischen verschiedenen Kupferschichten herzustellen.
+Im darauffolgenden Ätzprozess wird das freiliegende, ungeschützte Kupfer unter Einsatz spezifischer Ätzmittel einer chemischen Reaktion unterzogen, die zu dessen Abtrag führt. Das Kupfer ist das einzige Element, das nach der Behandlung übrig bleibt und zuvor durch den gehärteten Fotolack geschützt wurde. Diese bilden nun die endgültigen Leiterbahnen der Schaltung. Je nach Aufbau der Platine können danach zusätzliche Arbeitsschritte wie das Bohren von Bauteil- und Durchkontaktierungslöchern erfolgen. Bei mehrlagigen Leiterplatten werden diese Bohrungen metallisiert, um elektrische Verbindungen zwischen verschiedenen Kupferschichten herzustellen.
+\cite{WolfgangAutenrieth2024}
 
-Nach dem Ätzvorgang wird der verbliebene Fotolack im sogenannten Entschichtungsprozess vollständig entfernt. 
-Die Kupferoberflächen werden gereinigt und gegebenenfalls chemisch nachbehandelt, um eine optimale 
-Weiterverarbeitung zu gewährleisten. Im darauffolgenden Schritt wird die Lötstoppmaske aufgebracht. Diese 
-Schutzschicht bedeckt nahezu die gesamte Leiterplatte und lässt lediglich die Lötpads frei. Sie schützt die 
-Leiterbahnen vor Oxidation, verhindert ungewollte Lötbrücken und verbessert die elektrische sowie mechanische 
+Nach dem Ätzvorgang wird der verbliebene Fotolack im sogenannten Entschichtungsprozess vollständig entfernt. Die Kupferoberflächen werden gereinigt und gegebenenfalls chemisch nachbehandelt, um eine optimale Weiterverarbeitung zu gewährleisten. Im darauffolgenden Schritt wird die Lötstoppmaske aufgebracht. Diese Schutzschicht bedeckt nahezu die gesamte Leiterplatte und lässt lediglich die Lötpads frei. Sie schützt die Leiterbahnen vor Oxidation, verhindert ungewollte Lötbrücken und verbessert die elektrische sowie mechanische 
 Zuverlässigkeit.
+\cite{WolfgangAutenrieth2024}
 
-Nachdem alle Schritte der Platinenherstellung erfolgreich abgeschlossen wurden, siehe Abb. \ref{fig:platine}, 
-wurden LEDS und Wiederstände auf der Platine verlötet. Es wurden LEDs und Widerstände verbaut, um die 
-Funktionalität der Platine zu gewährleisten. Die LEDs dienen als visuelle Indikatoren für den Betriebszustand 
-der Schaltung, während die Widerstände den Stromfluss regulieren und somit die Bauteile vor Überlastung 
-schützen. Die sorgfältige Auswahl und Anordnung dieser Komponenten auf der Platine tragen maßgeblich zur 
-Stabilität und Zuverlässigkeit der elektronischen Schaltung bei.
-\cite{WikiBooks2026}, \cite{WolfgangAutenrieth2024}, \cite{ErichRohaupter2024}, \cite{Lan2024}
+
+Nachdem alle Schritte der Platinenherstellung erfolgreich abgeschlossen wurden, siehe Abb. \ref{fig:platine}, wurden LEDS und Wiederstände auf der Platine verlötet. Es wurden LEDs und Widerstände verbaut, um die Funktionalität der Platine zu gewährleisten. Die LEDs dienen als visuelle Indikatoren für den Betriebszustand der Schaltung, während die Widerstände den Stromfluss regulieren und somit die Bauteile vor Überlastung schützen. Die sorgfältige Auswahl und Anordnung dieser Komponenten auf der Platine tragen maßgeblich zur Stabilität und Zuverlässigkeit der elektronischen Schaltung bei.
+\cite{WikiBooks2026}
 
 \begin{figure}
     \centering
@@ -281,40 +242,17 @@ Stabilität und Zuverlässigkeit der elektronischen Schaltung bei.
 \subsection{Testen der Platine}
 \setauthor{Elisa Kaltenberger}
 
-Nach erfolgreicher Fertigung und Bestückung der Platine wurden gründliche Testverfahren durchgeführt, um 
-die Funktionalität und Zuverlässigkeit der Platine systematisch zu verifizieren. Ziel dieser Untersuchungen 
-war es, sowohl die Integrität der elektrischen Verbindungen als auch die korrekte Umsetzung der vorgesehenen 
-Schaltfunktionen sicherzustellen.
+Nach erfolgreicher Fertigung und Bestückung der Platine wurden gründliche Testverfahren durchgeführt, um die Funktionalität und Zuverlässigkeit der Platine systematisch zu verifizieren. Ziel dieser Untersuchungen war es, sowohl die Integrität der elektrischen Verbindungen als auch die korrekte Umsetzung der vorgesehenen Schaltfunktionen sicherzustellen.
 
-Bei der grundlegenden elektrischen Üprüfungen wurden Messungen von Spannungen und Signalverläufen an 
-verschiedenen kritischen Punkten der Schaltungen vorgenommen. Dadurch konnte überprüft werden, ob die 
-Versorgungsspannung stabil anliegt, ob unerwünschte Kurzschlüsse oder Unterbrechungen vorliegen und ob 
-sämtliche Komponenten innerhalb ihrer spezifizierten Betriebsparameter arbeiten.
+Bei der grundlegenden elektrischen Überprüfungen wurden Messungen von Spannungen und Signalverläufen an verschiedenen kritischen Punkten der Schaltungen vorgenommen. Dadurch konnte überprüft werden, ob die Versorgungsspannung stabil anliegt, ob unerwünschte Kurzschlüsse oder Unterbrechungen vorliegen und ob sämtliche Komponenten innerhalb ihrer spezifizierten Betriebsparameter arbeiten.
 
-Zur Validierung der korrekten Bestückung und Funktion der LEDs wurde ein spezielles Testprogramm 
-implementiert. Dieses Programm steuerte sämtliche LEDs sequenziell an, sodass sie nacheinander in einer 
-festgelegten Reihenfolge aufblinkten. Durch dieses Verfahren konnte eindeutig festgestellt werden, ob 
-jede LED ordnungsgemäß verbaut, korrekt gelötet und funktionsfähig ist. Darüber hinaus wurden die Widerstände 
-auf der Platine überprüft, um sicherzustellen, dass sie den vorgesehenen Wert aufweisen und somit den 
-Stromfluss entsprechend regulieren.
+Zur Validierung der korrekten Bestückung und Funktion der LEDs wurde ein spezielles Testprogramm implementiert. Dieses Programm steuerte sämtliche LEDs sequenziell an, sodass sie nacheinander in einer festgelegten Reihenfolge aufblinkten. Durch dieses Verfahren konnte eindeutig festgestellt werden, ob jede LED ordnungsgemäß verbaut, korrekt gelötet und funktionsfähig ist. Darüber hinaus wurden die Widerstände auf der Platine überprüft, um sicherzustellen, dass sie den vorgesehenen Wert aufweisen und somit den Stromfluss entsprechend regulieren.
 
 \subsection{Verkabelung der Motoren}
 \setauthor{Elisa Kaltenberger}
-Nach der erfolgreichen Überprüfung der Platine und der Bestätigung ihrer Funktionalität erfolgte die 
-Verkabelung der Motoren. Dieser Schritt ist von entscheidender Bedeutung, da eine korrekte Verbindung 
-zwischen der Platine und den Motoren die Grundlage für die spätere Steuerung und Funktionalität des gesamten 
-Systems bildet.
+Nach der erfolgreichen Überprüfung der Platine und der Bestätigung ihrer Funktionalität erfolgte die Verkabelung der Motoren. Dieser Schritt ist von entscheidender Bedeutung, da eine korrekte Verbindung zwischen der Platine und den Motoren die Grundlage für die spätere Steuerung und Funktionalität des gesamten Systems bildet.
 
-Bei dem eingesetzten System handelt es sich um einen bipolaren Schrittmotor, siehe Abb. \ref{fig:stepper}, mit vier Anschlussleitungen 
-(rot, grün, blau, schwarz), der über einen externen Motortreiber angesteuert wird. Ein solcher Motor besitzt 
-zwei getrennte Wicklungen (Phase A und Phase B), die jeweils über ein Leitungspaar kontaktiert werden. Die
-korrekte Identifikation dieser Wicklungspaare ist essenziell für den ordnungsgemäßen Betrieb. Da die 
-Farbzuordnung der Leitungen herstellerabhängig ist und keiner einheitlichen Norm unterliegt, darf die 
-Verschaltung nicht ausschließlich anhand der Kabelfarben erfolgen. Stattdessen ist entweder das Datenblatt 
-des Motors heranzuziehen oder eine messtechnische Überprüfung durchzuführen. Mittels Widerstandsmessung lässt 
-sich feststellen, welche beiden Leitungen jeweils eine Wicklung bilden, da zwischen ihnen ein geringer 
-ohmscher Widerstand messbar ist, während zwischen Leitungen unterschiedlicher Wicklungen kein Durchgang 
-besteht.
+Bei dem eingesetzten System handelt es sich um einen bipolaren Schrittmotor, siehe Abb. \ref{fig:stepper}, mit vier Anschlussleitungen (rot, grün, blau, schwarz), der über einen externen Motortreiber angesteuert wird. Ein solcher Motor besitzt zwei getrennte Wicklungen (Phase A und Phase B), die jeweils über ein Leitungspaar kontaktiert werden. Die korrekte Identifikation dieser Wicklungspaare ist essenziell für den ordnungsgemäßen Betrieb. Da die Farbzuordnung der Leitungen herstellerabhängig ist und keiner einheitlichen Norm unterliegt, darf die Verschaltung nicht ausschließlich anhand der Kabelfarben erfolgen. Stattdessen ist entweder das Datenblatt des Motors heranzuziehen oder eine messtechnische Überprüfung durchzuführen. Mittels Widerstandsmessung lässt sich feststellen, welche beiden Leitungen jeweils eine Wicklung bilden, da zwischen ihnen ein geringer ohmscher Widerstand messbar ist, während zwischen Leitungen unterschiedlicher Wicklungen kein Durchgang besteht.
 \cite{KEM2021}, \cite{Nanotec2024}, \cite{RestonCondit2004}
 
 \begin{figure}
@@ -324,12 +262,7 @@ besteht.
     \label{fig:stepper}
 \end{figure}
 
-Die vier Motorleitungen werden an die entsprechend gekennzeichneten Klemmen des Motortreibers Abb. \ref{fig:stepper-driver} angeschlossen, 
-die üblicherweise mit A+, A-minus sowie B+, B-minus beschriftet sind. Dabei ist sicherzustellen, dass jedes 
-Wicklungspaar korrekt einer Phase zugeordnet wird. Eine Vertauschung der beiden Wicklungen führt in der 
-Regel zu Fehlfunktionen wie Vibrationen oder einem ausbleibenden Anlauf. Eine Umpolung innerhalb eines 
-Wicklungspaars hingegen bewirkt lediglich eine Änderung der Drehrichtung und stellt keine Gefährdung für 
-die Hardware dar.
+Die vier Motorleitungen werden an die entsprechend gekennzeichneten Klemmen des Motortreibers Abb. \ref{fig:stepper-driver} angeschlossen, die üblicherweise mit A+, A-minus sowie B+, B-minus beschriftet sind. Dabei ist sicherzustellen, dass jedes Wicklungspaar korrekt einer Phase zugeordnet wird. Eine Vertauschung der beiden Wicklungen führt in der Regel zu Fehlfunktionen wie Vibrationen oder einem ausbleibenden Anlauf. Eine Umpolung innerhalb eines Wicklungspaars hingegen bewirkt lediglich eine Änderung der Drehrichtung und stellt keine Gefährdung für die Hardware dar.
 \cite{KEM2021}, \cite{Nanotec2024}, \cite{RestonCondit2004}
 
 \begin{figure}
@@ -339,40 +272,19 @@ die Hardware dar.
     \label{fig:stepper-driver}
 \end{figure}
 
-Die Leitungen müssen in geeigneter Länge abisoliert werden, sodass der blanke Leiter vollständig im 
-Klemmbereich sitzt, ohne dass freiliegende Drahtenden überstehen. Überstehende Leiter oder einzelne 
-herausragende Litzen können Kurzschlüsse verursachen, insbesondere bei eng nebeneinanderliegenden 
-Schraubklemmen. Darüber hinaus sind sämtliche Klemmschrauben mit angemessenem Drehmoment anzuziehen, um 
-einen niedrigen Übergangswiderstand und eine dauerhafte Kontaktstabilität zu gewährleisten. Lockere 
-Verbindungen können zu Spannungsabfällen, ungewollter Erwärmung und instabilem Motorbetrieb führen.
+Die Leitungen müssen in geeigneter Länge abisoliert werden, sodass der blanke Leiter vollständig im Klemmbereich sitzt, ohne dass freiliegende Drahtenden überstehen. Überstehende Leiter oder einzelne herausragende Litzen können Kurzschlüsse verursachen, insbesondere bei eng nebeneinanderliegenden Schraubklemmen. Darüber hinaus sind sämtliche Klemmschrauben mit angemessenem Drehmoment anzuziehen, um einen niedrigen Übergangswiderstand und eine dauerhafte Kontaktstabilität zu gewährleisten. Lockere  Verbindungen können zu Spannungsabfällen, ungewollter Erwärmung und instabilem Motorbetrieb führen.
 
-Von der zweiten Anschlussklemme des Motortreibers erfolgt die Spannungsversorgung durch ein Netzteil. 
-Diese Anschlüsse sind mit V+ und GND gekennzeichnet. Es ist zu prüfen, ob die Ausgangsspannung des Netzteils 
-den Spezifikationen des Treibers und des Motors entspricht.
+Von der zweiten Anschlussklemme des Motortreibers erfolgt die Spannungsversorgung durch ein Netzteil. Diese Anschlüsse sind mit V+ und GND gekennzeichnet. Es ist zu prüfen, ob die Ausgangsspannung des Netzteils den Spezifikationen des Treibers und des Motors entspricht.
 
-Abschließend erfolgte eine sorgfältige Prüfung aller Verbindungen. Dabei wurden sowohl 
-die korrekte Zuordnung der Wicklungspaare als auch die ordnungsgemäße Spannungsversorgung überprüft. Erst 
-nachdem sichergestellt war, dass keine Kurzschlüsse vorliegen, alle Klemmen fest angezogen sind und die 
-Polarität korrekt angeschlossen wurde, wurde das System unter Spannung gesetzt und später daruf wurde die 
-erste Motoransteuerung durchgeführt.
+Abschließend erfolgte eine sorgfältige Prüfung aller Verbindungen. Dabei wurden sowohl die korrekte Zuordnung der Wicklungspaare als auch die ordnungsgemäße Spannungsversorgung überprüft. Erst nachdem sichergestellt war, dass keine Kurzschlüsse vorliegen, alle Klemmen fest angezogen sind und die Polarität korrekt angeschlossen wurde, wurde das System unter Spannung gesetzt und später daruf wurde die erste Motoransteuerung durchgeführt.
 
 \subsection{Erste Ansteuerung der Motoren}
 \setauthor{Elisa Kaltenberger}
-Nach der erfolgreichen Verkabelung der Motoren sowie der abschließenden Überprüfung sämtlicher elektrischer 
-Verbindungen erfolgte die erste aktive Ansteuerung der Schrittmotoren. Dieser Schritt stellte einen 
-wesentlichen Meilenstein im Entwicklungsprozess dar, da hierbei nicht nur die Funktion der einzelnen
-Komponenten, sondern das Zusammenspiel der gesamten Antriebseinheit verifiziert wurde.
+Nach der erfolgreichen Verkabelung der Motoren sowie der abschließenden Überprüfung sämtlicher elektrischer Verbindungen erfolgte die erste aktive Ansteuerung der Schrittmotoren. Dieser Schritt stellte einen wesentlichen Meilenstein im Entwicklungsprozess dar, da hierbei nicht nur die Funktion der einzelnen Komponenten, sondern das Zusammenspiel der gesamten Antriebseinheit verifiziert wurde.
 
-Für die Implementierung der Ansteuerung war zunächst eine detaillierte Analyse des Schaltplans erforderlich. 
-Dabei wurden die für die Motorsteuerung relevanten Pins der Steuerplatine identifiziert und den entsprechenden 
-Eingängen des Motortreibers eindeutig zugeordnet. Auf Basis dieser Informationen wurde ein spezifisches 
-Testprogramm entwickelt, das die definierten Ausgangspins gezielt ansteuert.
+Für die Implementierung der Ansteuerung war zunächst eine detaillierte Analyse des Schaltplans erforderlich. Dabei wurden die für die Motorsteuerung relevanten Pins der Steuerplatine identifiziert und den entsprechenden Eingängen des Motortreibers eindeutig zugeordnet. Auf Basis dieser Informationen wurde ein spezifisches Testprogramm entwickelt, das die definierten Ausgangspins gezielt ansteuert.
 
-Zur praktischen Erprobung wurde eine Webseite erstellt, die über einen integrierten Webserver bereitgestellt 
-wurde. Auf dieser HTML-Seite wurde ein Button mit der Bezeichnung „Up“ implementiert. Beim Betätigen dieses 
-Buttons wurden die entsprechenden Steuersignale an die Motortreiber ausgegeben, sodass sowohl der linke als 
-auch der rechte Wagenheber synchron nach oben fuhren. Dadurch konnte überprüft werden, ob die 
-Signalverarbeitung, die Drehrichtungseinstellung sowie die Schrittimpulserzeugung korrekt umgesetzt wurden.
+Zur praktischen Erprobung wurde eine Webseite erstellt, die über einen integrierten Webserver bereitgestellt wurde. Auf dieser HTML-Seite wurde ein Button mit der Bezeichnung „Up“ implementiert. Beim Betätigen dieses Buttons wurden die entsprechenden Steuersignale an die Motortreiber ausgegeben, sodass sowohl der linke als auch der rechte Wagenheber synchron nach oben fuhren. Dadurch konnte überprüft werden, ob die Signalverarbeitung, die Drehrichtungseinstellung sowie die Schrittimpulserzeugung korrekt umgesetzt wurden.
 
 \subsection{Tag der offenen Tür HTL-Leonding}
 \setauthor{Elisa Kaltenberger}

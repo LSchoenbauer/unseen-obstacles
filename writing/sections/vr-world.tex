@@ -13,7 +13,7 @@ Der entscheidende Faktor für die Wahl von Unity lag in den umfangreichen VR-spe
 \cite{NimrodKramer2024}, \cite{XRBootcamp2022}
 
 Zusätzlich ist Unity im Bereich VR/XR gut aufgestellt und zugänglich. Über das XR Interaction Toolkit 
-und die OpenXR-Unterstützung werden von Unity standardisierte und gut dokumentierte Frameworks speziell für die VR-Entwicklung angeboten. Diese Tools abstrahieren plattformspezifische Schwierigkeiten und ermöglichen einen effizienten Einstieg in die Entwicklung von Interaktionen für VR-Controller. Obwohl die \textit{Unreal Engine} ebenfalls über ausgeprägte VR-Fähigkeiten verfügt, wird der Einstieg in die VR-Interaktionsprogrammierung mit Unity aufgrund der hochwertigen, offiziellen Plugins oft als direkter und schulprojektfreundlicher empfunden.
+und die OpenXR-Unterstützung werden von Unity standardisierte und gut dokumentierte Frameworks speziell für die VR-Entwicklung angeboten. Diese Tools abstrahieren plattformspezifische Schwierigkeiten und ermöglichen einen effizienten Einstieg in die Entwicklung von Interaktionen für VR-Controller. 
 \cite{NimrodKramer2024}, \cite{YuriPitomcev2025}, \cite{XRBootcamp2022}
 
 
@@ -28,12 +28,12 @@ In diesem Kapitel wird die Entwicklung der VR-Simulation aus der Perspektive von
 \setauthor{Elisa Kaltenberger}
 Zunächst wurden die signifikanten Hindernisse für Rollstuhlfahrende im Rahmen von Interviews identifiziert und analysiert. Auf dieser Grundlage wurde anschließend die VR-Welt gestaltet, um ein möglichst realistisches und zugleich bestmögliches Ergebnis zu erzielen.
 
-Für Menschen mit Mobilitätseinschränkungen kann die Nutzung eines Bankautomaten eine Herausforderung darstellen Abb. \ref{fig:vr-world:bankomat}. In einer signifikanten Anzahl von Fällen sind die Automaten zu hoch angebracht, was dazu führt, dass sowohl der Bildschirm als auch das Tastenfeld nur mit einem hohen Aufwand erreicht werden können. In vielen Fällen ist die zur Verfügung stehende Bewegungsfläche vor dem Automaten unzureichend. Ein zusätzliches Problem stellt der Sichtschutz dar, da die seitlichen Schutzblenden oder Abdeckungen in der Regel für stehende Personen konzipiert sind.
+Aus den Interviews wurde deutlich, dass die Nutzung eines Bankautomaten für Menschen mit Mobilitätseinschränkungen eine Herausforderung darstellt, siehe Abb. \ref{fig:vr-world:bankomat}. In einer signifikanten Anzahl von Fällen sind die Automaten zu hoch angebracht, was dazu führt, dass sowohl der Bildschirm als auch das Tastenfeld nur mit einem hohen Aufwand erreicht werden können. In vielen Fällen ist die zur Verfügung stehende Bewegungsfläche vor dem Automaten unzureichend. Ein zusätzliches Problem stellt der Sichtschutz dar, da die seitlichen Schutzblenden oder Abdeckungen in der Regel für stehende Personen konzipiert sind.
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.3]{pics/bankautomat-ki-generiert.png}
-    \caption{Bankautomat, der für Rollstuhlfahrende schwer zugänglich ist}
+    \caption{Bankautomat, der für Rollstuhlfahrende schwer zugänglich ist (KI-Generiert)}
     \label{fig:vr-world:bankomat}
 \end{figure}
 
@@ -43,23 +43,17 @@ Des Weiteren ist festzustellen, dass Pflastersteine problematisch sind. Die uneb
 
 \subsection{Erster Prototyp}
 \setauthor{Elisa Kaltenberger}
-Der erste Prototyp der VR-Welt wurde in Unity erstellt Abb. \ref{fig:vr-world:prototyp}, um die zuvor identifizierten Hindernisse für Rollstuhlfahrende zu simulieren. 
+Der erste Prototyp der VR-Welt wurde in Unity erstellt, siehe Abb. \ref{fig:vr-world:prototyp}, um die zuvor identifizierten Hindernisse für Rollstuhlfahrende zu simulieren. 
 
 In der ersten konkreten Umsetzungsphase des Projekts wurde ein strategischer Fokus auf Funktionalität und Nutzerperspektive gelegt. Hierzu wurde bewusst auf den Import komplexer, fertiger 3D-Assets verzichtet. Unter „Assets“ versteht man in diesem Kontext vollständig texturierte Modelle wie Gebäude, Autos oder detaillierte Oberflächenmaterialien, die üblicherweise für die visuelle Vollendung einer virtuellen Umgebung genutzt werden.
 
-Stattdessen wurde eine minimalistische, abstrakte Testumgebung erstellt, die auch als Whitebox- oder Greybox-Prototyp bezeichnet wird, siehe Abb. \ref{fig:vr-world:prototyp}. Die vorliegende Struktur besteht ausschließlich aus einfachen geometrischen Grundkörpern, die direkt innerhalb der \textit{Unity Engine} erzeugt und arrangiert wurden. 
+Stattdessen wurde eine minimalistische, abstrakte Testumgebung erstellt. Die vorliegende Struktur besteht ausschließlich aus einfachen geometrischen Grundkörpern, die direkt innerhalb der \textit{Unity Engine} erzeugt und arrangiert wurden. 
 Die gesamte Szene wurde folglich in einer reduzierten, häufig einfarbigen oder grob gerasterten 
 Darstellung präsentiert.
-\cite{AkankshaVerma2017}
 
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.3]{pics/bankautomat-ki-generiert.png}
-    \caption{Bankautomat, der für Rollstuhlfahrende schwer zugänglich ist}
-    \label{fig:vr-world:bankomat}
-\end{figure}
+Das primäre und ausschließliche Ziel dieser Phase war die funktionale Validierung der zentralen Hindernisse ausschließlich aus der spezifischen Perspektive eines Rollstuhlfahrers. Es ging nicht um realistische Darstellung, sondern um die Beantwortung essenzieller technischer und konzeptioneller Fragen: Werden die Hindernisse aus der festgelegten Sitzhöhe korrekt und eindeutig wahrgenommen? Funktioniert die physikalische Kollisionserkennung an Bordsteinen und Kanten wie intendiert? Löst die Platzierung eines simulierten Bankautomaten das gewünschte Interaktionsproblem (Unerreichbarkeit, eingeschränkte Sicht) aus? Wie fühlt sich die Bewegung über ein Feld unebener Pflastersteine in der reinen Gameplay-Logik an?
 
-Das primäre und ausschließliche Ziel dieser Phase war die funktionale Validierung der zentralen Hindernisse ausschließlich aus der spezifischen Perspektive eines Rollstuhlfahrers. Es ging nicht um realistische Darstellung, sondern um die Beantwortung essenzieller technischer und konzeptioneller Fragen: Werden die Hindernisse aus der festgelegten Sitzhöhe korrekt und eindeutig wahrgenommen? Funktioniert die physikalische Kollisionserkennung an Bordsteinen und Kanten wie intendiert? Löst die Platzierung eines simulierten Bankautomaten das gewünschte Interaktionsproblem (Unerreichbarkeit, eingeschränkte Sicht) aus? Wie fühlt sich die Bewegung über ein Feld unebener Pflastersteine in der reinen Gameplay-Logik an? 
+Die Bewegungen, wie zum Beispiel das rütteln über unebene Pflastersteine, wurde implemiert und getestet. Es wurde festgestellt, dass die Bewegungsmechanik in der VR-Umgebung korrekt auf die Kollisionen mit den Pflastersteinen reagiert und die Wahrnehmung der Hindernisse aus der Perspektive einer rollstuhlfahrenden Person realistisch simuliert wird.
 
 \begin{figure}
     \centering
@@ -80,7 +74,7 @@ kohärenten und visuell ansprechenden VR-Landschaft führte, war erfolgreich.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.8]{pics/umgesetzte-welt.jpg}
+    \includegraphics[scale=1]{pics/umgesetzte-welt.jpg}
     \caption{Umgesetzte VR-Welt mit Hindernissen für Rollstuhlfahrende}
     \label{fig:vr-world:umgesetzte-welt}
 \end{figure}
@@ -99,7 +93,7 @@ Um die technischen Grundlagen und den Kontext dieser Umsetzung besser zu versteh
 Virtual Reality (VR), auch Game Engine genannt, bezeichnet computergenerierte, dreidimensionale Umgebungen, die mittels Head-Mounted Displays (VR-Brillen) vollständig immersiv erlebt werden können. Die Reaktionen der Welt auf Kopf- und Handbewegungen erfolgen in Echtzeit und erzeugen ein Gefühl von Präsenz und Immersion. 
 
 Die Kompatibilität erstreckt sich auf die Mehrzahl aktueller VR-Headsets und umfasst Tools für die Erstellung virtueller Räume, die Darstellung von Objekten sowie die Interaktion mit diesen.
-\cite{Unity2026}
+\cite{Unity2026}, \cite{LysanderGawenda2024}
 
 \subsection{Benutzeroberflächen (UI) in Unity}
 \setauthor{Elisa Kaltenberger}
@@ -108,7 +102,7 @@ Unity stellt ein eigenes UI-System bereit, das auf sogenannten Canvas-Objekten b
 
 Für VR-Anwendungen werden diese UI-Elemente nicht als klassische Bildschirm-Overlays genutzt, sondern als integraler Bestandteil der dreidimensionalen Szene integriert. Zu diesem Zweck wird der Canvas-Modus auf World Space gesetzt, wodurch Buttons wie reale Objekte im virtuellen Raum positioniert und skaliert werden können.
 
-\cite{AshleyGodbold2017}, \cite{Unity2021}
+\cite{AshleyGodbold2017}, \cite{Unity2021}, \cite{FrancescoSapio2015}
 
 \subsection{Canvas-Objekte}
 \setauthor{Elisa Kaltenberger}
@@ -119,7 +113,7 @@ Der Canvas definiert die Art und Weise sowie die Position der Benutzeroberfläch
 Ein zentrales Merkmal des Canvas-Objekts ist der sogenannte Render Mode. Dieser definiert die Art der Darstellung der Benutzeroberfläche. Im Modus Screen Space, Overlay wird die UI direkt über der gesamten Szene dargestellt, wobei sie unabhängig von der Kamera ist. Der Modus Screen Space, Camera erzeugt die Benutzeroberfläche (UI) unter Zuhilfenahme einer spezifischen Kamera und gestattet die Anwendung perspektivischer Effekte. Für Virtual-Reality-Anwendungen ist insbesondere der Modus World Space von Relevanz, da sich die Benutzeroberfläche in diesem Modus wie ein normales dreidimensionales Objekt in der Szene verhält. Dies ermöglicht die Platzierung von Buttons und Pop-ups im virtuellen Raum sowie die Betrachtung aus verschiedenen Blickwinkeln.
 
 Darüber hinaus besteht eine enge Kooperation zwischen dem Canvas und dem EventSystem von Unity, welches für die Verarbeitung von Benutzereingaben zuständig ist. In der vorliegenden Arbeit wird dargelegt, dass diese Kombination in VR-Anwendungen die korrekte Weiterleitung von Eingaben von Controllern, etwa über Raycasting, an UI-Elemente wie Buttons ermöglicht. Der Canvas bildet folglich die technische Grundlage dafür, dass Benutzeroberflächen sowohl sichtbar als auch interaktiv sind.
-\cite{AshleyGodbold2017}, \cite{KennyMcLachlan2024}
+\cite{AshleyGodbold2017}, \cite{KennyMcLachlan2024}, \cite{JonathanLinowes2018}, \cite{JonathanLinowes2020}
 
 In dem Projekt wurden mehrere Pop-ups Abb. \ref{fig:vr-world:pop-ups}  erstellt, die als Canvas-Objekte in der VR-Welt positioniert wurden. 
 Diese Pop-ups erscheinen, wenn der Nutzer sich über eine bestimmte Stelle in der Szene bewegt. 

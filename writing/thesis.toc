@@ -7,114 +7,112 @@
 \contentsline {subsection}{\numberline {1.2.3}Zusammenfassung Interview 3}{8}{subsection.1.2.3}%
 \contentsline {chapter}{\numberline {2}Umfeldanalyse}{10}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Gesellschaftliches Umfeld}{10}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Erfahrungsberichte aus Interviews}{10}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Zielgruppe des Projekts}{11}{section.2.3}%
+\contentsline {section}{\numberline {2.2}Zielgruppe des Projekts}{10}{section.2.2}%
 \contentsline {chapter}{\numberline {3}Ideenfindung}{12}{chapter.3}%
 \contentsline {chapter}{\numberline {4}Handbuch}{14}{chapter.4}%
 \contentsline {section}{\numberline {4.1}VR-Welt}{14}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Voraussetzungen}{14}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Installation}{14}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Ohne VR-Brille}{15}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.4}Mit VR-Brille}{15}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.3}Mit VR-Brille}{15}{subsection.4.1.3}%
 \contentsline {chapter}{\numberline {5}VR-Welt}{16}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Programmierumgebung finden}{16}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Welt einrichten}{17}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Überlegung der Hindernisse}{17}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Erster Prototyp}{19}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Welt gestalten}{21}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Interaktion in VR}{23}{section.5.3}%
+\contentsline {subsection}{\numberline {5.2.3}Welt gestalten}{20}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Interaktion in VR}{21}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Benutzeroberflächen (UI) in Unity}{23}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Canvas-Objekte}{24}{subsection.5.3.2}%
-\contentsline {chapter}{\numberline {6}Hardware Prototyp}{26}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Aufbau des Prototyps}{26}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Bauungsprozess Hardware Prototyp}{27}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Motorenfindung: Schrittmotoren vs. Hydraulik}{29}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Bauprozess}{31}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Fertigung der Platine}{35}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Layout in KiCad}{35}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}Platinenherstellung}{36}{subsection.6.2.5}%
-\contentsline {subsection}{\numberline {6.2.6}Testen der Platine}{38}{subsection.6.2.6}%
-\contentsline {subsection}{\numberline {6.2.7}Verkabelung der Motoren}{39}{subsection.6.2.7}%
-\contentsline {subsection}{\numberline {6.2.8}Erste Ansteuerung der Motoren}{41}{subsection.6.2.8}%
-\contentsline {subsection}{\numberline {6.2.9}Tag der offenen Tür HTL-Leonding}{41}{subsection.6.2.9}%
-\contentsline {subsection}{\numberline {6.2.10}Weiterer Ausbau des Prototyps}{43}{subsection.6.2.10}%
-\contentsline {chapter}{\numberline {7}Bewegungen im Virtuellen Raum}{45}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Definition Motion Sickness, Cybersickness, VRISE}{45}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Biologische Ursachen von Cybersickness}{46}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Das Gleichgewichtssystem}{46}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Das Visuelle System}{46}{subsection.7.2.2}%
-\contentsline {section}{\numberline {7.3}Ursachen für Cybersickness in der virtuellen Realität}{47}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Sensory Conflict Theory}{47}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Poison Theory}{48}{subsection.7.3.2}%
-\contentsline {subsection}{\numberline {7.3.3}Postural Instability Theory}{48}{subsection.7.3.3}%
-\contentsline {subsection}{\numberline {7.3.4}Festlegung der Theorie zur Reduzierung der Cybersickness für die Hardware-Komponente}{49}{subsection.7.3.4}%
-\contentsline {section}{\numberline {7.4}Reduzierung der Cybersickness}{49}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Hardware Prototyp}{49}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Einordnung und Zielsetzung der Steuerung im virtuellen Raum}{50}{section.7.6}%
-\contentsline {section}{\numberline {7.7}Anforderungen an eine intuitive und barrierefreie Steuerung}{50}{section.7.7}%
-\contentsline {subsection}{\numberline {7.7.1}Intuitivität in VR}{50}{subsection.7.7.1}%
-\contentsline {subsection}{\numberline {7.7.2}Barrierefreiheit im Interaktionsdesign}{50}{subsection.7.7.2}%
-\contentsline {subsection}{\numberline {7.7.3}Zusammenhang zwischen Steuerung und Cybersickness}{52}{subsection.7.7.3}%
-\contentsline {section}{\numberline {7.8}Analyse möglicher Steuerungskonzepte}{52}{section.7.8}%
-\contentsline {subsection}{\numberline {7.8.1}Controller-basierte Steuerung}{52}{subsection.7.8.1}%
-\contentsline {subsection}{\numberline {7.8.2}Bewegungsbasierte Steuerung (Head-/Body-Tracking)}{53}{subsection.7.8.2}%
-\contentsline {subsection}{\numberline {7.8.3}Sitzbasierte-Steuerung}{54}{subsection.7.8.3}%
-\contentsline {section}{\numberline {7.9}Gewähltes Steuerungskonzept und Begründung}{56}{section.7.9}%
-\contentsline {section}{\numberline {7.10}Umsetzung innerhalb der Simulation}{57}{section.7.10}%
-\contentsline {subsection}{\numberline {7.10.1}Mapping von Eingabe zu Bewegung}{57}{subsection.7.10.1}%
-\contentsline {subsection}{\numberline {7.10.2}Verknüpfung von Steuerung, Sitzbewegung und visueller Bewegung}{58}{subsection.7.10.2}%
-\contentsline {subsection}{\numberline {7.10.3}Sicherheitsmechanismen und Bewegungsbegrenzungen}{58}{subsection.7.10.3}%
-\contentsline {chapter}{\numberline {8}Kommunikation zwischen Hardwareprototyp und VR-Simulation}{59}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Systemarchitektur des Gesamtsystems}{59}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Systemarchitektur des VR-Projekts}{60}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}Physikalisches Bewegungsmodell}{61}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}Positions- und Orientierungsparameter des virtuellen Rollstuhls}{62}{subsection.8.2.2}%
-\contentsline {subsubsection}{\nonumberline Positionskoordinaten}{62}{subsubsection*.29}%
-\contentsline {subsubsection}{\nonumberline Orientierung im Raum}{62}{subsubsection*.31}%
-\contentsline {subsubsection}{\nonumberline Pitch, Yaw und Roll}{62}{subsubsection*.34}%
-\contentsline {subsubsection}{\nonumberline Freiheitsgrade des Systems}{64}{subsubsection*.36}%
-\contentsline {subsection}{\numberline {8.2.3}Verarbeitung der Benutzereingaben}{64}{subsection.8.2.3}%
-\contentsline {subsection}{\numberline {8.2.4}Berechnung der Translation und Rotation}{64}{subsection.8.2.4}%
-\contentsline {section}{\numberline {8.3}Systemarchitektur des Hardware-Prototypen}{65}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Verarbeitung der Simulationsdaten}{65}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}Umrechnung von Simulationsdaten in Motorbewegungen}{66}{subsection.8.3.2}%
-\contentsline {subsubsection}{\nonumberline Differenzberechnung - Delta Werte}{66}{subsubsection*.38}%
-\contentsline {subsubsection}{\nonumberline Berechnung der Rotationsbewegung (Yaw)}{67}{subsubsection*.40}%
-\contentsline {subsubsection}{\nonumberline Umrechnung des Rotationswinkels in eine lineare Bewegung}{67}{subsubsection*.42}%
-\contentsline {subsubsection}{\nonumberline Umrechnung der Wegstrecke in Motorumdrehungen}{69}{subsubsection*.45}%
-\contentsline {subsubsection}{\nonumberline Berechnung der Motordrehzahl}{69}{subsubsection*.47}%
-\contentsline {subsubsection}{\nonumberline Berechnung der Neigungsbewegung des vorderen Aktuators (Pitch)}{70}{subsubsection*.49}%
-\contentsline {subsubsection}{\nonumberline Umrechnung der Hubbewegung in Motorrotation}{72}{subsubsection*.52}%
-\contentsline {subsubsection}{\nonumberline Berechnung der seitlichen Neigung über die hinteren Aktuatoren (Roll)}{72}{subsubsection*.54}%
-\contentsline {subsubsection}{\nonumberline Integration dynamischer Bewegungsanteile}{73}{subsubsection*.57}%
-\contentsline {subsubsection}{\nonumberline Gegensinnige Ansteuerung der hinteren Aktuatoren}{74}{subsubsection*.59}%
-\contentsline {subsubsection}{\nonumberline Synchronisation der Motorbewegungen}{74}{subsubsection*.61}%
-\contentsline {subsection}{\numberline {8.3.3}Netzwerkarchitektur des Systems}{74}{subsection.8.3.3}%
-\contentsline {subsection}{\numberline {8.3.4}Auswahl des Kommunikationsprotokolls}{75}{subsection.8.3.4}%
-\contentsline {subsection}{\numberline {8.3.5}Implementierung des UDP-Senders in Unity}{75}{subsection.8.3.5}%
-\contentsline {subsection}{\numberline {8.3.6}Aufbau des Datenpakets}{76}{subsection.8.3.6}%
-\contentsline {subsection}{\numberline {8.3.7}Implementierung des UDP-Servers}{77}{subsection.8.3.7}%
-\contentsline {subsection}{\numberline {8.3.8}Übertragungsfrequenz der Simulationsdaten}{77}{subsection.8.3.8}%
-\contentsline {section}{\numberline {8.4}Latenz und Echtzeitverhalten des Systems}{78}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Definition von Systemlatenz bezogen auf das Projekt}{78}{subsection.8.4.1}%
-\contentsline {subsection}{\numberline {8.4.2}Latenz in der Simulation}{79}{subsection.8.4.2}%
-\contentsline {subsection}{\numberline {8.4.3}Netzwerkbedingte Latenz}{79}{subsection.8.4.3}%
-\contentsline {subsection}{\numberline {8.4.4}Verarbeitungslatenz im Mikrocontroller}{80}{subsection.8.4.4}%
-\contentsline {subsection}{\numberline {8.4.5}Mechanische Reaktionszeit}{80}{subsection.8.4.5}%
-\contentsline {subsection}{\numberline {8.4.6}Maßnahmen zur Reduktion der Latenz}{81}{subsection.8.4.6}%
-\contentsline {section}{\numberline {8.5}Koordination mehrerer Aktuatoren zur Plattformbewegung}{81}{section.8.5}%
-\contentsline {subsection}{\numberline {8.5.1}Gleichzeitige Motorsteuerung}{82}{subsection.8.5.1}%
-\contentsline {subsection}{\numberline {8.5.2}Bewegungsgrenzen}{82}{subsection.8.5.2}%
-\contentsline {chapter}{\numberline {9}Gestalterische Elemente zur Förderung der Immersion}{83}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Nutzerführung und Einführung in die Simulation}{83}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Visuelle Zusammenfassung der Hindernisse}{84}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Akustische Gestaltung der Simulation}{84}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Situationsabhängige Soundeffekte}{85}{section.9.4}%
-\contentsline {chapter}{\numberline {10}Zusammenfassung}{86}{chapter.10}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{VI}{chapter*.62}%
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{XII}{chapter*.63}%
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{XIII}{chapter*.64}%
-\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{XIV}{chapter*.65}%
+\contentsline {subsection}{\numberline {5.3.2}Canvas-Objekte}{23}{subsection.5.3.2}%
+\contentsline {chapter}{\numberline {6}Hardware Prototyp}{25}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Aufbau des Prototyps}{25}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Bauungsprozess Hardware Prototyp}{26}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Motorenfindung: Schrittmotoren vs. Hydraulik}{28}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Bauprozess}{30}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Fertigung der Platine}{34}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Layout in KiCad}{34}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Platinenherstellung}{35}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {6.2.6}Testen der Platine}{37}{subsection.6.2.6}%
+\contentsline {subsection}{\numberline {6.2.7}Verkabelung der Motoren}{38}{subsection.6.2.7}%
+\contentsline {subsection}{\numberline {6.2.8}Erste Ansteuerung der Motoren}{40}{subsection.6.2.8}%
+\contentsline {subsection}{\numberline {6.2.9}Tag der offenen Tür HTL-Leonding}{40}{subsection.6.2.9}%
+\contentsline {subsection}{\numberline {6.2.10}Weiterer Ausbau des Prototyps}{41}{subsection.6.2.10}%
+\contentsline {chapter}{\numberline {7}Bewegungen im Virtuellen Raum}{44}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Definition Motion Sickness, Cybersickness, VRISE}{44}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Biologische Ursachen von Cybersickness}{45}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Das Gleichgewichtssystem}{45}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Das Visuelle System}{45}{subsection.7.2.2}%
+\contentsline {section}{\numberline {7.3}Ursachen für Cybersickness in der virtuellen Realität}{46}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Sensory Conflict Theory}{46}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Poison Theory}{47}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}Postural Instability Theory}{47}{subsection.7.3.3}%
+\contentsline {subsection}{\numberline {7.3.4}Festlegung der Theorie zur Reduzierung der Cybersickness für die Hardware-Komponente}{48}{subsection.7.3.4}%
+\contentsline {section}{\numberline {7.4}Reduzierung der Cybersickness}{48}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Hardware Prototyp}{48}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Einordnung und Zielsetzung der Steuerung im virtuellen Raum}{49}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Anforderungen an eine intuitive und barrierefreie Steuerung}{49}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Intuitivität in VR}{49}{subsection.7.7.1}%
+\contentsline {subsection}{\numberline {7.7.2}Barrierefreiheit im Interaktionsdesign}{49}{subsection.7.7.2}%
+\contentsline {subsection}{\numberline {7.7.3}Zusammenhang zwischen Steuerung und Cybersickness}{51}{subsection.7.7.3}%
+\contentsline {section}{\numberline {7.8}Analyse möglicher Steuerungskonzepte}{51}{section.7.8}%
+\contentsline {subsection}{\numberline {7.8.1}Controller-basierte Steuerung}{51}{subsection.7.8.1}%
+\contentsline {subsection}{\numberline {7.8.2}Bewegungsbasierte Steuerung (Head-/Body-Tracking)}{52}{subsection.7.8.2}%
+\contentsline {subsection}{\numberline {7.8.3}Sitzbasierte-Steuerung}{53}{subsection.7.8.3}%
+\contentsline {section}{\numberline {7.9}Gewähltes Steuerungskonzept und Begründung}{55}{section.7.9}%
+\contentsline {section}{\numberline {7.10}Umsetzung innerhalb der Simulation}{56}{section.7.10}%
+\contentsline {subsection}{\numberline {7.10.1}Mapping von Eingabe zu Bewegung}{56}{subsection.7.10.1}%
+\contentsline {subsection}{\numberline {7.10.2}Verknüpfung von Steuerung, Sitzbewegung und visueller Bewegung}{57}{subsection.7.10.2}%
+\contentsline {subsection}{\numberline {7.10.3}Sicherheitsmechanismen und Bewegungsbegrenzungen}{57}{subsection.7.10.3}%
+\contentsline {chapter}{\numberline {8}Kommunikation zwischen Hardwareprototyp und VR-Simulation}{58}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Systemarchitektur des Gesamtsystems}{58}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Systemarchitektur des VR-Projekts}{59}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Physikalisches Bewegungsmodell}{60}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Positions- und Orientierungsparameter des virtuellen Rollstuhls}{61}{subsection.8.2.2}%
+\contentsline {subsubsection}{\nonumberline Positionskoordinaten}{61}{subsubsection*.28}%
+\contentsline {subsubsection}{\nonumberline Orientierung im Raum}{61}{subsubsection*.30}%
+\contentsline {subsubsection}{\nonumberline Pitch, Yaw und Roll}{61}{subsubsection*.33}%
+\contentsline {subsubsection}{\nonumberline Freiheitsgrade des Systems}{63}{subsubsection*.35}%
+\contentsline {subsection}{\numberline {8.2.3}Verarbeitung der Benutzereingaben}{63}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Berechnung der Translation und Rotation}{63}{subsection.8.2.4}%
+\contentsline {section}{\numberline {8.3}Systemarchitektur des Hardware-Prototypen}{64}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Verarbeitung der Simulationsdaten}{64}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Umrechnung von Simulationsdaten in Motorbewegungen}{65}{subsection.8.3.2}%
+\contentsline {subsubsection}{\nonumberline Differenzberechnung - Delta Werte}{65}{subsubsection*.37}%
+\contentsline {subsubsection}{\nonumberline Berechnung der Rotationsbewegung (Yaw)}{66}{subsubsection*.39}%
+\contentsline {subsubsection}{\nonumberline Umrechnung des Rotationswinkels in eine lineare Bewegung}{66}{subsubsection*.41}%
+\contentsline {subsubsection}{\nonumberline Umrechnung der Wegstrecke in Motorumdrehungen}{68}{subsubsection*.44}%
+\contentsline {subsubsection}{\nonumberline Berechnung der Motordrehzahl}{68}{subsubsection*.46}%
+\contentsline {subsubsection}{\nonumberline Berechnung der Neigungsbewegung des vorderen Aktuators (Pitch)}{69}{subsubsection*.48}%
+\contentsline {subsubsection}{\nonumberline Umrechnung der Hubbewegung in Motorrotation}{71}{subsubsection*.51}%
+\contentsline {subsubsection}{\nonumberline Berechnung der seitlichen Neigung über die hinteren Aktuatoren (Roll)}{71}{subsubsection*.53}%
+\contentsline {subsubsection}{\nonumberline Integration dynamischer Bewegungsanteile}{72}{subsubsection*.56}%
+\contentsline {subsubsection}{\nonumberline Gegensinnige Ansteuerung der hinteren Aktuatoren}{73}{subsubsection*.58}%
+\contentsline {subsubsection}{\nonumberline Synchronisation der Motorbewegungen}{73}{subsubsection*.60}%
+\contentsline {subsection}{\numberline {8.3.3}Netzwerkarchitektur des Systems}{73}{subsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.3.4}Auswahl des Kommunikationsprotokolls}{74}{subsection.8.3.4}%
+\contentsline {subsection}{\numberline {8.3.5}Implementierung des UDP-Senders in Unity}{74}{subsection.8.3.5}%
+\contentsline {subsection}{\numberline {8.3.6}Aufbau des Datenpakets}{75}{subsection.8.3.6}%
+\contentsline {subsection}{\numberline {8.3.7}Implementierung des UDP-Servers}{76}{subsection.8.3.7}%
+\contentsline {subsection}{\numberline {8.3.8}Übertragungsfrequenz der Simulationsdaten}{76}{subsection.8.3.8}%
+\contentsline {section}{\numberline {8.4}Latenz und Echtzeitverhalten des Systems}{77}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Definition von Systemlatenz bezogen auf das Projekt}{77}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}Latenz in der Simulation}{78}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}Netzwerkbedingte Latenz}{78}{subsection.8.4.3}%
+\contentsline {subsection}{\numberline {8.4.4}Verarbeitungslatenz im Mikrocontroller}{79}{subsection.8.4.4}%
+\contentsline {subsection}{\numberline {8.4.5}Mechanische Reaktionszeit}{79}{subsection.8.4.5}%
+\contentsline {subsection}{\numberline {8.4.6}Maßnahmen zur Reduktion der Latenz}{80}{subsection.8.4.6}%
+\contentsline {section}{\numberline {8.5}Koordination mehrerer Aktuatoren zur Plattformbewegung}{80}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Gleichzeitige Motorsteuerung}{81}{subsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.5.2}Bewegungsgrenzen}{81}{subsection.8.5.2}%
+\contentsline {chapter}{\numberline {9}Gestalterische Elemente zur Förderung der Immersion}{82}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Nutzerführung und Einführung in die Simulation}{82}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Visuelle Zusammenfassung der Hindernisse}{83}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Akustische Gestaltung der Simulation}{83}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Situationsabhängige Soundeffekte}{84}{section.9.4}%
+\contentsline {chapter}{\numberline {10}Zusammenfassung}{85}{chapter.10}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{VI}{chapter*.61}%
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{XII}{chapter*.62}%
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{XIII}{chapter*.63}%
+\contentsline {chapter}{\nonumberline Quellcodeverzeichnis}{XIV}{chapter*.64}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\nonumberline Anhang}{XV}{chapter*.66}%
+\contentsline {chapter}{\nonumberline Anhang}{XV}{chapter*.65}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
