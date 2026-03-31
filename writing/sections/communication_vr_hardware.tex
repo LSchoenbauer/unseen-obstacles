@@ -1,6 +1,6 @@
 Die Kopplung des physischen Hardware-Prototyps mit der virtuellen Simulationsumgebung konstituiert einen zentralen Bestandteil des Projekts. Insbesondere im Kontext von Virtual-Reality-Anwendungen ermöglicht die Integration realer Eingabegeräte mit virtuellen Systemmodellen eine realitätsnahe Interaktion sowie die Untersuchung von Systemverhalten unter kontrollierten Bedingungen \cite{Jason2015}, \cite{Bowman2004}, \cite{Perez2025}.
 
-Eine zentrale Herausforderung bei der Implementierung solcher hybrider Systeme besteht in der zuverlässigen und latenzarmen Kommunikation zwischen der Hardwarekomponente und der VR-Anwendung. Um eine konsistente Abbildung des physischen System innerhalt der virtuellen Umgebung zu gewährleisten, ist ein kontinuierlicher Austausch von Zustands- und Steuerdaten erforderlich. Dabei spielen Aspekte wie die Datenformatierung, die Synchronisation der Systemzustände sowie die Minimierung von Übertragungs- und Verarbeitungszeiten eine entscheidende Rolle für die Gesamtperformance des Systems \cite{Coppik}, \cite{Cleland2022}, \cite{Alam2025}.
+Eine zentrale Herausforderung bei der Implementierung solcher hybrider Systeme besteht in der zuverlässigen und latenzarmen Kommunikation zwischen der Hardwarekomponente und der VR-Anwendung. Um eine konsistente Abbildung des physischen System innerhalb der virtuellen Umgebung zu gewährleisten, ist ein kontinuierlicher Austausch von Zustands- und Steuerdaten erforderlich. Dabei spielen Aspekte wie die Datenformatierung, die Synchronisation der Systemzustände sowie die Minimierung von Übertragungs- und Verarbeitungszeiten eine entscheidende Rolle für die Gesamtperformance des Systems \cite{Coppik}, \cite{Cleland2022}, \cite{Alam2025}.
 
 In diesem Abschnitt wird die Implementierung Kommunikationsarchitektur zwischen dem Hardwareprototyp und der VR-Simulation beschrieben. Zunächst erfolgt eine Erläuterung der grundlegenden Systemstruktur sowie der Rolle der einzelnen Komponenten. Im Anschluss erfolgt die Darstellung des verwendeten Kommunikationsmechanismus sowie des zugrunde liegenden Datenprotokolls. Abschließend werden die Implementierungsdetails der Schnittstelle sowie Maßnahmen zur Gewährleistung einer stabilen und konsistenten Datenübertragung erörtert. 
 
@@ -22,7 +22,7 @@ Die vorliegende Architektur ermöglicht die Realisierung einer direkten Kopplung
 
 \section{Systemarchitektur des VR-Projekts}
 \setauthor{Linnea Schönbauer}
-Die virtuelle Simulation wurde unter Verwendung der Game Engine Unity realisiert. Unity ist eine weit verbreitete Entwicklungsumgebung zur Erstellung interaktiver 3D-Anwendungen und Virtual-Reality-Systeme (QUELLE16), \cite{Unity}. Die Engine stellt eine integrierte Entwicklungsumgebung bereit, welche Werkzeuge zur Szenengestaltung, Physiksimulation, Skriptprogrammierung sowie zur Verwaltung komplexer Objektstrukturen umfasst \cite{Unity}.
+Die virtuelle Simulation wurde unter Verwendung der Game Engine Unity realisiert. Unity ist eine weit verbreitete Entwicklungsumgebung zur Erstellung interaktiver 3D-Anwendungen und Virtual-Reality-Systeme \cite{Jangra2023}, \cite{Unity}. Die Engine stellt eine integrierte Entwicklungsumgebung bereit, welche Werkzeuge zur Szenengestaltung, Physiksimulation, Skriptprogrammierung sowie zur Verwaltung komplexer Objektstrukturen umfasst \cite{Unity}.
 
 Ein zentrales Merkmal der Architektur von Unity ist die objektorientierte Organisation der virtuellen Welt. In der vorliegenden Arbeit wird dargelegt, dass sämtliche Elemente einer Simulation als Objekte innerhalb einer Szene modelliert werden. Zudem wird erörtert, dass die Steuerung dieser Objekte über ein komponentenbasiertes System erfolgt \cite{Unity}, \cite{Unity2}.
 
@@ -32,13 +32,13 @@ Die Struktur innerhalt einer Szene folgt einer hierarchischen Organisation, in d
 
 In dem Computerspiel-Entwicklungsprogramm Unity wird jedes Element der virtuellen Welt als sogenanntes GameObject bezeichnet. GameObjects dienen als Container für verschiedene Komponenten, welche dsa Verhalten und die Eigenschaften des jeweiligen Objekts definieren. Ein GameObject verfügt anfänglich über keine Funktionalität sondern diese wird erst durch die hinzugefügten Komponenten erworben \cite{Unity}, \cite{Unity7}.
 
-Als illustrierende Beispiele für GameObjects innerhalt der Simulation seien etwa Gebäude der virtuellen Stadtumgebung, Straßenelemente, Kollisionsobjekte oder der virtuelle Rollstuhl genannt, der als zentrales Interaktionselement der Anwendung dient \ref{chapter:vr-world}, \cite{Unity}.
+Als illustrierende Beispiele für GameObjects innerhalt der Simulation seien etwa Gebäude der virtuellen Stadtumgebung, Straßenelemente, Kollisionsobjekte oder der virtuelle Rollstuhl genannt, der als zentrales Interaktionselement der Anwendung dient, siehe Kapitel \ref{chapter:vr-world}, \cite{Unity}.
 
 \subsection{Physikalisches Bewegungsmodell}
 \setauthor{Linnea Schönbauer}
 Die Bewegung des virtuellen Rollstuhls innerhalb der Simulation basiert auf der Physik-Engine der Game Engine Unity. Anstatt die Positionsänderungen direkt zu manipulieren, wird ein physikalisches Bewegungsmodell verwendet, das auf der sogenannten Rigidbody-Komponente basiert \cite{Unity}, \cite{NVIDIA}, \cite{Bourg2013}, \cite{Unity8}
 
-Diese Komponente gestattet die Simulation physikalischer Eigenschaften wie Masse, Gravitation sowie Kollisionen mit anderen Objekten der virtuellen Umgebung. Dies resultiert in einem realistischeren Bewegungsverhalten, insbesondere beim Befahren von Steigungen oder beim Kontakt mit Hindernissen innerhalb der simulierten Stadtumgebung \cite{Unity}, \cite{Unity9} QUELLE25)
+Diese Komponente gestattet die Simulation physikalischer Eigenschaften wie Masse, Gravitation sowie Kollisionen mit anderen Objekten der virtuellen Umgebung. Dies resultiert in einem realistischeren Bewegungsverhalten, insbesondere beim Befahren von Steigungen oder beim Kontakt mit Hindernissen innerhalb der simulierten Stadtumgebung \cite{Unity}, \cite{Unity9}, \cite{Unity8}.
 
 Im Rahmen des vorliegenden Systems wird der virtuelle Rollstuhl daher als physikalisches Objekt modelliert, dessen Position und Orientierung über die Bewegungsfunktionen der Rigidbody-Komponente gesteuert werden. 
 
@@ -61,7 +61,7 @@ In einer Vielzahl von 3D-Systemen wird diese Orientierung durch sogenannte Euler
 \begin{figure}[htbp]
     \centering
     \includegraphics[scale=1.0]{pics/yz-and-pitch-roll-and-yaw-systems.png}
-    \caption{Euler-Winkel-System - Quelle: https://www.researchgate.net/figure/yz-and-pitch-roll-and-yaw-systems\_fig4\_253569466 abgerufen 17.03.2026}
+    \caption{Euler-Winkel-System, \\Quelle: https://www.researchgate.net/figure/yz-and-pitch-roll-and-yaw-systems\_fig4\_253569466 abgerufen 17.03.2026}
     \label{fig:yz-and-pitch-roll-and-yaw-systems}
 \end{figure}
 
@@ -105,49 +105,49 @@ Die eigentliche mechanische Bewegung wird durch mehrere Schrittmotoren erzeugt, 
 
 \subsection{Verarbeitung der Simulationsdaten}
 \setauthor{Linnea Schönbauer}
-Die Steuerung der Plattform basiert auf Bewegungsdaten, die aus der virtuellen Simulation generiert werden. Diese Daten beschreiben die aktuelle Position und Orientierung des virtuellen Rollstuhls in der simulierten Umgebung. Insbesondere werden Rotationsparameter verwendet, die die Neigung und Ausrichtung des Rollstuhls im Raum beschreiben. Die Orientierung wird dabei über drei Rotationswinkel, sogenannte Pitch-, Roll- und Yaw-Winkel, dargestellt. Diese Parameter beschreiben die Rotation des Objekts um die drei Raumachsen und bilden somit eine vollständige Beschreibung der räumlichen Orientierung \ref{sec:orientation-in-3d}.
+Die Steuerung der Plattform basiert auf Bewegungsdaten, die aus der virtuellen Simulation generiert werden. Diese Daten beschreiben die aktuelle Position und Orientierung des virtuellen Rollstuhls in der simulierten Umgebung. Insbesondere werden Rotationsparameter verwendet, die die Neigung und Ausrichtung des Rollstuhls im Raum beschreiben. Die Orientierung wird dabei über drei Rotationswinkel, sogenannte Pitch-, Roll- und Yaw-Winkel, dargestellt. Diese Parameter beschreiben die Rotation des Objekts um die drei Raumachsen und bilden somit eine vollständige Beschreibung der räumlichen Orientierung, siehe Abschnitt \ref{sec:orientation-in-3d}.
 Während der Simulation werden diese Werte kontinuierlich aktualisiert und and die Steuerung des Hardwareprototypen übertragen.
 
 \subsection{Umrechnung von Simulationsdaten in Motorbewegungen}
 \setauthor{Linnea Schönbauer}
 Die in der virtuellen Simulation berechneten Bewegungsdaten müssen in konkrete Bewegungsbefehle für die physische Plattform übersetzt werden. Das Ziel dieses Prozesses besteht darin, die Bewegungen des virtuellen Rollstuhls möglichst realitätsnah auf die mechanische Struktur des Hardware-Prototypen zu übertragen. Hierzu werden die in der Simulation ermittelten Lage- und Positionsänderungen in entsprechende Bewegungen der einzelnen Aktoren des Systems umgerechnet \cite{Astrom2021}.
 
-Die Simulation stellt dabei in regelmäßigen Zeitabständen (NOCH GENAUER QUELLE) die aktuellen Zustandsgrößen des virtuellen Systems bereit. Zu diesen gehören insbesondere die Rotationswinkel um die drei Raumachsen (Yaw, Pitch und Roll) sowie die Position im dreidimensionalen Raum. Für die Steuerung der Plattform werden jedoch nicht die absoluten Werte dieser Größen verwendet, sondern deren zeitliche Änderungen zwischen zwei aufeinanderfolgenden Simulationsschritten \cite{Astrom2021}.
+Die Simulation stellt dabei in regelmäßigen Zeitabständen die aktuellen Zustandsgrößen des virtuellen Systems bereit. Zu diesen gehören insbesondere die Rotationswinkel um die drei Raumachsen (Yaw, Pitch und Roll) sowie die Position im dreidimensionalen Raum. Für die Steuerung der Plattform werden jedoch nicht die absoluten Werte dieser Größen verwendet, sondern deren zeitliche Änderungen zwischen zwei aufeinanderfolgenden Simulationsschritten \cite{Astrom2021}.
 
 Die Berechnung der Bewegungsbefehle erfolgt daher auf Basis der Differenzen zwischen den aktuellen und den zuvor empfangenen Simulationsdaten \cite{Astrom2021}.
 
 \subsubsection{Differenzberechnung - Delta Werte}
 \setauthor{Linnea Schönbauer}
 Zur Bestimmung der erforderlichen Plattformbewegung werden zunächst die Differenzen der Orientierungswinkel zwischen zwei aufeinanderfolgenden Simulationszuständen berechnet. Diese Differenzen repräsentieren die tatsächlich während eines Simulationsintervalls erfolgte Bewegung des virtuellen Rollstuhls \cite{Astrom2021}.
-\begin{verbatim}
+\begin{lstlisting}
         int32_t deltaYaw = simData.mYaw - mLastSimData.mYaw;
         int32_t deltaPitch = simData.mPitch - mLastSimData.mPitch;
         int32_t deltaRoll = simData.mRoll - mLastSimData.mRoll;
 
-\end{verbatim}
+\end{lstlisting}
 Diese Differenzwerte bilden die Grundlage für die nachfolgende Berechnung der erforderlichen Hub- und Senkgröße.
 
 \subsubsection{Berechnung der Rotationsbewegung (Yaw)}
 \setauthor{Linnea Schönbauer}
 Die Rotationsbewegung des Rollstuhls wird durch einen separaten Schrittmotor realisiert, der die obere Plattform relativ zur festen Basis verdreht. Das Ziel dieser Übertragung besteht darin, die in der Simulation ermittelte Drehbewegung mit möglichst hoher Präzision auf die physische Plattform zu übertragen.
 
-Die Simulation übermittelt die Orientierung des virtuellen Objekts in Form von Euler-Winkeln \ref{sec:orientation-in-3d}. Für die Rotationsbewegung ist dabei insbesondere der Yaw-Winkel von Relevanz, welcher die Drehung um die vertikale Achse beschreibt. Anstatt absolute Winkelwerte direkt zu verwenden, basiert die Steuerung auf der Berechnung von Differenzwerten zwischen zwei aufeinanderfolgenden Simulationszuständen.
+Die Simulation übermittelt die Orientierung des virtuellen Objekts in Form von Euler-Winkeln, siehe Abschnitt \ref{sec:orientation-in-3d}. Für die Rotationsbewegung ist dabei insbesondere der Yaw-Winkel von Relevanz, welcher die Drehung um die vertikale Achse beschreibt. Anstatt absolute Winkelwerte direkt zu verwenden, basiert die Steuerung auf der Berechnung von Differenzwerten zwischen zwei aufeinanderfolgenden Simulationszuständen.
 
 Die Berechnung erfolgt anhand des folgenden Ausdrucks:
-\begin{verbatim}
+\begin{lstlisting}
         deltaYaw = simData.mYaw - mLastSimData.mYaw
-\end{verbatim}
+\end{lstlisting}
 Die vorliegende Differenzbildung dient der Ermittlung der Anzahl der Winkelgrade, um die sich die virtuelle Plattform seit der letzten Aktualisierung gedreht hat. Dieses Verfahren gestattet eine kontinuierliche Bewegungssteuerung, bei der lediglich tatsächliche Änderungen in der Simulation zu Motorbewegungen führen \cite{Astrom2021}.
 
 Zusätzlich wird die Zeit Differenz zwischen zwei Simulationsupdates bestimmt:
-\begin{verbatim}
+\begin{lstlisting}
         deltaTimestamp = simData.mTimestampMs - mLastSimData.mTimestampMs
-\end{verbatim}
+\end{lstlisting}
 Die Erfassung dieser Zeit Information ist essenziell, um die erforderliche Geschwindigkeit der Motorbewegung zu bestimmen um somit eine zeitliche konsistente Abbildung der Simulation auf die reale Hardware zu gewährleisten \cite{Astrom2021}, \cite{Harashima1996}.
 
 \subsubsection{Umrechnung des Rotationswinkels in eine lineare Bewegung}
 \setauthor{Linnea Schönbauer}
-Da die Drehbewegung der Plattform nicht direkt durch den Motor erzeugt wird, sondern über ein Antriebsrad, muss der Winkelunterschied zunächst in eine lineare Wegstrecke umgerechnet werden. Die vorliegende Strecke beschreibt die Bewegung, welche das Antriebsrad entlang des Umfangs der Plattform durchläuft, um die angestrebte Rotation zu generieren. Siehe Skizze: \ref{fig:rotation-sketch}
+Da die Drehbewegung der Plattform nicht direkt durch den Motor erzeugt wird, sondern über ein Antriebsrad, muss der Winkelunterschied zunächst in eine lineare Wegstrecke umgerechnet werden. Die vorliegende Strecke beschreibt die Bewegung, welche das Antriebsrad entlang des Umfangs der Plattform durchläuft, um die angestrebte Rotation zu generieren. Siehe Skizze \ref{fig:rotation-sketch}
 
 Die Berechnung basiert auf der geometrischen Beziehung zwischen Kreisumfang und Winkelanteil. Der zurückgelegte Weg entlang eines Kreisbogens kann gemäß der folgenden Gleichung beschrieben werden: \cite{Bohme1967}
 \begin{align}
@@ -169,10 +169,10 @@ Dabei beschreibt
 \end{figure}
 
 In dem vorliegenden System wird dies Beziehung genutzt, um aus dem Rotationswinkel die lineare Bewegung des Antriebsrads zu bestimmen. Die Implementierung erfolgt im Code über folgende Berechnung:
-\begin{verbatim}
+\begin{lstlisting}
         rotationLength = abs(pi * CIRCUMFERENCE_ROTATOR_WHEEL
                                  * deltaYaw / (180 * 100))
-\end{verbatim}
+\end{lstlisting}
 Der Faktor 100 ist das Resultat einer Skalierung der Winkelwerte im übertragenen Datenpaket, die zur Erhöhung der Genauigkeit durchgeführt wurde. Dadurch ist es möglich, selbst geringfügige Winkeländerungen als Ganzzahlen zu übertragen \cite{Goldberg1991}.
 
 \subsubsection{Umrechnung der Wegstrecke in Motorumdrehungen}
@@ -185,9 +185,9 @@ Die Beziehung zwischen Wegstrecke und Umdrehung lässt sich wie folgt formuliere
 \end{align}
 
 Im Code wird diese Berechnung wie folgt umgesetzt:
-\begin{verbatim}
+\begin{lstlisting}
         stepperTurns = rotationLength / CIRCUMFERENCE_ROTATOR_WHEEL
-\end{verbatim}
+\end{lstlisting}
 Das Ergebnis beschreibt die Anzahl der vollständigen Motorumdrehungen, die erforderlich sind, um die gewünschte Rotation des Gerüsts zu erzeugen.
 
 \subsubsection{Berechnung der Motordrehzahl}\label{sec:calculate-mover-steps}
@@ -200,15 +200,15 @@ Die Drehzahl ist definiert als die Anzahl der Umdrehungen pro Zeiteinheit:
 \end{align}
 
 Da der Zeitstempel in Millisekunden vorliegt, erfolgt die Umrechnung auf Minunten über den Faktor 60000:
-\begin{verbatim}
+\begin{lstlisting}
         rotationRpm = stepperTurns * 60000 / deltaTimestamp
-\end{verbatim}
+\end{lstlisting}
 Diese Berechnung ermöglicht eine dynamische Anpassung der Motorbewegung an die Geschwindigkeit der Simulation. Demzufolge resultieren schnelle Rotationen in höheren Drehzahlen des Motors, während langsame Bewegungen entsprechend langsamer ausgeführt werden \cite{Astrom2021}.
 
 \subsubsection{Berechnung der Neigungsbewegung des vorderen Aktuators (Pitch)}
-Neben der Rotationsbewegung ist die Neigung des Rollstuhls um die Querachse von zentraler Bedeutung für die Übertragung der Bewegung. In der Simulation wird diese Bewegung durch eine Änderung des Pitch-Winkel repräsentiert, was das Vor- bzw. Zurückkippen des virtuellen Rollstuhls beschreibt \ref{sec:orientation-in-3d}. Die Übertragung der Bewegung auf den physischen Prototypen erfolgt mittels eines Aktuators vorne, welcher eine Anpassung der Höhe der Plattform im Frontbereich ermöglicht.
+Neben der Rotationsbewegung ist die Neigung des Rollstuhls um die Querachse von zentraler Bedeutung für die Übertragung der Bewegung. In der Simulation wird diese Bewegung durch eine Änderung des Pitch-Winkel repräsentiert, was das Vor- bzw. Zurückkippen des virtuellen Rollstuhls beschreibt, siehe Abschnitt \ref{sec:orientation-in-3d}. Die Übertragung der Bewegung auf den physischen Prototypen erfolgt mittels eines Aktuators vorne, welcher eine Anpassung der Höhe der Plattform im Frontbereich ermöglicht.
 
-Die Realisierung dieser Bewegung bedingt eine Konvertierung des übermittelten Rotationswinkels in eine lineare Hubbewegung des vorderen Wagenhebers. Aufgrund der Montage des Wagenhebers in einem festen Abstand zum Drehzentrum des Systems ergibt sich die notwendige Hubbewegung aus der geometrischen Beziehung zwischen Rotationswinkel und vertikaler Verschiebung eines Punktes auf einem Kreis. Siehe Skizze: \ref{fig:front-mover-sketch} \cite{Bohme1967}
+Die Realisierung dieser Bewegung bedingt eine Konvertierung des übermittelten Rotationswinkels in eine lineare Hubbewegung des vorderen Wagenhebers. Aufgrund der Montage des Wagenhebers in einem festen Abstand zum Drehzentrum des Systems ergibt sich die notwendige Hubbewegung aus der geometrischen Beziehung zwischen Rotationswinkel und vertikaler Verschiebung eines Punktes auf einem Kreis. Siehe Skizze \ref{fig:front-mover-sketch} \cite{Bohme1967}
 \begin{figure}[htbp]
     \centering
     \includegraphics[scale=1.0]{pics/front-mover-sketch.png}
@@ -216,10 +216,10 @@ Die Realisierung dieser Bewegung bedingt eine Konvertierung des übermittelten R
     \label{fig:front-mover-sketch}
 \end{figure}
 
-Die grundlegende Berechnung erfolgt im System über die Sinusfunktion:
-\begin{verbatim}
+Die grundlegende Berechnung erfolgt im System über die Sinusfunktion \cite{Bohme1967}:
+\begin{lstlisting}
         stroke = sin(DegToRad(deltaPitch / 100.0)) * DISTANCE_FRONT
-\end{verbatim}
+\end{lstlisting}
 
 \emph{DISTANCE\_FRONT} beschreibt den horizontalen Abstand zwischen dem Drehzentrum der Plattform und der Position des vorderen Aktuators. Dieser Abstand entspricht dem Hebelarm, über den eine Rotationsbewegung in eine vertikale Verschiebung umgesetzt wird. Die Höhe des entsprechenden Punktes relativ zur Ausgangsposition wird durch Anwendung der Sinusfunktion bestimmt.
 
@@ -233,18 +233,18 @@ Die vorliegende Beziehung gestattet die unmittelbare Transformation des übermit
 Neben der reinen Rotationsbewegung wird in der Implementierung zusätzlich die translatorische Bewegung des Rollstuhls berücksichtigt. Diese ergibt sich aus der Bewegung des virtuellen Rollstuhls entlang der Fahrtrichtung und wird durch Positionsänderungen entlang der Z-Achse beschrieben.
 
 Im vorliegenden Kontext wird zunächst die Geschwindigkeit der Bewegung ermittelt:
-\begin{verbatim}
+\begin{lstlisting}
         speedZ = simData.mPosZ - mLastSimData.mPosZ
-\end{verbatim}
+\end{lstlisting}
 Anschließend wird daraus die Beschleunigung bestimmt:
-\begin{verbatim}
+\begin{lstlisting}
         accZ = speedZ - mLastSpeedZ
-\end{verbatim}
+\end{lstlisting}
 Diese Beschleunigungskomponente wird als zusätzlicher Hubanteil interpretiert und zum berechneten Pitch-Hub addiert:
-\begin{verbatim}
+\begin{lstlisting}
         stroke = (sin(DegToRad(deltaPitch / 100.0)) * DISTANCE_FRONT)
         + (deltaStroke / 100.0)
-\end{verbatim}
+\end{lstlisting}
 Die vorliegende Erweiterung der Plattform hat zur Folge, dass diese nicht nur auf Neigungsbewegungen, sondern auch auf dynamische Veränderungen der Bewegung reagiert. Als Beispiel für derartige Veränderungen können das Beschleunigen oder Abbremsen des virtuellen Rollstuhls angeführt werden. Dies resultiert in einer realistischeren Bewegungswahrnehmung für die Nebutzerin oder den Benutzer, da neben der geometrischen Ausrichtung auch dynamische Kräfte simuliert werden können \cite{Slater2016}, \cite{Steuer1992}.
 
 \subsubsection{Umrechnung der Hubbewegung in Motorrotation}
@@ -254,18 +254,18 @@ Nach erfolgter Berechnung der erforderlichen Hubbewegung des Aktuators ist eine 
 In dem vorliegenden System wird diese Verschiebung durch den Parameter \emph{STROKE\_PER\_TURN} beschrieben. Dieser gib an, wie viele Millimeter Hub pro Motorumdrehung erzeugt werden.
 
 Die Anzahl der erforderlichen Motorumdrehungen ergibt sich demnach aus:
-\begin{verbatim}
+\begin{lstlisting}
         stepperTurns = stroke / STROKE_PER_TURN
-\end{verbatim}
-Da ausschließlich die Bewegungsgröße von Relevanz ist, wird in diesem Kontext der Betrag der Verschiebung analysiert. Im Anschluss erfolgt die separate Bestimmung der Bewegungsrichtung. Außerdem wird noch die erforderliche Motordrehzahl bestimmt. Siehe hierfür Unterkapitel: \ref{sec:calculate-mover-steps}.
+\end{lstlisting}
+Da ausschließlich die Bewegungsgröße von Relevanz ist, wird in diesem Kontext der Betrag der Verschiebung analysiert. Im Anschluss erfolgt die separate Bestimmung der Bewegungsrichtung. Außerdem wird noch die erforderliche Motordrehzahl bestimmt, siehe Abschnitt \ref{sec:calculate-mover-steps}.
 
 \subsubsection{Berechnung der seitlichen Neigung über die hinteren Aktuatoren (Roll)}
 \setauthor{Linnea Schönbauer}
-Während der vordere Aktuator primär für die Simulation von Pitch-Bewegungen zuständig ist, wird die seitliche Neigung des Rollstuhls durch zwei hintere Aktuatoren realisiert. Die genannten Elemente sind neben den beiden großen Rädern des Rollstuhls unter der Querachse positioniert und können unabhängig voneinander bewegt werden. Siehe Skizze: \ref{fig:back-mover-sketch}
+Während der vordere Aktuator primär für die Simulation von Pitch-Bewegungen zuständig ist, wird die seitliche Neigung des Rollstuhls durch zwei hintere Aktuatoren realisiert. Die genannten Elemente sind neben den beiden großen Rädern des Rollstuhls unter der Querachse positioniert und können unabhängig voneinander bewegt werden. Siehe Skizze \ref{fig:back-mover-sketch}
 
-Die seitliche Neigung der Plattform entspricht in der Simulation dem Roll-Winkel, der eine Rotation um die Längsachse des Rollstuhls beschreibt \ref{sec:orientation-in-3d}. Um diese Bewegung zu simulieren, ist eine entgegengesetzte Bewegung der beiden hinteren Aktuatoren erforderlich. In der Folge manifestiert sich deine Kippbewegung der Plattform, die eine Elevation einer Seite und eine Absenkung der anderen zur Folge hat \cite{Siciliano1959}.
+Die seitliche Neigung der Plattform entspricht in der Simulation dem Roll-Winkel, der eine Rotation um die Längsachse des Rollstuhls beschreibt, siehe \ref{sec:orientation-in-3d}. Um diese Bewegung zu simulieren, ist eine entgegengesetzte Bewegung der beiden hinteren Aktuatoren erforderlich. In der Folge manifestiert sich deine Kippbewegung der Plattform, die eine Elevation einer Seite und eine Absenkung der anderen zur Folge hat \cite{Siciliano1959}.
 
-In Analogie zur Ermittlung der Pitch-Bewegung erfolgt zunächst die Berechnung der vertikalen Verschiebung, welche sich aus der geometrischen Relation zwischen Winkel und Hebelarm ergibt. \ref{fig:back-mover-sketch}
+In Analogie zur Ermittlung der Pitch-Bewegung erfolgt zunächst die Berechnung der vertikalen Verschiebung, welche sich aus der geometrischen Relation zwischen Winkel und Hebelarm ergibt. Siehe Skizze \ref{fig:back-mover-sketch}
 \begin{figure}[htbp]
     \centering
     \includegraphics[scale=1.0]{pics/back-mover-sketch.png}
@@ -273,10 +273,10 @@ In Analogie zur Ermittlung der Pitch-Bewegung erfolgt zunächst die Berechnung d
     \label{fig:back-mover-sketch}
 \end{figure}
 
-Die Berechnung erfolgt mittels der Sinusfunktion: \cite{Bohme1967}
-\begin{verbatim}
+Die Berechnung erfolgt mittels der Sinusfunktion \cite{Bohme1967}:
+\begin{lstlisting}
         stroke = sin(DegToRad(deltaRoll / 100.0)) * DISTANCE_SIDE_BACK
-\end{verbatim}
+\end{lstlisting}
 Der Parameter \emph{DISTANCE\_SIDE\_BACK} beschreibt den Abstand zwischen dem Drehzentrum der Plattform und der Position der hinteren Aktuatoren. Der vorliegende Abstand fungiert als Indikator für die Amplitude einer spezifischen Rotationsbewegung, die in eine vertikale Verschiebung der Plattform transformiert wird.
 
 \subsubsection{Integration dynamischer Bewegungsanteile}
@@ -284,10 +284,10 @@ Der Parameter \emph{DISTANCE\_SIDE\_BACK} beschreibt den Abstand zwischen dem Dr
 Des Weiteren findet bei der Rollbewegung auch der translatorische Bewegungsanteil Berücksichtigung. In Analogie zur Berechnung des Pitch-Wertes wird die beschleunigende Bewegung in Fahrtrichtung als zusätzlicher Hubanteil interpretiert \cite{Slater2016}, \cite{Steuer1992}
 
 Die vollständige Berechnung der Hubbewegung ergibt sich demnach aus:
-\begin{verbatim}
+\begin{lstlisting}
         stroke = (sin(DegToRad(deltaRoll / 100.0)) * DISTANCE_SIDE_BACK)
                 + (deltaStroke / 100.0)
-\end{verbatim}
+\end{lstlisting}
 Die vorliegende Erweiterung des Systems hat zur Folge, dass dieses nicht nur auf seitliche Neigung, sondern auch auf dynamische Veränderungen der Fahrzeugbewegung reagiert. Dadurch wird eine realitätsnahe Simulation des Überfahrens von Hindernissen des Rollstuhls ermöglicht \cite{Slater2016}.
 
 \subsubsection{Gegensinnige Ansteuerung der hinteren Aktuatoren}
@@ -295,19 +295,19 @@ Die vorliegende Erweiterung des Systems hat zur Folge, dass dieses nicht nur auf
 Ein wesentlicher Unterschied zur Pitch-Steuerung besteht darin, dass für die Rollbewegung zwei Aktuatoren gleichzeitig angesteuert werden. Im Zuge der Anhebung einer Seite ist eine Absenkung der gegenüberliegenden Seite erforderlich \cite{Siciliano1959}.
 
 Die gegensinnige Bewegung wird im System durch unterschiedliche Richtungsbefehle für die beiden Motoren realisiert:
-\begin{verbatim}
+\begin{lstlisting}
         rearLeftMover->SetDirection(stroke < 0 ? BACKWARD : FORWARD);
         rearRightMover->SetDIrection(stroke < 0 ? FORWARD : BACKWARD);
-\end{verbatim}
+\end{lstlisting}
 Die gegenläufige Ansteuerung resultiert in einer stabilen Kippbewegung der Plattform, ohne dass zusätzliche mechanische Komponenten erforderlich wären \cite{Siciliano1959}.
 
 \subsubsection{Synchronisation der Motorbewegungen}
 \setauthor{Linnea Schönbauer}
-Da beide hinteren Aktuatoren an derselben Bewegung beteiligt sind, ist eine exakte Synchronisierung ihrer Geschwindigkeiten erforderlich. Aus diesem Grund wird für beide Motoren dieselbe Drehzahl berechnet und anschließend an beide Aktuatoren übertragen:
-\begin{verbatim}
+Da beide hinteren Aktuatoren an derselben Bewegung beteiligt sind, ist eine exakte Synchronisierung ihrer Geschwindigkeiten erforderlich. Aus diesem Grund wird für beide Motoren dieselbe Drehzahl (rotationRpm) berechnet und anschließend an beide Aktuatoren übertragen:
+\begin{lstlisting}
         rearLeftMover->SetSpeedRpm(rotationRpm);
         rearRightMover->SetSpeedRpm(rotationRpm);
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Netzwerkarchitektur des Systems}
 \setauthor{Linnea Schönbauer}
@@ -337,7 +337,7 @@ Die Implementierung basiert auf der .NET-Netzwerkbibliothek, die über die Klass
 
 Während der Initialisierung der Anwendung wird zunächst ein UDP-Client erstellt und mit der Zieladresse des Mikrocontrollers konfiguriert. IP-Adresse und Netzwerkport können im Unity-Editor konfiguriert werden, wodurch eine flexible Anpassung an unterschiedliche Testumgebungen möglich ist.
 
-Die eigentliche Datenübertragung erfolgt innerhalb der Update-Schleife der Unity-Engin. Dabei wird in regelmäßigen Zeitabständen (QUELLE BEISPIEL WIE VIEL GENAU CODE) die aktuelle Position und Orientierung des virtuellen Rollstuhls ausgelesen und anschließend als Netzwerkpaket an den Mikrocontroller übertragen.
+Die eigentliche Datenübertragung erfolgt innerhalb der Update-Schleife der Unity-Engin. Dabei wird in regelmäßigen Zeitabständen die aktuelle Position und Orientierung des virtuellen Rollstuhls ausgelesen und anschließend als Netzwerkpaket an den Mikrocontroller übertragen.
 
 Durch diese Implementierung wird sichergestellt, dass die Bewegungsdaten der Simulation kontinuierlich an den Hardware-Prototyp weitergeleitet werden \cite{Microsoft}.
 
@@ -368,7 +368,34 @@ Die Position des Objekts wird auf ähnliche Weise codiert: Die Positionswerte we
 \setauthor{Linnea Schönbauer}
 Die Simulationsdaten werden auf dem Mikrocontroller über einen speziell implementierten UDP-Server empfangen. Dieser wird als eigenständige Aufgabe innerhalb des Echtzeitbetriebssystems des Mikrocontroller ausgeführt.
 
-Nach dem Start der Anwendung wird ein Server-Task erstellt. Dieser wartet dauerhaft auf eingehende Netzwerkpakete. Sobald ein neues Paket empfangen wird, wird dieses in einem internen Puffer gespeichert und anschließend an eine definierte Paketverarbeitungsfunktion übergeben (QUELLE CODE UND WARUM).
+Nach dem Start der Anwendung wird ein Server-Task erstellt. Dieser wartet dauerhaft auf eingehende Netzwerkpakete. Sobald ein neues Paket empfangen wird, wird dieses in einem internen Puffer gespeichert und anschließend an eine definierte Paketverarbeitungsfunktion übergeben:
+
+\begin{lstlisting}
+void UdpServer::Listen() {
+    uint8_t buffer[mPacketBufferSize];
+
+    if (StartListening(mPort)) {
+        while (mServerTask != nullptr) {
+            size_t dataSize = RetrieveNextPacket(buffer, mPacketBufferSize);
+            if (dataSize > 0) {
+                OnDataReceived(buffer, dataSize);
+            } else {
+                vTaskDelay(pdMS_TO_TICKS(5));
+            }
+        }
+        vTaskDelay(pdMS_TO_TICKS(100));
+        vTaskDelete(NULL);
+    } else  {
+        LogErrorT(LTAG_CFG, "UDP Server: Failed to start server on port %d", mPort);
+    }
+}
+
+void UdpServer::OnDataReceived(const uint8_t* data, size_t dataLength) {
+    if (mPacketHandler != nullptr) {
+        mPacketHandler(data, dataLength);
+    }
+}
+\end{lstlisting}
 
 Die Implementierung basiert auf einer kontinuierlichen Empfangsschliefe, die wiederholt überprüft, ob neue Netzwerkpakete eingetroffen sind. Wenn das System ein gültiges Datenpaket erkennt, leitet es dessen Inhalt an einen registrierten Paket-Handler weiter.
 
@@ -382,15 +409,15 @@ Die Datenübertragung wird durch einen Timer innerhalb der Unity-Anwendung geste
 
 \section{Latenz und Echtzeitverhalten des Systems}
 \setauthor{Linnea Schönbauer}
-In interaktiven Simulationssystemen ist das zeitliche Verhalten der einzelnen Systemkomponenten von entscheidender Relevanz. Insbesondere im Kontext von Anwendungen im Bereich der virtuellen Realität ist eine möglichst synchrone visuelle Darstellung der Bewegung mit den physischen Bewegungen des Hardwareprototypen erforderlich. \ref{sec:hardwareprototyp}
+In interaktiven Simulationssystemen ist das zeitliche Verhalten der einzelnen Systemkomponenten von entscheidender Relevanz. Insbesondere im Kontext von Anwendungen im Bereich der virtuellen Realität ist eine möglichst synchrone visuelle Darstellung der Bewegung mit den physischen Bewegungen des Hardwareprototypen erforderlich, siehe Abschnitt \ref{sec:hardwareprototyp}
 
 Im Falle einer zeitlichen Diskrepanz zwischen der Bewegung innerhalb der virtuellen Umgebung und der Bewegung des realen Prototypens kann es zu einer inkonsistenten Wahrnehmung kommen. In diesem Fall nimmt der Benutzer eine Bewegung visuell wahr, während die physische Bewegung des Systems zeitlich versetzt erfolgt \cite{Slater2016}, \cite{LaValle2023}.
 
-Derlei Diskrepanzen können die Immersion der Simulation beeinträchtigen und zudem physiologische Effekte wie Desorientierung oder Motion Sickness verursachen \ref{sec:motionsickness}. Aus diesem Grund stellt die Minimierung der Systemlatenz ein zentrales Ziel bei der Entwicklung bewegungsbasierter VR-Simulationssysteme dar \cite{Slater2016}, \cite{LaValle2023}.
+Derlei Diskrepanzen können die Immersion der Simulation beeinträchtigen und zudem physiologische Effekte wie Desorientierung oder Motion Sickness verursachen, siehe Abschnitt \ref{sec:motionsickness}. Aus diesem Grund stellt die Minimierung der Systemlatenz ein zentrales Ziel bei der Entwicklung bewegungsbasierter VR-Simulationssysteme dar \cite{Slater2016}, \cite{LaValle2023}.
 
 \subsection{Definition von Systemlatenz bezogen auf das Projekt}
 \setauthor{Linnea Schönbauer}
-Der Terminus "Systemlatenz" bezeichnet die zeitliche Verzögerung zwischen dem Auftreten eines Ereignisses in der Simulation und der entsprechenden Reaktion der physischen Hardware \cite{LaValle2023}.
+Der Terminus \emph{Systemlatenz} bezeichnet die zeitliche Verzögerung zwischen dem Auftreten eines Ereignisses in der Simulation und der entsprechenden Reaktion der physischen Hardware \cite{LaValle2023}.
 
 Im vorliegenden System beschreibt die Latenz demnach die Zeitspanne zwischen der Berechnung der Bewegung innerhalb der virtuellen Umgebung und der tatsächlichen mechanischen Bewegung der Plattform. 
 
@@ -415,11 +442,11 @@ Innerhalb der Simulationssoftware kann demnach eine Verzögerung von bis zu eine
 \setauthor{Linnea Schönbauer}
 Nach der Berechnung der Bewegungsdaten innerhalb der Simulation erfolgt die Übertragung dieser Daten an den Hardwareprototyp über eine Netzwerkverbindung. Die für die Datenübertragung erforderliche Zeit wird als Netzwerk- oder Kommunikationslatenz bezeichnet \cite{Hou2024}.
 
-Im vorliegenden System erfolgt die Datenübertragung über ein drahtloses Netzwerk, das vom Mikrocontroller selbst bereitgestellt wird. Die Kommunikation findet unter Einsatz des Netzwerkprotokoll User Datagram Protocl statt. Siehe Kapitel: \ref{sec:communication-protocol}
+Im vorliegenden System erfolgt die Datenübertragung über ein drahtloses Netzwerk, das vom Mikrocontroller selbst bereitgestellt wird. Die Kommunikation findet unter Einsatz des Netzwerkprotokoll User Datagram Protocol statt, siehe Abschnitt \ref{sec:communication-protocol}
 
-Die geringe Komplexität des UDP-Protokolls bedingt eine deutlich geringere Verzögerung im Vergleich zu verbindungsorientierten Protokollen wie dem Transmission Control Protocol. \ref{sec:communication-protocol}
+Die geringe Komplexität des UDP-Protokolls bedingt eine deutlich geringere Verzögerung im Vergleich zu verbindungsorientierten Protokollen wie dem Transmission Control Protocol, siehe Abschnitt \ref{sec:communication-protocol}
 
-Da UDP keine Paketbestätigung oder Wiederholungsmechanismen implementiert, können Datenpakete ohne zusätzliche Wartezeiten übertragen werden. Die vorliegende Untersuchung kommt zu dem Schluss, dass sich durch diese Maßnahme die Kommunikationslatenz erheblich reduziert und sie sich daher insbesondere für Echtzeitanwendungen eignet. \ref{sec:communication-protocol}
+Da UDP keine Paketbestätigung oder Wiederholungsmechanismen implementiert, können Datenpakete ohne zusätzliche Wartezeiten übertragen werden. Die vorliegende Untersuchung kommt zu dem Schluss, dass sich durch diese Maßnahme die Kommunikationslatenz erheblich reduziert und sie sich daher insbesondere für Echtzeitanwendungen eignet, siehe Abschnitt \ref{sec:communication-protocol}
 
 \subsection{Verarbeitungslatenz im Mikrocontroller}
 \setauthor{Linnea Schönbauer}
@@ -427,29 +454,41 @@ Nach dem Empfang eines Datenpakets erfolgt die Verarbeitung der Simulationsdaten
 
 Im Anschluss werden die erforderlichen Bewegungsparameter für die einzelnen Aktuatoren berechnet. Zu den relevanten Variablen zählen dabei unter anderem die erforderlichen Motorumdrehungen, die Bewegungsrichtung sowie die Drehgeschwindigkeit der Schrittmotoren.
 
-Da die Berechnung auf einem eingebetteten System mit begrenzter Rechenleistung durchgeführt werden, ist auch hier eine gewisse Verzögerung festzustellen. Durch die effiziente Implementierung der Berechnungsalgorithmen kann dieses Verarbeitungszeit jedoch auf wenige Millisekunden reduziert werden. (QUELLEN UND HIER AUCH DARAUF EINGEHEN DASS WIR 2 CORS VERWENDEN UM EBEN BEI EINEM DIE DATEN EMPFANGEN UND GLEICHZEIT SCHON LOSSTARTEN AUF DEM ANDEREN!) \cite{FreeRTOS} 
+Da die Berechnung auf einem eingebetteten System mit begrenzter Rechenleistung durchgeführt werden, ist auch hier eine gewisse Verzögerung festzustellen. Durch die effiziente Implementierung der Berechnungsalgorithmen kann dieses Verarbeitungszeit jedoch auf wenige Millisekunden reduziert werden, siehe Abschnitt \ref{sec:reduction-latency}
 
 \subsection{Mechanische Reaktionszeit}
 \setauthor{Linnea Schönbauer}
-Abgesehen von den softwarebedingten Verzögerungen ist auch die mechanische Reaktionszeit der Plattform zu berücksichtigen. Mechanische Systeme sind in ihrer Positionierung eingeschränkt, da eine unmittelbare Veränderung der Position unmöglich ist. Stattdessen ist ein zeitlicher Verzug bei der Erreichung einer neuen Position zu verzeichnen (QUELLE57).
+Abgesehen von den softwarebedingten Verzögerungen ist auch die mechanische Reaktionszeit der Plattform zu berücksichtigen. Mechanische Systeme sind in ihrer Positionierung eingeschränkt, da eine unmittelbare Veränderung der Position unmöglich ist. Stattdessen ist ein zeitlicher Verzug bei der Erreichung einer neuen Position zu verzeichnen \cite{Feynman2016}.
 
 Die Bewegung der Plattform wird durch Schrittmotoren realisiert, welche wiederum die mechanischen Wagenheber antreiben. Die Geschwindigkeit dieser Bewegung ist dabei abhängig von verschiedenen Faktoren, darunter die maximale Drehzahl der Motoren, die Übersetzung des mechanischen Systems sowie die Trägheit der bewegten Masse.
 
-Insbesondere bei größeren Bewegungen kann die mechanische Reaktionszeit einen signifikanten Anteil an der Gesamtlatenz des Systems ausmachen (QUELLE57).
+Insbesondere bei größeren Bewegungen kann die mechanische Reaktionszeit einen signifikanten Anteil an der Gesamtlatenz des Systems ausmachen \cite{Feynman2016}.
 
-\subsection{Maßnahmen zur Reduktion der Latenz}
+\subsection{Maßnahmen zur Reduktion der Latenz} \label{sec:reduction-latency}
 \setauthor{Linnea Schönbauer}
 Zur Minimierung der Gesamtlatenz des Systems wurden mehrere technische Maßnahmen implementiert. 
 
-Zunächst findet das verbindungslose UDP-Protokoll Anwendung, welches eine besonders hohe Übertragungsgeschwindigkeit der Daten ermöglicht. \ref{sec:communication-protocol} Darüber hinaus erfolgt die Datenübertragung mit einer festen Aktualisierungsfrequenz von etwa 60 Hz, wodurch kontinuierlich neue Bewegungsdaten zur Verfügung stehen. \ref{sec:transfer-frequence}
+Zunächst findet das verbindungslose UDP-Protokoll Anwendung, welches eine besonders hohe Übertragungsgeschwindigkeit der Daten ermöglicht, siehe Abschnitt \ref{sec:communication-protocol} Darüber hinaus erfolgt die Datenübertragung mit einer festen Aktualisierungsfrequenz von etwa 60 Hz, wodurch kontinuierlich neue Bewegungsdaten zur Verfügung stehen, siehe Abschnitt \ref{sec:transfer-frequence}
 
-Darüber hinaus wurde die Verarbeitung der empfangenen Daten innerhalb des Mikrocontrollers so implementiert, dass lediglich ein minimaler Rechenaufwand erforderlich ist. Die Bewegungsparameter werden unmittelbar nach Empfang des Datenpakets berechnet und direkt an die Motorsteuerung weitergeleitet. (QUELLE UND HIER AUF JEDEN FALL AUF DIE 2 CORS EINGEHEN DASS MA DAS PARALLEL MACHEN UND NED BLOCKIEREN DURCH WARTEN AUF DATEN)
+Zusätzlich wurde die Verarbeitung der empfangenen Daten innerhalb des Mikrocontrollers so implementiert, dass lediglich ein minimaler Rechenaufwand erforderlich ist. Die Bewegungsparameter werden unmittelbar nach Empfang des Datenpakets berechnet und direkt an die Motorsteuerung weitergeleitet. Zu diesem Zweck wird die Dual-Core-Fähigkeit des Mikrocontrollers genuutzt. Die Netzwerkkommunikation (UDP-Empfang) wird auf Core 1 ausgeführt, während die zeitkritische Motorsteuerung auf Core 0 ausgeführt wird. Durch die Parallelisierung ist es möglich, Daten zu empfangen und Motorbefehle zu berechnen, ohne dass die Ausführung eines Tasks die Reaktionszeit des anderen blockiert. Ein Beispiel für eine solche Konfiguration ist die Pinning-Konfiguration des UDP-Servers:
+\begin{lstlisting}
+void UdpServer::Start() {
+    TaskMgmt::TaskConfig cfg = { 
+        4242,
+        "UdpServer",
+        TaskMgmt::CoreId::CORE_1, 
+        4096, 
+        configMAX_PRIORITIES - 13 
+    };    
+    Start(cfg);
+}
+\end{lstlisting}
 
 \section{Koordination mehrerer Aktuatoren zur Plattformbewegung}
 \setauthor{Linnea Schönbauer}
 Die Plattformbewegung wird nicht durch einen einzelnen Elektromotor erzeugt, sondern durch das koordinierte Zusammenspiel mehrerer mechanischer Komponenten. Die Rotationsbewegung des Systems wird durch einen einzelnen Schrittmotor realisiert, während die Neigungsbewegungen der Plattform durch drei unabhängig gesteuerte Wagenheber erzeugt werden.
 
-In der Folge manifestiert sich ein mehrdimensionales Bewegungssystem, dessen Realisierung eine simultane Ansteuerung mehrerer Aktuatoren erfordert, um eine prädefinierte Plattformorientierung zu erreichen.
+In der Folge manifestiert sich ein mehrdimensionales Bewegungssystem, dessen Realisierung eine simultane Ansteuerung mehrerer Aktuatoren erfordert, um eine prädefinierte Plattformorientierung zu erreichen. \cite{Merlet2008}
 
 Die Neigung der Plattform ergibt sich aus der Disparität der Höhen der einzelnen Wagenheber. Wird beispielsweise der links hintere Wagenheber stärker angehoben als der rechte, entsteht eine seitliche Neigung der Plattform, die einer Rollenbewegung entspricht.
 
@@ -457,7 +496,18 @@ In Analogie dazu besteht die Möglichkeit, eine Vorwärts- oder Rückwärtsneigu
 
 \subsection{Gleichzeitige Motorsteuerung}
 \setauthor{Linnea Schönbauer}
-Um eine kontinuierliche Plattformbewegung zu gewährleisten, ist eine simultane Steuerung mehrere Aktuatoren erforderlich. Innerhalb des Steuerungsalgorithmus erfolgt daher eine synchrone Berechnung der Bewegungsparameter der einzelnen Motoren. (QUELLE UND GEDANKEN MIT SYNCHRON MIT CODE EINORDNEN ABGLEICH YK)
+Um eine kontinuierliche Plattformbewegung zu gewährleisten, ist eine simultane Steuerung mehrere Aktuatoren erforderlich. Innerhalb des Steuerungsalgorithmus erfolgt daher eine synchrone Berechnung der Bewegungsparameter der einzelnen Motoren. \cite{Merlet2008}
+
+\begin{lstlisting}
+ApplyRotation(deltaTimestamp, deltaYaw);
+
+if (simData.mMode == SimulationData::Mode::BUMPING) {
+    ApplyShakeMode(deltaTimestamp, INTENSITY_SHAKING, wheelchairSpeed);
+} else {
+    ApplyFrontMover(deltaTimestamp, deltaPitch, accZ);
+    ApplyBackMover(deltaTimestamp, deltaRoll, accZ);
+}
+\end{lstlisting}
 
 Die Zielposition aller Schrittmotoren wird innerhalb eines vergleichbaren Zeit Intervalls erreicht, wodurch ungewollte Zwischenbewegungen vermieden werden.
 
@@ -466,6 +516,6 @@ Die Zielposition aller Schrittmotoren wird innerhalb eines vergleichbaren Zeit I
 Da die mechanischen Komponenten der Plattform nur innerhalb bestimmter Bewegungsbereiche betrieben werden können, müssen auch die berechneten Bewegungsparameter entsprechend begrenzt werden.
 
 Die maximale Hubhöhe der Wagenheber definiert dabei den maximal erreichbaren Neigungswinkel links und rechts, beziehungsweise vor und zurück der Plattform. 
-Die Realisierung erfolgte mittels mehrerer Mikroschalter, welche auf den Wagenhebern montiert sind.  \ref{fig:microschalter}
+Die Realisierung erfolgte mittels mehrerer Mikroschalter, welche auf den Wagenhebern montiert sind. Siehe Abbildung  \ref{fig:microschalter}
 
-Darüber hinaus wurden Sicherheitsmechanismen implementiert, um extreme oder unkontrollierte Bewegungen zu verhindern. Zu den relevanten Komponenten zählt ein Not-Aus-Schalter, welcher dazu dient, den Stromfluss in einem definierten Schritt abzubrechen und folglich einen sofortigen Stillstand der Steppermotoren zu bewirken, sofern die Hubrichtung nicht den Anforderungen entspricht.
+Darüber hinaus wurden Sicherheitsmechanismen implementiert, um extreme oder unkontrollierte Bewegungen zu verhindern. Zu den relevanten Komponenten zählt ein Not-Aus-Schalter, welcher dazu dient, den Stromfluss in einem definierten Schritt abzubrechen und folglich einen sofortigen Stillstand der Stepper Motoren zu bewirken, sofern die Hubrichtung nicht den Anforderungen entspricht.
