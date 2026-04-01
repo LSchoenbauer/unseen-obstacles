@@ -1,4 +1,4 @@
-In diesem Kapitel wird die mechanische Konstruktion des Rollstuhl-Prototyps sowie die 
+In diesem Kapitel wird die mechanische Konstruktion des Rollstuhl-Simulators sowie die 
 Auswahl geeigneter Antriebssysteme beschrieben. Zunächst wird die Struktur der drehbaren 
 und hebbaren Plattform erläutert, die präzise Rotations-, Hebe- und Kippbewegungen des 
 Rollstuhls ermöglicht. Anschließend wird auf die Funktionsweise der eingesetzten Wagenheber 
@@ -6,13 +6,13 @@ und deren koordinierte Steuerung eingegangen. Im weiteren Verlauf wird die Entsc
 Schrittmotoren gegenüber hydraulischen Antrieben begründet, wobei Aspekte wie Präzision, 
 Wiederholgenauigkeit, Flexibilität und Wartungsaufwand betrachtet werden. Das Kapitel 
 vermittelt somit sowohl die konzeptionellen Überlegungen als auch die technischen 
-Grundlagen, die die Beweglichkeit und Justierbarkeit des Rollstuhls im Prototypen 
+Grundlagen, die die Beweglichkeit und Justierbarkeit des Rollstuhls im Simulator 
 sicherstellen.
 
-\section{Aufbau des Prototyps}
+\section{Aufbau des Simulators}
 \setauthor{Elisa Kaltenberger}
 
-Der Prototyp ist so konstruiert, dass er sowohl präzise Rotationsbewegungen als auch 
+Der Simulator ist so konstruiert, dass er sowohl präzise Rotationsbewegungen als auch 
 kontrollierte Hebe- und Kippbewegungen des Rollstuhls ermöglicht. Die Konstruktion besteht aus zwei Platten, die in übereinander angeordneter Form miteinander verbunden sind. Die untere Platte befindet sich in einer stabilen und unbeweglichen Position und konstituiert die tragende Basis des Systems. Auf dieser befindet sich eine zweite Platte, die drehbar ausgeführt ist. Die Bewegung der oberen Platte wird durch ein Antriebsrad und einen Schrittmotor initiiert. Der Schrittmotor gestattet aufgrund seiner schrittweisen Bewegung eine exakte, fein dosierbare und wiederholgenaue Drehung. Die vorliegende Konstruktion ermöglicht eine millimetergenaue Einstellung der Ausrichtung des Rollstuhls. 
 
 Auf der rotierenden oberen Platte sind drei Wagenheber montiert, die ausschließlich 
@@ -45,11 +45,11 @@ Zuerst wurde ein Prototyp aus Papier konstruiert, siehe Abb. \ref{fig:prototyp-p
 \end{figure}
 
 
-\section{Bauungsprozess Hardware Prototyp}
+\section{Bauungsprozess des Hardware Simulators}
 \setauthor{Elisa Kaltenberger}
-In diesem Kapitel wird der gesamte Entwicklungs- und Fertigungsprozess des Hardware-Prototyps detailliert beschrieben. Zunächst wird die Entscheidungsfindung hinsichtlich der geeigneten Antriebsart erläutert, wobei Schrittmotoren mit hydraulischen Systemen verglichen und die Gründe für die Wahl der Schrittmotoren dargelegt werden.
+In diesem Kapitel wird der gesamte Entwicklungs- und Fertigungsprozess des Hardware-Simulators detailliert beschrieben. Zunächst wird die Entscheidungsfindung hinsichtlich der geeigneten Antriebsart erläutert, wobei Schrittmotoren mit hydraulischen Systemen verglichen und die Gründe für die Wahl der Schrittmotoren dargelegt werden.
 
-Anschließend wird der mechanische Aufbau des Prototyps beschrieben, von der Grundkonstruktion mit Holzplatten und Rollenmechanismus bis hin zur Integration des Gummirads sowie der Entwicklung und Fertigung eines eigenen 3D-gedruckten Bauteils aus ABS.
+Anschließend wird der mechanische Aufbau des Simulators beschrieben, von der Grundkonstruktion mit Holzplatten und Rollenmechanismus bis hin zur Integration des Gummirads sowie der Entwicklung und Fertigung eines eigenen 3D-gedruckten Bauteils aus ABS.
 \cite{AmitBandyopadhyay2018}
 
 
@@ -58,13 +58,13 @@ Ein weiterer zentraler Bestandteil des Kapitels ist die Entwicklung der elektron
 
 Darüber hinaus wird die fachgerechte Verkabelung der Schrittmotoren inklusive Motortreiber und Spannungsversorgung dargestellt. Die erste Ansteuerung der Motoren über eine eigens entwickelte Weboberfläche markiert dabei einen wichtigen Meilenstein im Entwicklungsprozess.
 
-Abschließend behandelt das Kapitel die Präsentation des Prototyps am Tag der offenen Tür der HTL Leonding, das erhaltene Feedback sowie den weiteren technischen Ausbau des Systems durch die Integration von Mikroschaltern zur Positionsbestimmung und Sicherheit.
+Abschließend behandelt das Kapitel die Präsentation des Simulators am Tag der offenen Tür der HTL Leonding, das erhaltene Feedback sowie den weiteren technischen Ausbau des Systems durch die Integration von Mikroschaltern zur Positionsbestimmung und Sicherheit.
 
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.6]{pics/prototyp-ende.jpg}
-    \caption{Prototyp Ende 21. November}
+    \caption{Simulator Ende 21. November}
     \label{fig:prototyp-ende}
 \end{figure}
 
@@ -106,7 +106,7 @@ Zusätzlich sind Schrittmotoren insbesondere dann sinnvoll, wenn die Anwendung h
 
 \subsection{Bauprozess}
 Nachdem entschieden worden war, welche Antriebsart verwendet werden sollte, wurden die Motoren bestellt. 
-Während der Lieferzeit machte man sich Gedanken darüber, wie die Konstruktion des Prototyps aussehen könnte. 
+Während der Lieferzeit machte man sich Gedanken darüber, wie die Konstruktion des Simulators aussehen könnte. 
 Die Überlegung war, auf einer Holzplatte eine zweite Platte zu montieren, die mithilfe von Rollen auf der 
 unteren Platte beweglich ist. An der Unterseite dieser oberen, horizontal beweglichen Platte wurden kleine 
 Rollen befestigt, die die horizontale Bewegung ermöglichen.
@@ -136,12 +136,12 @@ Das 3D-Teil wurde in KiCad konstruiert und in der Schule im Keller gedruckt. Es 
 \begin{figure}
     \centering
     \includegraphics[scale=0.4]{pics/prototyp-zwischenstand.jpg}
-    \caption{Prototyp Zwischnstand 13. November}
+    \caption{Simulator Zwischnstand 13. November}
     \label{fig:prototyp-zwischenstand}
 \end{figure}
 
 Nachdem alles angeschraubt wurde, siehe Abb. \ref{fig:platte-bohren}, wurden die Wagenheber provisorisch positioniert, um einen ersten 
-Eindruck von den Prototypen zu gewinnen, siehe Abb. \ref{fig:prototyp-zwischenstand}.
+Eindruck von des Simulators zu gewinnen, siehe Abb. \ref{fig:prototyp-zwischenstand}.
 
 \begin{figure}
     \centering
@@ -305,20 +305,15 @@ die Möglichkeit zur aktiven Interaktion wurde ein stärkeres Bewusstsein für B
 Projekt erfüllte somit nicht nur einen technischen, sondern auch einen gesellschaftlich sensibilisierenden 
 Zweck.
 
-Besonders positiv hervorgehoben wurde die gelungene Kombination aus der entwickelten VR-Simulation und dem 
-real bewegbaren Prototypen. Durch die virtuelle Darstellung konnten verschiedenste Bewegungsabläufe und 
-Funktionen des Rollstuhls anschaulich visualisiert werden, während der physische Prototyp die technische 
-Umsetzung unmittelbar erfahrbar machte. Diese Kombination von digitaler Simulation und realer Mechanik 
-ermöglichte ein perfektes Verständnis des Systems und stellte für viele Besucherinnen und Besucher ein 
-besonderes Highlight dar.
+Besonders positiv hervorgehoben wurde die gelungene Kombination aus der entwickelten VR-Simulation und dem real bewegbaren Simulator. Durch die virtuelle Darstellung konnten verschiedenste Bewegungsabläufe und Funktionen des Rollstuhls anschaulich visualisiert werden, während der physische Simulator die technische Umsetzung unmittelbar erfahrbar machte. Diese Kombination von digitaler Simulation und realer Mechanik ermöglichte ein perfektes Verständnis des Systems und stellte für viele Besucherinnen und Besucher ein besonderes Highlight dar.
 
-\subsection{Weiterer Ausbau des Prototyps} 
+\subsection{Weiterer Ausbau des Simulators} 
 \setauthor{Elisa Kaltenberger}
 Nach dem Tag der offenen Tür wurden die Wagenheber weiter ausgebaut und sowohl mechanisch als auch 
 elektrisch optimiert. Es wurden Microschalter Abb. \ref{fig:microschalter} angebracht, immer jeweils 
 vier Stück pro Heber, um die genaue Position des Wagenhebers auslesen zu können. Einer für die unterste 
 Position, einer für die höchste Position, einer für die Mitte und einer, um zu erkennen, ob der Rollstuhl 
-überhaupt auf dem Hardware-Prototyp steht.
+überhaupt auf dem Hardware-Simulator steht.
 \cite{Wikipedia2024}, \cite{Openelab2025}
 
 Die Microschalter wurden auf einer stabilen Metallschiene montiert, die fest mit dem Wagenheber verschraubt 
@@ -336,7 +331,7 @@ Wagenheber zu weit nach oben oder unten fährt, und ermöglicht eine genaue Steu
 Die mittlere Position wird als Referenzpunkt für definierte Fahrhöhen genutzt, wodurch wiederholbare und 
 reproduzierbare Bewegungsabläufe gewährleistet werden können. Der Schalter zur Erkennung des Rollstuhls 
 sorgt dafür, dass der Hebevorgang nur dann gestartet werden kann, wenn sich tatsächlich ein Rollstuhl auf 
-dem Prototyp befindet. Dadurch wird ein unbeabsichtigtes Hochfahren ohne Last verhindert und die 
+dem Simulator befindet. Dadurch wird ein unbeabsichtigtes Hochfahren ohne Last verhindert und die 
 Betriebssicherheit deutlich erhöht.
 \cite{Wikipedia2024}, \cite{Openelab2025}
 
