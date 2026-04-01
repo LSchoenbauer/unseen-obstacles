@@ -447,7 +447,6 @@ INPUT .\pics\tdot.jpg
 INPUT .\pics\tdot.jpg
 INPUT .\pics\tdot.jpg
 INPUT .\pics\tdot.jpg
-INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmro12.tfm
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\ot1lmr.fd
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\ot1lmr.fd
@@ -542,6 +541,7 @@ INPUT .\sections\ideenfindung.tex
 INPUT .\sections\ideenfindung.tex
 INPUT .\sections\ideenfindung.tex
 INPUT sections\ideenfindung.tex
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\ts1lmr.fd

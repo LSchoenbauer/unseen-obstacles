@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  1 APR 2026 14:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  1 APR 2026 14:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1605,35 +1605,35 @@ Overfull \hbox (44.09773pt too wide) in paragraph at lines 6--7
  [] 
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 28.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 15.
 (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 28.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 15.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 28.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 15.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 28.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 15.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 28.
+(Font)              <12> on input line 15.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 28.
+(Font)              <8> on input line 15.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 28.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
+(Font)              <6> on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
@@ -1647,7 +1647,7 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting geometry's option
 (scrlayer-scrpage)                `head=20.77846pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 28.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 15.
 
 
 Overfull \vbox (2.65346pt too high) has occurred while \output is active []
@@ -1662,22 +1662,22 @@ Package scrlayer-scrpage Warning: \footheight to low.
 (scrlayer-scrpage)                e.g., using
 (scrlayer-scrpage)                  \setlength{\footheight}{20.77846pt}
 (scrlayer-scrpage)                in your preamble.
-(scrlayer-scrpage)                I'll also increase \footskip on input line 28.
+(scrlayer-scrpage)                I'll also increase \footskip on input line 15.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 \newpage
+l.15 \newpage
               [1
 
  <./pics/tdot.jpg>]
 File: pics/tdot.jpg Graphic file (type jpg)
 <use pics/tdot.jpg>
-Package pdftex.def Info: pics/tdot.jpg  used on input line 34.
+Package pdftex.def Info: pics/tdot.jpg  used on input line 21.
 (pdftex.def)             Requested size: 176.40439pt x 244.2607pt.
 
-Overfull \hbox (44.09773pt too wide) in paragraph at lines 34--35
+Overfull \hbox (44.09773pt too wide) in paragraph at lines 21--22
  [] 
  []
 
@@ -1711,12 +1711,12 @@ l.15
       [1
 
 ]
-<pics/Statistik-Einschraekungen.png, id=177, 373.99725pt x 181.8795pt>
+<pics/Statistik-Einschraekungen.png, id=176, 373.99725pt x 181.8795pt>
 File: pics/Statistik-Einschraekungen.png Graphic file (type png)
 <use pics/Statistik-Einschraekungen.png>
 Package pdftex.def Info: pics/Statistik-Einschraekungen.png  used on input line 18.
 (pdftex.def)             Requested size: 373.99632pt x 181.87904pt.
-<pics/lebensqualiteat.png, id=179, 458.9145pt x 275.22826pt>
+<pics/lebensqualiteat.png, id=178, 458.9145pt x 275.22826pt>
 File: pics/lebensqualiteat.png Graphic file (type png)
 <use pics/lebensqualiteat.png>
 Package pdftex.def Info: pics/lebensqualiteat.png  used on input line 25.
@@ -1727,13 +1727,13 @@ Overfull \hbox (17.89565pt too wide) in paragraph at lines 25--26
  []
 
 [2 <./pics/Statistik-Einschraekungen.png>]
-<pics/Statistik-Hauptaktivitaet.png, id=204, 348.1005pt x 287.27325pt>
+<pics/Statistik-Hauptaktivitaet.png, id=203, 348.1005pt x 287.27325pt>
 File: pics/Statistik-Hauptaktivitaet.png Graphic file (type png)
 <use pics/Statistik-Hauptaktivitaet.png>
 Package pdftex.def Info: pics/Statistik-Hauptaktivitaet.png  used on input line 54.
 (pdftex.def)             Requested size: 348.09964pt x 287.27255pt.
  [3 <./pics/lebensqualiteat.png>] [4 <./pics/Statistik-Hauptaktivitaet.png>]
-<pics/Statistik-Berufsleben.png, id=221, 575.14874pt x 263.7855pt>
+<pics/Statistik-Berufsleben.png, id=220, 575.14874pt x 263.7855pt>
 File: pics/Statistik-Berufsleben.png Graphic file (type png)
 <use pics/Statistik-Berufsleben.png>
 Package pdftex.def Info: pics/Statistik-Berufsleben.png  used on input line 72.
@@ -2046,15 +2046,15 @@ LaTeX Warning: There were undefined references.
 ### semi simple group (level 1) entered at line 130 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 37072 strings out of 474486
- 714341 string characters out of 5743755
+ 37070 strings out of 474486
+ 714319 string characters out of 5743755
  1978542 words of memory out of 5000000
  58134 multiletter control sequences out of 15000+600000
- 614599 words of font info for 156 fonts, out of 8000000 for 9000
+ 614502 words of font info for 155 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,20n,108p,11281b,2548s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
-Output written on thesis.pdf (104 pages, 6773986 bytes).
+Output written on thesis.pdf (104 pages, 6773522 bytes).
 PDF statistics:
  1669 PDF objects out of 1728 (max. 8388607)
  465 named destinations out of 1000 (max. 500000)
