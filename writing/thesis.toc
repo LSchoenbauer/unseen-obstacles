@@ -50,7 +50,7 @@
 \contentsline {subsection}{\numberline {6.7.1}Mapping von Eingabe zu Bewegung}{39}{subsection.6.7.1}%
 \contentsline {subsection}{\numberline {6.7.2}Verknüpfung von Steuerung, Sitzbewegung und visueller Bewegung}{39}{subsection.6.7.2}%
 \contentsline {subsection}{\numberline {6.7.3}Sicherheitsmechanismen und Bewegungsbegrenzungen}{40}{subsection.6.7.3}%
-\contentsline {chapter}{\numberline {7}Hardware Prototyp}{41}{chapter.7}%
+\contentsline {chapter}{\numberline {7}Hardware Simulator}{41}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Aufbau des Simulators}{41}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Bauungsprozess des Hardware Simulators}{42}{section.7.2}%
 \contentsline {subsection}{\numberline {7.2.1}Motorenfindung: Schrittmotoren vs. Hydraulik}{44}{subsection.7.2.1}%
@@ -63,7 +63,7 @@
 \contentsline {subsection}{\numberline {7.2.8}Erste Ansteuerung der Motoren}{56}{subsection.7.2.8}%
 \contentsline {subsection}{\numberline {7.2.9}Tag der offenen Tür HTL-Leonding}{56}{subsection.7.2.9}%
 \contentsline {subsection}{\numberline {7.2.10}Weiterer Ausbau des Simulators}{57}{subsection.7.2.10}%
-\contentsline {chapter}{\numberline {8}Kommunikation zwischen Hardwareprototyp und VR-Simulation}{60}{chapter.8}%
+\contentsline {chapter}{\numberline {8}Kommunikation zwischen Hardware-Simulator und VR-Simulation}{60}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Systemarchitektur des Gesamtsystems}{60}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Systemarchitektur des VR-Projekts}{61}{section.8.2}%
 \contentsline {subsection}{\numberline {8.2.1}Physikalisches Bewegungsmodell}{62}{subsection.8.2.1}%
@@ -74,7 +74,7 @@
 \contentsline {subsubsection}{\nonumberline Freiheitsgrade des Systems}{65}{subsubsection*.36}%
 \contentsline {subsection}{\numberline {8.2.3}Verarbeitung der Benutzereingaben}{65}{subsection.8.2.3}%
 \contentsline {subsection}{\numberline {8.2.4}Berechnung der Translation und Rotation}{65}{subsection.8.2.4}%
-\contentsline {section}{\numberline {8.3}Systemarchitektur des Hardware-Prototypen}{66}{section.8.3}%
+\contentsline {section}{\numberline {8.3}Systemarchitektur des Hardware-Simulators}{66}{section.8.3}%
 \contentsline {subsection}{\numberline {8.3.1}Verarbeitung der Simulationsdaten}{66}{subsection.8.3.1}%
 \contentsline {subsection}{\numberline {8.3.2}Umrechnung von Simulationsdaten in Motorbewegungen}{67}{subsection.8.3.2}%
 \contentsline {subsubsection}{\nonumberline Differenzberechnung - Delta Werte}{67}{subsubsection*.38}%
@@ -82,34 +82,34 @@
 \contentsline {subsubsection}{\nonumberline Umrechnung des Rotationswinkels in eine lineare Bewegung}{68}{subsubsection*.42}%
 \contentsline {subsubsection}{\nonumberline Umrechnung der Wegstrecke in Motorumdrehungen}{70}{subsubsection*.45}%
 \contentsline {subsubsection}{\nonumberline Berechnung der Motordrehzahl}{70}{subsubsection*.47}%
-\contentsline {subsubsection}{\nonumberline Berechnung der Neigungsbewegung des vorderen Aktuators (Pitch)}{70}{subsubsection*.49}%
-\contentsline {subsubsection}{\nonumberline Umrechnung der Hubbewegung in Motorrotation}{72}{subsubsection*.52}%
+\contentsline {subsubsection}{\nonumberline Berechnung der Neigungsbewegung des vorderen Aktuators (Pitch)}{71}{subsubsection*.49}%
+\contentsline {subsubsection}{\nonumberline Umrechnung der Hubbewegung in Motorrotation}{73}{subsubsection*.52}%
 \contentsline {subsubsection}{\nonumberline Berechnung der seitlichen Neigung über die hinteren Aktuatoren (Roll)}{73}{subsubsection*.54}%
 \contentsline {subsubsection}{\nonumberline Integration dynamischer Bewegungsanteile}{74}{subsubsection*.57}%
-\contentsline {subsubsection}{\nonumberline Gegensinnige Ansteuerung der hinteren Aktuatoren}{74}{subsubsection*.59}%
+\contentsline {subsubsection}{\nonumberline Gegensinnige Ansteuerung der hinteren Aktuatoren}{75}{subsubsection*.59}%
 \contentsline {subsubsection}{\nonumberline Synchronisation der Motorbewegungen}{75}{subsubsection*.61}%
 \contentsline {subsection}{\numberline {8.3.3}Netzwerkarchitektur des Systems}{75}{subsection.8.3.3}%
-\contentsline {subsection}{\numberline {8.3.4}Auswahl des Kommunikationsprotokolls}{75}{subsection.8.3.4}%
-\contentsline {subsection}{\numberline {8.3.5}Implementierung des UDP-Senders in Unity}{76}{subsection.8.3.5}%
+\contentsline {subsection}{\numberline {8.3.4}Auswahl des Kommunikationsprotokolls}{76}{subsection.8.3.4}%
+\contentsline {subsection}{\numberline {8.3.5}Implementierung des UDP-Senders in Unity}{77}{subsection.8.3.5}%
 \contentsline {subsection}{\numberline {8.3.6}Aufbau des Datenpakets}{77}{subsection.8.3.6}%
-\contentsline {subsection}{\numberline {8.3.7}Implementierung des UDP-Servers}{77}{subsection.8.3.7}%
-\contentsline {subsection}{\numberline {8.3.8}Übertragungsfrequenz der Simulationsdaten}{78}{subsection.8.3.8}%
+\contentsline {subsection}{\numberline {8.3.7}Implementierung des UDP-Servers}{78}{subsection.8.3.7}%
+\contentsline {subsection}{\numberline {8.3.8}Übertragungsfrequenz der Simulationsdaten}{79}{subsection.8.3.8}%
 \contentsline {section}{\numberline {8.4}Latenz und Echtzeitverhalten des Systems}{79}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Definition von Systemlatenz bezogen auf das Projekt}{79}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.1}Definition von Systemlatenz bezogen auf das Projekt}{80}{subsection.8.4.1}%
 \contentsline {subsection}{\numberline {8.4.2}Latenz in der Simulation}{80}{subsection.8.4.2}%
-\contentsline {subsection}{\numberline {8.4.3}Netzwerkbedingte Latenz}{80}{subsection.8.4.3}%
+\contentsline {subsection}{\numberline {8.4.3}Netzwerkbedingte Latenz}{81}{subsection.8.4.3}%
 \contentsline {subsection}{\numberline {8.4.4}Verarbeitungslatenz im Mikrocontroller}{81}{subsection.8.4.4}%
-\contentsline {subsection}{\numberline {8.4.5}Mechanische Reaktionszeit}{81}{subsection.8.4.5}%
-\contentsline {subsection}{\numberline {8.4.6}Maßnahmen zur Reduktion der Latenz}{81}{subsection.8.4.6}%
-\contentsline {section}{\numberline {8.5}Koordination mehrerer Aktuatoren zur Plattformbewegung}{82}{section.8.5}%
+\contentsline {subsection}{\numberline {8.4.5}Mechanische Reaktionszeit}{82}{subsection.8.4.5}%
+\contentsline {subsection}{\numberline {8.4.6}Maßnahmen zur Reduktion der Latenz}{82}{subsection.8.4.6}%
+\contentsline {section}{\numberline {8.5}Koordination mehrerer Aktuatoren zur Plattformbewegung}{83}{section.8.5}%
 \contentsline {subsection}{\numberline {8.5.1}Gleichzeitige Motorsteuerung}{83}{subsection.8.5.1}%
-\contentsline {subsection}{\numberline {8.5.2}Bewegungsgrenzen}{83}{subsection.8.5.2}%
-\contentsline {chapter}{\numberline {9}Gestalterische Elemente zur Förderung der Immersion}{84}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Nutzerführung und Einführung in die Simulation}{84}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Visuelle Zusammenfassung der Hindernisse}{85}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Akustische Gestaltung der Simulation}{85}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Situationsabhängige Soundeffekte}{86}{section.9.4}%
-\contentsline {chapter}{\numberline {10}Zusammenfassung}{87}{chapter.10}%
+\contentsline {subsection}{\numberline {8.5.2}Bewegungsgrenzen}{84}{subsection.8.5.2}%
+\contentsline {chapter}{\numberline {9}Gestalterische Elemente zur Förderung der Immersion}{85}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Nutzerführung und Einführung in die Simulation}{85}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Visuelle Zusammenfassung der Hindernisse}{86}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Akustische Gestaltung der Simulation}{86}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Situationsabhängige Soundeffekte}{87}{section.9.4}%
+\contentsline {chapter}{\numberline {10}Zusammenfassung}{88}{chapter.10}%
 \contentsline {chapter}{\nonumberline Literaturverzeichnis}{VI}{chapter*.62}%
 \contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{XII}{chapter*.63}%
 \contentsline {chapter}{\nonumberline Tabellenverzeichnis}{XIII}{chapter*.64}%
