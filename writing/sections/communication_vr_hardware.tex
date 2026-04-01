@@ -97,7 +97,7 @@ Darüber hinaus besteht die Möglichkeit, den Rollstuhl um die vertikale Achse z
 
 \section{Systemarchitektur des Hardware-Simulators}
 \setauthor{Linnea Schönbauer}
-Neben der mechanischen Konstruktion der Plattform, die in Kapitel 6 beschrieben wurde, ist für den Betrieb des Systems eine elektronische Steuerung erforderlich, welche die Bewegungen der Plattform koordiniert und ansteuert. Diese Steuerung bildet die zentrale Schnittstelle zwischen der virtuellen Simulation und den mechanischen Aktuatoren des Hardware-Simulators \cite{Bishop2006}.
+Neben der mechanischen Konstruktion der Plattform, die in Kapitel \ref{chapter:hardware-prototyp} beschrieben wurde, ist für den Betrieb des Systems eine elektronische Steuerung erforderlich, welche die Bewegungen der Plattform koordiniert und ansteuert. Diese Steuerung bildet die zentrale Schnittstelle zwischen der virtuellen Simulation und den mechanischen Aktuatoren des Hardware-Simulators \cite{Bishop2006}.
 
 Die Steuerungsarchitektur basiert auf einem Mikrocontroller des Typ ESP32, der als zentrale Recheneinheit innerhalb des Systems fungiert. Der Mikrocontroller übernimmt mehrere Aufgaben: Einerseits empfängt er Bewegungsdaten aus der Simulation über eine Netzwerkverbindung, andererseits berechnet er daraus die notwendigen Steuerbefehle für die einzelnen Schrittmotoren der Plattform \cite{ESPIDF}, \cite{Embedded}
 
