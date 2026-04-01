@@ -28,7 +28,14 @@ Ein zentrales Merkmal der Architektur von Unity ist die objektorientierte Organi
 
 Unity organisiert alle Inhalte einer Simulation in sogenannten Szenen, die jeweils eine hierarchische Baumstruktur aus GameObjects bilden. Eine Szene konstituiert eine abgeschlossene virtuelle Umgebung, welche sämtliche geometrischen Objekte, Lichtquellen, Kameras sowie Interaktionskomponenten enthält \cite{Unity}, \cite{Unity3}, \cite{Unity4}, \cite{Unity5}.
 
-Die Struktur innerhalt einer Szene folgt einer hierarchischen Organisation, in der einzelne GameObjects in Parent-Child-Beziehungen zueinander stehen können. Diese Struktur ermöglicht eine effiziente Verwaltung komplexer Objektsysteme, da Transformationen eines übergeordneten Objekts automatisch auf seine untergeordneten Elemente übertragen werden \cite{Unity}, \cite{Unity4}, \cite{Unity6}.
+Die Struktur innerhalt einer Szene folgt einer hierarchischen Organisation, in der einzelne GameObjects in Parent-Child-Beziehungen zueinander stehen können, siehe Abbildung \ref{fig:parent-child-unity}. Diese Struktur ermöglicht eine effiziente Verwaltung komplexer Objektsysteme, da Transformationen eines übergeordneten Objekts automatisch auf seine untergeordneten Elemente übertragen werden \cite{Unity}, \cite{Unity4}, \cite{Unity6}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=1.0]{pics/parent-child-object-unity.jpg}
+    \caption{Parent-Child-Bezihung aus dem Unity Projekt}
+    \label{fig:parent-child-unity}
+\end{figure}
 
 In dem Computerspiel-Entwicklungsprogramm Unity wird jedes Element der virtuellen Welt als sogenanntes GameObject bezeichnet. GameObjects dienen als Container für verschiedene Komponenten, welche das Verhalten und die Eigenschaften des jeweiligen Objekts definieren. Ein GameObject verfügt anfänglich über keine Funktionalität sondern diese wird erst durch die hinzugefügten Komponenten erworben \cite{Unity}, \cite{Unity7}.
 
@@ -40,7 +47,13 @@ Die Bewegung des virtuellen Rollstuhls innerhalb der Simulation basiert auf der 
 
 Diese Komponente gestattet die Simulation physikalischer Eigenschaften wie Masse, Gravitation sowie Kollisionen mit anderen Objekten der virtuellen Umgebung. Dies resultiert in einem realistischeren Bewegungsverhalten, insbesondere beim Befahren von Steigungen oder beim Kontakt mit Hindernissen innerhalb der simulierten Stadtumgebung \cite{Unity}, \cite{Unity9}, \cite{Unity8}.
 
-Im Rahmen des vorliegenden Systems wird der virtuelle Rollstuhl daher als physikalisches Objekt modelliert, dessen Position und Orientierung über die Bewegungsfunktionen der Rigidbody-Komponente gesteuert werden. 
+Im Rahmen des vorliegenden Systems wird der virtuelle Rollstuhl daher als physikalisches Objekt modelliert, dessen Position und Orientierung über die Bewegungsfunktionen der Rigidbody-Komponente gesteuert werden, siehe Abbildung \ref{fig:rigidbody_unity}.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=1.0]{pics/rigidbody.jpg}
+    \caption{Rigidbody Komponente aus dem Unity Projekt}
+    \label{fig:rigidbody_unity}
+\end{figure}
 
 \subsection{Positions- und Orientierungsparameter des virtuellen Rollstuhls}
 \setauthor{Linnea Schönbauer}
@@ -50,11 +63,11 @@ Die Simulation des virtuellen Rollstuhls erfolgt unter Verwendung von Positions-
 \setauthor{Linnea Schönbauer}
 Die Position eines Objekts in der Simulation wird durch ein kartesisches Koordinatensystem beschrieben. Die Position eines Objekts wird durch drei Koordinaten entlang der räumlichen Achse definiert \cite{Unity}, \cite{Foley1997}.
 
-Die Koordinate PosX beschreibt die Position entlang der horizontalen X-Achse, während PosZ die Bewegung entlang der Tiefenachse der virtuellen Umgebung angibt. Die vertikale Position wird durch PosY beschrieben und repräsentiert die Höhe des Objekts innerhalb der Szene \cite{Unity}, \cite{Foley1997}, \cite{Vries}, \cite{Unity10}
+Die Koordinate PosX beschreibt die Position entlang der horizontalen X-Achse, während PosZ die Bewegung entlang der Tiefenachse der virtuellen Umgebung angibt. Die vertikale Position wird durch PosY beschrieben und repräsentiert die Höhe des Objekts innerhalb der Szene \cite{Unity}, \cite{Foley1997}, \cite{Vries}, \cite{Unity10}.
 
 \subsubsection{Orientierung im Raum}\label{sec:orientation-in-3d}
 \setauthor{Linnea Schönbauer}
-Abgesehen von der Position ist auch die Orientierung des Rollstuhls im Raum von signifikanter Relevanz. Die vorliegende Beschreibung gibt Aufschluss über die Ausrichtung des Objekts relativ zu den drei Raumachsen \cite{Vries}, \cite{Craig2020}
+Abgesehen von der Position ist auch die Orientierung des Rollstuhls im Raum von signifikanter Relevanz. Die vorliegende Beschreibung gibt Aufschluss über die Ausrichtung des Objekts relativ zu den drei Raumachsen \cite{Vries}, \cite{Craig2020}.
 
 In einer Vielzahl von 3D-Systemen wird diese Orientierung durch sogenannte Euler-Angles repräsentiert, welche drei Rotationswinkel entlang der Raumachsen definieren \cite{Diebel2006}.
 
@@ -69,7 +82,7 @@ In einer Vielzahl von 3D-Systemen wird diese Orientierung durch sogenannte Euler
 \setauthor{Linnea Schönbauer}
 Die Orientierung wird durch drei Rotationswinkel beschrieben, die jeweils eine Drehung um eine der Raumachsen repräsentieren \cite{Diebel2006}.
 
-Pitch beschreibt die Rotation um die seitliche Achse des Objekts und entspricht einer Vorwärts- oder Rückwärtsneigung. Das Befahren einer steilen Rampe führt beispielsweise zu einer signifikanten Änderung des Pitch \cite{Diebel2006}, \cite{Huck}.
+Pitch beschreibt die Rotation um die seitliche Achse des Objekts und entspricht einer Vorwärts- oder Rückwärtsneigung. Das Befahren einer steilen Rampe führt beispielsweise zu einer signifikanten Änderung des Pitches \cite{Diebel2006}, \cite{Huck}.
 
 Yaw beschreibt die Rotation um die vertikale Achse und determiniert damit die Blickrichtung des Rollstuhls innerhalb der Umgebung \cite{Diebel2006}, \cite{Huck}.
 
