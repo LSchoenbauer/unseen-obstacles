@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  1 APR 2026 20:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  1 APR 2026 20:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1688,13 +1688,8 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 60.
  (thesis.toc [3
 
 ]
-Overfull \hbox (3.22041pt too wide) detected at line 115
+Overfull \hbox (3.22041pt too wide) detected at line 117
  []\T1/lmss/bx/n/12 XIII
- []
-
-
-Overfull \hbox (3.3535pt too wide) detected at line 116
- []\T1/lmss/bx/n/12 XIV
  []
 
 )
@@ -1711,12 +1706,12 @@ l.15
       [1
 
 ]
-<pics/Statistik-Einschraekungen.png, id=176, 373.99725pt x 181.8795pt>
+<pics/Statistik-Einschraekungen.png, id=172, 373.99725pt x 181.8795pt>
 File: pics/Statistik-Einschraekungen.png Graphic file (type png)
 <use pics/Statistik-Einschraekungen.png>
 Package pdftex.def Info: pics/Statistik-Einschraekungen.png  used on input line 18.
 (pdftex.def)             Requested size: 373.99632pt x 181.87904pt.
-<pics/lebensqualiteat.png, id=178, 458.9145pt x 275.22826pt>
+<pics/lebensqualiteat.png, id=174, 458.9145pt x 275.22826pt>
 File: pics/lebensqualiteat.png Graphic file (type png)
 <use pics/lebensqualiteat.png>
 Package pdftex.def Info: pics/lebensqualiteat.png  used on input line 25.
@@ -1727,30 +1722,30 @@ Overfull \hbox (17.89565pt too wide) in paragraph at lines 25--26
  []
 
 [2 <./pics/Statistik-Einschraekungen.png>]
-<pics/Statistik-Hauptaktivitaet.png, id=203, 348.1005pt x 287.27325pt>
+<pics/Statistik-Hauptaktivitaet.png, id=199, 348.1005pt x 287.27325pt>
 File: pics/Statistik-Hauptaktivitaet.png Graphic file (type png)
 <use pics/Statistik-Hauptaktivitaet.png>
 Package pdftex.def Info: pics/Statistik-Hauptaktivitaet.png  used on input line 54.
 (pdftex.def)             Requested size: 348.09964pt x 287.27255pt.
  [3 <./pics/lebensqualiteat.png>] [4 <./pics/Statistik-Hauptaktivitaet.png>]
-<pics/Statistik-Berufsleben.png, id=220, 575.14874pt x 263.7855pt>
+<pics/Statistik-Berufsleben.png, id=216, 575.14874pt x 263.7855pt>
 File: pics/Statistik-Berufsleben.png Graphic file (type png)
 <use pics/Statistik-Berufsleben.png>
 Package pdftex.def Info: pics/Statistik-Berufsleben.png  used on input line 72.
 (pdftex.def)             Requested size: 431.3605pt x 197.83864pt.
  [5 <./pics/Statistik-Berufsleben.png>] [6] [7] [8] [9] [10] [11]) [12]
 chapter 2.
-(sections/related_work.tex [13
-
-]) [14]
-chapter 3.
 (sections/ideenfindung.tex
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 14.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) [15
+)) [13
 
-{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] [16]
+{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] [14]
+chapter 3.
+(sections/related_work.tex [15
+
+]) [16]
 chapter 4.
 (sections/handbuch.tex
 Overfull \hbox (15.36067pt too wide) in paragraph at lines 16--18
@@ -1764,30 +1759,30 @@ Overfull \hbox (161.20996pt too wide) in paragraph at lines 16--18
 
 [17
 
-]) [18]
+] [18]) [19]
 chapter 5.
-(sections/vr-world.tex [19
+(sections/vr-world.tex [20
 
-] [20]
-<pics/bankautomat-ki-generiert.png, id=330, 1027.84pt x 1541.76pt>
+] [21]
+<pics/bankautomat-ki-generiert.png, id=332, 1027.84pt x 1541.76pt>
 File: pics/bankautomat-ki-generiert.png Graphic file (type png)
 <use pics/bankautomat-ki-generiert.png>
 Package pdftex.def Info: pics/bankautomat-ki-generiert.png  used on input line 35.
 (pdftex.def)             Requested size: 308.35437pt x 462.53157pt.
- [21 <./pics/bankautomat-ki-generiert.png (PNG copy)>] [22]
-<pics/prototyp-welt.jpg, id=343, 659.46375pt x 592.2125pt>
+ [22 <./pics/bankautomat-ki-generiert.png (PNG copy)>] [23]
+<pics/prototyp-welt.jpg, id=345, 659.46375pt x 592.2125pt>
 File: pics/prototyp-welt.jpg Graphic file (type jpg)
 <use pics/prototyp-welt.jpg>
 Package pdftex.def Info: pics/prototyp-welt.jpg  used on input line 60.
 (pdftex.def)             Requested size: 395.68129pt x 355.33023pt.
- [23 <./pics/prototyp-welt.jpg>]
-<pics/umgesetzte-welt.jpg, id=351, 388.45125pt x 557.08125pt>
+ [24 <./pics/prototyp-welt.jpg>]
+<pics/umgesetzte-welt.jpg, id=353, 388.45125pt x 557.08125pt>
 File: pics/umgesetzte-welt.jpg Graphic file (type jpg)
 <use pics/umgesetzte-welt.jpg>
 Package pdftex.def Info: pics/umgesetzte-welt.jpg  used on input line 77.
 (pdftex.def)             Requested size: 388.45029pt x 557.0799pt.
- [24] [25 <./pics/umgesetzte-welt.jpg>] [26]
-<pics/pop-up.png, id=397, 639.5895pt x 344.487pt>
+ [25] [26 <./pics/umgesetzte-welt.jpg>] [27]
+<pics/pop-up.png, id=399, 639.5895pt x 344.487pt>
 File: pics/pop-up.png Graphic file (type png)
 <use pics/pop-up.png>
 Package pdftex.def Info: pics/pop-up.png  used on input line 130.
@@ -1797,28 +1792,28 @@ Overfull \hbox (6.69185pt too wide) in paragraph at lines 130--131
  [][] 
  []
 
-) [27 <./pics/pop-up.png>]
+) [28 <./pics/pop-up.png>]
 chapter 6.
-(sections/cyber_sickness.tex [28
+(sections/cyber_sickness.tex [29
 
 ]
-<pics/vestibular-system.jpg, id=415, 1284.8pt x 987.69pt>
+<pics/vestibular-system.jpg, id=417, 1284.8pt x 987.69pt>
 File: pics/vestibular-system.jpg Graphic file (type jpg)
 <use pics/vestibular-system.jpg>
 Package pdftex.def Info: pics/vestibular-system.jpg  used on input line 21.
 (pdftex.def)             Requested size: 256.95544pt x 197.5345pt.
- [29 <./pics/vestibular-system.jpg>] [30] [31] [32] [33] [34] [35] [36] [37] [38]
-<pics/metaquest-controller-placeholder.jpeg, id=581, 1505.625pt x 1379.1525pt>
+ [30 <./pics/vestibular-system.jpg>] [31] [32] [33] [34] [35] [36] [37] [38] [39]
+<pics/metaquest-controller-placeholder.jpeg, id=583, 1505.625pt x 1379.1525pt>
 File: pics/metaquest-controller-placeholder.jpeg Graphic file (type jpg)
 <use pics/metaquest-controller-placeholder.jpeg>
 Package pdftex.def Info: pics/metaquest-controller-placeholder.jpeg  used on input line 159.
 (pdftex.def)             Requested size: 301.11966pt x 275.8256pt.
- [39]) [40 <./pics/metaquest-controller-placeholder.jpeg>]
+ [40]) [41 <./pics/metaquest-controller-placeholder.jpeg>]
 chapter 7.
-(sections/hardware-prototyp.tex [41
+(sections/hardware-prototyp.tex [42
 
 ]
-<pics/prototyp-papier.jpg, id=599, 654.94687pt x 858.20625pt>
+<pics/prototyp-papier.jpg, id=601, 654.94687pt x 858.20625pt>
 File: pics/prototyp-papier.jpg Graphic file (type jpg)
 <use pics/prototyp-papier.jpg>
 Package pdftex.def Info: pics/prototyp-papier.jpg  used on input line 44.
@@ -1828,35 +1823,35 @@ Overfull \hbox (17.44196pt too wide) in paragraph at lines 44--45
  [][] 
  []
 
-[42] [43 <./pics/prototyp-papier.jpg>]
-<pics/prototyp-ende.jpg, id=612, 694.84593pt x 1026.08344pt>
+[43] [44 <./pics/prototyp-papier.jpg>]
+<pics/prototyp-ende.jpg, id=614, 694.84593pt x 1026.08344pt>
 File: pics/prototyp-ende.jpg Graphic file (type jpg)
 <use pics/prototyp-ende.jpg>
 Package pdftex.def Info: pics/prototyp-ende.jpg  used on input line 68.
 (pdftex.def)             Requested size: 416.91077pt x 615.65482pt.
- [44] [45 <./pics/prototyp-ende.jpg>] [46]
-<pics/gummirad.jpg, id=654, 1931.215pt x 2055.68pt>
+ [45] [46 <./pics/prototyp-ende.jpg>] [47]
+<pics/gummirad.jpg, id=656, 1931.215pt x 2055.68pt>
 File: pics/gummirad.jpg Graphic file (type jpg)
 <use pics/gummirad.jpg>
 Package pdftex.def Info: pics/gummirad.jpg  used on input line 123.
 (pdftex.def)             Requested size: 289.66975pt x 308.3387pt.
-<pics/platte-saegen.jpg, id=655, 864.22874pt x 903.375pt>
+<pics/platte-saegen.jpg, id=657, 864.22874pt x 903.375pt>
 File: pics/platte-saegen.jpg Graphic file (type jpg)
 <use pics/platte-saegen.jpg>
 Package pdftex.def Info: pics/platte-saegen.jpg  used on input line 130.
 (pdftex.def)             Requested size: 432.11331pt x 451.6864pt.
-<pics/prototyp-zwischenstand.jpg, id=658, 694.84593pt x 1047.16219pt>
+<pics/prototyp-zwischenstand.jpg, id=660, 694.84593pt x 1047.16219pt>
 File: pics/prototyp-zwischenstand.jpg Graphic file (type jpg)
 <use pics/prototyp-zwischenstand.jpg>
 Package pdftex.def Info: pics/prototyp-zwischenstand.jpg  used on input line 140.
 (pdftex.def)             Requested size: 277.93344pt x 418.85745pt.
-<pics/platte-bohren.jpg, id=661, 1606.0pt x 1204.5pt>
+<pics/platte-bohren.jpg, id=663, 1606.0pt x 1204.5pt>
 File: pics/platte-bohren.jpg Graphic file (type jpg)
 <use pics/platte-bohren.jpg>
 Package pdftex.def Info: pics/platte-bohren.jpg  used on input line 150.
 (pdftex.def)             Requested size: 321.19432pt x 240.89574pt.
- [47 <./pics/gummirad.jpg>] [48 <./pics/platte-saegen.jpg>] [49 <./pics/prototyp-zwischenstand.jpg> <./pics/platte-bohren.jpg>]
-<pics/Schaltplan.png, id=680, 892.5345pt x 490.83376pt>
+ [48 <./pics/gummirad.jpg>] [49 <./pics/platte-saegen.jpg>] [50 <./pics/prototyp-zwischenstand.jpg> <./pics/platte-bohren.jpg>]
+<pics/Schaltplan.png, id=682, 892.5345pt x 490.83376pt>
 File: pics/Schaltplan.png Graphic file (type png)
 <use pics/Schaltplan.png>
 Package pdftex.def Info: pics/Schaltplan.png  used on input line 185.
@@ -1866,59 +1861,71 @@ Overfull \hbox (5.24843pt too wide) in paragraph at lines 185--186
  [][] 
  []
 
-[50] [51 <./pics/Schaltplan.png>] [52]
-<pics/platine.jpg, id=714, 1748.5325pt x 1439.3775pt>
+[51] [52 <./pics/Schaltplan.png>] [53]
+<pics/platine.jpg, id=716, 1748.5325pt x 1439.3775pt>
 File: pics/platine.jpg Graphic file (type jpg)
 <use pics/platine.jpg>
 Package pdftex.def Info: pics/platine.jpg  used on input line 227.
 (pdftex.def)             Requested size: 349.7003pt x 287.87039pt.
- [53 <./pics/platine.jpg>]
-<pics/stepper.jpg, id=725, 401.5pt x 401.5pt>
+ [54 <./pics/platine.jpg>]
+<pics/stepper.jpg, id=727, 401.5pt x 401.5pt>
 File: pics/stepper.jpg Graphic file (type jpg)
 <use pics/stepper.jpg>
 Package pdftex.def Info: pics/stepper.jpg  used on input line 250.
 (pdftex.def)             Requested size: 200.7495pt x 200.7495pt.
- [54 <./pics/stepper.jpg>]
-<pics/stepper-driver.jpg, id=736, 897.3525pt x 741.77126pt>
+ [55 <./pics/stepper.jpg>]
+<pics/stepper-driver.jpg, id=739, 897.3525pt x 741.77126pt>
 File: pics/stepper-driver.jpg Graphic file (type jpg)
 <use pics/stepper-driver.jpg>
 Package pdftex.def Info: pics/stepper-driver.jpg  used on input line 260.
 (pdftex.def)             Requested size: 269.20782pt x 222.5331pt.
- [55 <./pics/stepper-driver.jpg>] [56]
+ [56 <./pics/stepper-driver.jpg>] [57]
 File: pics/tdot.jpg Graphic file (type jpg)
 <use pics/tdot.jpg>
 Package pdftex.def Info: pics/tdot.jpg  used on input line 293.
 (pdftex.def)             Requested size: 430.9132pt x 596.68379pt.
- [57] [58]
-<pics/microschalter.jpg, id=772, 881.2925pt x 1003.75pt>
+ [58] [59]
+<pics/microschalter.jpg, id=774, 881.2925pt x 1003.75pt>
 File: pics/microschalter.jpg Graphic file (type jpg)
 <use pics/microschalter.jpg>
 Package pdftex.def Info: pics/microschalter.jpg  used on input line 342.
 (pdftex.def)             Requested size: 132.18817pt x 150.556pt.
-) [59 <./pics/microschalter.jpg>]
+) [60 <./pics/microschalter.jpg>]
 chapter 8.
-(sections/communication_vr_hardware.tex [60
+(sections/communication_vr_hardware.tex [61
 
-] [61] [62]
-<pics/yz-and-pitch-roll-and-yaw-systems.png, id=846, 432.61626pt x 380.42125pt>
+] [62]
+<pics/parent-child-object-unity.jpg, id=815, 358.33875pt x 180.675pt>
+File: pics/parent-child-object-unity.jpg Graphic file (type jpg)
+<use pics/parent-child-object-unity.jpg>
+Package pdftex.def Info: pics/parent-child-object-unity.jpg  used on input line 35.
+(pdftex.def)             Requested size: 358.33788pt x 180.67455pt.
+ [63 <./pics/parent-child-object-unity.jpg>]
+<pics/rigidbody.jpg, id=842, 371.3875pt x 368.37625pt>
+File: pics/rigidbody.jpg Graphic file (type jpg)
+<use pics/rigidbody.jpg>
+Package pdftex.def Info: pics/rigidbody.jpg  used on input line 53.
+(pdftex.def)             Requested size: 371.38658pt x 368.37534pt.
+ [64 <./pics/rigidbody.jpg>]
+<pics/yz-and-pitch-roll-and-yaw-systems.png, id=859, 432.61626pt x 380.42125pt>
 File: pics/yz-and-pitch-roll-and-yaw-systems.png Graphic file (type png)
 <use pics/yz-and-pitch-roll-and-yaw-systems.png>
-Package pdftex.def Info: pics/yz-and-pitch-roll-and-yaw-systems.png  used on input line 63.
+Package pdftex.def Info: pics/yz-and-pitch-roll-and-yaw-systems.png  used on input line 76.
 (pdftex.def)             Requested size: 432.6152pt x 380.4203pt.
- [63] [64 <./pics/yz-and-pitch-roll-and-yaw-systems.png>] [65] [66] (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+ [65] [66 <./pics/yz-and-pitch-roll-and-yaw-systems.png>] [67] [68] (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 122.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 135.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 122--122
+Overfull \hbox (6.0pt too wide) in paragraph at lines 135--135
 [][][][][][][][] 
  []
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 122.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 135.
 (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1926,139 +1933,135 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [67]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 137--137
+ [69]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 150--150
 [][][][][][][][] 
  []
 
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 143--143
+Overfull \hbox (6.0pt too wide) in paragraph at lines 156--156
 [][][][][][][][] 
  []
 
-[68]
-<pics/rotation-sketch.png, id=943, 332.74312pt x 264.23718pt>
+[70{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
+<pics/rotation-sketch.png, id=961, 332.74312pt x 264.23718pt>
 File: pics/rotation-sketch.png Graphic file (type png)
 <use pics/rotation-sketch.png>
-Package pdftex.def Info: pics/rotation-sketch.png  used on input line 166.
+Package pdftex.def Info: pics/rotation-sketch.png  used on input line 179.
 (pdftex.def)             Requested size: 332.7423pt x 264.23653pt.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 172--172
+Overfull \hbox (6.0pt too wide) in paragraph at lines 185--185
 [][][][][][][][] 
  []
 
-[69{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./pics/rotation-sketch.png>]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 188--188
-[][][][][][][][] 
- []
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 203--203
-[][][][][][][][] 
- []
-
-[70]
-<pics/front-mover-sketch.png, id=981, 501.37312pt x 264.23718pt>
-File: pics/front-mover-sketch.png Graphic file (type png)
-<use pics/front-mover-sketch.png>
-Package pdftex.def Info: pics/front-mover-sketch.png  used on input line 214.
-(pdftex.def)             Requested size: 501.37189pt x 264.23653pt.
-
-Overfull \hbox (60.35416pt too wide) in paragraph at lines 214--215
- [][] 
- []
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 220--220
-[][][][][][][][] 
- []
-
-[71 <./pics/front-mover-sketch.png>]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 236--236
+[71 <./pics/rotation-sketch.png>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 201--201
 [][][][][][][][] 
  []
 
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 240--240
-[][][][][][][][] 
- []
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 244--244
+Overfull \hbox (6.0pt too wide) in paragraph at lines 216--216
 [][][][][][][][] 
  []
 
 [72]
+<pics/front-mover-sketch.png, id=996, 501.37312pt x 264.23718pt>
+File: pics/front-mover-sketch.png Graphic file (type png)
+<use pics/front-mover-sketch.png>
+Package pdftex.def Info: pics/front-mover-sketch.png  used on input line 227.
+(pdftex.def)             Requested size: 501.37189pt x 264.23653pt.
+
+Overfull \hbox (60.35416pt too wide) in paragraph at lines 227--228
+ [][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 233--233
+[][][][][][][][] 
+ []
+
+[73 <./pics/front-mover-sketch.png>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 249--249
+[][][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 253--253
+[][][][][][][][] 
+ []
+
+
 Overfull \hbox (6.0pt too wide) in paragraph at lines 257--257
 [][][][][][][][] 
  []
 
-<pics/back-mover-sketch.png, id=1016, 332.74312pt x 264.23718pt>
+[74]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 270--270
+[][][][][][][][] 
+ []
+
+<pics/back-mover-sketch.png, id=1032, 332.74312pt x 264.23718pt>
 File: pics/back-mover-sketch.png Graphic file (type png)
 <use pics/back-mover-sketch.png>
-Package pdftex.def Info: pics/back-mover-sketch.png  used on input line 271.
+Package pdftex.def Info: pics/back-mover-sketch.png  used on input line 284.
 (pdftex.def)             Requested size: 332.7423pt x 264.23653pt.
-[73]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 277--277
+[75]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 290--290
 [][][][][][][][] 
  []
 
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 287--287
+Overfull \hbox (6.0pt too wide) in paragraph at lines 300--300
 [][][][][][][][] 
  []
 
-[74 <./pics/back-mover-sketch.png>]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 298--298
-[][][][][][][][] 
- []
-
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 307--307
+[76 <./pics/back-mover-sketch.png>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 311--311
 [][][][][][][][] 
  []
 
 
-Overfull \hbox (1.18527pt too wide) in paragraph at lines 314--315
+Overfull \hbox (6.0pt too wide) in paragraph at lines 320--320
+[][][][][][][][] 
+ []
+
+
+Overfull \hbox (1.18527pt too wide) in paragraph at lines 327--328
 \T1/lmr/m/n/12 (-20) Für den Da-ten-aus-tausch zwi-schen der vir-tu-el-len Si-mu-la-ti-on und dem Hardware-Simulator
  []
 
-[75] [76] [77]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 373--373
+[77] [78] [79]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 386--386
 [][][][][][][][] 
  []
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 374.
-[78]
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 387.
+[80]
 
-LaTeX Warning: Reference `sec:hardwareprototyp' on page 79 undefined on input line 412.
+LaTeX Warning: Reference `sec:hardwareprototyp' on page 81 undefined on input line 425.
 
-[79] [80] [81]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 474--474
+[81] [82] [83]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 487--487
 [][][][][][][][] 
  []
 
-[82]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 501--501
+[84]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 514--514
 [][][][][][][][] 
  []
 
-[83]) [84]
+[85]) [86]
 chapter 9.
-(sections/immersion.tex [85
+(sections/immersion.tex [87
 
-] [86]) [87]
+] [88]) [89]
 chapter 10.
-(sections/summary.tex) [88
-
-] (glossary.tex
-\@gls@deffile=\write8
-\openout8 = `thesis.glsdefs'.
-
-)
+(sections/summary.tex)
 No file thesis.gls.
-(thesis.bbl [5]
+(thesis.bbl [5
+
+]
 chapter without number
 [6
 
@@ -2078,7 +2081,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 302--305
  []
 
 [8] [9] [10]) [11]
-Package tocbasic Info: character protrusion at lof deactivated on input line 140.
+Package tocbasic Info: character protrusion at lof deactivated on input line 138.
  (thesis.lof
 Overfull \hbox (76.15189pt too wide) in paragraph at lines 10--10
  [][] [][]\T1/lmr/m/n/12 (-20) Vestibuläres Sys-tem, Quel-le: [][] [][]  
@@ -2090,16 +2093,8 @@ Overfull \hbox (59.38457pt too wide) in paragraph at lines 11--11
  []
 
 )
-\tf@lof=\write9
-\openout9 = `thesis.lof'.
-
- [12
-
-]
-Package tocbasic Info: character protrusion at lot deactivated on input line 141.
- (thesis.lot)
-\tf@lot=\write10
-\openout10 = `thesis.lot'.
+\tf@lof=\write8
+\openout8 = `thesis.lof'.
 
 
 
@@ -2111,26 +2106,22 @@ Class scrreprt Warning: Usage of \float@listhead detected!
 (scrreprt)              has been replaced by several more flexible
 (scrreprt)              features of package `tocbasic`.
 (scrreprt)              Implementation of \float@listhead will
-(scrreprt)              be removed from KOMA-Script soon on input line 142.
+(scrreprt)              be removed from KOMA-Script soon on input line 139.
 
-[13
+[12
 
 ]
 chapter without number
 (thesis.lol)
-\tf@lol=\write11
-\openout11 = `thesis.lol'.
+\tf@lol=\write9
+\openout9 = `thesis.lol'.
 
- [14
 
-]
-chapter without number
-(sections/appendix.tex)
 
 Package caption Warning: Unused \captionsetup[table] on input line 107.
 See the caption package documentation for explanation.
 
-[15
+[13
 
 ] (thesis.aux)
  ***********
@@ -2144,20 +2135,20 @@ LaTeX Warning: There were undefined references.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 130 (\begingroup)
+### semi simple group (level 1) entered at line 128 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 37149 strings out of 474486
- 716573 string characters out of 5743755
- 1980542 words of memory out of 5000000
- 58206 multiletter control sequences out of 15000+600000
+ 37141 strings out of 474486
+ 716480 string characters out of 5743755
+ 1979542 words of memory out of 5000000
+ 58204 multiletter control sequences out of 15000+600000
  614502 words of font info for 155 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,20n,108p,11281b,3702s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
-Output written on thesis.pdf (105 pages, 6782980 bytes).
+Output written on thesis.pdf (104 pages, 6825055 bytes).
 PDF statistics:
- 1703 PDF objects out of 1728 (max. 8388607)
- 466 named destinations out of 1000 (max. 500000)
- 32750 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 1700 PDF objects out of 1728 (max. 8388607)
+ 467 named destinations out of 1000 (max. 500000)
+ 32744 words of extra memory for PDF output out of 35830 (max. 10000000)
 
