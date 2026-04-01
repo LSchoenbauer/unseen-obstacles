@@ -47,30 +47,18 @@ Zuerst wurde ein Prototyp aus Papier konstruiert, siehe Abb. \ref{fig:prototyp-p
 
 \section{Bauungsprozess Hardware Prototyp}
 \setauthor{Elisa Kaltenberger}
-In diesem Kapitel wird der gesamte Entwicklungs- und Fertigungsprozess des Hardware-Prototyps 
-detailliert beschrieben. Zunächst wird die Entscheidungsfindung hinsichtlich der geeigneten 
-Antriebsart erläutert, wobei Schrittmotoren mit hydraulischen Systemen verglichen und die 
-Gründe für die Wahl der Schrittmotoren dargelegt werden.
+In diesem Kapitel wird der gesamte Entwicklungs- und Fertigungsprozess des Hardware-Prototyps detailliert beschrieben. Zunächst wird die Entscheidungsfindung hinsichtlich der geeigneten Antriebsart erläutert, wobei Schrittmotoren mit hydraulischen Systemen verglichen und die Gründe für die Wahl der Schrittmotoren dargelegt werden.
 
-Anschließend wird der mechanische Aufbau des Prototyps beschrieben, von der Grundkonstruktion 
-mit Holzplatten und Rollenmechanismus bis hin zur Integration des Gummirads sowie der 
-Entwicklung und Fertigung eines eigenen 3D-gedruckten Bauteils aus ABS.
+Anschließend wird der mechanische Aufbau des Prototyps beschrieben, von der Grundkonstruktion mit Holzplatten und Rollenmechanismus bis hin zur Integration des Gummirads sowie der Entwicklung und Fertigung eines eigenen 3D-gedruckten Bauteils aus ABS.
 \cite{AmitBandyopadhyay2018}
 
 
-Ein weiterer zentraler Bestandteil des Kapitels ist die Entwicklung der elektronischen 
-Steuerplatine. Dabei werden sowohl die Planung und das Layout in KiCad als auch der vollständige 
-Herstellungsprozess der Leiterplatte ausführlich erläutert. Ergänzend dazu werden die durchgeführten 
-Testverfahren zur Überprüfung der Funktionalität beschrieben.
+Ein weiterer zentraler Bestandteil des Kapitels ist die Entwicklung der elektronischen Steuerplatine. Dabei werden sowohl die Planung und das Layout in KiCad als auch der vollständige Herstellungsprozess der Leiterplatte ausführlich erläutert. Ergänzend dazu werden die durchgeführten Testverfahren zur Überprüfung der Funktionalität beschrieben.
 \cite{BerndWiebus2013}
 
-Darüber hinaus wird die fachgerechte Verkabelung der Schrittmotoren inklusive Motortreiber und 
-Spannungsversorgung dargestellt. Die erste Ansteuerung der Motoren über eine eigens entwickelte 
-Weboberfläche markiert dabei einen wichtigen Meilenstein im Entwicklungsprozess.
+Darüber hinaus wird die fachgerechte Verkabelung der Schrittmotoren inklusive Motortreiber und Spannungsversorgung dargestellt. Die erste Ansteuerung der Motoren über eine eigens entwickelte Weboberfläche markiert dabei einen wichtigen Meilenstein im Entwicklungsprozess.
 
-Abschließend behandelt das Kapitel die Präsentation des Prototyps am Tag der offenen Tür der HTL 
-Leonding, das erhaltene Feedback sowie den weiteren technischen Ausbau des Systems durch die 
-Integration von Mikroschaltern zur Positionsbestimmung und Sicherheit.
+Abschließend behandelt das Kapitel die Präsentation des Prototyps am Tag der offenen Tür der HTL Leonding, das erhaltene Feedback sowie den weiteren technischen Ausbau des Systems durch die Integration von Mikroschaltern zur Positionsbestimmung und Sicherheit.
 
 
 \begin{figure}
@@ -331,22 +319,26 @@ elektrisch optimiert. Es wurden Microschalter Abb. \ref{fig:microschalter} angeb
 vier Stück pro Heber, um die genaue Position des Wagenhebers auslesen zu können. Einer für die unterste 
 Position, einer für die höchste Position, einer für die Mitte und einer, um zu erkennen, ob der Rollstuhl 
 überhaupt auf dem Hardware-Prototyp steht.
+\cite{Wikipedia2024}, \cite{Openelab2025}
 
 Die Microschalter wurden auf einer stabilen Metallschiene montiert, die fest mit dem Wagenheber verschraubt 
 wurde. Auf dieser Schiene befindet sich zusätzlich der Motor, der den Wagenheber antreibt. Durch diese 
 kompakte Anordnung konnten kurze Kabelwege realisiert und die Störanfälligkeit des Systems reduziert werden. 
 Sobald die Schalter betätigt werden, wird ein Signal an die Platine gesendet, um die aktuelle Position des 
 Wagenhebers eindeutig zu bestimmen.
+\cite{Wikipedia2024}, \cite{Openelab2025}
 
 Die Signale der Microschalter werden dabei digital ausgewertet, sodass jederzeit klar erkennbar ist, in 
 welchem Bewegungsbereich sich der Wagenheber befindet. Dies verhindert einen möglichen Überlauf, falls der 
 Wagenheber zu weit nach oben oder unten fährt, und ermöglicht eine genaue Steuerung der Bewegungen. 
+\cite{Wikipedia2024}, \cite{Openelab2025}
 
 Die mittlere Position wird als Referenzpunkt für definierte Fahrhöhen genutzt, wodurch wiederholbare und 
 reproduzierbare Bewegungsabläufe gewährleistet werden können. Der Schalter zur Erkennung des Rollstuhls 
 sorgt dafür, dass der Hebevorgang nur dann gestartet werden kann, wenn sich tatsächlich ein Rollstuhl auf 
 dem Prototyp befindet. Dadurch wird ein unbeabsichtigtes Hochfahren ohne Last verhindert und die 
 Betriebssicherheit deutlich erhöht.
+\cite{Wikipedia2024}, \cite{Openelab2025}
 
 \begin{figure}
     \centering

@@ -168,6 +168,18 @@ WikiBooks, ,,Platinen selber herstellen,'' 2026. Online verfügbar:
   \url{https://de.wikibooks.org/wiki/Platinen_selber_herstellen}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Wikipedia2024}
+\BIBentryALTinterwordspacing
+Wikipedia, ,,Mikroschalter,'' 2024. Online verfügbar:
+  \url{https://de.wikipedia.org/wiki/Mikroschalter}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Openelab2025}
+\BIBentryALTinterwordspacing
+Openelab, ,,Fakten über Mikroschalter,'' 2025. Online verfügbar:
+  \url{https://openelab.io/de/blogs/learn/10-most-important-things-you-should-know-about-micro-switches?srsltid=AfmBOorpDLsv6jUmN8SR_etkJarddtLHvOYlbu_jwiodcPUtI1WFIXGC}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Gavgani2018}
 A.~M. Gavgani, F.~R. Walker \emph{et~al.}, ,,{A comparative study of
   cybersickness during exposure to virtual reality and “classic” motion

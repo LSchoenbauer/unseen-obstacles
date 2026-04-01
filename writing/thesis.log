@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  31 MAR 2026 12:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  31 MAR 2026 13:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1810,38 +1810,38 @@ Overfull \hbox (17.44196pt too wide) in paragraph at lines 42--43
 <pics/prototyp-ende.jpg, id=366, 694.84593pt x 1026.08344pt>
 File: pics/prototyp-ende.jpg Graphic file (type jpg)
 <use pics/prototyp-ende.jpg>
-Package pdftex.def Info: pics/prototyp-ende.jpg  used on input line 78.
+Package pdftex.def Info: pics/prototyp-ende.jpg  used on input line 66.
 (pdftex.def)             Requested size: 416.91077pt x 615.65482pt.
  [28] [29 <./pics/prototyp-ende.jpg>]
 <pics/gummirad.jpg, id=400, 1931.215pt x 2055.68pt>
 File: pics/gummirad.jpg Graphic file (type jpg)
 <use pics/gummirad.jpg>
-Package pdftex.def Info: pics/gummirad.jpg  used on input line 133.
+Package pdftex.def Info: pics/gummirad.jpg  used on input line 121.
 (pdftex.def)             Requested size: 289.66975pt x 308.3387pt.
  [30]
 <pics/platte-saegen.jpg, id=410, 864.22874pt x 903.375pt>
 File: pics/platte-saegen.jpg Graphic file (type jpg)
 <use pics/platte-saegen.jpg>
-Package pdftex.def Info: pics/platte-saegen.jpg  used on input line 140.
+Package pdftex.def Info: pics/platte-saegen.jpg  used on input line 128.
 (pdftex.def)             Requested size: 432.11331pt x 451.6864pt.
 <pics/prototyp-zwischenstand.jpg, id=413, 694.84593pt x 1047.16219pt>
 File: pics/prototyp-zwischenstand.jpg Graphic file (type jpg)
 <use pics/prototyp-zwischenstand.jpg>
-Package pdftex.def Info: pics/prototyp-zwischenstand.jpg  used on input line 150.
+Package pdftex.def Info: pics/prototyp-zwischenstand.jpg  used on input line 138.
 (pdftex.def)             Requested size: 277.93344pt x 418.85745pt.
 <pics/platte-bohren.jpg, id=416, 1606.0pt x 1204.5pt>
 File: pics/platte-bohren.jpg Graphic file (type jpg)
 <use pics/platte-bohren.jpg>
-Package pdftex.def Info: pics/platte-bohren.jpg  used on input line 160.
+Package pdftex.def Info: pics/platte-bohren.jpg  used on input line 148.
 (pdftex.def)             Requested size: 321.19432pt x 240.89574pt.
  [31 <./pics/gummirad.jpg>] [32 <./pics/platte-saegen.jpg>] [33 <./pics/prototyp-zwischenstand.jpg> <./pics/platte-bohren.jpg>]
 <pics/Schaltplan.png, id=434, 892.5345pt x 490.83376pt>
 File: pics/Schaltplan.png Graphic file (type png)
 <use pics/Schaltplan.png>
-Package pdftex.def Info: pics/Schaltplan.png  used on input line 195.
+Package pdftex.def Info: pics/Schaltplan.png  used on input line 183.
 (pdftex.def)             Requested size: 446.26616pt x 245.41628pt.
 
-Overfull \hbox (5.24843pt too wide) in paragraph at lines 195--196
+Overfull \hbox (5.24843pt too wide) in paragraph at lines 183--184
  [][] 
  []
 
@@ -1849,43 +1849,43 @@ Overfull \hbox (5.24843pt too wide) in paragraph at lines 195--196
 <pics/platine.jpg, id=468, 1748.5325pt x 1439.3775pt>
 File: pics/platine.jpg Graphic file (type jpg)
 <use pics/platine.jpg>
-Package pdftex.def Info: pics/platine.jpg  used on input line 237.
+Package pdftex.def Info: pics/platine.jpg  used on input line 225.
 (pdftex.def)             Requested size: 349.7003pt x 287.87039pt.
  [37 <./pics/platine.jpg>]
 <pics/stepper.jpg, id=480, 401.5pt x 401.5pt>
 File: pics/stepper.jpg Graphic file (type jpg)
 <use pics/stepper.jpg>
-Package pdftex.def Info: pics/stepper.jpg  used on input line 260.
+Package pdftex.def Info: pics/stepper.jpg  used on input line 248.
 (pdftex.def)             Requested size: 200.7495pt x 200.7495pt.
  [38 <./pics/stepper.jpg>]
 <pics/stepper-driver.jpg, id=491, 897.3525pt x 741.77126pt>
 File: pics/stepper-driver.jpg Graphic file (type jpg)
 <use pics/stepper-driver.jpg>
-Package pdftex.def Info: pics/stepper-driver.jpg  used on input line 270.
+Package pdftex.def Info: pics/stepper-driver.jpg  used on input line 258.
 (pdftex.def)             Requested size: 269.20782pt x 222.5331pt.
  [39 <./pics/stepper-driver.jpg>] [40]
 File: pics/tdot.jpg Graphic file (type jpg)
 <use pics/tdot.jpg>
-Package pdftex.def Info: pics/tdot.jpg  used on input line 303.
+Package pdftex.def Info: pics/tdot.jpg  used on input line 291.
 (pdftex.def)             Requested size: 430.9132pt x 596.68379pt.
  [41] [42]
-<pics/microschalter.jpg, id=516, 881.2925pt x 1003.75pt>
+<pics/microschalter.jpg, id=526, 881.2925pt x 1003.75pt>
 File: pics/microschalter.jpg Graphic file (type jpg)
 <use pics/microschalter.jpg>
-Package pdftex.def Info: pics/microschalter.jpg  used on input line 353.
+Package pdftex.def Info: pics/microschalter.jpg  used on input line 345.
 (pdftex.def)             Requested size: 132.18817pt x 150.556pt.
 ) [43 <./pics/microschalter.jpg>]
 chapter 7.
 (sections/cyber_sickness.tex [44
 
 ]
-<pics/vestibular-system.jpg, id=528, 1284.8pt x 987.69pt>
+<pics/vestibular-system.jpg, id=538, 1284.8pt x 987.69pt>
 File: pics/vestibular-system.jpg Graphic file (type jpg)
 <use pics/vestibular-system.jpg>
 Package pdftex.def Info: pics/vestibular-system.jpg  used on input line 21.
 (pdftex.def)             Requested size: 256.95544pt x 197.5345pt.
  [45 <./pics/vestibular-system.jpg>] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55]
-<pics/metaquest-controller-placeholder.jpeg, id=690, 1505.625pt x 1379.1525pt>
+<pics/metaquest-controller-placeholder.jpeg, id=700, 1505.625pt x 1379.1525pt>
 File: pics/metaquest-controller-placeholder.jpeg Graphic file (type jpg)
 <use pics/metaquest-controller-placeholder.jpeg>
 Package pdftex.def Info: pics/metaquest-controller-placeholder.jpeg  used on input line 172.
@@ -1895,7 +1895,7 @@ chapter 8.
 (sections/communication_vr_hardware.tex [58
 
 ] [59] [60]
-<pics/yz-and-pitch-roll-and-yaw-systems.png, id=768, 432.61626pt x 380.42125pt>
+<pics/yz-and-pitch-roll-and-yaw-systems.png, id=778, 432.61626pt x 380.42125pt>
 File: pics/yz-and-pitch-roll-and-yaw-systems.png Graphic file (type png)
 <use pics/yz-and-pitch-roll-and-yaw-systems.png>
 Package pdftex.def Info: pics/yz-and-pitch-roll-and-yaw-systems.png  used on input line 63.
@@ -1915,13 +1915,13 @@ Overfull \hbox (9.75749pt too wide) in paragraph at lines 145--145
  []
 
 [66]
-<pics/rotation-sketch.png, id=856, 332.74312pt x 264.23718pt>
+<pics/rotation-sketch.png, id=866, 332.74312pt x 264.23718pt>
 File: pics/rotation-sketch.png Graphic file (type png)
 <use pics/rotation-sketch.png>
 Package pdftex.def Info: pics/rotation-sketch.png  used on input line 166.
 (pdftex.def)             Requested size: 332.7423pt x 264.23653pt.
  [67{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./pics/rotation-sketch.png>] [68]
-<pics/front-mover-sketch.png, id=888, 501.37312pt x 264.23718pt>
+<pics/front-mover-sketch.png, id=898, 501.37312pt x 264.23718pt>
 File: pics/front-mover-sketch.png Graphic file (type png)
 <use pics/front-mover-sketch.png>
 Package pdftex.def Info: pics/front-mover-sketch.png  used on input line 214.
@@ -1932,7 +1932,7 @@ Overfull \hbox (60.35416pt too wide) in paragraph at lines 214--215
  []
 
 [69 <./pics/front-mover-sketch.png>] [70]
-<pics/back-mover-sketch.png, id=915, 332.74312pt x 264.23718pt>
+<pics/back-mover-sketch.png, id=925, 332.74312pt x 264.23718pt>
 File: pics/back-mover-sketch.png Graphic file (type png)
 <use pics/back-mover-sketch.png>
 Package pdftex.def Info: pics/back-mover-sketch.png  used on input line 271.
@@ -1960,8 +1960,18 @@ No file thesis.gls.
 chapter without number
 [6
 
-] [7]
-Overfull \hbox (1.08617pt too wide) in paragraph at lines 262--266
+]
+Underfull \hbox (badness 10000) in paragraph at lines 179--182
+\T1/lmr/m/n/12 (+20) bar: []$https : / / openelab . io / de / blogs / learn / 10 -[] most -[] important -[] things -[] you -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--182
+\T1/lmr/m/n/12 (+20) should -[] know -[] about -[] micro -[] switches ? srsltid = AfmBOorpDLsv6jUmN8SR _
+ []
+
+[7]
+Overfull \hbox (1.08617pt too wide) in paragraph at lines 274--278
 \T1/lmr/m/n/12 (-20) (FIVE): Speculations on the Role of Presence in Virtual Environments Unavailable,''
  []
 
@@ -2025,17 +2035,17 @@ L3 programming layer <2024-01-04>
 ### semi simple group (level 1) entered at line 131 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 36454 strings out of 474486
- 707691 string characters out of 5743755
+ 36458 strings out of 474486
+ 707755 string characters out of 5743755
  1949542 words of memory out of 5000000
- 57626 multiletter control sequences out of 15000+600000
+ 57628 multiletter control sequences out of 15000+600000
  607525 words of font info for 147 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,20n,108p,11281b,2548s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Elisa/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (102 pages, 6633916 bytes).
+Output written on thesis.pdf (102 pages, 6637470 bytes).
 PDF statistics:
- 1485 PDF objects out of 1728 (max. 8388607)
- 369 named destinations out of 1000 (max. 500000)
+ 1500 PDF objects out of 1728 (max. 8388607)
+ 371 named destinations out of 1000 (max. 500000)
  27641 words of extra memory for PDF output out of 29859 (max. 10000000)
 
