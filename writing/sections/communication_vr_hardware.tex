@@ -1,8 +1,8 @@
-Die Kopplung des physischen Hardware-Prototyps mit der virtuellen Simulationsumgebung konstituiert einen zentralen Bestandteil des Projekts. Insbesondere im Kontext von Virtual-Reality-Anwendungen ermöglicht die Integration realer Eingabegeräte mit virtuellen Systemmodellen eine realitätsnahe Interaktion sowie die Untersuchung von Systemverhalten unter kontrollierten Bedingungen \cite{Jason2015}, \cite{Bowman2004}, \cite{Perez2025}.
+Die Kopplung des physischen Hardware-Simulators mit der virtuellen Simulationsumgebung konstituiert einen zentralen Bestandteil des Projekts. Insbesondere im Kontext von Virtual-Reality-Anwendungen ermöglicht die Integration realer Eingabegeräte mit virtuellen Systemmodellen eine realitätsnahe Interaktion sowie die Untersuchung von Systemverhalten unter kontrollierten Bedingungen \cite{Jason2015}, \cite{Bowman2004}, \cite{Perez2025}.
 
 Eine zentrale Herausforderung bei der Implementierung solcher hybrider Systeme besteht in der zuverlässigen und latenzarmen Kommunikation zwischen der Hardwarekomponente und der VR-Anwendung. Um eine konsistente Abbildung des physischen System innerhalb der virtuellen Umgebung zu gewährleisten, ist ein kontinuierlicher Austausch von Zustands- und Steuerdaten erforderlich. Dabei spielen Aspekte wie die Datenformatierung, die Synchronisation der Systemzustände sowie die Minimierung von Übertragungs- und Verarbeitungszeiten eine entscheidende Rolle für die Gesamtperformance des Systems \cite{Coppik}, \cite{Cleland2022}, \cite{Alam2025}.
 
-In diesem Abschnitt wird die Implementierung Kommunikationsarchitektur zwischen dem Hardwareprototyp und der VR-Simulation beschrieben. Zunächst erfolgt eine Erläuterung der grundlegenden Systemstruktur sowie der Rolle der einzelnen Komponenten. Im Anschluss erfolgt die Darstellung des verwendeten Kommunikationsmechanismus sowie des zugrunde liegenden Datenprotokolls. Abschließend werden die Implementierungsdetails der Schnittstelle sowie Maßnahmen zur Gewährleistung einer stabilen und konsistenten Datenübertragung erörtert. 
+In diesem Abschnitt wird die Implementierung Kommunikationsarchitektur zwischen dem Hardware-Simulator und der VR-Simulation beschrieben. Zunächst erfolgt eine Erläuterung der grundlegenden Systemstruktur sowie der Rolle der einzelnen Komponenten. Im Anschluss erfolgt die Darstellung des verwendeten Kommunikationsmechanismus sowie des zugrunde liegenden Datenprotokolls. Abschließend werden die Implementierungsdetails der Schnittstelle sowie Maßnahmen zur Gewährleistung einer stabilen und konsistenten Datenübertragung erörtert. 
 
 \section{Systemarchitektur des Gesamtsystems}
 \setauthor{Linnea Schönbauer}
@@ -12,11 +12,11 @@ Die Architektur lässt sich in drei Hauptkomponenten unterteilen:
 \begin{itemize}
         \item die virtuelle Simulation innerhalb der Unity-Engine
         \item die Netzwerkkommunikation zwischen Simulation und Hardware
-        \item die Steuerungseinheit des Hardwareprototypen
+        \item die Steuerungseinheit des Hardware-Simulators
 \end{itemize}
 Im Rahmen der Simulation erfolgt eine kontinuierliche Berechnung der Bewegungsparameter des virtuellen Rollstuhls. Die vorliegenden Parameter umfassen sowohl die räumliche Position als auch die Orientierung des Objekts innerhalb der virtuellen Umgebung.
 
-Im Anschluss werden die gewonnenen Bewegungsdaten über eine Netzwerkverbindung an den Hardwareprototypen übertragen, wo sie von einem Mikrocontroller verarbeitet werden. Der Mikrocontroller übernimmt dabei die Aufgabe, die empfangenen Simulationsdaten in konkrete Steuerbefehle für die mechanischen Aktuatoren zu übersetzen. 
+Im Anschluss werden die gewonnenen Bewegungsdaten über eine Netzwerkverbindung an den Hardware-Simulator übertragen, wo sie von einem Mikrocontroller verarbeitet werden. Der Mikrocontroller übernimmt dabei die Aufgabe, die empfangenen Simulationsdaten in konkrete Steuerbefehle für die mechanischen Aktuatoren zu übersetzen. 
 
 Die vorliegende Architektur ermöglicht die Realisierung einer direkten Kopplung zwischen virtueller Bewegung und physischer Plattform.
 
@@ -44,7 +44,7 @@ Im Rahmen des vorliegenden Systems wird der virtuelle Rollstuhl daher als physik
 
 \subsection{Positions- und Orientierungsparameter des virtuellen Rollstuhls}
 \setauthor{Linnea Schönbauer}
-Die Simulation des virtuellen Rollstuhls erfolgt unter Verwendung von Positions- und Orientierungsdaten zur adäquaten Beschreibung der Bewegung innerhalb der Simulation. Diese Werte beschreiben den aktuellen Zustand des Objekts im dreidimensionalen Raum und bilden gleichzeitig die Grundlage für die spätere Übertragung an den Hardwareprototyp.
+Die Simulation des virtuellen Rollstuhls erfolgt unter Verwendung von Positions- und Orientierungsdaten zur adäquaten Beschreibung der Bewegung innerhalb der Simulation. Diese Werte beschreiben den aktuellen Zustand des Objekts im dreidimensionalen Raum und bilden gleichzeitig die Grundlage für die spätere Übertragung an den Hardware-Simulator.
 
 \subsubsection{Positionskoordinaten}
 \setauthor{Linnea Schönbauer}
@@ -95,9 +95,9 @@ Die Berechnung der Vorwärtsbewegung erfolgt entlang der lokalen Vorwärtsrichtu
 
 Darüber hinaus besteht die Möglichkeit, den Rollstuhl um die vertikale Achse zu rotieren, wodurch Richtungsänderungen innerhalb der virtuellen Umgebung ermöglicht werden. Die Rotationsgeschwindigkeit wird über einen separaten Parameter gesteuert und ebenfalls innerhalb des Physik-Update-Zyklus der Simulation berechnet.
 
-\section{Systemarchitektur des Hardware-Prototypen}
+\section{Systemarchitektur des Hardware-Simulators}
 \setauthor{Linnea Schönbauer}
-Neben der mechanischen Konstruktion der Plattform, die in Kapitel 6 beschrieben wurde, ist für den Betrieb des Systems eine elektronische Steuerung erforderlich, welche die Bewegungen der Plattform koordiniert und ansteuert. Diese Steuerung bildet die zentrale Schnittstelle zwischen der virtuellen Simulation und den mechanischen Aktuatoren des Hardwareprototyps \cite{Bishop2006}.
+Neben der mechanischen Konstruktion der Plattform, die in Kapitel 6 beschrieben wurde, ist für den Betrieb des Systems eine elektronische Steuerung erforderlich, welche die Bewegungen der Plattform koordiniert und ansteuert. Diese Steuerung bildet die zentrale Schnittstelle zwischen der virtuellen Simulation und den mechanischen Aktuatoren des Hardware-Simulators \cite{Bishop2006}.
 
 Die Steuerungsarchitektur basiert auf einem Mikrocontroller des Typ ESP32, der als zentrale Recheneinheit innerhalb des Systems fungiert. Der Mikrocontroller übernimmt mehrere Aufgaben: Einerseits empfängt er Bewegungsdaten aus der Simulation über eine Netzwerkverbindung, andererseits berechnet er daraus die notwendigen Steuerbefehle für die einzelnen Schrittmotoren der Plattform \cite{ESPIDF}, \cite{Embedded}
 
@@ -106,11 +106,11 @@ Die eigentliche mechanische Bewegung wird durch mehrere Schrittmotoren erzeugt, 
 \subsection{Verarbeitung der Simulationsdaten}
 \setauthor{Linnea Schönbauer}
 Die Steuerung der Plattform basiert auf Bewegungsdaten, die aus der virtuellen Simulation generiert werden. Diese Daten beschreiben die aktuelle Position und Orientierung des virtuellen Rollstuhls in der simulierten Umgebung. Insbesondere werden Rotationsparameter verwendet, die die Neigung und Ausrichtung des Rollstuhls im Raum beschreiben. Die Orientierung wird dabei über drei Rotationswinkel, sogenannte Pitch-, Roll- und Yaw-Winkel, dargestellt. Diese Parameter beschreiben die Rotation des Objekts um die drei Raumachsen und bilden somit eine vollständige Beschreibung der räumlichen Orientierung, siehe Abschnitt \ref{sec:orientation-in-3d}.
-Während der Simulation werden diese Werte kontinuierlich aktualisiert und and die Steuerung des Hardwareprototypen übertragen.
+Während der Simulation werden diese Werte kontinuierlich aktualisiert und and die Steuerung des Hardware-Simulators übertragen.
 
 \subsection{Umrechnung von Simulationsdaten in Motorbewegungen}
 \setauthor{Linnea Schönbauer}
-Die in der virtuellen Simulation berechneten Bewegungsdaten müssen in konkrete Bewegungsbefehle für die physische Plattform übersetzt werden. Das Ziel dieses Prozesses besteht darin, die Bewegungen des virtuellen Rollstuhls möglichst realitätsnah auf die mechanische Struktur des Hardware-Prototypen zu übertragen. Hierzu werden die in der Simulation ermittelten Lage- und Positionsänderungen in entsprechende Bewegungen der einzelnen Aktoren des Systems umgerechnet \cite{Astrom2021}.
+Die in der virtuellen Simulation berechneten Bewegungsdaten müssen in konkrete Bewegungsbefehle für die physische Plattform übersetzt werden. Das Ziel dieses Prozesses besteht darin, die Bewegungen des virtuellen Rollstuhls möglichst realitätsnah auf die mechanische Struktur des Hardware-Simulators zu übertragen. Hierzu werden die in der Simulation ermittelten Lage- und Positionsänderungen in entsprechende Bewegungen der einzelnen Aktoren des Systems umgerechnet \cite{Astrom2021}.
 
 Die Simulation stellt dabei in regelmäßigen Zeitabständen die aktuellen Zustandsgrößen des virtuellen Systems bereit. Zu diesen gehören insbesondere die Rotationswinkel um die drei Raumachsen (Yaw, Pitch und Roll) sowie die Position im dreidimensionalen Raum. Für die Steuerung der Plattform werden jedoch nicht die absoluten Werte dieser Größen verwendet, sondern deren zeitliche Änderungen zwischen zwei aufeinanderfolgenden Simulationsschritten \cite{Astrom2021}.
 
@@ -206,7 +206,7 @@ Da der Zeitstempel in Millisekunden vorliegt, erfolgt die Umrechnung auf Minunte
 Diese Berechnung ermöglicht eine dynamische Anpassung der Motorbewegung an die Geschwindigkeit der Simulation. Demzufolge resultieren schnelle Rotationen in höheren Drehzahlen des Motors, während langsame Bewegungen entsprechend langsamer ausgeführt werden \cite{Astrom2021}.
 
 \subsubsection{Berechnung der Neigungsbewegung des vorderen Aktuators (Pitch)}
-Neben der Rotationsbewegung ist die Neigung des Rollstuhls um die Querachse von zentraler Bedeutung für die Übertragung der Bewegung. In der Simulation wird diese Bewegung durch eine Änderung des Pitch-Winkel repräsentiert, was das Vor- bzw. Zurückkippen des virtuellen Rollstuhls beschreibt, siehe Abschnitt \ref{sec:orientation-in-3d}. Die Übertragung der Bewegung auf den physischen Prototypen erfolgt mittels eines Aktuators vorne, welcher eine Anpassung der Höhe der Plattform im Frontbereich ermöglicht.
+Neben der Rotationsbewegung ist die Neigung des Rollstuhls um die Querachse von zentraler Bedeutung für die Übertragung der Bewegung. In der Simulation wird diese Bewegung durch eine Änderung des Pitch-Winkel repräsentiert, was das Vor- bzw. Zurückkippen des virtuellen Rollstuhls beschreibt, siehe Abschnitt \ref{sec:orientation-in-3d}. Die Übertragung der Bewegung auf den physischen Hardware-Simulator erfolgt mittels eines Aktuators vorne, welcher eine Anpassung der Höhe der Plattform im Frontbereich ermöglicht.
 
 Die Realisierung dieser Bewegung bedingt eine Konvertierung des übermittelten Rotationswinkels in eine lineare Hubbewegung des vorderen Wagenhebers. Aufgrund der Montage des Wagenhebers in einem festen Abstand zum Drehzentrum des Systems ergibt sich die notwendige Hubbewegung aus der geometrischen Beziehung zwischen Rotationswinkel und vertikaler Verschiebung eines Punktes auf einem Kreis. Siehe Skizze \ref{fig:front-mover-sketch} \cite{Bohme1967}
 \begin{figure}[htbp]
@@ -311,7 +311,7 @@ Da beide hinteren Aktuatoren an derselben Bewegung beteiligt sind, ist eine exak
 
 \subsection{Netzwerkarchitektur des Systems}
 \setauthor{Linnea Schönbauer}
-Für den Datenaustausch zwischen der virtuellen Simulation und dem Hardware-Prototyp wird eine drahtlose Netzwerkverbindung verwendet. Die Netzwerkarchitektur basiert auf einem Mikrocontroller des Typs ESP32. Dieser fungiert sowohl als Steuerungseinheit der Plattform als auch als drahtloser Zugangspunkt \cite{EspressifArduino}, \cite{Wikipedia}.
+Für den Datenaustausch zwischen der virtuellen Simulation und dem Hardware-Simulator wird eine drahtlose Netzwerkverbindung verwendet. Die Netzwerkarchitektur basiert auf einem Mikrocontroller des Typs ESP32. Dieser fungiert sowohl als Steuerungseinheit der Plattform als auch als drahtloser Zugangspunkt \cite{EspressifArduino}, \cite{Wikipedia}.
 
 Der Mikrocontroller stellt ein eigenes WLAN-Netzwerk bereit mit dem sich das System auf dem die VR-Simulation ausgeführt wird verbinden kann. Der Vorteil dieser Architektur ist, dass keine zusätzliche Netzwerkinfrastruktur erforderlich ist und die Kommunikation direkt zwischen Simulation und Hardware erfolgen kann \cite{EspressifArduino}, \cite{ESP32WifiAccessPoint}.
 
@@ -321,7 +321,7 @@ Im vorliegenden System wird die Adresse \emph{192.168.7.3} als feste IP-Adresse 
 
 \subsection{Auswahl des Kommunikationsprotokolls} \label{sec:communication-protocol}
 \setauthor{Linnea Schönbauer}
-Für die Übertragung der Simulationsdaten zwischen der VR-Anwendung und dem Hardware-Prototyp wurde das Netzwerkprotokoll User Datagram Protocol (UDP) ausgewählt. UDP ist ein verbindungsloses Transportprotokoll, das im Gegensatz zum Transmission Control Protocol (TCP) keine garantierte Zustellung der Datenpakete sicherstellt \cite{Postel1980}, \cite{Peterson2007}.
+Für die Übertragung der Simulationsdaten zwischen der VR-Anwendung und dem Hardware-Simulator wurde das Netzwerkprotokoll User Datagram Protocol (UDP) ausgewählt. UDP ist ein verbindungsloses Transportprotokoll, das im Gegensatz zum Transmission Control Protocol (TCP) keine garantierte Zustellung der Datenpakete sicherstellt \cite{Postel1980}, \cite{Peterson2007}.
 
 Die Wahl von UDP ist insbesondere bei Echtzeitanwendungen üblich, da das Protokoll eine sehr geringe Kommunikationslatenz aufweist. Während TCP zusätzliche Mechanismen zur Fehlerkorrektur, Paketbestätigung und Wiederholung verlorener Daten implementiert, verzichtet UDP auf diese Funktionen. Dadurch kann die Übertragung deutlich schneller erfolgen \cite{Postel1980}, \cite{Peterson2007}.
 
@@ -339,7 +339,7 @@ Während der Initialisierung der Anwendung wird zunächst ein UDP-Client erstell
 
 Die eigentliche Datenübertragung erfolgt innerhalb der Update-Schleife der Unity-Engin. Dabei wird in regelmäßigen Zeitabständen die aktuelle Position und Orientierung des virtuellen Rollstuhls ausgelesen und anschließend als Netzwerkpaket an den Mikrocontroller übertragen.
 
-Durch diese Implementierung wird sichergestellt, dass die Bewegungsdaten der Simulation kontinuierlich an den Hardware-Prototyp weitergeleitet werden \cite{Microsoft}.
+Durch diese Implementierung wird sichergestellt, dass die Bewegungsdaten der Simulation kontinuierlich an den Hardware-Simulator weitergeleitet werden \cite{Microsoft}.
 
 \subsection{Aufbau des Datenpakets}
 \setauthor{Linnea Schönbauer}
@@ -409,9 +409,9 @@ Die Datenübertragung wird durch einen Timer innerhalb der Unity-Anwendung geste
 
 \section{Latenz und Echtzeitverhalten des Systems}
 \setauthor{Linnea Schönbauer}
-In interaktiven Simulationssystemen ist das zeitliche Verhalten der einzelnen Systemkomponenten von entscheidender Relevanz. Insbesondere im Kontext von Anwendungen im Bereich der virtuellen Realität ist eine möglichst synchrone visuelle Darstellung der Bewegung mit den physischen Bewegungen des Hardwareprototypen erforderlich, siehe Abschnitt \ref{sec:hardwareprototyp}
+In interaktiven Simulationssystemen ist das zeitliche Verhalten der einzelnen Systemkomponenten von entscheidender Relevanz. Insbesondere im Kontext von Anwendungen im Bereich der virtuellen Realität ist eine möglichst synchrone visuelle Darstellung der Bewegung mit den physischen Bewegungen des Hardware-Simulators erforderlich, siehe Abschnitt \ref{sec:hardwareprototyp}
 
-Im Falle einer zeitlichen Diskrepanz zwischen der Bewegung innerhalb der virtuellen Umgebung und der Bewegung des realen Prototypens kann es zu einer inkonsistenten Wahrnehmung kommen. In diesem Fall nimmt der Benutzer eine Bewegung visuell wahr, während die physische Bewegung des Systems zeitlich versetzt erfolgt \cite{Slater2016}, \cite{LaValle2023}.
+Im Falle einer zeitlichen Diskrepanz zwischen der Bewegung innerhalb der virtuellen Umgebung und der Bewegung des realen Hardware-Simulators kann es zu einer inkonsistenten Wahrnehmung kommen. In diesem Fall nimmt der Benutzer eine Bewegung visuell wahr, während die physische Bewegung des Systems zeitlich versetzt erfolgt \cite{Slater2016}, \cite{LaValle2023}.
 
 Derlei Diskrepanzen können die Immersion der Simulation beeinträchtigen und zudem physiologische Effekte wie Desorientierung oder Motion Sickness verursachen, siehe Abschnitt \ref{sec:motionsickness}. Aus diesem Grund stellt die Minimierung der Systemlatenz ein zentrales Ziel bei der Entwicklung bewegungsbasierter VR-Simulationssysteme dar \cite{Slater2016}, \cite{LaValle2023}.
 
@@ -436,11 +436,11 @@ Innerhalb dieses Systems werden sämtliche Bewegungen der virtuellen Objekte in 
 
 In der vorliegenden Implementierung erfolgt die Übertragung der Bewegungsdaten mit einer Frequenz von etwas 60 Hz. Dies entspricht einem Aktualisierungsintervall von etwa 16.7 Millisekunden.
 
-Innerhalb der Simulationssoftware kann demnach eine Verzögerung von bis zu einem Frame auftreten, bevor neue Bewegungsdaten an den hardwareprototyp übertragen werden.
+Innerhalb der Simulationssoftware kann demnach eine Verzögerung von bis zu einem Frame auftreten, bevor neue Bewegungsdaten an den Hardware-Simulator übertragen werden.
 
 \subsection{Netzwerkbedingte Latenz}
 \setauthor{Linnea Schönbauer}
-Nach der Berechnung der Bewegungsdaten innerhalb der Simulation erfolgt die Übertragung dieser Daten an den Hardwareprototyp über eine Netzwerkverbindung. Die für die Datenübertragung erforderliche Zeit wird als Netzwerk- oder Kommunikationslatenz bezeichnet \cite{Hou2024}.
+Nach der Berechnung der Bewegungsdaten innerhalb der Simulation erfolgt die Übertragung dieser Daten an den Hardware-Simulator über eine Netzwerkverbindung. Die für die Datenübertragung erforderliche Zeit wird als Netzwerk- oder Kommunikationslatenz bezeichnet \cite{Hou2024}.
 
 Im vorliegenden System erfolgt die Datenübertragung über ein drahtloses Netzwerk, das vom Mikrocontroller selbst bereitgestellt wird. Die Kommunikation findet unter Einsatz des Netzwerkprotokoll User Datagram Protocol statt, siehe Abschnitt \ref{sec:communication-protocol}
 
