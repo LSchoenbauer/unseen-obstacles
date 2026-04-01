@@ -44,6 +44,17 @@ I.~Skiba und R.~Züger, \emph{Barrierefrei Planen}.\hskip 1em plus 0.5em minus
 J.~S. Wieder, \emph{Menschen sind nicht behindert, sie werden behindert}.\hskip
   1em plus 0.5em minus 0.4em\relax FH Campus Wien, 2025.
 
+\bibitem{JuntangDarboe2022}
+J.~Darboe, \emph{Entwicklung und Konstruktion eines Fahrwerks für einen
+  schnellfahrenden elektrischen Krankenfahrstuhl mit einer Vorrichtung zum
+  innovativen Wechsel zwischen zwei Lenkungskonzepten}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Hochschule für Angewandte Wissenschaften Hamburg Hamburg
+  University of Applied Sciences, 2022.
+
+\bibitem{StephanieSackl2021}
+S.~Sackl, \emph{Der elektrische Rollstuhl}.\hskip 1em plus 0.5em minus
+  0.4em\relax Stephanie Sackl, 2021.
+
 \bibitem{ElisaKaltenberger12026}
 E.~Kaltenberger1, ,,Interview 1,'' 2026.
 
@@ -109,76 +120,6 @@ J.~Linowes, \emph{Unity Virtual Reality Projects}.\hskip 1em plus 0.5em minus
 \bibitem{JonathanLinowes2020}
 ------, \emph{Unity 2020 Virtual Reality Projects}.\hskip 1em plus 0.5em minus
   0.4em\relax Packt, 2020.
-
-\bibitem{AmitBandyopadhyay2018}
-A.~Bandyopadhyay, \emph{Fabrication of ABS/Graphene Oxide Composite Filament
-  for Fused Filament Fabrication (FFF) 3D Printing}.\hskip 1em plus 0.5em minus
-  0.4em\relax Hindawi, 2018.
-
-\bibitem{BerndWiebus2013}
-B.~Wiebus, \emph{Hierarchische Schaltpläne als Schaltplan-Bausteine in KiCad
-  Rev. C - Entwurf}.\hskip 1em plus 0.5em minus 0.4em\relax Bernd Wiebus, 2013.
-
-\bibitem{HorstGrollius2022}
-H.~Grollius, \emph{Grundlagen der Hydraulik}.\hskip 1em plus 0.5em minus
-  0.4em\relax Bergische Universität Wuppertal, 2022.
-
-\bibitem{KEM2021}
-\BIBentryALTinterwordspacing
-KEM, ,,Was sind Schrittmotoren, welche Typen gibt es und wie funktionieren
-  sie?'' 2021. Online verfügbar:
-  \url{https://kem.industrie.de/elektromotoren/was-sind-schrittmotoren-welche-typen-gibt-es-und-wie-funktionieren-sie/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Nanotec2024}
-\BIBentryALTinterwordspacing
-Nanotec, ,,FUNKTIONSWEISE EINES SCHRITTMOTORS,'' 2024. Online verfügbar:
-  \url{https://www.nanotec.com/eu/de/knowledge-base/funktionsweise-eines-schrittmotors}
-\BIBentrySTDinterwordspacing
-
-\bibitem{RestonCondit2004}
-R.~Condit, \emph{Stepping Motors Fundamentals}.\hskip 1em plus 0.5em minus
-  0.4em\relax Microchip Technology Inc., 2004.
-
-\bibitem{GeraldZickert2023}
-G.~Zickert, \emph{Leiterplatten}.\hskip 1em plus 0.5em minus 0.4em\relax
-  Hanser, 2023.
-
-\bibitem{ErichRohaupter2024}
-\BIBentryALTinterwordspacing
-E.~Roßhaupter, ,,Fotolack,'' 2024. Online verfügbar:
-  \url{https://www.chemie.de/lexikon/Fotolack.html}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Lan2024}
-\BIBentryALTinterwordspacing
-Lan, ,,Was ist PCB-Fotolack und warum ist er wichtig?'' 2024. Online
-  verfügbar: \url{https://www.venture-mfg.com/de/Was-ist-PCB-Fotolack%3F/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{WolfgangAutenrieth2024}
-\BIBentryALTinterwordspacing
-W.~Autenrieth, ,,Ätzen,'' 2024. Online verfügbar:
-  \url{https://www.chemie.de/lexikon/%C3%84tzen.html}
-\BIBentrySTDinterwordspacing
-
-\bibitem{WikiBooks2026}
-\BIBentryALTinterwordspacing
-WikiBooks, ,,Platinen selber herstellen,'' 2026. Online verfügbar:
-  \url{https://de.wikibooks.org/wiki/Platinen_selber_herstellen}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Wikipedia2024}
-\BIBentryALTinterwordspacing
-Wikipedia, ,,Mikroschalter,'' 2024. Online verfügbar:
-  \url{https://de.wikipedia.org/wiki/Mikroschalter}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Openelab2025}
-\BIBentryALTinterwordspacing
-Openelab, ,,Fakten über Mikroschalter,'' 2025. Online verfügbar:
-  \url{https://openelab.io/de/blogs/learn/10-most-important-things-you-should-know-about-micro-switches?srsltid=AfmBOorpDLsv6jUmN8SR_etkJarddtLHvOYlbu_jwiodcPUtI1WFIXGC}
-\BIBentrySTDinterwordspacing
 
 \bibitem{ParkS.-Y.;Koo2025}
 D.-K. {Park, S.-Y.; Koo}, ,,{The Impact of Virtual Reality Content
@@ -291,6 +232,76 @@ S.~Wilbur und M.~Slater, ,,{A Framework for Immersive Virtual Environments
 \bibitem{Stanney2020}
 K.~Stanney, C.~Fidopiastis, und L.~Foster, ,,{Virtual Reality Is Sexist: But It
   Does Not Have to Be},'' \emph{Frontiers in Robotics and AI}, Vol.~7, 2020.
+
+\bibitem{AmitBandyopadhyay2018}
+A.~Bandyopadhyay, \emph{Fabrication of ABS/Graphene Oxide Composite Filament
+  for Fused Filament Fabrication (FFF) 3D Printing}.\hskip 1em plus 0.5em minus
+  0.4em\relax Hindawi, 2018.
+
+\bibitem{BerndWiebus2013}
+B.~Wiebus, \emph{Hierarchische Schaltpläne als Schaltplan-Bausteine in KiCad
+  Rev. C - Entwurf}.\hskip 1em plus 0.5em minus 0.4em\relax Bernd Wiebus, 2013.
+
+\bibitem{HorstGrollius2022}
+H.~Grollius, \emph{Grundlagen der Hydraulik}.\hskip 1em plus 0.5em minus
+  0.4em\relax Bergische Universität Wuppertal, 2022.
+
+\bibitem{KEM2021}
+\BIBentryALTinterwordspacing
+KEM, ,,Was sind Schrittmotoren, welche Typen gibt es und wie funktionieren
+  sie?'' 2021. Online verfügbar:
+  \url{https://kem.industrie.de/elektromotoren/was-sind-schrittmotoren-welche-typen-gibt-es-und-wie-funktionieren-sie/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Nanotec2024}
+\BIBentryALTinterwordspacing
+Nanotec, ,,FUNKTIONSWEISE EINES SCHRITTMOTORS,'' 2024. Online verfügbar:
+  \url{https://www.nanotec.com/eu/de/knowledge-base/funktionsweise-eines-schrittmotors}
+\BIBentrySTDinterwordspacing
+
+\bibitem{RestonCondit2004}
+R.~Condit, \emph{Stepping Motors Fundamentals}.\hskip 1em plus 0.5em minus
+  0.4em\relax Microchip Technology Inc., 2004.
+
+\bibitem{GeraldZickert2023}
+G.~Zickert, \emph{Leiterplatten}.\hskip 1em plus 0.5em minus 0.4em\relax
+  Hanser, 2023.
+
+\bibitem{ErichRohaupter2024}
+\BIBentryALTinterwordspacing
+E.~Roßhaupter, ,,Fotolack,'' 2024. Online verfügbar:
+  \url{https://www.chemie.de/lexikon/Fotolack.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Lan2024}
+\BIBentryALTinterwordspacing
+Lan, ,,Was ist PCB-Fotolack und warum ist er wichtig?'' 2024. Online
+  verfügbar: \url{https://www.venture-mfg.com/de/Was-ist-PCB-Fotolack%3F/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{WolfgangAutenrieth2024}
+\BIBentryALTinterwordspacing
+W.~Autenrieth, ,,Ätzen,'' 2024. Online verfügbar:
+  \url{https://www.chemie.de/lexikon/%C3%84tzen.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{WikiBooks2026}
+\BIBentryALTinterwordspacing
+WikiBooks, ,,Platinen selber herstellen,'' 2026. Online verfügbar:
+  \url{https://de.wikibooks.org/wiki/Platinen_selber_herstellen}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Wikipedia2024}
+\BIBentryALTinterwordspacing
+Wikipedia, ,,Mikroschalter,'' 2024. Online verfügbar:
+  \url{https://de.wikipedia.org/wiki/Mikroschalter}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Openelab2025}
+\BIBentryALTinterwordspacing
+Openelab, ,,Fakten über Mikroschalter,'' 2025. Online verfügbar:
+  \url{https://openelab.io/de/blogs/learn/10-most-important-things-you-should-know-about-micro-switches?srsltid=AfmBOorpDLsv6jUmN8SR_etkJarddtLHvOYlbu_jwiodcPUtI1WFIXGC}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Bowman2004}
 D.~A. Bowman, R.~P. McMahan \emph{et~al.}, \emph{{3D User Interfaces - Theory
