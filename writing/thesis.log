@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  1 APR 2026 14:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.24)  1 APR 2026 14:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1418,7 +1418,7 @@ Writing index file thesis.idx
 \glo@main@file=\write6
 \openout6 = `thesis.glo'.
 
-Package glossaries Info: Writing glossary file thesis.glo on input line 34.
+Package glossaries Info: Writing glossary file thesis.glo on input line 33.
 Class scrreprt Info: loading recommended package `bookmark'.
 (scrreprt)           Using `bookmark' together with `hyperref' is recommended,
 (scrreprt)           because of handling of possible bookmark level gaps.
@@ -1426,37 +1426,37 @@ Class scrreprt Info: loading recommended package `bookmark'.
 (scrreprt)           `bookmarkpackage=false' before \begin{document} and
 (scrreprt)           you can avoid this message adding:
 (scrreprt)             \usepackage{bookmark}
-(scrreprt)           before \begin{document} on input line 35.
+(scrreprt)           before \begin{document} on input line 34.
 (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 \BKM@id=\count382
 ))
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 35.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 34.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
  (C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count383
@@ -1519,13 +1519,13 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-LaTeX Info: Redefining \microtypecontext on input line 35.
-Package microtype Info: Applying patch `item' on input line 35.
-Package microtype Info: Applying patch `toc' on input line 35.
-Package microtype Info: Applying patch `eqnum' on input line 35.
-Package microtype Info: Applying patch `footnote' on input line 35.
-Package microtype Info: Applying patch `verbatim' on input line 35.
-LaTeX Info: Redefining \microtypesetup on input line 35.
+LaTeX Info: Redefining \microtypecontext on input line 34.
+Package microtype Info: Applying patch `item' on input line 34.
+Package microtype Info: Applying patch `toc' on input line 34.
+Package microtype Info: Applying patch `eqnum' on input line 34.
+Package microtype Info: Applying patch `footnote' on input line 34.
+Package microtype Info: Applying patch `verbatim' on input line 34.
+LaTeX Info: Redefining \microtypesetup on input line 34.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1548,33 +1548,33 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 35.
+Package hyperref Info: Link coloring OFF on input line 34.
  (thesis.glsdefs)
 <./titlepage/coversheet.pdf, id=6, 597.50829pt x 845.0471pt>
 File: ./titlepage/coversheet.pdf Graphic file (type pdf)
 <use ./titlepage/coversheet.pdf>
-Package pdftex.def Info: ./titlepage/coversheet.pdf  used on input line 45.
+Package pdftex.def Info: ./titlepage/coversheet.pdf  used on input line 44.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 <./titlepage/coversheet.pdf, id=8, page=1, 597.50829pt x 845.0471pt>
 File: ./titlepage/coversheet.pdf Graphic file (type pdf)
 <use ./titlepage/coversheet.pdf, page 1>
-Package pdftex.def Info: ./titlepage/coversheet.pdf , page1 used on input line 45.
+Package pdftex.def Info: ./titlepage/coversheet.pdf , page1 used on input line 44.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: ./titlepage/coversheet.pdf Graphic file (type pdf)
 <use ./titlepage/coversheet.pdf, page 1>
-Package pdftex.def Info: ./titlepage/coversheet.pdf , page1 used on input line 45.
+Package pdftex.def Info: ./titlepage/coversheet.pdf , page1 used on input line 44.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: ./titlepage/coversheet.pdf Graphic file (type pdf)
 <use ./titlepage/coversheet.pdf, page 1>
-Package pdftex.def Info: ./titlepage/coversheet.pdf , page1 used on input line 45.
+Package pdftex.def Info: ./titlepage/coversheet.pdf , page1 used on input line 44.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: ./titlepage/coversheet.pdf Graphic file (type pdf)
 <use ./titlepage/coversheet.pdf, page 1>
-Package pdftex.def Info: ./titlepage/coversheet.pdf , page1 used on input line 45.
+Package pdftex.def Info: ./titlepage/coversheet.pdf , page1 used on input line 44.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: ./titlepage/coversheet.pdf Graphic file (type pdf)
 <use ./titlepage/coversheet.pdf, page 1>
-Package pdftex.def Info: ./titlepage/coversheet.pdf , page1 used on input line 45.
+Package pdftex.def Info: ./titlepage/coversheet.pdf , page1 used on input line 44.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [1
 
@@ -1684,7 +1684,7 @@ Overfull \hbox (44.09773pt too wide) in paragraph at lines 34--35
 ) [2
 
 ]
-Package tocbasic Info: character protrusion at toc deactivated on input line 61.
+Package tocbasic Info: character protrusion at toc deactivated on input line 60.
  (thesis.toc [3
 
 ]
@@ -1821,10 +1821,10 @@ chapter 7.
 <pics/prototyp-papier.jpg, id=587, 654.94687pt x 858.20625pt>
 File: pics/prototyp-papier.jpg Graphic file (type jpg)
 <use pics/prototyp-papier.jpg>
-Package pdftex.def Info: pics/prototyp-papier.jpg  used on input line 42.
+Package pdftex.def Info: pics/prototyp-papier.jpg  used on input line 44.
 (pdftex.def)             Requested size: 458.45969pt x 600.74028pt.
 
-Overfull \hbox (17.44196pt too wide) in paragraph at lines 42--43
+Overfull \hbox (17.44196pt too wide) in paragraph at lines 44--45
  [][] 
  []
 
@@ -1832,37 +1832,37 @@ Overfull \hbox (17.44196pt too wide) in paragraph at lines 42--43
 <pics/prototyp-ende.jpg, id=600, 694.84593pt x 1026.08344pt>
 File: pics/prototyp-ende.jpg Graphic file (type jpg)
 <use pics/prototyp-ende.jpg>
-Package pdftex.def Info: pics/prototyp-ende.jpg  used on input line 66.
+Package pdftex.def Info: pics/prototyp-ende.jpg  used on input line 68.
 (pdftex.def)             Requested size: 416.91077pt x 615.65482pt.
  [44] [45 <./pics/prototyp-ende.jpg>] [46]
 <pics/gummirad.jpg, id=642, 1931.215pt x 2055.68pt>
 File: pics/gummirad.jpg Graphic file (type jpg)
 <use pics/gummirad.jpg>
-Package pdftex.def Info: pics/gummirad.jpg  used on input line 121.
+Package pdftex.def Info: pics/gummirad.jpg  used on input line 123.
 (pdftex.def)             Requested size: 289.66975pt x 308.3387pt.
 <pics/platte-saegen.jpg, id=643, 864.22874pt x 903.375pt>
 File: pics/platte-saegen.jpg Graphic file (type jpg)
 <use pics/platte-saegen.jpg>
-Package pdftex.def Info: pics/platte-saegen.jpg  used on input line 128.
+Package pdftex.def Info: pics/platte-saegen.jpg  used on input line 130.
 (pdftex.def)             Requested size: 432.11331pt x 451.6864pt.
 <pics/prototyp-zwischenstand.jpg, id=646, 694.84593pt x 1047.16219pt>
 File: pics/prototyp-zwischenstand.jpg Graphic file (type jpg)
 <use pics/prototyp-zwischenstand.jpg>
-Package pdftex.def Info: pics/prototyp-zwischenstand.jpg  used on input line 138.
+Package pdftex.def Info: pics/prototyp-zwischenstand.jpg  used on input line 140.
 (pdftex.def)             Requested size: 277.93344pt x 418.85745pt.
 <pics/platte-bohren.jpg, id=649, 1606.0pt x 1204.5pt>
 File: pics/platte-bohren.jpg Graphic file (type jpg)
 <use pics/platte-bohren.jpg>
-Package pdftex.def Info: pics/platte-bohren.jpg  used on input line 148.
+Package pdftex.def Info: pics/platte-bohren.jpg  used on input line 150.
 (pdftex.def)             Requested size: 321.19432pt x 240.89574pt.
  [47 <./pics/gummirad.jpg>] [48 <./pics/platte-saegen.jpg>] [49 <./pics/prototyp-zwischenstand.jpg> <./pics/platte-bohren.jpg>]
 <pics/Schaltplan.png, id=668, 892.5345pt x 490.83376pt>
 File: pics/Schaltplan.png Graphic file (type png)
 <use pics/Schaltplan.png>
-Package pdftex.def Info: pics/Schaltplan.png  used on input line 183.
+Package pdftex.def Info: pics/Schaltplan.png  used on input line 185.
 (pdftex.def)             Requested size: 446.26616pt x 245.41628pt.
 
-Overfull \hbox (5.24843pt too wide) in paragraph at lines 183--184
+Overfull \hbox (5.24843pt too wide) in paragraph at lines 185--186
  [][] 
  []
 
@@ -1870,30 +1870,30 @@ Overfull \hbox (5.24843pt too wide) in paragraph at lines 183--184
 <pics/platine.jpg, id=702, 1748.5325pt x 1439.3775pt>
 File: pics/platine.jpg Graphic file (type jpg)
 <use pics/platine.jpg>
-Package pdftex.def Info: pics/platine.jpg  used on input line 225.
+Package pdftex.def Info: pics/platine.jpg  used on input line 227.
 (pdftex.def)             Requested size: 349.7003pt x 287.87039pt.
  [53 <./pics/platine.jpg>]
 <pics/stepper.jpg, id=713, 401.5pt x 401.5pt>
 File: pics/stepper.jpg Graphic file (type jpg)
 <use pics/stepper.jpg>
-Package pdftex.def Info: pics/stepper.jpg  used on input line 248.
+Package pdftex.def Info: pics/stepper.jpg  used on input line 250.
 (pdftex.def)             Requested size: 200.7495pt x 200.7495pt.
  [54 <./pics/stepper.jpg>]
 <pics/stepper-driver.jpg, id=724, 897.3525pt x 741.77126pt>
 File: pics/stepper-driver.jpg Graphic file (type jpg)
 <use pics/stepper-driver.jpg>
-Package pdftex.def Info: pics/stepper-driver.jpg  used on input line 258.
+Package pdftex.def Info: pics/stepper-driver.jpg  used on input line 260.
 (pdftex.def)             Requested size: 269.20782pt x 222.5331pt.
  [55 <./pics/stepper-driver.jpg>] [56]
 File: pics/tdot.jpg Graphic file (type jpg)
 <use pics/tdot.jpg>
-Package pdftex.def Info: pics/tdot.jpg  used on input line 291.
+Package pdftex.def Info: pics/tdot.jpg  used on input line 293.
 (pdftex.def)             Requested size: 430.9132pt x 596.68379pt.
  [57] [58]
 <pics/microschalter.jpg, id=760, 881.2925pt x 1003.75pt>
 File: pics/microschalter.jpg Graphic file (type jpg)
 <use pics/microschalter.jpg>
-Package pdftex.def Info: pics/microschalter.jpg  used on input line 340.
+Package pdftex.def Info: pics/microschalter.jpg  used on input line 342.
 (pdftex.def)             Requested size: 132.18817pt x 150.556pt.
 ) [59 <./pics/microschalter.jpg>]
 chapter 8.
@@ -1977,7 +1977,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 302--305
  []
 
 [8] [9] [10]) [11]
-Package tocbasic Info: character protrusion at lof deactivated on input line 141.
+Package tocbasic Info: character protrusion at lof deactivated on input line 140.
  (thesis.lof
 Overfull \hbox (76.15189pt too wide) in paragraph at lines 10--10
  [][] [][]\T1/lmr/m/n/12 (-20) Vestibuläres Sys-tem, Quel-le: [][] [][]  
@@ -1995,7 +1995,7 @@ Overfull \hbox (59.38457pt too wide) in paragraph at lines 11--11
  [12
 
 ]
-Package tocbasic Info: character protrusion at lot deactivated on input line 142.
+Package tocbasic Info: character protrusion at lot deactivated on input line 141.
  (thesis.lot)
 \tf@lot=\write10
 \openout10 = `thesis.lot'.
@@ -2010,7 +2010,7 @@ Class scrreprt Warning: Usage of \float@listhead detected!
 (scrreprt)              has been replaced by several more flexible
 (scrreprt)              features of package `tocbasic`.
 (scrreprt)              Implementation of \float@listhead will
-(scrreprt)              be removed from KOMA-Script soon on input line 143.
+(scrreprt)              be removed from KOMA-Script soon on input line 142.
 
 [13
 
@@ -2043,7 +2043,7 @@ LaTeX Warning: There were undefined references.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 131 (\begingroup)
+### semi simple group (level 1) entered at line 130 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
  37072 strings out of 474486
