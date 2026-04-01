@@ -107,10 +107,13 @@ Für VR-Anwendungen werden diese UI-Elemente nicht als klassische Bildschirm-Ove
 \subsection{Canvas-Objekte}
 \setauthor{Elisa Kaltenberger}
 In dem vorliegenden Kontext bezeichnet ein Canvas-Objekt in Unity ein spezielles GameObject, das als grundlegender Container für alle Benutzeroberflächen-Elemente dient. Sämtliche UI-Elemente (User Interface) wie Buttons, Texte, Bilder oder Panels müssen einem Canvas untergeordnet sein, damit sie von Unity korrekt gerendert und dargestellt werden können. Ohne ein Canvas sind UI-Elemente nicht sichtbar, da sie außerhalb der UI-Rendering-Struktur liegen.
+\cite{AshleyGodbold2017}, \cite{KennyMcLachlan2024}, \cite{JonathanLinowes2018}, \cite{JonathanLinowes2020}
 
 Der Canvas definiert die Art und Weise sowie die Position der Benutzeroberflächen im Projekt. Die Aufgabe des Objekts besteht in der Verwaltung des Zeichenbereichs der UI sowie in der Festlegung der Reihenfolge, in der die UI-Elemente gerendert werden. Die Position der Elemente innerhalb der Hierarchie beeinflusst dabei die Überlagerung, sodass höher angeordnete Elemente über darunterliegende angezeigt werden.
+\cite{AshleyGodbold2017}, \cite{KennyMcLachlan2024}, \cite{JonathanLinowes2018}, \cite{JonathanLinowes2020}
 
 Ein zentrales Merkmal des Canvas-Objekts ist der sogenannte Render Mode. Dieser definiert die Art der Darstellung der Benutzeroberfläche. Im Modus Screen Space, Overlay wird die UI direkt über der gesamten Szene dargestellt, wobei sie unabhängig von der Kamera ist. Der Modus Screen Space, Camera erzeugt die Benutzeroberfläche (UI) unter Zuhilfenahme einer spezifischen Kamera und gestattet die Anwendung perspektivischer Effekte. Für Virtual-Reality-Anwendungen ist insbesondere der Modus World Space von Relevanz, da sich die Benutzeroberfläche in diesem Modus wie ein normales dreidimensionales Objekt in der Szene verhält. Dies ermöglicht die Platzierung von Buttons und Pop-ups im virtuellen Raum sowie die Betrachtung aus verschiedenen Blickwinkeln.
+\cite{AshleyGodbold2017}, \cite{KennyMcLachlan2024}, \cite{JonathanLinowes2018}, \cite{JonathanLinowes2020}
 
 Darüber hinaus besteht eine enge Kooperation zwischen dem Canvas und dem EventSystem von Unity, welches für die Verarbeitung von Benutzereingaben zuständig ist. In der vorliegenden Arbeit wird dargelegt, dass diese Kombination in VR-Anwendungen die korrekte Weiterleitung von Eingaben von Controllern, etwa über Raycasting, an UI-Elemente wie Buttons ermöglicht. Der Canvas bildet folglich die technische Grundlage dafür, dass Benutzeroberflächen sowohl sichtbar als auch interaktiv sind.
 \cite{AshleyGodbold2017}, \cite{KennyMcLachlan2024}, \cite{JonathanLinowes2018}, \cite{JonathanLinowes2020}
