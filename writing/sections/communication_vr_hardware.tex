@@ -119,7 +119,7 @@ Die Berechnung der Bewegungsbefehle erfolgt daher auf Basis der Differenzen zwis
 \subsubsection{Differenzberechnung - Delta Werte}
 \setauthor{Linnea Schönbauer}
 Zur Bestimmung der erforderlichen Plattformbewegung werden zunächst die Differenzen der Orientierungswinkel zwischen zwei aufeinanderfolgenden Simulationszuständen berechnet. Diese Differenzen repräsentieren die tatsächlich während eines Simulationsintervalls erfolgte Bewegung des virtuellen Rollstuhls \cite{Astrom2021}.
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Differenzberechnung der Orientierungswinkel}, label={lst:delta_values}]
         int32_t deltaYaw = simData.mYaw - mLastSimData.mYaw;
         int32_t deltaPitch = simData.mPitch - mLastSimData.mPitch;
         int32_t deltaRoll = simData.mRoll - mLastSimData.mRoll;
@@ -134,13 +134,13 @@ Die Rotationsbewegung des Rollstuhls wird durch einen separaten Schrittmotor rea
 Die Simulation übermittelt die Orientierung des virtuellen Objekts in Form von Euler-Winkeln, siehe Abschnitt \ref{sec:orientation-in-3d}. Für die Rotationsbewegung ist dabei insbesondere der Yaw-Winkel von Relevanz, welcher die Drehung um die vertikale Achse beschreibt. Anstatt absolute Winkelwerte direkt zu verwenden, basiert die Steuerung auf der Berechnung von Differenzwerten zwischen zwei aufeinanderfolgenden Simulationszuständen.
 
 Die Berechnung erfolgt anhand des folgenden Ausdrucks:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Differenzberechnung der Rotation}, label={lst:yaw_calculation}]
         deltaYaw = simData.mYaw - mLastSimData.mYaw
 \end{lstlisting}
 Die vorliegende Differenzbildung dient der Ermittlung der Anzahl der Winkelgrade, um die sich die virtuelle Plattform seit der letzten Aktualisierung gedreht hat. Dieses Verfahren gestattet eine kontinuierliche Bewegungssteuerung, bei der lediglich tatsächliche Änderungen in der Simulation zu Motorbewegungen führen \cite{Astrom2021}.
 
 Zusätzlich wird die Zeit Differenz zwischen zwei Simulationsupdates bestimmt:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Differenzberechnung der Zeit zwischen Simulationsupdates}, label={lst:time_difference_calculation}]
         deltaTimestamp = simData.mTimestampMs - mLastSimData.mTimestampMs
 \end{lstlisting}
 Die Erfassung dieser Zeit Information ist essenziell, um die erforderliche Geschwindigkeit der Motorbewegung zu bestimmen um somit eine zeitliche konsistente Abbildung der Simulation auf die reale Hardware zu gewährleisten \cite{Astrom2021}, \cite{Harashima1996}.
@@ -169,7 +169,7 @@ Dabei beschreibt
 \end{figure}
 
 In dem vorliegenden System wird dies Beziehung genutzt, um aus dem Rotationswinkel die lineare Bewegung des Antriebsrads zu bestimmen. Die Implementierung erfolgt im Code über folgende Berechnung:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Umrechnung des Rotationswinkels in eine lineare Bewegung}, label={lst:linear_rotation_calculation}]
         rotationLength = abs(pi * CIRCUMFERENCE_ROTATOR_WHEEL
                                  * deltaYaw / (180 * 100))
 \end{lstlisting}
@@ -185,7 +185,7 @@ Die Beziehung zwischen Wegstrecke und Umdrehung lässt sich wie folgt formuliere
 \end{align}
 
 Im Code wird diese Berechnung wie folgt umgesetzt:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Umrechnung der Wegstrecke in Motorumdrehungen (Rotationsbewegung)}, label={lst:motorsteps_rotation_calculation}]
         stepperTurns = rotationLength / CIRCUMFERENCE_ROTATOR_WHEEL
 \end{lstlisting}
 Das Ergebnis beschreibt die Anzahl der vollständigen Motorumdrehungen, die erforderlich sind, um die gewünschte Rotation des Gerüsts zu erzeugen.
@@ -200,7 +200,7 @@ Die Drehzahl ist definiert als die Anzahl der Umdrehungen pro Zeiteinheit:
 \end{align}
 
 Da der Zeitstempel in Millisekunden vorliegt, erfolgt die Umrechnung auf Minunten über den Faktor 60000:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Umrechnung von Millisekunden auf Minuten}, label={lst:milliseconds_to_minutes_calculation}]
         rotationRpm = stepperTurns * 60000 / deltaTimestamp
 \end{lstlisting}
 Diese Berechnung ermöglicht eine dynamische Anpassung der Motorbewegung an die Geschwindigkeit der Simulation. Demzufolge resultieren schnelle Rotationen in höheren Drehzahlen des Motors, während langsame Bewegungen entsprechend langsamer ausgeführt werden \cite{Astrom2021}.
@@ -217,7 +217,7 @@ Die Realisierung dieser Bewegung bedingt eine Konvertierung des übermittelten R
 \end{figure}
 
 Die grundlegende Berechnung erfolgt im System über die Sinusfunktion \cite{Bohme1967}:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Grundlegende Berechnung Neigung vorne}, label={lst:neigungswinkel_vorne_calculation}]
         stroke = sin(DegToRad(deltaPitch / 100.0)) * DISTANCE_FRONT
 \end{lstlisting}
 
@@ -233,19 +233,19 @@ Die vorliegende Beziehung gestattet die unmittelbare Transformation des übermit
 Neben der reinen Rotationsbewegung wird in der Implementierung zusätzlich die translatorische Bewegung des Rollstuhls berücksichtigt. Diese ergibt sich aus der Bewegung des virtuellen Rollstuhls entlang der Fahrtrichtung und wird durch Positionsänderungen entlang der Z-Achse beschrieben.
 
 Im vorliegenden Kontext wird zunächst die Geschwindigkeit der Bewegung ermittelt:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Berechnung Geschwindigkeit}, label={lst:speed_calculation}]
         speedZ = simData.mPosZ - mLastSimData.mPosZ
 \end{lstlisting}
 Anschließend wird daraus die Beschleunigung bestimmt:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Berechnung Beschleunigung}, label={lst:accelaration_calculation}]
         accZ = speedZ - mLastSpeedZ
 \end{lstlisting}
 Diese Beschleunigungskomponente wird als zusätzlicher Hubanteil interpretiert und zum berechneten Pitch-Hub addiert:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Berechnung finale Neigung vorne}, label={lst:pitch_calculation_final}]
         stroke = (sin(DegToRad(deltaPitch / 100.0)) * DISTANCE_FRONT)
         + (deltaStroke / 100.0)
 \end{lstlisting}
-Die vorliegende Erweiterung der Plattform hat zur Folge, dass diese nicht nur auf Neigungsbewegungen, sondern auch auf dynamische Veränderungen der Bewegung reagiert. Als Beispiel für derartige Veränderungen können das Beschleunigen oder Abbremsen des virtuellen Rollstuhls angeführt werden. Dies resultiert in einer realistischeren Bewegungswahrnehmung für die Nebutzerin oder den Benutzer, da neben der geometrischen Ausrichtung auch dynamische Kräfte simuliert werden können \cite{Slater2016}, \cite{Steuer1992}.
+Die vorliegende Erweiterung der Plattform hat zur Folge, dass diese nicht nur auf Neigungsbewegungen, sondern auch auf dynamische Veränderungen der Bewegung reagiert. Als Beispiel für derartige Veränderungen können das Beschleunigen oder Abbremsen des virtuellen Rollstuhls angeführt werden. Dies resultiert in einer realistischeren Bewegungswahrnehmung für den/die Benutzer*in, da neben der geometrischen Ausrichtung auch dynamische Kräfte simuliert werden können \cite{Slater2016}, \cite{Steuer1992}.
 
 \subsubsection{Umrechnung der Hubbewegung in Motorrotation}
 \setauthor{Linnea Schönbauer}
@@ -254,7 +254,7 @@ Nach erfolgter Berechnung der erforderlichen Hubbewegung des Aktuators ist eine 
 In dem vorliegenden System wird diese Verschiebung durch den Parameter \emph{STROKE\_PER\_TURN} beschrieben. Dieser gib an, wie viele Millimeter Hub pro Motorumdrehung erzeugt werden.
 
 Die Anzahl der erforderlichen Motorumdrehungen ergibt sich demnach aus:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Umrechnung der Hubbewegung in Motorumdrehungen}, label={lst:stepper_turns_calculation}]
         stepperTurns = stroke / STROKE_PER_TURN
 \end{lstlisting}
 Da ausschließlich die Bewegungsgröße von Relevanz ist, wird in diesem Kontext der Betrag der Verschiebung analysiert. Im Anschluss erfolgt die separate Bestimmung der Bewegungsrichtung. Außerdem wird noch die erforderliche Motordrehzahl bestimmt, siehe Abschnitt \ref{sec:calculate-mover-steps}.
@@ -263,7 +263,7 @@ Da ausschließlich die Bewegungsgröße von Relevanz ist, wird in diesem Kontext
 \setauthor{Linnea Schönbauer}
 Während der vordere Aktuator primär für die Simulation von Pitch-Bewegungen zuständig ist, wird die seitliche Neigung des Rollstuhls durch zwei hintere Aktuatoren realisiert. Die genannten Elemente sind neben den beiden großen Rädern des Rollstuhls unter der Querachse positioniert und können unabhängig voneinander bewegt werden. Siehe Skizze \ref{fig:back-mover-sketch}
 
-Die seitliche Neigung der Plattform entspricht in der Simulation dem Roll-Winkel, der eine Rotation um die Längsachse des Rollstuhls beschreibt, siehe \ref{sec:orientation-in-3d}. Um diese Bewegung zu simulieren, ist eine entgegengesetzte Bewegung der beiden hinteren Aktuatoren erforderlich. In der Folge manifestiert sich deine Kippbewegung der Plattform, die eine Elevation einer Seite und eine Absenkung der anderen zur Folge hat \cite{Siciliano1959}.
+Die seitliche Neigung der Plattform entspricht in der Simulation dem Roll-Winkel, der eine Rotation um die Längsachse des Rollstuhls beschreibt, siehe \ref{sec:orientation-in-3d}. Um diese Bewegung zu simulieren, ist eine entgegengesetzte Bewegung der beiden hinteren Aktuatoren erforderlich. In der Folge manifestiert sich die Kippbewegung der Plattform, die eine Elevation einer Seite und eine Absenkung der anderen zur Folge hat \cite{Siciliano1959}.
 
 In Analogie zur Ermittlung der Pitch-Bewegung erfolgt zunächst die Berechnung der vertikalen Verschiebung, welche sich aus der geometrischen Relation zwischen Winkel und Hebelarm ergibt. Siehe Skizze \ref{fig:back-mover-sketch}
 \begin{figure}[htbp]
@@ -274,7 +274,7 @@ In Analogie zur Ermittlung der Pitch-Bewegung erfolgt zunächst die Berechnung d
 \end{figure}
 
 Die Berechnung erfolgt mittels der Sinusfunktion \cite{Bohme1967}:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Berechnung der vertikalen Verschiebung}, label={lst:vertical_calculation}]
         stroke = sin(DegToRad(deltaRoll / 100.0)) * DISTANCE_SIDE_BACK
 \end{lstlisting}
 Der Parameter \emph{DISTANCE\_SIDE\_BACK} beschreibt den Abstand zwischen dem Drehzentrum der Plattform und der Position der hinteren Aktuatoren. Der vorliegende Abstand fungiert als Indikator für die Amplitude einer spezifischen Rotationsbewegung, die in eine vertikale Verschiebung der Plattform transformiert wird.
@@ -284,7 +284,7 @@ Der Parameter \emph{DISTANCE\_SIDE\_BACK} beschreibt den Abstand zwischen dem Dr
 Des Weiteren findet bei der Rollbewegung auch der translatorische Bewegungsanteil Berücksichtigung. In Analogie zur Berechnung des Pitch-Wertes wird die beschleunigende Bewegung in Fahrtrichtung als zusätzlicher Hubanteil interpretiert \cite{Slater2016}, \cite{Steuer1992}
 
 Die vollständige Berechnung der Hubbewegung ergibt sich demnach aus:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Berechnung Hubbewegung hinten}, label={lst:full_calculation_side}]
         stroke = (sin(DegToRad(deltaRoll / 100.0)) * DISTANCE_SIDE_BACK)
                 + (deltaStroke / 100.0)
 \end{lstlisting}
@@ -295,7 +295,7 @@ Die vorliegende Erweiterung des Systems hat zur Folge, dass dieses nicht nur auf
 Ein wesentlicher Unterschied zur Pitch-Steuerung besteht darin, dass für die Rollbewegung zwei Aktuatoren gleichzeitig angesteuert werden. Im Zuge der Anhebung einer Seite ist eine Absenkung der gegenüberliegenden Seite erforderlich \cite{Siciliano1959}.
 
 Die gegensinnige Bewegung wird im System durch unterschiedliche Richtungsbefehle für die beiden Motoren realisiert:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Gegensinnige Ansteuerung hinten}, label={lst:gegenseitige_ansteuerung_hinten}]
         rearLeftMover->SetDirection(stroke < 0 ? BACKWARD : FORWARD);
         rearRightMover->SetDIrection(stroke < 0 ? FORWARD : BACKWARD);
 \end{lstlisting}
@@ -304,7 +304,7 @@ Die gegenläufige Ansteuerung resultiert in einer stabilen Kippbewegung der Plat
 \subsubsection{Synchronisation der Motorbewegungen}
 \setauthor{Linnea Schönbauer}
 Da beide hinteren Aktuatoren an derselben Bewegung beteiligt sind, ist eine exakte Synchronisierung ihrer Geschwindigkeiten erforderlich. Aus diesem Grund wird für beide Motoren dieselbe Drehzahl (rotationRpm) berechnet und anschließend an beide Aktuatoren übertragen:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Synchronisierte Motorbewegung hinten}, label={lst:synchronisation_motorbewegeung}]
         rearLeftMover->SetSpeedRpm(rotationRpm);
         rearRightMover->SetSpeedRpm(rotationRpm);
 \end{lstlisting}
@@ -370,7 +370,7 @@ Die Simulationsdaten werden auf dem Mikrocontroller über einen speziell impleme
 
 Nach dem Start der Anwendung wird ein Server-Task erstellt. Dieser wartet dauerhaft auf eingehende Netzwerkpakete. Sobald ein neues Paket empfangen wird, wird dieses in einem internen Puffer gespeichert und anschließend an eine definierte Paketverarbeitungsfunktion übergeben:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Empfang- und Übergabe-Methode des UDP-Servers}, label={lst:udp_serve_functionality}]
 void UdpServer::Listen() {
     uint8_t buffer[mPacketBufferSize];
 
@@ -471,7 +471,7 @@ Zur Minimierung der Gesamtlatenz des Systems wurden mehrere technische Maßnahme
 Zunächst findet das verbindungslose UDP-Protokoll Anwendung, welches eine besonders hohe Übertragungsgeschwindigkeit der Daten ermöglicht, siehe Abschnitt \ref{sec:communication-protocol} Darüber hinaus erfolgt die Datenübertragung mit einer festen Aktualisierungsfrequenz von etwa 60 Hz, wodurch kontinuierlich neue Bewegungsdaten zur Verfügung stehen, siehe Abschnitt \ref{sec:transfer-frequence}
 
 Zusätzlich wurde die Verarbeitung der empfangenen Daten innerhalb des Mikrocontrollers so implementiert, dass lediglich ein minimaler Rechenaufwand erforderlich ist. Die Bewegungsparameter werden unmittelbar nach Empfang des Datenpakets berechnet und direkt an die Motorsteuerung weitergeleitet. Zu diesem Zweck wird die Dual-Core-Fähigkeit des Mikrocontrollers genuutzt. Die Netzwerkkommunikation (UDP-Empfang) wird auf Core 1 ausgeführt, während die zeitkritische Motorsteuerung auf Core 0 ausgeführt wird. Durch die Parallelisierung ist es möglich, Daten zu empfangen und Motorbefehle zu berechnen, ohne dass die Ausführung eines Tasks die Reaktionszeit des anderen blockiert. Ein Beispiel für eine solche Konfiguration ist die Pinning-Konfiguration des UDP-Servers:
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Pinning-Konfiguration des UDP-Servers}, label={lst:pinning_function_udp_server}]
 void UdpServer::Start() {
     TaskMgmt::TaskConfig cfg = { 
         4242,
@@ -498,7 +498,7 @@ In Analogie dazu besteht die Möglichkeit, eine Vorwärts- oder Rückwärtsneigu
 \setauthor{Linnea Schönbauer}
 Um eine kontinuierliche Plattformbewegung zu gewährleisten, ist eine simultane Steuerung mehrere Aktuatoren erforderlich. Innerhalb des Steuerungsalgorithmus erfolgt daher eine synchrone Berechnung der Bewegungsparameter der einzelnen Motoren. \cite{Merlet2008}
 
-\begin{lstlisting}
+\begin{lstlisting}[language=C++, caption={Gleichzeitige Motorsteuerung (hinten)}, label={lst:synchrone_application_back_mover}]
 ApplyRotation(deltaTimestamp, deltaYaw);
 
 if (simData.mMode == SimulationData::Mode::BUMPING) {
