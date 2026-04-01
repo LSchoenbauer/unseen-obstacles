@@ -696,6 +696,9 @@ INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt12.tfm
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt8.tfm
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr8.tfm
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr6.tfm
 INPUT .\pics\rotation-sketch.png
 INPUT .\pics\rotation-sketch.png
 INPUT .\pics\rotation-sketch.png
@@ -703,6 +706,7 @@ INPUT .\pics\rotation-sketch.png
 INPUT .\pics\rotation-sketch.png
 INPUT .\pics\rotation-sketch.png
 INPUT .\pics\rotation-sketch.png
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtk10.tfm
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathit.enc
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-rm.enc
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathsy.enc
@@ -769,6 +773,8 @@ INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmmi12.
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmmi12.pfb
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr12.pfb
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr12.pfb
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr6.pfb
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr6.pfb
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmri12.pfb
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmri12.pfb
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmro12.pfb
@@ -777,5 +783,7 @@ INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmssbx1
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmssbx10.pfb
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmsy10.pfb
 INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmsy10.pfb
-INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb
-INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.pfb
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.pfb
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt8.pfb
+INPUT C:\Users\Elisa\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt8.pfb

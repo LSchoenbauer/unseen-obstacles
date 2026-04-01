@@ -180,25 +180,33 @@ Openelab, ,,Fakten über Mikroschalter,'' 2025. Online verfügbar:
   \url{https://openelab.io/de/blogs/learn/10-most-important-things-you-should-know-about-micro-switches?srsltid=AfmBOorpDLsv6jUmN8SR_etkJarddtLHvOYlbu_jwiodcPUtI1WFIXGC}
 \BIBentrySTDinterwordspacing
 
+\bibitem{ParkS.-Y.;Koo2025}
+D.-K. {Park, S.-Y.; Koo}, ,,{The Impact of Virtual Reality Content
+  Characteristics on Cybersickness and Head Movement Patterns},''
+  \emph{Sensors}, Vol.~25, Nr. 215, S. 2--12, 2025.
+
 \bibitem{Gavgani2018}
 A.~M. Gavgani, F.~R. Walker \emph{et~al.}, ,,{A comparative study of
   cybersickness during exposure to virtual reality and “classic” motion
   sickness: are they different?}'' \emph{the American Physiological Society},
   Vol. 125, S. 1670--1680, 2018.
 
+\bibitem{Casale2023}
+J.~Casale, T.~Browne \emph{et~al.}, ,,{Physiology, Vestibular System},'' 2023.
+
 \bibitem{Josephj.LaViolaJr.2000}
 {Joseph j. LaViola Jr.}, ,,{A Discussion of Cybersickness in Virtual
   Environments},'' \emph{SIGCHI Bulletin}, Vol.~32, Nr.~1, S. 47--56, 2000.
+
+\bibitem{Keshavarz2015}
+B.~Keshavarz, B.~E. Riecke \emph{et~al.}, ,,{Vection and visually induced
+  motion sickness: how are they related?}'' \emph{Frontiers}, Vol.~6, S.~11,
+  2015.
 
 \bibitem{L.A.Warwick-Evans*N.Symons1999}
 T.~F. {L. A. Warwick-Evans,* N. Symons} und L.~Burrows, ,,{Evaluating sensory
   conflict and postural instability. Theories of motion sickness},''
   \emph{Brain Research Bulletin}, Vol.~47, Nr.~5, S. 465-- 469, 1999.
-
-\bibitem{ParkS.-Y.;Koo2025}
-D.-K. {Park, S.-Y.; Koo}, ,,{The Impact of Virtual Reality Content
-  Characteristics on Cybersickness and Head Movement Patterns},''
-  \emph{Sensors}, Vol.~25, Nr. 215, S. 2--12, 2025.
 
 \bibitem{Treisman}
 M.~Treisman, ,,{Motion Sickness: An Evolutionary Hypothesis},'' \emph{Science},
@@ -216,6 +224,10 @@ C.~M. Oman, ,,{Are evolutionary hypotheses for motion sickness “just-so”
 G.~Riccio und T.~Stoffregen, ,,{An Ecological Theory of Motion Sickness and
   Postural Instability},'' \emph{Ecological Psychology}, Vol.~3, Nr.~3, S.
   195--240, 1991.
+
+\bibitem{Chen2024}
+M.-X. Chen, H.~Hu \emph{et~al.}, ,,{A Survey on the Design of Virtual Reality
+  Interaction Interfaces},'' \emph{MDPI}, Vol.~24, Nr.~19, 2024.
 
 \bibitem{Jason2015}
 {Jerald Jason}, \emph{{The VR Book Human-Centered Design for Virtual
@@ -302,6 +314,11 @@ G.~Cleland, D.~Wu \emph{et~al.}, \emph{{FedComm: Understanding Communication
 \bibitem{Alam2025}
 M.~Alam, ,,{Low Latency Network Protocol for Time Sensitive Applications},''
   Tech. Rep., 2025.
+
+\bibitem{Jangra2023}
+S.~Jangra, G.~Singh \emph{et~al.}, \emph{{Interactivity Development Using Unity
+  3D Software and C sharp Programming}}.\hskip 1em plus 0.5em minus 0.4em\relax
+  IEEE, 2023.
 
 \bibitem{Unity}
 \BIBentryALTinterwordspacing
@@ -515,10 +532,18 @@ X.~Hou, B.~Vogel-Heuser \emph{et~al.}, \emph{{Modellierung und Validierung von
   KI.Fabrik}}.\hskip 1em plus 0.5em minus 0.4em\relax DE GRUYTER OLDENBOURG,
   2024.
 
-\bibitem{FreeRTOS}
-\BIBentryALTinterwordspacing
-FreeRTOS, ,,{FreeRTOS}.'' Online verfügbar: \url{https://www.freertos.org/%0A}
-\BIBentrySTDinterwordspacing
+\bibitem{Feynman2016}
+R.~P. Feynman, R.~B. Leighton, und M.~Sands, \emph{{Mechanik}}.\hskip 1em plus
+  0.5em minus 0.4em\relax Feynman-Vorlesungen ueber Physik, 2016.
+
+\bibitem{Merlet2008}
+J.-P. Merlet und C.~Gosselin, \emph{{Springer Handbook of robotics}}.\hskip 1em
+  plus 0.5em minus 0.4em\relax Springer, 2008.
+
+\bibitem{Mutterlein2021}
+J.~M{\"{u}}tterlein, B.~Berger \emph{et~al.}, ,,{Co-Creation in Virtual
+  Reality: Immersion als Treiber des Kundenerlebnisses},'' \emph{Springer
+  Nature Link}, Vol. HMD, Nr.~59, S. 246--260, 2021.
 
 \bibitem{Nielsen1993}
 J.~Nielsen, \emph{{Usability Engineering}}.\hskip 1em plus 0.5em minus
