@@ -30,7 +30,7 @@ Unity organisiert alle Inhalte einer Simulation in sogenannten Szenen, die jewei
 
 Die Struktur innerhalt einer Szene folgt einer hierarchischen Organisation, in der einzelne GameObjects in Parent-Child-Beziehungen zueinander stehen können. Diese Struktur ermöglicht eine effiziente Verwaltung komplexer Objektsysteme, da Transformationen eines übergeordneten Objekts automatisch auf seine untergeordneten Elemente übertragen werden \cite{Unity}, \cite{Unity4}, \cite{Unity6}.
 
-In dem Computerspiel-Entwicklungsprogramm Unity wird jedes Element der virtuellen Welt als sogenanntes GameObject bezeichnet. GameObjects dienen als Container für verschiedene Komponenten, welche dsa Verhalten und die Eigenschaften des jeweiligen Objekts definieren. Ein GameObject verfügt anfänglich über keine Funktionalität sondern diese wird erst durch die hinzugefügten Komponenten erworben \cite{Unity}, \cite{Unity7}.
+In dem Computerspiel-Entwicklungsprogramm Unity wird jedes Element der virtuellen Welt als sogenanntes GameObject bezeichnet. GameObjects dienen als Container für verschiedene Komponenten, welche das Verhalten und die Eigenschaften des jeweiligen Objekts definieren. Ein GameObject verfügt anfänglich über keine Funktionalität sondern diese wird erst durch die hinzugefügten Komponenten erworben \cite{Unity}, \cite{Unity7}.
 
 Als illustrierende Beispiele für GameObjects innerhalt der Simulation seien etwa Gebäude der virtuellen Stadtumgebung, Straßenelemente, Kollisionsobjekte oder der virtuelle Rollstuhl genannt, der als zentrales Interaktionselement der Anwendung dient, siehe Kapitel \ref{chapter:vr-world}, \cite{Unity}.
 
@@ -164,7 +164,7 @@ Dabei beschreibt
 \begin{figure}[htbp]
     \centering
     \includegraphics[scale=1.0]{pics/rotation-sketch.png}
-    \caption{Rotation Calculation - Sketch 09.01.2026}
+    \caption{Rotation Berechnung - Sketch 09.01.2026}
     \label{fig:rotation-sketch}
 \end{figure}
 
@@ -199,7 +199,7 @@ Die Drehzahl ist definiert als die Anzahl der Umdrehungen pro Zeiteinheit:
         RPM = \frac{Umdrehungen}{Zeit}
 \end{align}
 
-Da der Zeitstempel in Millisekunden vorliegt, erfolgt die Umrechnung auf Minunten über den Faktor 60000:
+Da der Zeitstempel in Millisekunden vorliegt, erfolgt die Umrechnung auf Minuten über den Faktor 60000:
 \begin{lstlisting}[language=C++, caption={Umrechnung von Millisekunden auf Minuten}, label={lst:milliseconds_to_minutes_calculation}]
         rotationRpm = stepperTurns * 60000 / deltaTimestamp
 \end{lstlisting}
@@ -212,7 +212,7 @@ Die Realisierung dieser Bewegung bedingt eine Konvertierung des übermittelten R
 \begin{figure}[htbp]
     \centering
     \includegraphics[scale=1.0]{pics/front-mover-sketch.png}
-    \caption{Front Mover Calculation - Sketch 09.01.2026}
+    \caption{Mover vorne Berechnung - Sketch 09.01.2026}
     \label{fig:front-mover-sketch}
 \end{figure}
 
@@ -249,7 +249,7 @@ Die vorliegende Erweiterung der Plattform hat zur Folge, dass diese nicht nur au
 
 \subsubsection{Umrechnung der Hubbewegung in Motorrotation}
 \setauthor{Linnea Schönbauer}
-Nach erfolgter Berechnung der erforderlichen Hubbewegung des Aktuators ist eine Transformation dieser in eine entsprechende Drehbewegung des Schrittmotors erforderlich. Die Funktionsweise der Wagenhebermechanik beruht auf einer Gewindespindel, bei der eine Umdrehung des Motors eine definierte lineare Verschiebung erzeugt \cite{Siciliano1959}, \cite{Bauhaus}.
+Nach erfolgter Berechnung der erforderlichen Hubbewegung des Aktuators ist eine Transformation dieser in eine entsprechende Drehbewegung des Schrittmotors erforderlich. Die Funktionsweise der Wagenheber Mechanik beruht auf einer Gewindespindel, bei der eine Umdrehung des Motors eine definierte lineare Verschiebung erzeugt \cite{Siciliano1959}, \cite{Bauhaus}.
 
 In dem vorliegenden System wird diese Verschiebung durch den Parameter \emph{STROKE\_PER\_TURN} beschrieben. Dieser gib an, wie viele Millimeter Hub pro Motorumdrehung erzeugt werden.
 
@@ -269,7 +269,7 @@ In Analogie zur Ermittlung der Pitch-Bewegung erfolgt zunächst die Berechnung d
 \begin{figure}[htbp]
     \centering
     \includegraphics[scale=1.0]{pics/back-mover-sketch.png}
-    \caption{Back Mover Calculation - Sketch 09.01.2026}
+    \caption{Mover hinten Berechnung - Sketch 09.01.2026}
     \label{fig:back-mover-sketch}
 \end{figure}
 
@@ -297,7 +297,7 @@ Ein wesentlicher Unterschied zur Pitch-Steuerung besteht darin, dass für die Ro
 Die gegensinnige Bewegung wird im System durch unterschiedliche Richtungsbefehle für die beiden Motoren realisiert:
 \begin{lstlisting}[language=C++, caption={Gegensinnige Ansteuerung hinten}, label={lst:gegenseitige_ansteuerung_hinten}]
         rearLeftMover->SetDirection(stroke < 0 ? BACKWARD : FORWARD);
-        rearRightMover->SetDIrection(stroke < 0 ? FORWARD : BACKWARD);
+        rearRightMover->SetDirection(stroke < 0 ? FORWARD : BACKWARD);
 \end{lstlisting}
 Die gegenläufige Ansteuerung resultiert in einer stabilen Kippbewegung der Plattform, ohne dass zusätzliche mechanische Komponenten erforderlich wären \cite{Siciliano1959}.
 
@@ -335,7 +335,7 @@ Innerhalb der VR-Simulation realisiert eine speziell implementierte Unity-Kompon
 
 Die Implementierung basiert auf der .NET-Netzwerkbibliothek, die über die Klasse UdpClient eine einfache Möglichkeit zur Übertragung von UDP-Paketen bereitstellt \cite{Microsoft}.
 
-Während der Initialisierung der Anwendung wird zunächst ein UDP-Client erstellt und mit der Zieladresse des Mikrocontrollers konfiguriert. IP-Adresse und Netzwerkport können im Unity-Editor konfiguriert werden, wodurch eine flexible Anpassung an unterschiedliche Testumgebungen möglich ist.
+Während der Initialisierung der Anwendung wird zunächst ein UDP-Client erstellt und mit der Zieladresse des Mikrocontrollers konfiguriert. IP-Adresse und Netzwerk Port können im Unity-Editor konfiguriert werden, wodurch eine flexible Anpassung an unterschiedliche Testumgebungen möglich ist.
 
 Die eigentliche Datenübertragung erfolgt innerhalb der Update-Schleife der Unity-Engin. Dabei wird in regelmäßigen Zeitabständen die aktuelle Position und Orientierung des virtuellen Rollstuhls ausgelesen und anschließend als Netzwerkpaket an den Mikrocontroller übertragen.
 
@@ -470,7 +470,7 @@ Zur Minimierung der Gesamtlatenz des Systems wurden mehrere technische Maßnahme
 
 Zunächst findet das verbindungslose UDP-Protokoll Anwendung, welches eine besonders hohe Übertragungsgeschwindigkeit der Daten ermöglicht, siehe Abschnitt \ref{sec:communication-protocol} Darüber hinaus erfolgt die Datenübertragung mit einer festen Aktualisierungsfrequenz von etwa 60 Hz, wodurch kontinuierlich neue Bewegungsdaten zur Verfügung stehen, siehe Abschnitt \ref{sec:transfer-frequence}
 
-Zusätzlich wurde die Verarbeitung der empfangenen Daten innerhalb des Mikrocontrollers so implementiert, dass lediglich ein minimaler Rechenaufwand erforderlich ist. Die Bewegungsparameter werden unmittelbar nach Empfang des Datenpakets berechnet und direkt an die Motorsteuerung weitergeleitet. Zu diesem Zweck wird die Dual-Core-Fähigkeit des Mikrocontrollers genuutzt. Die Netzwerkkommunikation (UDP-Empfang) wird auf Core 1 ausgeführt, während die zeitkritische Motorsteuerung auf Core 0 ausgeführt wird. Durch die Parallelisierung ist es möglich, Daten zu empfangen und Motorbefehle zu berechnen, ohne dass die Ausführung eines Tasks die Reaktionszeit des anderen blockiert. Ein Beispiel für eine solche Konfiguration ist die Pinning-Konfiguration des UDP-Servers:
+Zusätzlich wurde die Verarbeitung der empfangenen Daten innerhalb des Mikrocontrollers so implementiert, dass lediglich ein minimaler Rechenaufwand erforderlich ist. Die Bewegungsparameter werden unmittelbar nach Empfang des Datenpakets berechnet und direkt an die Motorsteuerung weitergeleitet. Zu diesem Zweck wird die Dual-Core-Fähigkeit des Mikrocontrollers genutzt. Die Netzwerkkommunikation (UDP-Empfang) wird auf Core 1 ausgeführt, während die zeitkritische Motorsteuerung auf Core 0 ausgeführt wird. Durch die Parallelisierung ist es möglich, Daten zu empfangen und Motorbefehle zu berechnen, ohne dass die Ausführung eines Tasks die Reaktionszeit des anderen blockiert. Ein Beispiel für eine solche Konfiguration ist die Pinning-Konfiguration des UDP-Servers:
 \begin{lstlisting}[language=C++, caption={Pinning-Konfiguration des UDP-Servers}, label={lst:pinning_function_udp_server}]
 void UdpServer::Start() {
     TaskMgmt::TaskConfig cfg = { 
