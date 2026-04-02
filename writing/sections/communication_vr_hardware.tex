@@ -92,9 +92,9 @@ Roll beschreibt die seitliche Neigung des Objekts um die Vorwärtsachse. Ein Bei
 \setauthor{Linnea Schönbauer}
 Die Bewegung des Rollstuhls lässt sich somit durch sechs Freiheitsgrade beschreiben. Drei dieser Freiheitsgrade betreffen die Position des Objekts im Raum (Translation entlang der X-, Y- und Z-Achse), während die übrigen drei Freiheitsgrade die Orientierung des Objekts beschreiben (Rotation um die drei Raumachsen).
 
-\subsection{Verarbeitung der Benutzereingaben}
+\subsection{Verarbeitung der Usereingaben}
 \setauthor{Linnea Schönbauer}
-Die Steuerung des virtuellen Rollstuhls erfolgt durch Eingaben des Benutzers, welche durch das Input-System von Unity erfasst werden. Diese Eingaben werden als zweidimensionaler Eingabevektor interpretiert, der sowohl Vorwärtsbewegung als auch Rotationsbewegung repräsentiert \cite{Unity11}.
+Die Steuerung des virtuellen Rollstuhls erfolgt durch Eingaben des Benutzers bzw. der Benutzerin, welche durch das Input-System von Unity erfasst werden. Diese Eingaben werden als zweidimensionaler Eingabevektor interpretiert, der sowohl Vorwärtsbewegung als auch Rotationsbewegung repräsentiert \cite{Unity11}.
 
 Der vertikale Anteil des Eingabevektors determiniert die Vorwärts, beziehungsweise Rückwärtsbewegung des Rollstuhls innerhalb der Szene, während der horizontale Anteil zur Steuerung der Drehbewegung um die vertikale Achse verwendet wird \cite{Bowman2004}, \cite{Diebel2006}.
 
@@ -176,7 +176,7 @@ Dabei beschreibt
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[scale=1.0]{pics/rotation-sketch.png}
+    \includegraphics[scale=0.7]{pics/rotation-sketch.png}
     \caption{Rotation Berechnung - Sketch 09.01.2026}
     \label{fig:rotation-sketch}
 \end{figure}
@@ -224,7 +224,7 @@ Neben der Rotationsbewegung ist die Neigung des Rollstuhls um die Querachse von 
 Die Realisierung dieser Bewegung bedingt eine Konvertierung des übermittelten Rotationswinkels in eine lineare Hubbewegung des vorderen Wagenhebers. Aufgrund der Montage des Wagenhebers in einem festen Abstand zum Drehzentrum des Systems ergibt sich die notwendige Hubbewegung aus der geometrischen Beziehung zwischen Rotationswinkel und vertikaler Verschiebung eines Punktes auf einem Kreis. Siehe Skizze \ref{fig:front-mover-sketch} \cite{Bohme1967}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[scale=1.0]{pics/front-mover-sketch.png}
+    \includegraphics[scale=0.7]{pics/front-mover-sketch.png}
     \caption{Mover vorne Berechnung - Sketch 09.01.2026}
     \label{fig:front-mover-sketch}
 \end{figure}
@@ -281,7 +281,7 @@ Die seitliche Neigung der Plattform entspricht in der Simulation dem Roll-Winkel
 In Analogie zur Ermittlung der Pitch-Bewegung erfolgt zunächst die Berechnung der vertikalen Verschiebung, welche sich aus der geometrischen Relation zwischen Winkel und Hebelarm ergibt. Siehe Skizze \ref{fig:back-mover-sketch}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[scale=1.0]{pics/back-mover-sketch.png}
+    \includegraphics[scale=0.7]{pics/back-mover-sketch.png}
     \caption{Mover hinten Berechnung - Sketch 09.01.2026}
     \label{fig:back-mover-sketch}
 \end{figure}

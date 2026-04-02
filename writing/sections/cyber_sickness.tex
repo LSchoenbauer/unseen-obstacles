@@ -171,4 +171,10 @@ Diese Verknüpfung gewährleistet, dass visuelle Veränderungen nicht isoliert a
 
 \subsection{Sicherheitsmechanismen und Bewegungsbegrenzungen}
 \setauthor{Linnea Schönbauer}
-Zusätzlich wurden Sicherheitsmechanismen implementiert, um extreme oder unkontrollierte Bewegungen zu verhindern. Dazu zählen unter anderem Begrenzungen der maximalen Neig-Höhe. Dies stellt sicher, dass die Simulation auch bei längerer Nutzung stabil und angenehm wahrgenommen wird. 
+Zusätzlich wurden Sicherheitsmechanismen implementiert, um extreme oder unkontrollierte Bewegungen zu verhindern. Dazu zählen unter anderem Begrenzungen der maximalen Neig-Höhe durch Mikrocontroller, siehe Abschnitt \ref{sec:microschalter}. Dies stellt sicher, dass die Simulation auch bei längerer Nutzung stabil und angenehm wahrgenommen wird. Darüber hinaus wurde ein Not-Aus-Taster installiert, welcher es ermöglicht, den Stromfluss zum Simulator unmittelbar zu unterbrechen, um unerwünschte Bewegungen zu verhindern, siehe Abbildung \ref{fig:not_aus_taster}.
+\begin{figure}[htbp] 
+    \centering
+    \includegraphics[scale=0.5]{pics/not-aus-taster.png}
+    \caption{Not-Aus-Taster, \\Quelle: https://www.conrad.de/de/p/baco-lbx130113-not-aus-taster-im-gehaeuse-240-v-ac-2-5-a-3-oeffner-ip66-1-st-409538.html}
+    \label{fig:not_aus_taster}
+\end{figure}
