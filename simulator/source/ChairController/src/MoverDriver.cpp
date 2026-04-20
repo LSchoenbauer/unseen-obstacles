@@ -27,7 +27,7 @@ const uint32_t MoverDriver::DEBOUNCE_TIME_MS = 20;
 const uint64_t MoverDriver::COASTING_TIME_US = 100 * 1000; // 3 frames at 30 fps = 100 ms
 
 // ISR Debugging, comment out to disable
-#define ISR_DBG_ENABLED
+//#define ISR_DBG_ENABLED
 
 #ifdef ISR_DBG_ENABLED
     #define IsrDbgInit() pinMode(BUILTIN_LED, OUTPUT);
@@ -61,6 +61,9 @@ MoverDriver::MoverDriver(MoverDriverCfgPtr moverDriverCfg) :
             mIsAtTop(false), 
             mIsAtCenter(false), 
             mIsAtBottom(false), 
+            mLastIsAtTop(false), 
+            mLastIsAtCenter(false), 
+            mLastIsAtBottom(false), 
             mTopPosition(0), 
             mCenterPosition(0), 
             mBottomPosition(0),
@@ -179,6 +182,9 @@ void MoverDriver::CreateDriverTask() {
 void MoverDriver::Drive() {
     while (mDriverTask != nullptr) {
         // LogDbgT(LTAG_DRV, "%s: driving", mCfg->GetLabel());
+        if (mIsAtTop != mLastIsAtTop || mIsAtCenter != mLastIsAtCenter || mIsAtBottom != mLastIsAtBottom) {
+            LogDbg("-----------> Clicker %s: %s, %s, %s",mCfg->GetLabel(), mIsAtTop? "Top" : "-", mIsAtCenter? "Center" : "-", mIsAtBottom? "Bottom": "-");
+        }
         RetrieveDriveParams();
         CalcStepperValues();
         vTaskDelay(pdMS_TO_TICKS(5)); // recalculate every 5 ms
@@ -199,9 +205,10 @@ void MoverDriver::RetrieveDriveParams() {
             mIsRamping = (mTargetDirection == driveParams.mDirection ? mIsRamping : false);
             mTargetDirection = driveParams.mDirection;
         }
-        LogDbgT(LTAG_CTR, "%s: applied direction: %s, speed: %d rpm", mCfg->GetLabel(), 
+        LogDbgT(LTAG_CTR, "%s: applied direction: %s, speed: %d rpm", 
+            mCfg->GetLabel(), 
             MoverDriver::DirectionToString(driveParams.mDirection),
-            (driveParams.mSpeedRpm < UINT32_MAX ? driveParams.mSpeedRpm : -1));
+            (mSetTargetSpeed < UINT32_MAX ? mSetTargetSpeed : -1));
     }
 }
 
@@ -281,6 +288,7 @@ uint32_t MoverDriver::GetBottomPosition() {
 }
 
 void MoverDriver::CalibratePositions() {
+    
 
 }
 

@@ -27,11 +27,11 @@ void ChairControllerApp::Init() {
 
 	// Initialize logging and set log levels
     Logger::Init(Logger::LogSink::Serial);
-	// SetMaxLogTagLevel(UdpServer::LTAG_RX, LOG_LEVEL_WARN);
-	// SetMaxLogTagLevel(UdpServer::LTAG_TX, LOG_LEVEL_WARN);
-	// SetMaxLogTagLevel(MoverDriver::LTAG_CFG, LOG_LEVEL_DEBUG);
-	// SetMaxLogTagLevel(MoverDriver::LTAG_CTR, LOG_LEVEL_DEBUG);
-	// SetMaxLogTagLevel(MoverDriver::LTAG_DRV, LOG_LEVEL_WARN);
+	SetMaxLogTagLevel(UdpServer::LTAG_RX, LOG_LEVEL_WARN);
+	SetMaxLogTagLevel(UdpServer::LTAG_TX, LOG_LEVEL_WARN);
+	SetMaxLogTagLevel(MoverDriver::LTAG_CFG, LOG_LEVEL_DEBUG);
+	SetMaxLogTagLevel(MoverDriver::LTAG_CTR, LOG_LEVEL_DEBUG);
+	SetMaxLogTagLevel(MoverDriver::LTAG_DRV, LOG_LEVEL_WARN);
 
     WifiService::GetInstance()->StartWifi();
 	RootFileSystem* rfs = RootFileSystem::GetInstance();
@@ -47,8 +47,8 @@ void ChairControllerApp::Init() {
     mRearRightCfg = MoverDriverCfg::Create("REAR_RIGHT", 18, 26, 5, 23, 19, 2);
     // TODO Enable the commented line below for production!
     // Pin 2 is replaced by pin 36 during debugging, because it affects the internal LED!
-    //mFrontCfg     = MoverDriverCfg::Create("FRONT", 21, 22, 2,  16, 17, 2);
-    mFrontCfg     = MoverDriverCfg::Create("FRONT", 21, 22, 16,  16, 17, 2);
+    mFrontCfg     = MoverDriverCfg::Create("FRONT", 21, 22, 2,  16, 17, 2);
+    //mFrontCfg     = MoverDriverCfg::Create("FRONT", 21, 22, 16,  16, 17, 2);
     mRotationCfg  = MoverDriverCfg::Create("ROTATION", 12, 4, 27, 25, 32, 2); //12, 4, 27, 25, 32, 2
 
     InitializeChairController();

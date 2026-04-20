@@ -1,6 +1,6 @@
 #include <MoverDriverCfg.h>
 
-const uint32_t MoverDriverCfg::DEFAULT_RAMPING_STEPS = 50;
+const uint32_t MoverDriverCfg::DEFAULT_RAMPING_STEPS = 5; //50
 const uint32_t MoverDriverCfg::FULL_REVOLUTION_STEP_COUNT = 200;
 
 MoverDriverCfg::MoverDriverCfg(

@@ -26,7 +26,11 @@ class CommandData {
             DOWN,
             TO_TOP,
             TO_CENTER,
-            TO_BOTTOM
+            TO_BOTTOM,
+            CALIBRATE,
+            MOUNT,
+            TRANSFER_CONTROL,
+            SHUT_DOWN
         };
 
         enum class Mover {

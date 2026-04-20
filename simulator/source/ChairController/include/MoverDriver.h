@@ -230,6 +230,11 @@ class MoverDriver {
         bool mIsAtTop;
         bool mIsAtCenter;
         bool mIsAtBottom;
+
+        bool mLastIsAtTop;
+        bool mLastIsAtCenter;
+        bool mLastIsAtBottom;
+
         uint32_t mTopPosition;
         uint32_t mCenterPosition;
         uint32_t mBottomPosition;

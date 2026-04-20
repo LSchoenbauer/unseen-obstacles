@@ -119,6 +119,8 @@ class ChairController : public AppComponent {
         void OnCommand(const CtrlCommandData& cmdData);
         void OnSimulationData(const CtrlSimulationData& simData);
 
+        double DegToRad(double deg);
+
         MoverDriverPtr GetMoverDriver(CommandData::Mover mover);
 
         void ApplyRotation(uint32_t deltaTimestamp, int32_t deltaYaw);
